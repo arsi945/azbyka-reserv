@@ -45,12 +45,35 @@ def cmd_crawl(args) -> int:
     setup_logging(args.data, args.verbose)
     log.info("azbyka-reserv %s: данные в %s", __version__, os.path.abspath(args.data))
     c = Crawler(cfg, args.data)
-    c.run(max_seconds=args.max_minutes * 60 if args.max_minutes else 0)
+    _keep_awake(True)
+    try:
+        c.run(max_seconds=args.max_minutes * 60 if args.max_minutes else 0)
+    finally:
+        _keep_awake(False)
     counts = c.store.counts()
     log.info("Итог: %s. Причина остановки: %s", counts, c.stop_reason or "—")
     queued = counts.get("queued", 0)
-    # код 0 — всё скачано; 3 — осталось в очереди (скрипт-обёртка перезапустит)
+    # 0 — всё скачано; 3 — осталось в очереди (обёртка перезапустит);
+    # 4 — мало места на диске; 130 — остановлено пользователем
+    if c.stop_reason.startswith("мало места"):
+        return 4
+    if c.stop_reason.startswith("прервано"):
+        return 130
     return 0 if queued == 0 and c.stop_reason.startswith("очередь пуста") else 3
+
+
+def _keep_awake(on: bool) -> None:
+    """Windows: не давать компьютеру уснуть, пока идёт сбор."""
+    if os.name != "nt":
+        return
+    try:
+        import ctypes
+
+        ES_CONTINUOUS, ES_SYSTEM_REQUIRED = 0x80000000, 0x00000001
+        flags = ES_CONTINUOUS | (ES_SYSTEM_REQUIRED if on else 0)
+        ctypes.windll.kernel32.SetThreadExecutionState(flags)
+    except Exception:  # noqa: BLE001
+        pass
 
 
 def cmd_status(args) -> int:
