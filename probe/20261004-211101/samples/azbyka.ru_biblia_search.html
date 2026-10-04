@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="ru" >
+
+
+
+<head>
+            <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="csrf-token" content="SlzxuEm5gNglk1oHv46fGun4XQqDy7cgZpIia2EL">
+        <meta property="og:image" content="https://azbyka.ru/biblia/assets/fav/icon-og.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:title"
+              content="Поиск по Библии онлайн - симфония для Библии">
+        <meta property="og:url"
+              content=" https://azbyka.ru/biblia/">
+        <meta property="og:description"
+              content="Симфония и онлайн поиск для Библии в синодальном и других переводах. Найти по слову или фразе.">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="Азбука веры">
+        			                <link rel="image_src" href="https://azbyka.ru/biblia/assets/fav/apple-icon-152x152.png">
+        <link rel="icon" type="image/svg+xml" href="https://azbyka.ru/biblia/assets/fav/favicon.svg">
+        <link rel="icon" type="image/ico" href="https://azbyka.ru/biblia/assets/fav/favicon.ico">
+        <link rel="apple-touch-icon" sizes="57x57" href="https://azbyka.ru/biblia/assets/fav/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="https://azbyka.ru/biblia/assets/fav/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://azbyka.ru/biblia/assets/fav/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://azbyka.ru/biblia/assets/fav/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114"
+              href="https://azbyka.ru/biblia/assets/fav/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120"
+              href="https://azbyka.ru/biblia/assets/fav/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144"
+              href="https://azbyka.ru/biblia/assets/fav/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152"
+              href="https://azbyka.ru/biblia/assets/fav/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180"
+              href="https://azbyka.ru/biblia/assets/fav/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"
+              href="https://azbyka.ru/biblia/assets/fav/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32"
+              href="https://azbyka.ru/biblia/assets/fav/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96"
+              href="https://azbyka.ru/biblia/assets/fav/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16"
+              href="https://azbyka.ru/biblia/assets/fav/favicon-16x16.png">
+        <link rel="manifest" href="https://azbyka.ru/biblia/assets/fav/manifest.json?v=2">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="https://azbyka.ru/biblia/assets/fav/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+                <link rel="canonical" href="https://azbyka.ru/biblia/search">
+                    <title>Поиск по Библии онлайн - симфония для Библии</title>
+        <meta name="description"
+              content="Симфония и онлайн поиск для Библии в синодальном и других переводах. Найти по слову или фразе.">
+
+        
+        <link rel="stylesheet" href="/biblia/assets/css/main.css?v=3.20">
+		<link rel="stylesheet" href="/biblia/assets/css/retypos.css?v=1">
+        <link rel="stylesheet" href="/biblia/assets/icons/style.css?v=2.2">
+		<link href="/biblia/assets/css/top-menu.css?v=4" type="text/css" rel="stylesheet">            <style>
+		:root{
+			--wrap-width: 840px;
+		}
+		
+        .search-wrap{
+			max-width:var(--wrap-width);
+			padding:0 20px 20px;
+			margin:auto;
+		}
+		
+		.title-wrap{
+			margin: 20px 0;
+			display:flex;
+			flex-wrap:wrap;
+			gap:0 1rem;
+			align-items: baseline;
+		}
+		
+		h1{
+			margin: 0;
+		}
+		
+		.form_search{
+            display:block!important;
+        }
+		
+		#fld_search{
+			padding-right: 60px;
+		}
+		
+		.search-field-wrap{
+			position: relative;
+			flex-grow: 1;
+		}
+
+        .search-result {
+            font-family: var(--content-font);
+
+            position: relative;
+            padding: 0;
+            margin-top:20px;
+        }
+
+        .text-bold .search-result{
+            font-weight: bold;
+        }
+
+        .search-result-element {
+			--v-padding: 10px;
+            padding: var(--v-padding) 27px var(--v-padding) 0;
+            margin-left: 1.1em;
+			position: relative;
+        }
+		
+		.search-result-element:hover{
+			background: var(--widget-bg);
+		}
+		
+		.search-result-element .checkbox {
+			font-size: 12px;
+			border: 1px solid #999;
+			border-radius: 3px;
+			color: transparent;
+			position: absolute;
+			right: 5px;
+			top: var(--v-padding);
+			margin-top: 5px;
+			cursor: pointer;
+		}
+
+		.search-result-element.selected {
+			background: #fff!important;
+			background: var(--widget-bg, #fff)!important;
+			color: #8B0000;
+			color: var(--accent-color, #8B0000);
+		}
+
+		.search-result-element.selected .checkbox {
+			color: #8B0000;
+			color: var(--accent-color, #8B0000);
+			border-color: #8B0000;
+			border-color: var(--accent-color, #8B0000);
+		}
+
+        .search-result-element::marker{
+            color:#999;
+        }
+
+        .search-result-element__title{
+            color:#8B0000;
+            color:var(--accent-color, #8B0000);
+        }
+
+        .search-result a {
+            color: #2a2a2a;
+            color: var(--text-color, #2a2a2a);
+        }
+
+        .search-form .inp-text {
+            width: 100%;
+        }
+
+        .search-form .form-group {
+            margin: 10px 0
+        }
+
+        .form-row {
+            position:relative;
+            margin: 0 0 5px;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+        }
+
+        .radio-group label {
+            margin: 0 5px 0 0
+        }
+
+        .lbl-checkbox {
+            font-weight: 700;
+            color: #805536
+        }
+
+        .inp-submit {
+            padding: 5px;
+            margin: 10px 0 0
+        }
+
+        .inp-text {
+            padding: 1px
+        }
+
+        .inp-lang {
+            width: 100px
+        }
+
+        .search-testament {
+            display: inline-block;
+        }
+		
+		.inp-search, .sel-lang{
+			height: 2.1em;
+		}
+
+        /* временно убрали "все слова" */
+        .search-type label:nth-of-type(2){
+            display:none;
+        }
+
+        .search-testament {
+            margin: 10px 0 0;
+        }
+
+        label{
+            white-space:nowrap;
+        }
+
+        .select-settings {
+            margin-top: 10px;
+            display:flex;
+            justify-content: space-between;
+			align-items: flex-start;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+        }
+
+        .sel-book,
+        .sel-lang{
+            width: 100%;
+        }
+		
+		.sel-book{
+			height: 2em;
+		}
+
+        button#show-all {
+            margin: auto;
+            display: block;
+            font-weight:bold;
+            background:#8B0000;
+			background:var(--accent-color, #8B0000);
+            color:#f2f2f2;
+            border:0;
+            border-radius:5px;
+
+            font-size:1rem;
+            padding:5px 10px;
+
+            cursor:pointer;
+        }
+
+        .search-result a, .search .list-unstyled a {
+            padding: 0;
+            background-color: inherit;
+            border: none;
+            margin-left: -1px
+        }
+
+        .pagination__wrap{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:0 10px;
+            margin:-10px auto 0;
+        }
+
+        ul.pagination {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+            padding-top: 10px;
+            padding-bottom: 4px;
+            overflow:auto;
+            width: max-content;
+            max-width: 27em;
+        }
+
+        .pagination__prefix{
+            margin-right:10px;
+        }
+
+        ul.pagination > li {
+            display: inline-block;
+            margin: 0 10px
+        }
+
+        .chapter-nav__link{
+            margin:0 5px;
+        }
+
+        .nothing-found{
+            font-weight: bold;
+            color: #8B0000;
+			color:var(--accent-color, #8B0000);
+        }
+
+        .search-info{
+            border: 1px solid #8b0000;
+			border: 1px solid var(--accent-color, #8B0000);
+            border-radius: 5px;
+            padding: 15px 20px 10px;
+        }
+
+        .search-info__grid{
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+
+        .search-info a{
+            text-decoration: underline;
+            text-decoration-color: #999;
+            text-decoration-thickness: .5px;
+            text-underline-offset: 1px;
+        }
+
+        .search-info .bg_bibrefs a{
+            color: #8b0000;
+			color:var(--accent-color, #8B0000);
+            text-decoration: none;
+        }
+
+        @media ( min-width : 769px){
+			.form-row{
+				flex-wrap: nowrap;
+				align-items: center;
+			}
+
+            .search-testament {
+                margin: 0 0 0 10px;
+            }
+
+			.sel-book,
+			.sel-lang{
+				width: auto;
+				flex-grow: 1;
+				flex-basis: 45%;
+			}
+			
+			.sel-book{
+				height: 1.66em;
+			}
+
+            .pagination::-webkit-scrollbar-thumb {
+                background-color: #8B0000;
+				background-color:var(--accent-color, #8B0000);
+            }
+
+            .pagination::-webkit-scrollbar {
+                display: initial;
+                width: 4px;
+                height: 4px;
+            }
+
+            .nothing-found{
+                font-weight: bold;
+                color: #8B0000;
+				color:var(--accent-color, #8B0000);
+            }
+
+            .search-info__grid{
+                display: grid;
+                grid-template-columns: auto auto;
+                gap: 0 10px;
+            }
+			
+			.selection-menu{
+				transform: translate(calc(50vw - var(--wrap-width) / 2 - 100% - 32px), calc(50vh - 50%));
+			}
+        }
+
+        .total-result {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size:12px;
+        }
+
+        .load-more__icon{
+            display: inline-block;
+            transform: rotate(90deg) translateX(1px);
+            margin-left: 5px;
+        }
+
+        .search-instruction{
+            width:100%;
+			margin-bottom: 15px;
+        }
+		
+		.search-page .select2-container--default .select2-selection--multiple,
+		.search-page .select2-dropdown{
+			background: var(--widget-bg, #fff);
+			color: var(--text-color, #222);
+		}
+		.select2-container--default .select2-selection--multiple .select2-selection__choice{
+			color: #222;
+		}
+		
+		/* Выделение Нового Завета в выпадающем списке */
+		.select2-results__option:nth-of-type(51) {
+			border-top: 1px solid #999;
+		}
+		
+		.select2-results__option:nth-of-type(n + 51) {
+			font-weight: bold;
+		}
+    </style>
+	<link href="/biblia/node_modules/select2/dist/css/select2.min.css" rel="stylesheet" />
+        
+				
+        <script>
+            var AZ = {};
+            AZ.options = {};
+            AZ.root_path = 'biblia';
+                        AZ.cookie_langs = "r";
+            const PREFIX = 'az-bible__';
+            AZ.is_mobile = window.innerWidth < 769;
+
+            AZ.logged_in = false;
+
+            AZ.path = {
+                                'user_add_bookmark': '/biblia/personal/add-bookmark',
+                                'user_delete_bookmark': '/biblia/personal/delete-bookmark',
+                                'user_add_favorite': '/biblia/personal/add-favorite',
+                                'user_delete_favorite': '/biblia/personal/delete-favorite',
+                                'user_favorites': '/biblia/personal/favorites',
+                                'app_login': '/biblia/login',
+                                'app_login_ajax': '/biblia/login-ajax',
+                                'front.search': '/biblia/search',
+                				'external_link_book':'/biblia/book/:slug',
+            }
+
+            AZ.popup_on_close = {};
+
+            AZ.options['confirm_bookmark_remove'] = true;
+            AZ.options['confirm_fav_remove'] = true;	//todo: load from user options
+            AZ.options['confirm_note_remove'] = true;
+
+            AZ.user_tags = [""];
+
+            
+			AZ.trans = {
+				                'settings.hide_verse_numbers_message.hidden': 'Номера стихов скрыты',
+                                'settings.hide_verse_numbers_message.shown': 'Номера стихов показаны',
+                			};
+        </script>
+		
+					<script id="retypos_proc-js-extra">
+				var retypos = {
+					"contextmenu":"0",
+					"container":".book-layout",
+					"correctTypo":"correctTypo.php"
+				};
+			</script>
+				
+		<script src="/biblia/assets/js/base-head.js?v=4.4"></script>
+		
+				
+        <style>
+                                    .color-swatch[data-id="0"] {
+                background-color: #3a3a3a !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="0"] {
+                color: #3a3a3a;
+            }
+
+            .tbl-content .verse[data-fav-color="0"] {
+                text-decoration-color: #3a3a3a !important;
+				}
+
+                        .color-swatch[data-id="1"] {
+                background-color: #ccc !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="1"] {
+                color: #ccc;
+            }
+
+            .tbl-content .verse[data-fav-color="1"] {
+                text-decoration-color: #ccc !important;
+				}
+
+                        .color-swatch[data-id="2"] {
+                background-color: #700 !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="2"] {
+                color: #700;
+            }
+
+            .tbl-content .verse[data-fav-color="2"] {
+                text-decoration-color: #700 !important;
+				}
+
+                        .color-swatch[data-id="3"] {
+                background-color: #e00 !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="3"] {
+                color: #e00;
+            }
+
+            .tbl-content .verse[data-fav-color="3"] {
+                text-decoration-color: #e00 !important;
+				}
+
+                        .color-swatch[data-id="4"] {
+                background-color: #770 !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="4"] {
+                color: #770;
+            }
+
+            .tbl-content .verse[data-fav-color="4"] {
+                text-decoration-color: #770 !important;
+				}
+
+                        .color-swatch[data-id="5"] {
+                background-color: #088E08 !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="5"] {
+                color: #088E08;
+            }
+
+            .tbl-content .verse[data-fav-color="5"] {
+                text-decoration-color: #088E08 !important;
+				}
+
+                        .color-swatch[data-id="6"] {
+                background-color: #0c0 !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="6"] {
+                color: #0c0;
+            }
+
+            .tbl-content .verse[data-fav-color="6"] {
+                text-decoration-color: #0c0 !important;
+				}
+
+                        .color-swatch[data-id="7"] {
+                background-color: #00c !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="7"] {
+                color: #00c;
+            }
+
+            .tbl-content .verse[data-fav-color="7"] {
+                text-decoration-color: #00c !important;
+				}
+
+                        .color-swatch[data-id="8"] {
+                background-color: #0dd !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="8"] {
+                color: #0dd;
+            }
+
+            .tbl-content .verse[data-fav-color="8"] {
+                text-decoration-color: #0dd !important;
+				}
+
+                    </style>
+    </head>
+
+<body translate="no" class="search-page">
+
+<!-- Yandex.Metrika counter -->
+<noscript><div><img src="https://mc.yandex.ru/watch/5565880" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+    <nav id="mobile-nav" role="menubar">
+        <div role="menuitem" data-target="#nav-box" class="link" aria-label="Разделы сайта"><img src="https://azbyka.ru/wp-content/themes/azbyka-av/assets/images/favicons/favicon.svg" alt="" loading="lazy"></div>
+        <div role="menuitem" data-target=".cloud" class="link icon-menu" aria-label="Список книг"></div>
+        <a role="menuitem" class="link icon-info" aria-label="Как читать Библию" href="https://azbyka.ru/10-glavnyh-uslovij-pravilnogo-chtenija-biblii" target="_blank"></a>
+        <a role="menuitem" class="link icon-search" aria-label="Поиск" href="/biblia/search"></a>
+                <a role="menuitem" href="/biblia/login?return_to=%2Fbiblia%2Fsearch" data-biblia-login class="link icon-user glow" aria-label="Личный кабинет"></a>
+    </nav>
+
+    <div class="rt-nav desktop-only" role="menu">
+        									<a role="menuitem" class="link icon-user btn-personal desktop-only glow" title="Личный кабинет" aria-label="Личный кабинет" href="/biblia/login?return_to=%2Fbiblia%2Fsearch" data-biblia-login></a>
+			</div>
+
+<main class="main ">
+            <div class="wrap search search-wrap">
+                			        		
+        		<div class="breadcrumbs"><span><a href="https://azbyka.ru/" title="Главная"><span>Азбука веры</span></a></span> » <span><a href="/biblia/"><span>Библия</span></a></span> » <span><span>Поиск</span></span></div>
+															<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Азбука веры","item":"https://azbyka.ru/"},{"@type":"ListItem","position":2,"name":"Библия","item":"https://azbyka.ru/biblia/"},{"@type":"ListItem","position":3,"name":"Поиск"}]}</script>
+
+		<div class="title-wrap">
+			<h1>Поиск по Библии (Симфония)</h1>
+			<a class="back-link" href="https://azbyka.ru/biblia/search/google?q=">К Google-поиску</a>
+			<a class="back-link" href="https://azbyka.ru/biblia/slova-iisusa-hrista">Слова Иисуса Христа</a>
+		</div>
+		
+        <div class="search-form">
+            <form id="search" class="form_search fm-speech" action="/biblia/search" role="search" autocomplete="off">
+                <div class="form-row search-row">
+					<div class="search-field-wrap fm-speech">
+						<input class="inp-search search-form-field hide_cross" type="search" name="q"
+							   id="fld_search" value="" placeholder="Текст или 2Пет.3:9" autocomplete="off" required minlength="3" maxlength="200">
+						<div type="button" class="search-operators search-form-button"><span class=icon-plus-circle></span></div>
+						<div type="button" class="speech search-form-button"><span class="icon-mic"></span></div>
+						<button type="submit" class="search-form-button"><span class="icon-search"></span></button>
+					</div>
+					<input type="hidden" name="page" value="1">
+                </div>
+				
+				<div class="radio-group search-testament">
+	<label for="testament-all">
+        <input 
+            id="testament-all" 
+            type="radio" 
+            name="testament" 
+            value="0" 
+            checked		>
+	Вся Библия</label>
+	
+	<label for="new_testament">
+        <input 
+            id="new_testament" 
+            type="radio" 
+            name="testament"
+			value="1" 
+					>
+	НЗ</label>	
+	<label for="evangelium">
+        <input 
+            id="evangelium" 
+            type="radio" 
+            name="testament"
+			value="-1" 
+					>
+	Евангелия</label>	
+	<label for="apostol">
+        <input 
+            id="apostol" 
+            type="radio" 
+            name="testament"
+			value="-2" 
+					>
+	Апостол</label>	
+	<label for="paul_epistles">
+        <input 
+            id="paul_epistles" 
+            type="radio" 
+            name="testament"
+			value="-9" 
+					>
+	Послания ап. Павла</label>	
+	<label for="cathedral_epistles">
+        <input 
+            id="cathedral_epistles" 
+            type="radio" 
+            name="testament"
+			value="-8" 
+					>
+	Соборные послания</label>	
+	<br>
+	
+	<label for="old_testament">
+        <input 
+            id="old_testament" 
+            type="radio" 
+            name="testament"
+			value="2" 
+					>
+	ВЗ</label>	
+	<label for="pentateuch">
+        <input 
+            id="pentateuch" 
+            type="radio" 
+            name="testament"
+			value="-3" 
+					>
+	Пятикнижие</label>	
+	<label for="ot_historical">
+        <input 
+            id="ot_historical" 
+            type="radio" 
+            name="testament"
+			value="-4" 
+					>
+	Исторические ВЗ</label>	
+	<label for="ot_teaching">
+        <input 
+            id="ot_teaching" 
+            type="radio" 
+            name="testament"
+			value="-5" 
+					>
+	Учительные ВЗ</label>	
+	<label for="ot_prophets">
+        <input 
+            id="ot_prophets" 
+            type="radio" 
+            name="testament"
+			value="-6" 
+					>
+	Пророки</label>	
+</div>
+
+				<div class="form-row select-settings">
+                    <select class="sel-lang" name="lang">
+    <option value="0" selected>Любой язык</option>
+                            <option value="1" >Церковнослав. (рус. дореф.)</option>
+            <option value="28" >Цр҃ко́внослав</option>
+            <option value="56" >Церковнослав. (рус. гражд.)</option>
+            <option value="2" selected>Синодальный</option>
+            <option value="50" >Синода́льный с ударе́ниями</option>
+            <option value="8" >Рус. (еп. Кассиан)</option>
+            <option value="11" >Рус. (Юнгеров)</option>
+            <option value="66" >Рус. (еп. Порфирий)</option>
+            <option value="14" >Рус. (Аверинцев)</option>
+            <option value="12" >Рус. (Бируковы)</option>
+            <option value="52" >Рус. (К.П. Победоносцев)</option>
+            <option value="57" >Рус. (прп. Макарий Алтайский)</option>
+            <option value="64" >Рус. (проф. А.С. Десницкий)</option>
+            <option value="48" >Арабский (Jesuit Arabic Bible)</option>
+            <option value="17" >Арабский (Arabic Van Dyke)</option>
+            <option value="43" >Азербайджанский</option>
+            <option value="44" >Армянский</option>
+            <option value="22" >Белорусский</option>
+            <option value="45" >Болгарский</option>
+            <option value="24" >Chinese (simpl.)</option>
+            <option value="51" >Хорватский (Stvarnost &amp; Duda-Fućak)</option>
+            <option value="59" >Чешский (Bible Kralicka [1613])</option>
+            <option value="10" >Английский (NKJV)</option>
+            <option value="41" >Английский (NRSV)</option>
+            <option value="46" >Английский (KJV)</option>
+            <option value="30" >Эстонский</option>
+            <option value="37" >Финский (Suomen suomennos, 1992)</option>
+            <option value="13" >Французский (LSG)</option>
+            <option value="27" >Грузинский (древн.)</option>
+            <option value="25" >Грузинский</option>
+            <option value="33" >Немецкий (Martin Luther Uebersetzung, 1912)</option>
+            <option value="16" >Немецкий (GNB)</option>
+            <option value="61" >Немецкий (Elberfelder [2006])</option>
+            <option value="3" >Греческий [Greek (NT Byz)]</option>
+            <option value="40" >Новогреческий [Greek (TGV)]</option>
+            <option value="49" >Греческий (Nestle-Aland, 28)</option>
+            <option value="54" >Греческий [Greek (LXX, Rahlfs)]</option>
+            <option value="4" >Еврейский</option>
+            <option value="53" >Еврейский (Hebrew NT by Delitzsch)</option>
+            <option value="60" >Исландский (Icelandic Bible)</option>
+            <option value="38" >Итальянский (CEI 1974)</option>
+            <option value="32" >Итальянский</option>
+            <option value="65" >Японский</option>
+            <option value="58" >Казахский</option>
+            <option value="20" >Киргизский</option>
+            <option value="5" >Латинский (Nova Vulgata)</option>
+            <option value="34" >Латышский</option>
+            <option value="62" >Мальтийский (Il-Bibbja Tieni Edizzjoni 1996)</option>
+            <option value="63" >Норвежский (Bokmål [1930])</option>
+            <option value="35" >Румынский</option>
+            <option value="47" >Польский (Biblia Tysiąclecia)</option>
+            <option value="42" >Португальский (JFA)</option>
+            <option value="31" >Сербский (синод.)</option>
+            <option value="29" >Сербский</option>
+            <option value="23" >Испанский Reina-Valera 1995</option>
+            <option value="36" >Шведский</option>
+            <option value="55" >Сирийский</option>
+            <option value="19" >Таджикский</option>
+            <option value="21" >Татарский</option>
+            <option value="39" >Украинский (Хоменко)</option>
+            <option value="15" >Украинский (Огієнко)</option>
+            <option value="18" >Узбекский</option>
+    </select>
+                    <select class="sel-book" name="book[]" multiple>
+    		<option data-testament="2" value="1" >Бытие</option>
+			<option data-testament="2" value="2" >Исход</option>
+			<option data-testament="2" value="3" >Левит</option>
+			<option data-testament="2" value="4" >Числа</option>
+			<option data-testament="2" value="5" >Второзаконие</option>
+			<option data-testament="2" value="6" >Книга Иисуса Навина</option>
+			<option data-testament="2" value="7" >Книга Судей Израилевых</option>
+			<option data-testament="2" value="8" >Книга Руфи</option>
+			<option data-testament="2" value="9" >1-я книга Царств</option>
+			<option data-testament="2" value="10" >2-я книга Царств</option>
+			<option data-testament="2" value="11" >3-я книга Царств</option>
+			<option data-testament="2" value="12" >4-я книга Царств</option>
+			<option data-testament="2" value="13" >1-я книга Паралипоменон (Хроник)</option>
+			<option data-testament="2" value="14" >2-я книга Паралипоменон (Хроник)</option>
+			<option data-testament="2" value="15" >1-я книга Ездры</option>
+			<option data-testament="2" value="16" >Книга Неемии</option>
+			<option data-testament="2" value="17" >2-я книга  Ездры</option>
+			<option data-testament="2" value="18" >Книга Товит</option>
+			<option data-testament="2" value="19" >Книга Иудифь</option>
+			<option data-testament="2" value="20" >Книга Есфирь</option>
+			<option data-testament="2" value="21" >Книга Иова</option>
+			<option data-testament="2" value="22" >Псалтирь</option>
+			<option data-testament="2" value="23" >Книга Притчей Соломоновых</option>
+			<option data-testament="2" value="24" >Экклезиаст</option>
+			<option data-testament="2" value="25" >Песнь Песней Соломона</option>
+			<option data-testament="2" value="26" >Книга Премудрости Соломона</option>
+			<option data-testament="2" value="27" >Книга Премудрости Иисуса, Сына Сирахова</option>
+			<option data-testament="2" value="28" >Книга пророка Исаии</option>
+			<option data-testament="2" value="29" >Книга пророка Иеремии</option>
+			<option data-testament="2" value="30" >Плач Иеремии</option>
+			<option data-testament="2" value="31" >Послание Иеремии</option>
+			<option data-testament="2" value="32" >Книга Варуха</option>
+			<option data-testament="2" value="33" >Книга пророка Иезекииля</option>
+			<option data-testament="2" value="34" >Книга пророка Даниила</option>
+			<option data-testament="2" value="35" >Книга пророка Осии</option>
+			<option data-testament="2" value="36" >Книга пророка Иоиля</option>
+			<option data-testament="2" value="37" >Книга пророка Амоса</option>
+			<option data-testament="2" value="38" >Книга пророка Авдия</option>
+			<option data-testament="2" value="39" >Книга пророка Ионы</option>
+			<option data-testament="2" value="40" >Книга пророка Михея</option>
+			<option data-testament="2" value="41" >Книга пророка Наума</option>
+			<option data-testament="2" value="42" >Книга пророка Аввакума</option>
+			<option data-testament="2" value="43" >Книга пророка Софонии</option>
+			<option data-testament="2" value="44" >Книга пророка Аггея</option>
+			<option data-testament="2" value="45" >Книга пророка Захарии</option>
+			<option data-testament="2" value="46" >Книга пророка Малахии</option>
+			<option data-testament="2" value="47" >1-я книга Маккавейская</option>
+			<option data-testament="2" value="48" >2-я книга Маккавейская</option>
+			<option data-testament="2" value="49" >3-я книга Маккавейская</option>
+			<option data-testament="2" value="50" >3-я книга Ездры</option>
+			<option data-testament="1" value="51" >Евангелие от Матфея</option>
+			<option data-testament="1" value="52" >Евангелие от Марка</option>
+			<option data-testament="1" value="53" >Евангелие от Луки</option>
+			<option data-testament="1" value="54" >Евангелие от Иоанна</option>
+			<option data-testament="1" value="55" >Деяния апостолов</option>
+			<option data-testament="1" value="56" >Послание Иакова</option>
+			<option data-testament="1" value="57" >1-е послание Петра</option>
+			<option data-testament="1" value="58" >2-е послание Петра</option>
+			<option data-testament="1" value="59" >1-е послание Иоанна</option>
+			<option data-testament="1" value="60" >2-е послание Иоанна</option>
+			<option data-testament="1" value="61" >3-е послание Иоанна</option>
+			<option data-testament="1" value="62" >Послание Иуды</option>
+			<option data-testament="1" value="63" >Апостола Павла послание к римлянам</option>
+			<option data-testament="1" value="64" >Апостола Павла 1-е послание к коринфянам</option>
+			<option data-testament="1" value="65" >Апостола Павла 2-е послание к коринфянам</option>
+			<option data-testament="1" value="66" >Апостола Павла послание к галатам</option>
+			<option data-testament="1" value="67" >Апостола Павла послание к ефесянам</option>
+			<option data-testament="1" value="68" >Апостола Павла послание к филиппийцам</option>
+			<option data-testament="1" value="69" >Апостола Павла послание к колоссянам</option>
+			<option data-testament="1" value="70" >Апостола Павла 1-е послание к фессалоникийцам</option>
+			<option data-testament="1" value="71" >Апостола Павла 2-е послание к фессалоникийцам</option>
+			<option data-testament="1" value="72" >Апостола Павла 1-е послание к Тимофею</option>
+			<option data-testament="1" value="73" >Апостола Павла 2-е послание к Тимофею</option>
+			<option data-testament="1" value="74" >Апостола Павла послание к Титу</option>
+			<option data-testament="1" value="75" >Апостола Павла послание к Филимону</option>
+			<option data-testament="1" value="76" >Апостола Павла послание к евреям</option>
+			<option data-testament="1" value="77" >Откровение Иоанна Богослова</option>
+	</select>
+                </div>
+            </form>
+        </div>
+        <div class="search-result">
+                                            <div class="search-info">
+    <ul class="search-instruction">
+        <li>В поиске участвуют слова и фразы более 2-х букв.</li> <li>Регистр при поиске не учитывается.</li> <li>После уточнения условий поиска его результаты изменятся автоматически.</li> <li>Поиск осуществляется и по сокращённым наименованиям книг, напр. Ин.1:1.</li><li>Между названием книги и главой допустимы точка или пробел.</li><li>Между главой и стихом также допустим знак препинания ( . , : ; ) или пробел.</li>
+    </ul>
+    <div class="search-info__grid">
+         <div class="search-info__column">
+        <p>Как полюбить <a href="https://azbyka.ru/bog" target="_blank">Бога</a>: <span class='bg_data_title bg_bibrefs' data-title='?title=Jn&chapter=14:15&type=t_verses' title='Евангелие от Иоанна гл. 14:15'><span class='bg_data_tooltip'></span><a href='https://azbyka.ru/biblia/?Jn.14:15' target='_blank'>Ин.14:15</a></span></p>
+        <p>10 Заповедей <a href="https://azbyka.ru/vetxij-zavet" target="_blank">Ветхого Завета</a>: <span class='bg_data_title bg_bibrefs' data-title='?title=Ex&chapter=20:2-17&type=t_verses' title='Книга Исход гл. 20:2-17'><span class='bg_data_tooltip'></span><a href='https://azbyka.ru/biblia/?Ex.20:2-17' target='_blank'>Исх.20:2–17</a></span>; <span class='bg_data_title bg_bibrefs' data-title='?title=Deut&chapter=5:6-21&type=t_verses' title='Второзаконие гл. 5:6-21'><span class='bg_data_tooltip'></span><a href='https://azbyka.ru/biblia/?Deut.5:6-21' target='_blank'>Втор.5:6–21</a></span></p>
+        <p>9 Заповедей <a href="https://azbyka.ru/novyj-zavet" target="_blank">Нового Завета</a>: <span class='bg_data_title bg_bibrefs' data-title='?title=Mt&chapter=5:2-12&type=t_verses' title='Евангелие от Матфея гл. 5:2-12'><span class='bg_data_tooltip'></span><a href='https://azbyka.ru/biblia/?Mt.5:2-12' target='_blank'>Мф.5:2-12</a></span>.</p>
+        <p>Заповедь о <a href="https://azbyka.ru/kreshhenie" target="_blank">Крещении</a>: <span class='bg_data_title bg_bibrefs' data-title='?title=Mk&chapter=16:16&type=t_verses' title='Евангелие от Марка гл. 16:16'><span class='bg_data_tooltip'></span><a href='https://azbyka.ru/biblia/?Mk.16:16' target='_blank'>Мк.16:16</a></span>.</p>
+        </div>
+        <div class="search-info__column">
+        <p>Заповедь о <a href="https://azbyka.ru/prichastie" target="_blank">Причащении</a>: <span class='bg_data_title bg_bibrefs' data-title='?title=Jn&chapter=6:48-58&type=t_verses' title='Евангелие от Иоанна гл. 6:48-58'><span class='bg_data_tooltip'></span><a href='https://azbyka.ru/biblia/?Jn.6:48-58' target='_blank'>Ин.6:48-58</a></span>.</p>
+        <p>Гимн <a href="https://azbyka.ru/lyubov" target="_blank">любви</a> ап. Павла: <span class='bg_data_title bg_bibrefs' data-title='?title=1Cor&chapter=13:4-8&type=t_verses' title='Первое послание апостола Павла к Коринфянам гл. 13:4-8'><span class='bg_data_tooltip'></span><a href='https://azbyka.ru/biblia/?1Cor.13:4-8' target='_blank'>1Кор.13:4-8</a></span>.</p>
+        <p><a href="https://azbyka.ru/carstvo-bozhie-nebesnoe" target="_blank">Царствие Божье</a>: <span class='bg_data_title bg_bibrefs' data-title='?title=1Cor&chapter=2:9&type=t_verses' title='Первое послание апостола Павла к Коринфянам гл. 2:9'><span class='bg_data_tooltip'></span><a href='https://azbyka.ru/biblia/?1Cor.2:9' target='_blank'>1Кор.2:9</a></span>.</p>
+        </div>
+    </div>
+</div>                    </div>
+    </div>
+
+    	
+	<div class="selection-menu fading active-only panel">
+    <a role="button" class="deselect icon-x" title="Снять выделение"></a>
+	<a class="goto-interpret" href=""><span class="icon-book-open"></span> <span class="label">Толкования стиха</span></a>
+    <a role="button" class="copy-link"><span class="icon-link"></span> <span class="label">Скопировать ссылку</span></a>
+    <a role="button" class="copy-text"><span class="icon-copy"></span> <span class="label">Скопировать текст</span></a>
+	</div>
+	
+        </main>
+
+    <nav class="rb-nav" role="menu">
+        			<div role="menuitem" class="link icon-chevron-down btn-hide" title="Спрятать/Показать" data-hover-delay="5"></div>
+			<a role="menuitem" class="link icon-info btn-bible-info desktop-only" title="Как читать Библию" target="_blank"
+               href="https://azbyka.ru/10-glavnyh-uslovij-pravilnogo-chtenija-biblii"></a>
+            <div role="menuitem" class="link icon-settings btn-settings" title="Настройки"></div>
+            <a role="menuitem" id="totop" href="#top" aria-label="Наверх" class="link icon-arrow-up invert"></a>
+            </nav>
+
+<div class="footer">
+	<div class="container footer-container widget">
+		<span class="footer-collapse-btn"><span class="footer-collapse-btn-close">✕</span><span class="footer-collapse-btn-open icon-chevron-right"></span></span>
+		<div class="footer-list-wrap">
+			<ul class="footer-list">
+				<li><a href="https://azbyka.ru/bibliya">О Библии</a></li>
+				<li><a href="https://azbyka.ru/o-perevodah-biblii">О переводах Библии</a></li>
+				<li><a href="/biblia/o-biblii-av">Об этой программе</a></li>
+				<li><a href="https://azbyka.ru/otechnik/Biblia/">Толкования Библии</a></li>
+			</ul>
+			<ul class="footer-list">
+				<li><a href="https://azbyka.ru/biblia/biblia-za-god">Библия за год</a></li>
+				<li><a href="https://azbyka.ru/biblia/novyj-zavet-4-raza-v-god">Новый Завет 4 раза за год</a></li>
+			</ul>
+			<ul class="footer-list">
+					<li><a href="https://azbyka.ru/shemy/1/bibleistika">Схемы и пособия</a></li>
+					<li><a href="https://azbyka.ru/biblia/soglasovanie-chetyreh-evangelij">Согласование 4-х Евангелий</a></li>
+					<li><a href="https://azbyka.ru/memo">Учим Писания</a></li>
+					<li><a href="https://azbyka.ru/audio/1/svyashhennoe-pisanie">Аудиобиблия</a></li>
+					<li><a href="https://azbyka.ru/biblia/detskaja-biblia">Детская Библия</a></li>
+					<li><a href="https://azbyka.ru/test/category/svyashchennoe-pisanie-bibliya">Библейские тесты</a></li>
+					<li><a href="https://azbyka.ru/crosswords/1/biblejskie-krossvordy">Библейские кроссворды</a></li>
+					<li><a href="https://azbyka.ru/viktorina/1/svjashhennoe-pisanie">Фотовикторины</a></li>
+			</ul>
+			<ul class="footer-list">
+				<li><a href="/days/">Св. Писание в Календаре</a></li>
+				<li><a href="https://azbyka.ru/otechnik/Pravoslavnoe_Bogosluzhenie/evangelie-bogosluzebnoe-na-cerkovnoslavanskom-azyke/">Богослужебное Евангелие</a></li>
+				<li><a href="https://azbyka.ru/vopros/questions/categories/bibliya/">Вопросы и ответы о Библии</a></li>
+			</ul>
+			<ul class="footer-list">
+				<li><a href="https://azbyka.ru/biblia/slova-iisusa-hrista">Слова Иисуса Христа</a></li>
+				<li><a href="https://azbyka.ru/kratkoe-soderzhanie-biblii">Краткое содержание Библии</a></li>
+			</ul>
+			<ul class="footer-list">
+				<li><a href="/biblia/podstrochnik">Греческий подстрочник</a></li>
+				<li>Синодальный перевод:</span><br>
+					<a rel="nofollow" href="/biblia/downloads/bibliya.fb2" class="download" download>fb2</a>
+					<a rel="nofollow" href="/biblia/downloads/bibliya.pdf" class="download" download> · pdf</a>
+					<a rel="nofollow" href="/biblia/downloads/bibliya.doc" class="download" download> · doc</a>
+					<a rel="nofollow" href="/biblia/downloads/nz.pdf" class="download" download>· pdf (НЗ)</a>
+				</li>
+				<li>
+					Библия на цся:</span>
+					<a title="PDF – кроссплатформенный формат электронных документов. Для просмотра можно использовать официальную бесплатную программу Adobe Reader, а также программы сторонних разработчиков. Документ в этом формате позволяет распечатать труд на принтере целиком."
+					rel="nofollow" href="/biblia/downloads/tsya.pdf" class="download" download><span
+					class="masha_index masha_index94" rel="94"></span>pdf</a>
+				</li>
+				<li><a href="https://t.me/azbible">Канал: t.me/azbible</a></li>
+				<li><a href="https://azbyka.ru/ssylki-na-bibliju">Ссылки на Библию</a></li>
+				<li><a href="/biblia/instruction.html">Вебмастеру</a></li>
+			</ul>
+		</div>
+		<!--noindex-->
+		<div class="footer__feedback-layer">
+			<div class="feedback">
+				<a href="//azbyka.ru/kak-pomoch" class="help-btn">Пожертвовать</a>
+				<div class="retypos-banner" title="Если заметили ошибку, выделите текст и нажмите кнопку &#039;Сообщить об ошибке&#039; или Ctrl+Enter.">Ошибка? Выделение + кнопка!</div>
+				<a title="Написать в редакцию" href="https://azbyka.ru/obratnaja-svjaz" class="feedback-link"><span class="icon-mail"></span></a>
+				<span class="abc-counter footer-stat" data-project="biblia" data-type-1="" data-id-1="" data-type-2="" data-id-2="">
+					<i title="Сейчас читают" class="icon-user"></i>&nbsp;<span class="abc-counter-now"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="container footer-container bquote-wrap">
+		<p class=widget-title>Цитата из Библии</p>
+		<div class=widget>
+		Он есть глава тела Церкви; Он – начаток, первенец из мертвых, дабы иметь Ему во всем первенство (<span class='bg_data_title bg_bibrefs' data-title='?title=Col&chapter=1:18&type=t_verses&lang=ru' title='Послание апостола Павла к Колоссянам гл. 1:18'><span class='bg_data_tooltip'></span><a href='https://azbyka.ru/biblia/?Col.1:18' target='_self'>Кол.1:18</a></span>).
+		</div>
+	</div>
+</div>
+<script src="/biblia/node_modules/jquery/dist/jquery.min.js"></script>
+<script>window.$ = jQuery;</script>
+<script src="/biblia/assets/js/anti-translate.js"></script>
+
+<div class="settings-wrap popup-wrap">
+    <form class="settings popup">
+        <span class="btn-close icon-x"></span>
+        <p class="title">Настройки</p>
+        <label class="select-wrap">
+            Шрифт <select name="--content-font">
+                <option class="default" value="Tahoma, Geneva, Verdana, sans-serif">Без засечек (sans-serif)</option>
+                <option value="Times New Roman, Bookman, Garamond, sans">C засечками (sans)</option>
+                <option value="Courier, mono">Моноширинный (monospaced)</option>
+                <option value="Roboto Condensed">Сжатый (condensed)</option>
+                <option value="Caveat">Рукописный (script)</option>
+                <option value="IBM Plex Serif">IBM Plex Serif</option>
+                <option value="Vollkorn">Vollkorn</option>
+                <option value="Oranienbaum">Oranienbaum</option>
+            </select>
+        </label>
+        <label class="select-wrap">
+            Размер <select name="font-size">
+                <option value="12.667px">12px</option>
+				<option value="13.667px">13px</option>
+				<option value="14.667px">14px</option>
+				<option value="15.667px">15px</option>
+				<option class="default" value="16.667px">16px</option>
+                <option value="17.667px">17px</option>
+                <option value="18.667px">18px</option>
+                <option value="19.667px">19px</option>
+                <option value="20.667px">20px</option>
+                <option value="21.667px">21px</option>
+                <option value="22.667px">22px</option>
+                <option value="23.667px">23px</option>
+                <option value="24.667px">24px</option>
+                <option value="25.667px">25px</option>
+                <option value="26.667px">26px</option>
+                <option value="27.667px">27px</option>
+                <option value="28.667px">28px</option>
+                <option value="29.667px">29px</option>
+                <option value="30.667px">30px</option>
+                <option value="31.667px">31px</option>
+                <option value="32.667px">32px</option>
+            </select>
+        </label>
+        <label><input name="text-bold" type="checkbox"> Жирный текст</label>
+		<label><input name="text-justify" type="checkbox"> Текст по ширине</label>
+		<label><input name="no-hyphens" type="checkbox" class="inverse-checkbox"> Переносы</label>
+        
+		<hr>
+		
+        <label class="select-wrap">
+            Фон <select name="background">
+                <option class="default" value="">Бежевый</option>
+                <option value="#ddd">Серый</option>
+                <option value="#fff">Белый</option>
+				<option value="#000">Тёмный</option>
+            </select>
+        </label>
+		<label><input name="highlight-columns" type="checkbox"> Цветные колонки</label>
+		<label><input name="unhighlight-direct-speech" type="checkbox" class="inverse-checkbox"> Прямая речь курсивом</label>
+		<label class="select-wrap">
+            Слова Христа <select name="--christ-speech-color">
+                <option class="default" value="inherit">Не выделять цветом</option>
+                <option value="var(--text-red)">Красные</option>
+				<option value="var(--text-green)">Зелёные</option>
+				<option value="var(--text-blue)">Синие</option>
+            </select>
+        </label>
+	
+		<hr>
+		
+		<label class="desktop-only select-wrap">
+            Колонки <select name="--col-width">
+                <option value="25em">Узкая</option>
+                <option value="35em">Средняя</option>
+                <option class="default" value="45em">Широкая</option>
+                <option value="auto">Адаптивная</option>
+            </select>
+        </label>
+		<label><input name="hide-verse-numbers" type="checkbox"> Скрыть номера стихов</label>
+        <label><input name="hide-verse-checkbox" type="checkbox"> Скрыть галочки выбора стихов</label>
+		
+		<hr>
+	
+		<label><input name="not-auto-bookmark" class="inverse-checkbox" type="checkbox"> Сохранять закладку при выходе</label>
+		<label><input name="verse-number-copy" type="checkbox"> Копировать номер каждого стиха</label>
+		<label><input name="verse-line-break-copy" type="checkbox"> Копировать с переносами</label>
+		<label><input name="verse-quotes-copy" type="checkbox"> Копировать с кавычками</label>
+		
+		<hr>
+		
+		<label class="select-wrap">
+            Нижнее меню <select name="bottom-hide-speed">
+                <option value="600">Показывать 0,6 сек</option>
+                <option value="1000">Показывать 1 сек</option>
+				<option value="1500">Показывать 1,5 сек</option>
+                <option class="default" value="2000">Показывать 2 сек</option>
+                <option value="2500">Показывать 2,5 сек</option>
+				<option value="5000">Показывать 5 сек</option>
+				<option value="10000">Показывать 10 сек</option>
+				<option value="never">Показывать всегда</option>
+            </select>
+        </label>
+		
+		<div class="select-wrap desktop-only">
+			Нижняя панель
+			<div class="flex-row">
+				<label><input name="floating-bottom-panel" type="checkbox"> Прятать</label>
+				<label><input name="multiline-nav" class="inverse-checkbox" type="checkbox"> Компактная</label>
+			</div>
+		</div>
+		
+		<hr>
+		
+        <label class="settings-reset link">Сброс настроек</label>
+    </form>
+</div>
+<script>
+    (function(){
+        let sngs = $('.settings-wrap');
+
+        $('input, select', sngs).change( function(e) {
+            if(this.type === 'checkbox'){
+                let val = this.classList.contains('inverse-checkbox') ? ( !this.checked ) : this.checked;
+                lsSet(this.name, val ? 'true' : 'false');
+            }else
+                lsSet(this.name, this.value);
+            applySettings();
+        });
+
+        //reset
+        $('.settings-reset', sngs).click( e => {
+            $('html').removeAttr('class').removeAttr('style');
+            $('input, select', sngs).each((i,el) => { localStorage.removeItem(PREFIX + el.name); });
+            applySettings();
+        });
+
+        $('.btn-settings').click( e => {
+            sngs.toggleClass('active');
+        });
+
+        applySettings(true);
+    })();
+</script>
+<script defer src="/biblia/assets/js/reconnecting-websocket.min.js"></script>
+<script defer src="/biblia/assets/js/statistics.js?v=1.0.1"></script>
+<!--[if lte IE 8]>
+<script>window.location.href = '//azbyka.ru/design/noie.htm';</script><![endif]-->
+<script defer src="/biblia/assets/js/defer.js?v=5"></script>
+<script src="/biblia/assets/js/search.js?v=1.3"></script>
+<script src="/biblia/assets/js/search-operators.js"></script>
+<script src="/biblia/assets/js/base.js?v=4.4"></script>
+
+<script defer src="/biblia/assets/js/book-tools.js?v=4.4"></script>
+<script src="/biblia/assets/js/az-hover.js?v=4.4"></script>
+<script src="/biblia/assets/js/tooltip.js?v=4.4"></script>
+<script src="/biblia/assets/js/top-menu.js?v=4.4"></script>
+<script defer src="/biblia/assets/js/retypos.js?v=1"></script>
+	<script src="/biblia/node_modules/select2/dist/js/select2.min.js"></script>
+    <script type="text/javascript">
+		$(document).ready(function() {
+			$('.sel-book').select2({
+				allowClear: true,
+				placeholder: {
+					id: 0,
+					text: "Любая Книга",
+				}
+			});
+		});
+	
+        let search_form = $('#search');
+        let search_input = $('#fld_search');
+        const urlParams = new URLSearchParams(location.search);
+		
+		search_input.change(e=>{
+			let searchString = search_input.val();
+			let backLinkPts = $('.back-link').attr('href').split('?');
+			$('.back-link').attr('href', backLinkPts[0]+'?q=' + encodeURIComponent(searchString));
+		});
+		
+        $('#show-all').click( e => {
+            $('.all-res-input').removeAttr("disabled");
+            search_form.submit();
+        });
+
+        let all_book_options = $('.sel-book option[data-testament]');
+        let onTestament = function(e) {
+			$('.sel-book').val(null);
+			$('.sel-book').trigger('change');
+		}
+
+        $('.sel-book .option[value='+urlParams.get('book')+']').prop('selected', true);
+        $('.search-testament input').change( onTestament );
+
+        $('input, select', search_form).change(function(e){
+            if(e.target === search_input[0])
+                return;
+
+            let $this = $(this);
+            if($this.is(':focus') && search_input[0].checkValidity()){
+                search_form.submit();
+            }
+        });
+
+        //scroll page links
+        let pagination = $('.pagination');
+        if(pagination.length){
+            let cc_left = $('.page-item.active').offset().left - window.innerWidth / 2;
+            pagination.scrollLeft(cc_left);
+
+            $('.chapters-scroll-left').click(e => {
+                setTimeout(() => {
+                    pagination.animate({ scrollLeft: 0 }, 400);
+                }, 100);
+            });
+            $('.chapters-scroll-right').click(e => {
+                setTimeout(() => {
+                    pagination.animate({ scrollLeft: pagination[0].scrollWidth }, 400);
+                }, 100);
+            });
+        }
+
+        // load more button
+        $(function() {
+            let loading_page = 1;
+            let more_btn = $('#show-more');
+            let default_text = more_btn.html();
+            let itemsPerPage = 0;
+            let total = 0;
+            
+            if (total < itemsPerPage-1) {
+                more_btn.hide();
+            }
+            more_btn.on('click', function () {
+                more_btn.html('...');
+                more_btn.addClass('disabled');
+                loading_page++;
+                $.get('/biblia/search' + location.search + '&page=' + loading_page + '&ajax=1', function(response) {
+                        $('#serch-items-results').append(response);
+                        if (total > itemsPerPage * loading_page) {
+                            more_btn.html(default_text);
+                            more_btn.removeClass('disabled');
+                        }else{
+                            more_btn.hide();
+                        }
+                }).fail( err => {
+                    console.log(err);
+                    more_btn.html('Ошибка соединения');
+                    more_btn.removeClass('disabled');
+                });
+            });
+        });
+		
+		//selection
+		
+		(function(){
+			let getSelected = e=>{return document.querySelectorAll('.search-result-element.selected')};
+			
+			let menu = document.querySelector('.selection-menu');
+			
+			let cancelSelection = e=>{
+				for(let sel of getSelected())
+					sel.classList.remove('selected');
+				
+				menu.classList.remove('active');
+			};
+			
+			menu.querySelector('.deselect').onclick = cancelSelection;
+			
+			menu.querySelector('.copy-text').onclick = e=>{
+				let text = '';
+				for(let sel of getSelected())
+					text += sel.dataset['abbreviation'] + " " + sel.dataset['text'] + "\n";
+					
+				copyToClipboard(text);
+			};
+			
+			menu.querySelector('.copy-link').onclick = e=>{
+				let text = '';
+				for(let sel of getSelected()){
+					text = sel.dataset['slug'];
+					break;
+				}
+				
+				if(text!='')
+					copyToClipboard('https://azbyka.ru/biblia/?'+text);
+			};
+			
+			menu.querySelector('.goto-interpret').onclick = e=>{
+				AZ.notify('Переходим...');
+			
+				return 1;
+			};
+			
+			menu.onclick = e=>{
+				setTimeout(cancelSelection, 200);
+			};
+			document.addEventListener('click', e=>{
+				let result = e.target.closest('.search-result-element');
+				if(result){
+					result.classList.toggle('selected');
+					
+					let selected = getSelected();
+					if(selected && selected.length){
+						menu.querySelector('.goto-interpret').href = 'https://azbyka.ru/biblia/in/' + '?' + selected[0].dataset['slug'];
+						menu.classList.add('active');
+					}else{
+						menu.classList.remove('active');
+					}
+				}
+			});
+		})();
+    </script>
+
+<div id="notification_container"></div>
+<template id="notification_template">
+	<div class="notification panel" aria-label="Уведомление">
+	</div>
+</template>
+
+<div id="modal" class="modal popup-wrap" tabindex="-1" role="dialog" aria-label="Диалоговое окно">
+    <div class="modal-dialog popup" role="document">
+        <div class="modal-content"></div>
+    </div>
+</div>
+
+<div id="alert_popup" class="popup-wrap text-center" tabindex="-1" role="dialog" aria-label="Окно с сообщением">
+    <div class="popup" role="document">
+		<p class="title">Ошибка!</p>
+		<p>
+			<button type="button" class="btn-ok" data-label="Хорошо">Хорошо</button>
+		</p>
+	</div>
+</div>
+
+<div id="confirm_popup" class="popup-wrap text-center" tabindex="-1" role="dialog" aria-label="Окно подтверждения">
+    <div class="popup" role="document">
+		<p class="title">Подтверждаете?</p>
+		<p>
+			<button id="confirm_true" type="button" class="btn-ok" aria-label="Да">Да</button>
+			<button id="confirm_false" type="button" class="btn-cancel" aria-label="Нет">Нет</button>
+		</p>
+	</div>
+</div>
+
+<div id="please_register_popup" class="popup-wrap text-center" tabindex="-1" role="dialog" aria-label="Окно подтверждения">
+    <div class="popup" role="document">
+		<span class="btn-close icon-x" aria-label="Закрыть"></span>
+		<p class="title">Требуется регистрация</p>
+		<p>Данная возможность доступна только для зарегистрированных пользователей</p>
+		<p>
+			<a href="/biblia/login?return_to=%2Fbiblia%2Fsearch" data-biblia-login><button type="button" class="btn-ok" aria-label="Вход">Вход</button></a>
+			<a href="//azbyka.ru/auth/personal/register"><button type="button" class="btn-cancel" aria-label="Регистрация">Регистрация</button></a>
+		</p>
+	</div>
+</div>
+
+<div id="add_fav_popup" class="popup-wrap" tabindex="-1" role="dialog" aria-label="Окно добавления в избранное">
+    <div class="popup" role="document">
+		<a href="/biblia/personal/favorites" class="btn-personal icon-user" aria-label="Личный кабинет"></a>
+		<span class="btn-close icon-x" aria-label="Закрыть"></span>
+		<p class="title">В избранное</p>
+		<p class="text"></p>
+		<hr>
+		<p id="add_fav_colors">
+			<span class="sub-title">Цвет:</span>
+							<span class="color-swatch fav-bg-0" data-id="0"> </span>
+							<span class="color-swatch fav-bg-1" data-id="1"> </span>
+							<span class="color-swatch fav-bg-2" data-id="2"> </span>
+							<span class="color-swatch fav-bg-3" data-id="3"> </span>
+							<span class="color-swatch fav-bg-4" data-id="4"> </span>
+							<span class="color-swatch fav-bg-5" data-id="5"> </span>
+							<span class="color-swatch fav-bg-6" data-id="6"> </span>
+							<span class="color-swatch fav-bg-7" data-id="7"> </span>
+							<span class="color-swatch fav-bg-8" data-id="8"> </span>
+					</p>
+		<hr>
+		<p class="sub-title">Метки :</p>
+		<p id="add_fav_tag_container" class="tag-container tag-scroller" data-empty-label="(меток нет)"></p>
+		<p class="tag-input-wrap">
+			<input id="add_fav_tag_input" type="text" class="tag-input" placeholder="Введите метки (через пробел)" list="suggestions">
+			<datalist id="suggestions">
+							</datalist>
+		</p>
+		<hr>
+		<textarea name="fav-content" id="fav_content" cols="30" rows="5" aria-label="Комментарий" placeholder="Комментарий" class="add-fav-comment"></textarea>
+		<div class="popup-footer">
+			<button class="fav-remove btn-cancel" data-label="Удалить"><span class="icon-x"></span> Удалить</button>
+			<button id="add_fav_save" type="button" data-disabled="false" class="btn-ok btn-filled" data-label="Сохранить">Сохранить</button>
+		</div>
+	</div>
+</div>
+
+<style>
+	.promo-banner-wrap{
+			display:none;
+			position:fixed;
+			left:0;
+			bottom:1.5rem;
+			width: 100%;
+			z-index:15;
+			transform:translateX(-101%);
+			transition: transform .5s ease;
+		}
+		.promo-banner-wrap.active{
+			transform:translateX(0);
+		}
+		
+		.promo-banner{
+			background: var(--widget-bg);
+			padding:.25em 2em .3em 1.5em;
+			box-shadow: 0px 0px 10px -4px #3a3a3a3a;
+			text-align:center;
+			position:relative;
+		}
+		
+		.promo-banner .btn-close{
+			font-size: 1.25em;
+			cursor:pointer; margin-left:1em;
+			position: absolute;
+			top:0;
+			right:0;
+			padding: .12em;
+		}
+		@media(min-width: 921px){
+			.promo-banner-wrap{
+				top:100px;
+				bottom:unset;
+				max-width: 250px;
+			}
+			.promo-banner{
+				width: 100%;
+				padding:.75em 2em .75em 1.5em;
+				border-radius: 0 .5em .5em 0;
+				box-shadow: 4px 4px 10px -4px #3a3a3a3a;
+			}
+			.promo-banner .btn-close{
+				font-size: 1.25em;
+				padding:.5em;
+			}
+		}
+</style>
+<div class="promo-banner-wrap">
+	<div class="promo-banner"><a href="https://azbyka.ru/social-media#azbible" target="_blank">Цитата из Библии каждое утро</a><span class="btn-close">✕</span></div>
+</div>
+<script>
+	const PROMO_ID = 'bib-promo-telegram-2'; //изменить при смене баннера
+	jQuery($=>{
+		if(window.innerWidth >= 1440) return; //не показываем на десктопах
+	
+		let ctime = new Date().getTime();
+		let pid = localStorage.getItem(PROMO_ID);
+		console.log(PROMO_ID, pid);
+		if(pid=='hide'){
+			localStorage.setItem(PROMO_ID, ctime);
+			pid=false;
+		}
+		if(!pid){ // || ctime > (pid + 14*86400000) //не показывать 14 дней
+			//let removeEvents = 'mousewheel touchstart';
+			let pbw = $('.promo-banner-wrap').show();
+			setTimeout(()=>{
+				pbw.addClass('active');
+			}, 100);
+			let removeBanner = ()=>{
+				pbw.removeClass('active');
+				localStorage.setItem(PROMO_ID,ctime);
+				//$(document).off(removeEvents, removeBanner);
+			}
+			$('.promo-banner .btn-close').click(removeBanner);
+			//$(document).on(removeEvents, removeBanner);
+		}
+	});
+</script>	
+	<template id="favorite_template">
+		<span class="favorite no-fav"
+	data-id=""
+	data-color = ""
+	
+>
+	<span class="tag-container"></span>
+	<span class="comment"></span>
+	<span class="controls">
+		<span class="icon-star fav-edit"></span>
+	</span>
+</span>	</template>
+
+</body>
+</html>

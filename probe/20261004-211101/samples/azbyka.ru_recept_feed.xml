@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Азбука рецептов</title>
+	<atom:link href="https://azbyka.ru/recept/feed/" rel="self" type="application/rss+xml" />
+	<link>https://azbyka.ru/recept</link>
+	<description>Большой сборник православных рецептов на каждый день. Здесь вы найдете много рецептов для православных праздников, постных рецептов</description>
+	<lastBuildDate>Fri, 02 Oct 2026 18:52:18 +0000</lastBuildDate>
+	<language>ru-RU</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=7.1.2</generator>
+	<item>
+		<title>Крупеня грибная белорусская</title>
+		<link>https://azbyka.ru/recept/krupenya-gribnaya-belorusskaya/</link>
+					<comments>https://azbyka.ru/recept/krupenya-gribnaya-belorusskaya/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Fri, 02 Oct 2026 18:52:18 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[грибы сушёные]]></category>
+		<category><![CDATA[гречневая крупа]]></category>
+		<category><![CDATA[молоко]]></category>
+		<category><![CDATA[Первые блюда]]></category>
+		<category><![CDATA[сметана]]></category>
+		<category><![CDATA[сало]]></category>
+		<category><![CDATA[грибные супы]]></category>
+		<category><![CDATA[картофель]]></category>
+		<category><![CDATA[лук репчатый]]></category>
+		<category><![CDATA[морковь]]></category>
+		<category><![CDATA[петрушка]]></category>
+		<category><![CDATA[укроп]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95620</guid>
+
+					<description><![CDATA[Белые сушёные грибы, лук репчатый, картофель, морковь, крупа гречневая, сало топлёное, вода, корень петрушки зелень петрушки и укропа, соль, топлёное молоко или сметана.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/krupenya-gribnaya-belorusskaya/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Грибы, забитые яйцом</title>
+		<link>https://azbyka.ru/recept/griby-zabitye-yajczom/</link>
+					<comments>https://azbyka.ru/recept/griby-zabitye-yajczom/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Fri, 02 Oct 2026 18:24:11 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[куриные яйца]]></category>
+		<category><![CDATA[лесные грибы]]></category>
+		<category><![CDATA[молоко]]></category>
+		<category><![CDATA[шампиньоны]]></category>
+		<category><![CDATA[грибные блюда]]></category>
+		<category><![CDATA[Вторые блюда]]></category>
+		<category><![CDATA[лук зелёный]]></category>
+		<category><![CDATA[укроп]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95614</guid>
+
+					<description><![CDATA[Грибы свежие, яйцо, молоко, масло растительное, лук зелёный, масло сливочное, укроп, соль.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/griby-zabitye-yajczom/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Гречневая каша с грибами и сметаной</title>
+		<link>https://azbyka.ru/recept/grechnevaya-kasha-s-gribami-i-smetanoj/</link>
+					<comments>https://azbyka.ru/recept/grechnevaya-kasha-s-gribami-i-smetanoj/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Fri, 02 Oct 2026 06:37:51 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[Каши]]></category>
+		<category><![CDATA[грибы сушёные]]></category>
+		<category><![CDATA[гречневая крупа]]></category>
+		<category><![CDATA[гречневая каша]]></category>
+		<category><![CDATA[сливочное масло]]></category>
+		<category><![CDATA[грибные блюда]]></category>
+		<category><![CDATA[Вторые блюда]]></category>
+		<category><![CDATA[гарниры и крупяные блюда]]></category>
+		<category><![CDATA[сметана]]></category>
+		<category><![CDATA[лук репчатый]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95609</guid>
+
+					<description><![CDATA[Грибы сушёные, гречневая крупа, лук, сливочное масло, молоко, сметана (или сметанный соус), соль.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/grechnevaya-kasha-s-gribami-i-smetanoj/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Гречневая каша с грибами</title>
+		<link>https://azbyka.ru/recept/grechnevaya-kasha-s-gribami/</link>
+					<comments>https://azbyka.ru/recept/grechnevaya-kasha-s-gribami/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Fri, 02 Oct 2026 05:59:50 +0000</pubDate>
+				<category><![CDATA[Рецепты постных блюд]]></category>
+		<category><![CDATA[постная гречневая каша]]></category>
+		<category><![CDATA[грибы сушёные]]></category>
+		<category><![CDATA[Постные каши]]></category>
+		<category><![CDATA[гречневая крупа]]></category>
+		<category><![CDATA[Постные вторые блюда]]></category>
+		<category><![CDATA[лук репчатый]]></category>
+		<category><![CDATA[постные крупяные блюда]]></category>
+		<category><![CDATA[постные грибные блюда]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95605</guid>
+
+					<description><![CDATA[Грибы сушёные, гречневая крупа, лук, растительное масло, вода, соль.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/grechnevaya-kasha-s-gribami/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Рисовая каша с фруктами в горшочке</title>
+		<link>https://azbyka.ru/recept/risovaya-kasha-s-fruktami-v-gorshochke/</link>
+					<comments>https://azbyka.ru/recept/risovaya-kasha-s-fruktami-v-gorshochke/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Fri, 02 Oct 2026 05:34:06 +0000</pubDate>
+				<category><![CDATA[Рецепты постных блюд]]></category>
+		<category><![CDATA[горячие постные завтраки без масла]]></category>
+		<category><![CDATA[Постные каши]]></category>
+		<category><![CDATA[Рецепты без масла]]></category>
+		<category><![CDATA[Рецепты Великого поста]]></category>
+		<category><![CDATA[постная рисовая каша]]></category>
+		<category><![CDATA[рис]]></category>
+		<category><![CDATA[Готовим в горшочках]]></category>
+		<category><![CDATA[изюм]]></category>
+		<category><![CDATA[курага]]></category>
+		<category><![CDATA[финики]]></category>
+		<category><![CDATA[яблоки]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95594</guid>
+
+					<description><![CDATA[Рис; яблоки; сухофрукты, вода; соль; сахар.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/risovaya-kasha-s-fruktami-v-gorshochke/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Овсяная каша с тыквой, яблоком, орехами и мёдом в горшочке</title>
+		<link>https://azbyka.ru/recept/ovsyanaya-kasha-s-tykvoj-yablokom-orehami-i-myodom-v-gorshochke/</link>
+					<comments>https://azbyka.ru/recept/ovsyanaya-kasha-s-tykvoj-yablokom-orehami-i-myodom-v-gorshochke/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Fri, 02 Oct 2026 04:58:58 +0000</pubDate>
+				<category><![CDATA[Рецепты постных блюд]]></category>
+		<category><![CDATA[мёд, пчёлы, воск]]></category>
+		<category><![CDATA[грецкий орех]]></category>
+		<category><![CDATA[Постные каши]]></category>
+		<category><![CDATA[постная овсяная каша]]></category>
+		<category><![CDATA[овсяная крупа]]></category>
+		<category><![CDATA[Готовим в горшочках]]></category>
+		<category><![CDATA[яблоки]]></category>
+		<category><![CDATA[тыква]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95596</guid>
+
+					<description><![CDATA[Тыква, яблоко, овсяная крупа неплющёная, грецкие орехи, вода, растительное масло, мёд, соль.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/ovsyanaya-kasha-s-tykvoj-yablokom-orehami-i-myodom-v-gorshochke/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Клюквенный морс в мультиварке</title>
+		<link>https://azbyka.ru/recept/klyukvennyj-mors-v-multivarke/</link>
+					<comments>https://azbyka.ru/recept/klyukvennyj-mors-v-multivarke/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Thu, 01 Oct 2026 12:07:38 +0000</pubDate>
+				<category><![CDATA[Рецепты постных блюд]]></category>
+		<category><![CDATA[клюква]]></category>
+		<category><![CDATA[морс]]></category>
+		<category><![CDATA[Готовим в мультиварке]]></category>
+		<category><![CDATA[Постные напитки]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95545</guid>
+
+					<description><![CDATA[Клюква, вода, сахар.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/klyukvennyj-mors-v-multivarke/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Овощной суп с копчёностями в мультиварке</title>
+		<link>https://azbyka.ru/recept/ovoshhnoj-sup-s-kopchyonostyami-v-multivarke/</link>
+					<comments>https://azbyka.ru/recept/ovoshhnoj-sup-s-kopchyonostyami-v-multivarke/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Thu, 01 Oct 2026 11:45:59 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[зелень]]></category>
+		<category><![CDATA[брокколи]]></category>
+		<category><![CDATA[колбаса]]></category>
+		<category><![CDATA[пряные травы (смеси)]]></category>
+		<category><![CDATA[Первые блюда]]></category>
+		<category><![CDATA[горошек зелёный]]></category>
+		<category><![CDATA[Готовим в мультиварке]]></category>
+		<category><![CDATA[овощные супы]]></category>
+		<category><![CDATA[картофель]]></category>
+		<category><![CDATA[лук репчатый]]></category>
+		<category><![CDATA[морковь]]></category>
+		<category><![CDATA[перец сладкий]]></category>
+		<category><![CDATA[помидоры]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95540</guid>
+
+					<description><![CDATA[Картофель, морковь, лук репчатый, болгарский перец, помидоры, брокколи, горошек зелёный, копчёности (сосиски), вода, растительное масло, соль, специи сухие, зелень.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/ovoshhnoj-sup-s-kopchyonostyami-v-multivarke/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Запечённые гнёзда из кабачков с курицей и сыром</title>
+		<link>https://azbyka.ru/recept/zapechyonnye-gnyozda-iz-kabachkov-s-kuriczej-i-syrom/</link>
+					<comments>https://azbyka.ru/recept/zapechyonnye-gnyozda-iz-kabachkov-s-kuriczej-i-syrom/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Thu, 01 Oct 2026 11:24:31 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[куриные яйца]]></category>
+		<category><![CDATA[курица, дичь пернатая]]></category>
+		<category><![CDATA[диабет, ожирение]]></category>
+		<category><![CDATA[соевый соус]]></category>
+		<category><![CDATA[вторые блюда из птицы]]></category>
+		<category><![CDATA[пряные травы (смеси)]]></category>
+		<category><![CDATA[кабачки]]></category>
+		<category><![CDATA[Вторые блюда]]></category>
+		<category><![CDATA[овощные блюда]]></category>
+		<category><![CDATA[сыр]]></category>
+		<category><![CDATA[рисовая мука]]></category>
+		<category><![CDATA[Диетические рецепты]]></category>
+		<category><![CDATA[лук зелёный]]></category>
+		<category><![CDATA[морковь]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95536</guid>
+
+					<description><![CDATA[Кабачок, морковь, яйца, рисовая мука, зелёный лук, куриные бёдра без кости, соевый соус, оливковое масло, сыр лёгкий, сушёный чеснок, копчёная паприка, перец.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/zapechyonnye-gnyozda-iz-kabachkov-s-kuriczej-i-syrom/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Творожная запеканка со сметаной в мультиварке</title>
+		<link>https://azbyka.ru/recept/tvorozhnaya-zapekanka-so-smetanji-v-multivarke/</link>
+					<comments>https://azbyka.ru/recept/tvorozhnaya-zapekanka-so-smetanji-v-multivarke/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Thu, 01 Oct 2026 10:55:12 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[куриные яйца]]></category>
+		<category><![CDATA[творожные запеканки и пудинги]]></category>
+		<category><![CDATA[крахмал]]></category>
+		<category><![CDATA[Завтраки]]></category>
+		<category><![CDATA[сметана]]></category>
+		<category><![CDATA[творог]]></category>
+		<category><![CDATA[Готовим в мультиварке]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95531</guid>
+
+					<description><![CDATA[Творог, куриные яйца, сахар, картофельный крахмал, сметана, ванильный сахар, сливочное масло.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/tvorozhnaya-zapekanka-so-smetanji-v-multivarke/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Куриный салат по-мексикански</title>
+		<link>https://azbyka.ru/recept/kurinyj-salat-po-meksikanski/</link>
+					<comments>https://azbyka.ru/recept/kurinyj-salat-po-meksikanski/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Thu, 01 Oct 2026 10:28:47 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[куриные яйца]]></category>
+		<category><![CDATA[курица, дичь пернатая]]></category>
+		<category><![CDATA[йогурт]]></category>
+		<category><![CDATA[диабет, ожирение]]></category>
+		<category><![CDATA[мясные салаты]]></category>
+		<category><![CDATA[Салаты]]></category>
+		<category><![CDATA[пряные травы (смеси)]]></category>
+		<category><![CDATA[сухарики пшеничные]]></category>
+		<category><![CDATA[Диетические рецепты]]></category>
+		<category><![CDATA[фасоль]]></category>
+		<category><![CDATA[кукуруза]]></category>
+		<category><![CDATA[лук репчатый]]></category>
+		<category><![CDATA[лимонный сок]]></category>
+		<category><![CDATA[помидоры]]></category>
+		<category><![CDATA[салат зелёный]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95525</guid>
+
+					<description><![CDATA[Куриная грудка, сырой яичный белок, панировочные сухари, салат айсберг, помидоры черри, консервированная кукуруза, консервированная фасоль, яйца, красный лук, копчёная паприка, греческий йогурт, соус чили, лимонный сок (или уксус), соль, чёрный перец.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/kurinyj-salat-po-meksikanski/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Шоколадный кефир с бананом</title>
+		<link>https://azbyka.ru/recept/shokoladnyj-kefir-s-bananom/</link>
+					<comments>https://azbyka.ru/recept/shokoladnyj-kefir-s-bananom/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Thu, 01 Oct 2026 09:55:06 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[арахис]]></category>
+		<category><![CDATA[коктейли]]></category>
+		<category><![CDATA[мёд, пчёлы, воск]]></category>
+		<category><![CDATA[грецкий орех]]></category>
+		<category><![CDATA[какао]]></category>
+		<category><![CDATA[диабет, ожирение]]></category>
+		<category><![CDATA[кисломолочные и ферментированные напитки]]></category>
+		<category><![CDATA[диетические напитки]]></category>
+		<category><![CDATA[кефир]]></category>
+		<category><![CDATA[кешью]]></category>
+		<category><![CDATA[молоко]]></category>
+		<category><![CDATA[миндаль]]></category>
+		<category><![CDATA[бананы]]></category>
+		<category><![CDATA[фундук]]></category>
+		<category><![CDATA[Диетические рецепты]]></category>
+		<category><![CDATA[Напитки]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95390</guid>
+
+					<description><![CDATA[Кефир, молоко, банан, мёд, какао-порошок, лёд и орешки.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/shokoladnyj-kefir-s-bananom/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Домашний протеиновый коктейль</title>
+		<link>https://azbyka.ru/recept/domashnij-proteinovyj-koktejl/</link>
+					<comments>https://azbyka.ru/recept/domashnij-proteinovyj-koktejl/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Wed, 30 Sep 2026 15:13:20 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[коктейли]]></category>
+		<category><![CDATA[растительный белок]]></category>
+		<category><![CDATA[диабет, ожирение]]></category>
+		<category><![CDATA[диетические напитки]]></category>
+		<category><![CDATA[молоко]]></category>
+		<category><![CDATA[молоко сгущённое]]></category>
+		<category><![CDATA[льняное семя]]></category>
+		<category><![CDATA[бананы]]></category>
+		<category><![CDATA[отруби]]></category>
+		<category><![CDATA[Диетические рецепты]]></category>
+		<category><![CDATA[Напитки]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95392</guid>
+
+					<description><![CDATA[Молоко, протеиновый порошок, банан, отруби, семена льна, сгущённое молоко.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/domashnij-proteinovyj-koktejl/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Малиновый коктейль без сахара</title>
+		<link>https://azbyka.ru/recept/malinovyj-koktejl-bez-sahara/</link>
+					<comments>https://azbyka.ru/recept/malinovyj-koktejl-bez-sahara/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Wed, 30 Sep 2026 14:55:12 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[коктейли]]></category>
+		<category><![CDATA[диабет, ожирение]]></category>
+		<category><![CDATA[диетические напитки]]></category>
+		<category><![CDATA[молоко]]></category>
+		<category><![CDATA[бананы]]></category>
+		<category><![CDATA[малина]]></category>
+		<category><![CDATA[Диетические рецепты]]></category>
+		<category><![CDATA[Напитки]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95394</guid>
+
+					<description><![CDATA[Молоко, банан, малина.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/malinovyj-koktejl-bez-sahara/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Ягодный коктейль без сахара</title>
+		<link>https://azbyka.ru/recept/yagodnyj-koktejl-bez-sahara/</link>
+					<comments>https://azbyka.ru/recept/yagodnyj-koktejl-bez-sahara/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Wed, 30 Sep 2026 14:38:34 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[коктейли]]></category>
+		<category><![CDATA[горячие молочные напитки]]></category>
+		<category><![CDATA[диабет, ожирение]]></category>
+		<category><![CDATA[молочные фруктовые и пряные напитки]]></category>
+		<category><![CDATA[диетические напитки]]></category>
+		<category><![CDATA[молоко]]></category>
+		<category><![CDATA[голубика]]></category>
+		<category><![CDATA[земляника]]></category>
+		<category><![CDATA[клубника]]></category>
+		<category><![CDATA[малина]]></category>
+		<category><![CDATA[Диетические рецепты]]></category>
+		<category><![CDATA[смородина красная]]></category>
+		<category><![CDATA[смородина чёрная]]></category>
+		<category><![CDATA[черника]]></category>
+		<category><![CDATA[Напитки]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95399</guid>
+
+					<description><![CDATA[Молоко 2,5%, ягоды.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/yagodnyj-koktejl-bez-sahara/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Имбирное молоко без сахара</title>
+		<link>https://azbyka.ru/recept/imbirnoe-moloko-bez-sahara/</link>
+					<comments>https://azbyka.ru/recept/imbirnoe-moloko-bez-sahara/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Tue, 29 Sep 2026 14:16:33 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[мёд, пчёлы, воск]]></category>
+		<category><![CDATA[имбирь]]></category>
+		<category><![CDATA[горячие молочные напитки]]></category>
+		<category><![CDATA[диабет, ожирение]]></category>
+		<category><![CDATA[диетические напитки]]></category>
+		<category><![CDATA[молочные фруктовые и пряные напитки]]></category>
+		<category><![CDATA[молоко]]></category>
+		<category><![CDATA[Диетические рецепты]]></category>
+		<category><![CDATA[Напитки]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95397</guid>
+
+					<description><![CDATA[Молоко, свежий имбирь, корица, мёд.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/imbirnoe-moloko-bez-sahara/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Тёплый имбирный кефир без сахара</title>
+		<link>https://azbyka.ru/recept/tyoplyj-imbirnyj-kefir-bez-sahara/</link>
+					<comments>https://azbyka.ru/recept/tyoplyj-imbirnyj-kefir-bez-sahara/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Tue, 29 Sep 2026 13:52:20 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[имбирь]]></category>
+		<category><![CDATA[мёд, пчёлы, воск]]></category>
+		<category><![CDATA[диабет, ожирение]]></category>
+		<category><![CDATA[кисломолочные и ферментированные напитки]]></category>
+		<category><![CDATA[диетические напитки]]></category>
+		<category><![CDATA[кефир]]></category>
+		<category><![CDATA[пряные травы (смеси)]]></category>
+		<category><![CDATA[Диетические рецепты]]></category>
+		<category><![CDATA[Напитки]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95401</guid>
+
+					<description><![CDATA[Кефир 1%, куркума, тёртый имбирь, мёд.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/tyoplyj-imbirnyj-kefir-bez-sahara/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Лагман с говядиной и баклажанами в мультиварке</title>
+		<link>https://azbyka.ru/recept/lagman-s-govyadinoj-i-baklazhanami-v-multivarke/</link>
+					<comments>https://azbyka.ru/recept/lagman-s-govyadinoj-i-baklazhanami-v-multivarke/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Tue, 29 Sep 2026 10:24:19 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[лапша]]></category>
+		<category><![CDATA[говядина]]></category>
+		<category><![CDATA[баклажаны]]></category>
+		<category><![CDATA[пряные травы (смеси)]]></category>
+		<category><![CDATA[Первые блюда]]></category>
+		<category><![CDATA[суп лапша]]></category>
+		<category><![CDATA[Готовим в мультиварке]]></category>
+		<category><![CDATA[картофель]]></category>
+		<category><![CDATA[лук репчатый]]></category>
+		<category><![CDATA[морковь]]></category>
+		<category><![CDATA[перец сладкий]]></category>
+		<category><![CDATA[петрушка]]></category>
+		<category><![CDATA[томатная паста]]></category>
+		<category><![CDATA[укроп]]></category>
+		<category><![CDATA[чеснок]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95403</guid>
+
+					<description><![CDATA[Говядина, морковь, лук, болгарский перец, баклажаны, картофель, чеснок, томатная паста, специи сухие, соль, перец, вода, зелень, растительное масло, лапша.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/lagman-s-govyadinoj-i-baklazhanami-v-multivarke/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Овсяная каша со взбитым белком и арахисовой пастой</title>
+		<link>https://azbyka.ru/recept/ovsyanaya-kasha-so-vzbitym-belkom-i-arahisovoj-pastoj/</link>
+					<comments>https://azbyka.ru/recept/ovsyanaya-kasha-so-vzbitym-belkom-i-arahisovoj-pastoj/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Tue, 29 Sep 2026 09:58:33 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[куриные яйца]]></category>
+		<category><![CDATA[арахис]]></category>
+		<category><![CDATA[Каши]]></category>
+		<category><![CDATA[диабет, ожирение]]></category>
+		<category><![CDATA[овсяная каша]]></category>
+		<category><![CDATA[молоко]]></category>
+		<category><![CDATA[овсяная крупа]]></category>
+		<category><![CDATA[бананы]]></category>
+		<category><![CDATA[Диетические рецепты]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95405</guid>
+
+					<description><![CDATA[Геркулес, молоко, яичный белок, арахисовая паста, банан.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/ovsyanaya-kasha-so-vzbitym-belkom-i-arahisovoj-pastoj/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Диетический хачапури из пресного теста</title>
+		<link>https://azbyka.ru/recept/dieticheskij-hachapuri-iz-presnogo-testa/</link>
+					<comments>https://azbyka.ru/recept/dieticheskij-hachapuri-iz-presnogo-testa/#respond</comments>
+		
+		<dc:creator><![CDATA[VeraAndrosova]]></dc:creator>
+		<pubDate>Tue, 29 Sep 2026 09:43:17 +0000</pubDate>
+				<category><![CDATA[Рецепты непостных блюд]]></category>
+		<category><![CDATA[куриные яйца]]></category>
+		<category><![CDATA[пресное тесто]]></category>
+		<category><![CDATA[диабет, ожирение]]></category>
+		<category><![CDATA[пшеничная мука]]></category>
+		<category><![CDATA[сыр]]></category>
+		<category><![CDATA[Диетические рецепты]]></category>
+		<category><![CDATA[Пироги и пирожки]]></category>
+		<guid isPermaLink="false">https://azbyka.ru/recept/?p=95407</guid>
+
+					<description><![CDATA[Мука, вода, сыр лёгкий, яйцо, свежие овощи.]]></description>
+		
+					<wfw:commentRss>https://azbyka.ru/recept/dieticheskij-hachapuri-iz-presnogo-testa/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

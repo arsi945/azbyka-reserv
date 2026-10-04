@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="ru" >
+
+
+
+<head>
+            <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="csrf-token" content="SlzxuEm5gNglk1oHv46fGun4XQqDy7cgZpIia2EL">
+        <meta property="og:image" content="https://azbyka.ru/biblia/assets/fav/icon-og.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:title"
+              content="Инструкция по подключению скрипта активизации библейских ссылок">
+        <meta property="og:url"
+              content=" https://azbyka.ru/biblia/">
+        <meta property="og:description"
+              content="Библия в синодальном переводе на русском и на множестве других языков - Читать Ветхий Завет и Новый Завет Священного Писания онлайн.">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="Азбука веры">
+        			                <link rel="image_src" href="https://azbyka.ru/biblia/assets/fav/apple-icon-152x152.png">
+        <link rel="icon" type="image/svg+xml" href="https://azbyka.ru/biblia/assets/fav/favicon.svg">
+        <link rel="icon" type="image/ico" href="https://azbyka.ru/biblia/assets/fav/favicon.ico">
+        <link rel="apple-touch-icon" sizes="57x57" href="https://azbyka.ru/biblia/assets/fav/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="https://azbyka.ru/biblia/assets/fav/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://azbyka.ru/biblia/assets/fav/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://azbyka.ru/biblia/assets/fav/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114"
+              href="https://azbyka.ru/biblia/assets/fav/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120"
+              href="https://azbyka.ru/biblia/assets/fav/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144"
+              href="https://azbyka.ru/biblia/assets/fav/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152"
+              href="https://azbyka.ru/biblia/assets/fav/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180"
+              href="https://azbyka.ru/biblia/assets/fav/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"
+              href="https://azbyka.ru/biblia/assets/fav/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32"
+              href="https://azbyka.ru/biblia/assets/fav/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96"
+              href="https://azbyka.ru/biblia/assets/fav/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16"
+              href="https://azbyka.ru/biblia/assets/fav/favicon-16x16.png">
+        <link rel="manifest" href="https://azbyka.ru/biblia/assets/fav/manifest.json?v=2">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="https://azbyka.ru/biblia/assets/fav/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+                <link rel="canonical" href="https://azbyka.ru/biblia/instruction.html">
+                    <title>Инструкция по подключению скрипта активизации библейских ссылок</title>
+        <meta name="description"
+              content="Библия в синодальном переводе на русском и на множестве других языков - Читать Ветхий Завет и Новый Завет Священного Писания онлайн.">
+
+        
+        <link rel="stylesheet" href="/biblia/assets/css/main.css?v=3.20">
+		<link rel="stylesheet" href="/biblia/assets/css/retypos.css?v=1">
+        <link rel="stylesheet" href="/biblia/assets/icons/style.css?v=2.2">
+		<link href="/biblia/assets/css/top-menu.css?v=4" type="text/css" rel="stylesheet">            
+    <style>
+        :root{
+            --col-count:1;
+        }
+
+        .wrap{
+            max-width: var(--col-width);
+            margin:auto;
+            padding: 0 10px 20px;
+        }
+
+        pre{
+            box-sizing: border-box;
+            width: 100%;
+            white-space: pre-wrap;
+            font-size: 0.8rem;
+            font-family: monospace;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom:5px;
+        }
+
+        .h1{
+            margin: 40px auto;
+        }
+
+        ul, ol,
+        .vignette{
+            margin: 20px auto;
+        }
+
+        ul {
+            padding-left: 1.1em;
+        }
+        
+        ol{
+            box-sizing: border-box;
+            width: 100%;
+            max-width:550px;
+            padding-left: 1.25em;
+        }
+    </style>
+        
+				
+        <script>
+            var AZ = {};
+            AZ.options = {};
+            AZ.root_path = 'biblia';
+                        AZ.cookie_langs = "r";
+            const PREFIX = 'az-bible__';
+            AZ.is_mobile = window.innerWidth < 769;
+
+            AZ.logged_in = false;
+
+            AZ.path = {
+                                'user_add_bookmark': '/biblia/personal/add-bookmark',
+                                'user_delete_bookmark': '/biblia/personal/delete-bookmark',
+                                'user_add_favorite': '/biblia/personal/add-favorite',
+                                'user_delete_favorite': '/biblia/personal/delete-favorite',
+                                'user_favorites': '/biblia/personal/favorites',
+                                'app_login': '/biblia/login',
+                                'app_login_ajax': '/biblia/login-ajax',
+                                'front.search': '/biblia/search',
+                				'external_link_book':'/biblia/book/:slug',
+            }
+
+            AZ.popup_on_close = {};
+
+            AZ.options['confirm_bookmark_remove'] = true;
+            AZ.options['confirm_fav_remove'] = true;	//todo: load from user options
+            AZ.options['confirm_note_remove'] = true;
+
+            AZ.user_tags = [""];
+
+            
+			AZ.trans = {
+				                'settings.hide_verse_numbers_message.hidden': 'Номера стихов скрыты',
+                                'settings.hide_verse_numbers_message.shown': 'Номера стихов показаны',
+                			};
+        </script>
+		
+					<script id="retypos_proc-js-extra">
+				var retypos = {
+					"contextmenu":"0",
+					"container":".book-layout",
+					"correctTypo":"correctTypo.php"
+				};
+			</script>
+				
+		<script src="/biblia/assets/js/base-head.js?v=4.4"></script>
+		
+				
+        <style>
+                                    .color-swatch[data-id="0"] {
+                background-color: #3a3a3a !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="0"] {
+                color: #3a3a3a;
+            }
+
+            .tbl-content .verse[data-fav-color="0"] {
+                text-decoration-color: #3a3a3a !important;
+				}
+
+                        .color-swatch[data-id="1"] {
+                background-color: #ccc !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="1"] {
+                color: #ccc;
+            }
+
+            .tbl-content .verse[data-fav-color="1"] {
+                text-decoration-color: #ccc !important;
+				}
+
+                        .color-swatch[data-id="2"] {
+                background-color: #700 !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="2"] {
+                color: #700;
+            }
+
+            .tbl-content .verse[data-fav-color="2"] {
+                text-decoration-color: #700 !important;
+				}
+
+                        .color-swatch[data-id="3"] {
+                background-color: #e00 !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="3"] {
+                color: #e00;
+            }
+
+            .tbl-content .verse[data-fav-color="3"] {
+                text-decoration-color: #e00 !important;
+				}
+
+                        .color-swatch[data-id="4"] {
+                background-color: #770 !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="4"] {
+                color: #770;
+            }
+
+            .tbl-content .verse[data-fav-color="4"] {
+                text-decoration-color: #770 !important;
+				}
+
+                        .color-swatch[data-id="5"] {
+                background-color: #088E08 !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="5"] {
+                color: #088E08;
+            }
+
+            .tbl-content .verse[data-fav-color="5"] {
+                text-decoration-color: #088E08 !important;
+				}
+
+                        .color-swatch[data-id="6"] {
+                background-color: #0c0 !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="6"] {
+                color: #0c0;
+            }
+
+            .tbl-content .verse[data-fav-color="6"] {
+                text-decoration-color: #0c0 !important;
+				}
+
+                        .color-swatch[data-id="7"] {
+                background-color: #00c !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="7"] {
+                color: #00c;
+            }
+
+            .tbl-content .verse[data-fav-color="7"] {
+                text-decoration-color: #00c !important;
+				}
+
+                        .color-swatch[data-id="8"] {
+                background-color: #0dd !important;
+            }
+
+            :is(.title-container, .tbl-content, .interpretation) .favorite[data-color="8"] {
+                color: #0dd;
+            }
+
+            .tbl-content .verse[data-fav-color="8"] {
+                text-decoration-color: #0dd !important;
+				}
+
+                    </style>
+
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://azbyka.ru/#organization","name":"Православный портал «Азбука веры»","alternateName":"Азбука веры","url":"https://azbyka.ru/","logo":{"@type":"ImageObject","@id":"https://azbyka.ru/#logo","url":"https://azbyka.ru/wp-content/themes/azbyka-av/assets/images/favicons/android-icon-192x192.png","width":"192","height":"192","caption":"Азбука веры"}}</script>
+    </head>
+
+<body translate="no" class="instruction-page">
+
+<!-- Yandex.Metrika counter -->
+<noscript><div><img src="https://mc.yandex.ru/watch/5565880" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+    <nav id="mobile-nav" role="menubar">
+        <div role="menuitem" data-target="#nav-box" class="link" aria-label="Разделы сайта"><img src="https://azbyka.ru/wp-content/themes/azbyka-av/assets/images/favicons/favicon.svg" alt="" loading="lazy"></div>
+        <div role="menuitem" data-target=".cloud" class="link icon-menu" aria-label="Список книг"></div>
+        <a role="menuitem" class="link icon-info" aria-label="Как читать Библию" href="https://azbyka.ru/10-glavnyh-uslovij-pravilnogo-chtenija-biblii" target="_blank"></a>
+        <a role="menuitem" class="link icon-search" aria-label="Поиск" href="/biblia/search"></a>
+                <a role="menuitem" href="/biblia/login?return_to=%2Fbiblia%2Finstruction.html" data-biblia-login class="link icon-user glow" aria-label="Личный кабинет"></a>
+    </nav>
+
+    <div class="rt-nav desktop-only" role="menu">
+        							<a role="button" class="header__toggle link">
+					<div class="header__toggle__hide" title="Скрыть"><span class="icon-chevron-up"></span></div>
+					<div class="header__toggle__show" title="Список книг"><span class="icon-menu"></span></div>
+				</a>
+										
+<form id="biblia_search" class="form_search fm-speech" action="/biblia/search" method="get" role="search">
+	<span class="icon-help-circle link search-help-icon" title="Между названием книги и главой допустимы точка или пробел. Между главой и стихом также допустим знак препинания ( . , : ; ) или пробел."></span>
+    <input class="inp_search search-form-field" type="search" name="q" id="fld_search" value=""
+           placeholder="Текст или 2Пет.3:9" autocomplete="off" minlength="3" maxlength="200">
+    <input type="hidden" name="lang" value="2">
+    <input type="hidden" name="page" value="1">
+    <input type="hidden" name="search_type" value="0">
+    <div type="button" class="speech search-form-button" aria-label="Голосовой поиск"><span class="icon-mic"></span></div>
+	<div type="button" class="search-operators search-form-button"><span class="icon-plus-circle"></span></div>
+    <button type="submit" class="search-form-button" aria-label="Искать"><span class="icon-search"></span></button>
+</form>						<a role="menuitem" class="link icon-user btn-personal desktop-only glow" title="Личный кабинет" aria-label="Личный кабинет" href="/biblia/login?return_to=%2Fbiblia%2Finstruction.html" data-biblia-login></a>
+			</div>
+
+<main class="main ">
+            <div class="wrap">
+        		<div class="breadcrumbs"><span><a href="https://azbyka.ru/" title="Главная"><span>Азбука веры</span></a></span> » <span><a href="/biblia/"><span>Библия</span></a></span> » <span><span>Вебмастеру</span></span></div>
+															<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Азбука веры","item":"https://azbyka.ru/"},{"@type":"ListItem","position":2,"name":"Библия","item":"https://azbyka.ru/biblia/"},{"@type":"ListItem","position":3,"name":"Вебмастеру"}]}</script>
+        <div class="h1">
+            <h1>Инструкция по подключению скрипта активизации библейских ссылок</h1>
+        </div>
+        <p>Предлагаем вам небольшой скрипт, позволяющий за считаные минуты сделать активными ссылки на Библию на вашем сайте.</p>
+        <p>Если на страницах вашего сайта встречаюся ссылки вида (Ин. 17:3) или (Еф. 1:22-23), то наш скрипт заменит их на активные ссылки вида (<span class='bg_data_title bg_bibrefs' data-title='?title=Jn&chapter=17:3&type=t_verses' title='Евангелие от Иоанна гл. 17:3'><span class='bg_data_tooltip'></span><a href='https://azbyka.ru/biblia/?Jn.17:3' target='_blank'>Ин. 17:3</a></span>) или (<span class='bg_data_title bg_bibrefs' data-title='?title=Eph&chapter=1:22-23&type=t_verses' title='Послание апостола Павла к Ефесянам гл. 1:22-23'><span class='bg_data_tooltip'></span><a href='https://azbyka.ru/biblia/?Eph.1:22-23' target='_blank'>Еф. 1:22-23</a></span>).
+        <br>При помощи этих ссылок посетитель вашего сайта сможет открыть и изучить те фрагменты из Священного Писания, на которые ссылается автор.
+        </p>
+        <h2>Возможности скрипта:</h2>
+        <ul style="text-align:left">
+            <li>Скрипт определяет и обрабатывает ссылки вида: (Ин. 1), (Ин. 1:4), (Ин. 1:4-6), (Ин. 1:4,10), (Ин. 1:4,10,12)</li>
+            <li>Поддерживаются различные варианты написания сокращений: Мф., Мат., Матф. и т.д.</li>
+            <li>Все книги Ветхого и Нового Заветов</li>
+            <li>Размер скрипта всего 14Кб (62Кб для JS-версии), он вызывается после загрузки страницы без существенного влияния на скорость загрузки сайта.</li>
+        </ul>
+        <ol>
+            <li><a href="#wp">Плагин для CMS Wordpress</a></li>
+            <li><a href="#js">Javascript версия, подойдет для установки на любом сайте</a></li>
+        </ol>
+        
+        <div class="vignette"></div>
+
+        <h2><a id="wp"></a>Плагин для CMS Wordpress</h2>
+        <p>Если Ваш сайт работает на CMS Wordpress, Вы можете установить плагин, который автоматически активизирует библейские ссылки в статьях Вашего сайта. Этот плагин был разработан нашим читателем <a href="http://bogaiskov.ru/" target="_blank">Вадимом Богайсковым</a>:</p>
+        <p><strong>Чтобы установить плагин:</strong></p>
+        <ol style="text-align:left;">
+        <li>Скачайте архив с плагином</li>
+        <li>В админке WordPress выберите пункт <strong>Плагины</strong>/<strong>Добавить новый</strong>/<strong>Загрузить</strong> и <strong>Выберите файл архива на Вашем диске</strong></li>
+        <li>Нажмите кнопку <strong>Установить</strong> и затем активируйте плагин.</li>
+        </ol>
+        <p>Скачать плагин можно из официального <a href="https://github.com/VBog/Bg-Bible-References/">GitHub-репозитория</a>.</p>
+        <p>Более подробное описание плагина на официальном сайте <a target="_blank" href="https://wp-bible.info/">wp-bible.info</a>.</p>
+		<p><a href="https://wp-bible.info/contact/">Форма обратной связи</a> для вопросов и предложений по работе плагина.</p>
+       
+        <a id="js"></a>
+        <h2>Javascript версия</h2>
+        <p>Для установки скрипта достаточно <a download href="/biblia/downloads/bibrefs.1.1.1.zip">скачать архив</a>, разместить его содержимое на сайте (например в папку /bg_bibrefs) и добавить скрипт в коде страницы</p>
+        <pre>
+        < script src="/bg_bibrefs/bg_bibrefs.js"></script></pre>
+
+        <p>В файле bg_bibrefs.js обращение к функции разбора ссылок реализовано с использованием библиотеки jQuery</p>
+        <pre>
+        // Получаем контент, обрабатываем в нем ссылки и возвращаем на место.
+        jQuery.(document).ready(function () {
+            document.body.innerHTML=bible_proc(document.body.innerHTML);
+        });</pre>
+        <p>Вы можете изменить три последние строчки по своему усмотрению</p>
+        
+        <div class="vignette"></div>
+        <p>Будем вам благодарны за комментарии по поводу работы данного скрипта, а также за идеи по его улучшению.</p>
+        <p>Обращайтесь к нам через <a href="https://azbyka.ru/obratnaja-svjaz">форму обратной связи</a></p>
+        <p>С уважением, коллектив портала "Азбука веры"</p>
+    </div>
+                <div class="header">
+    <a role="button" class="btn-close header__close icon-x"></a>
+    <div class="container header-container">
+        <div class="header-content">
+                            <nav id="nav-box">
+	<div class="pre-header-nav">Разделы портала «Азбука&nbsp;веры»</div>
+    <ul id="main-nav">
+        <li class="menu-item"><a href='https://azbyka.ru/'><img class="nav-logo"
+                    src="https://azbyka.ru/wp-content/themes/azbyka-av/assets/images/favicons/favicon.svg"
+                    alt="" loading="lazy"><span class="nav-home-label"> Главная</span></a></li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Гид <i class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/gid'><i class="fa fa-question-circle-o"
+                            aria-hidden="true"></i> Гид по порталу</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/drevo-sajta'><i class="fa fa-sitemap"
+                            aria-hidden="true"></i> Древо портала</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/1/s-chego-nachat'><i class="fa fa-user-plus"
+                            aria-hidden="true"></i> С чего начать</a></li>
+                <li class="menu-item"><a href='https://t.me/AzbykaruBot'><i class="fa fa-search"
+                            aria-hidden="true"></i> TG бот</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Библиотеки <i
+                    class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+				<li class="menu-item"><a href="https://azbyka.ru/otechnik/"><i class="fa fa-files-o" aria-hidden="true"></i> «Отечник»</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/fiction/'><i class="fa fa-copyright"
+                            aria-hidden="true"></i> Художественная литература</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/pravo/'><i class="fa fa-balance-scale"
+                            aria-hidden="true"></i> Церковное право</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/dictionary'><i class="fa fa-graduation-cap"
+                            aria-hidden="true"></i> Энциклопедия</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Календарь <i
+                    class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/days/'><i class="fa fa-calendar"
+                            aria-hidden="true"></i> Церковный календарь</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/days/p-audio-calendar'><i class="fa fa-headphones"
+                            aria-hidden="true"></i> Аудиокалендарь</a></li>
+                <li class="menu-item m-hide"><a href='https://azbyka.ru/extension'><i class="fa fa-chrome"
+                            aria-hidden="true"></i> Расширение Chrome</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Молитва <i
+                    class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/palomnik/'><i class="fa fa-globe"
+                            aria-hidden="true"></i> Азбука паломника</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/kliros/'><i class="fa fa-music"
+                            aria-hidden="true"></i> Азбука певческая</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/worships/'><i class="fa fa-file-text"
+                            aria-hidden="true"></i> Богослужение сегодня</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/chaso-slov/'><i class="fa fa-clock-o"
+                            aria-hidden="true"></i> Молимся по часам</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/molitvoslov/'><i class="fa fa-fire"
+                            aria-hidden="true"></i> Молитвослов</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/bogosluzhenie/'><i class="fa fa-bell"
+                            aria-hidden="true"></i> Переводы Богослужений</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/psalms/'><i class="fa fa-group"
+                            aria-hidden="true"></i> Читаем Псалтирь</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Медиа <i
+                    class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/news'><i class="fa fa-newspaper-o"
+                            aria-hidden="true"></i> Азбука новостей</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/foto/'><i class="fa fa-camera-retro"
+                            aria-hidden="true"></i> Азбука фото</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/audio/'><i class="fa fa-volume-up"
+                            aria-hidden="true"></i> Аудио</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/video/'><i class="fa fa-video-camera"
+                            aria-hidden="true"></i> Видео</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/bozhestvennaja-liturgija'><i class="fa fa-bell"
+                            aria-hidden="true"></i> Литургия</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/audio/radio.html'><i class="fa fa-volume-up"
+                            aria-hidden="true"></i> Радио</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/bogosluzhenie-online'><i class="fa fa-video-camera"
+                            aria-hidden="true"></i> Трансляция из храма</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/parkhomenko/foto/'><i class="fa fa-camera"
+                            aria-hidden="true"></i> Фоторассказы</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/life/'><i class="fa fa-road"
+                            aria-hidden="true"></i> Христианская жизнь</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/social-media'><i class="fa fa-telegram"
+                            aria-hidden="true"></i> Социальные медиа</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Проверь себя <i
+                    class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/quiz/'><i class="fa fa-code-fork"
+                            aria-hidden="true"></i> Квизы</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/crosswords/'><i class="fa fa-pencil"
+                            aria-hidden="true"></i> Кроссворды</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/test/'><i class="fa fa-check-square-o"
+                            aria-hidden="true"></i> Тесты</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/viktorina/'><i class="fa fa-image"
+                            aria-hidden="true"></i> Фотовикторины</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/games/'><i class="fa fa-gamepad"
+                            aria-hidden="true"></i> Игры</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/memo/'><i class="fa fa-refresh"
+                            aria-hidden="true"></i> Учим Писания</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Тематическое <i
+                    class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/death/'><i class="fa fa-cloud-upload"
+                            aria-hidden="true"></i> Азбука бессмертия</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/art/'><i class="fa fa-paint-brush"
+                            aria-hidden="true"></i> Азбука искусства</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/apokalipsis/'><i class="fa fa-font"
+                            aria-hidden="true"></i> Апокалипсис</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/vopros/'><i class="fa fa-question-circle"
+                            aria-hidden="true"></i> Вопросы и ответы</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/ikona/'><i class="fa fa-plus-square"
+                            aria-hidden="true"></i> Иконы</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/katehizacija/'><i class="fa fa-bullhorn"
+                            aria-hidden="true"></i> Катехизация</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/way/'><i class="fa fa-location-arrow"
+                            aria-hidden="true"></i> Мой путь к Богу</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/opros/'><i class="fa fa-bar-chart"
+                            aria-hidden="true"></i> Опросы</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/shemy/'><i class="fa fa-table"
+                            aria-hidden="true"></i> Пособия</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/propovedi/'><i class="fa fa-pencil"
+                            aria-hidden="true"></i> Проповеди</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/sueverie/'><i class="fa fa-street-view"
+                            aria-hidden="true"></i> Суевериям.нет</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/forum/'><i class="fa fa-comments-o"
+                            aria-hidden="true"></i> Форум</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/quotes'><i class="fa fa-bookmark"
+                            aria-hidden="true"></i> Цитаты Св. отцов</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/chinaorthodox/'><i class="fa fa-handshake-o"
+                            aria-hidden="true"></i> 东正教信仰入门</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/japanorthodox/'><i class="fa fa-circle"
+                            aria-hidden="true"></i> 正教の本</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Семья и здоровье <i
+                    class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/znakomstva/'><i class="fa fa-link"
+                            aria-hidden="true"></i> Азбука верности</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/deti/'><i class="fa fa-child"
+                            aria-hidden="true"></i> Азбука воспитания</a></li>
+				<li class="menu-item"><a href='https://azbyka.ru/trezvost/'><i class="fa fa-unlink"
+                            aria-hidden="true"></i> Азбука трезвости</a></li>			
+                <li class="menu-item"><a href='https://azbyka.ru/zdorovie/'><i class="fa fa-medkit"
+                            aria-hidden="true"></i> Азбука здоровья</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/recept/'><i class="fa fa-cutlery"
+                            aria-hidden="true"></i> Азбука рецептов</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/garden/'><i class="fa fa-envira"
+                            aria-hidden="true"></i> Азбука садовода</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/semya/'><i class="fa fa-home"
+                            aria-hidden="true"></i> Азбука супружества</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>                    </div>
+		<div class="cloud"><strong>Ветхий Завет:</strong><span class="book-group book-group-1"><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Gen" data-chapter-count="50" href="https://azbyka.ru/biblia/?Gen.1">Быт.</a><span class="panel fading cloud-chapter-links" data-chapters="1-50"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Ex" data-chapter-count="40" href="https://azbyka.ru/biblia/?Ex.1">Исх.</a><span class="panel fading cloud-chapter-links" data-chapters="1-40"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Lev" data-chapter-count="27" href="https://azbyka.ru/biblia/?Lev.1">Лев.</a><span class="panel fading cloud-chapter-links" data-chapters="1-27"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Num" data-chapter-count="36" href="https://azbyka.ru/biblia/?Num.1">Чис.</a><span class="panel fading cloud-chapter-links" data-chapters="1-36"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Deut" data-chapter-count="34" href="https://azbyka.ru/biblia/?Deut.1">Втор.</a><span class="panel fading cloud-chapter-links" data-chapters="1-34"></span></span></span><span class="book-group book-group-2"><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Nav" data-chapter-count="24" href="https://azbyka.ru/biblia/?Nav.1">Нав.</a><span class="panel fading cloud-chapter-links" data-chapters="1-24"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Judg" data-chapter-count="21" href="https://azbyka.ru/biblia/?Judg.1">Суд.</a><span class="panel fading cloud-chapter-links" data-chapters="1-21"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Rth" data-chapter-count="4" href="https://azbyka.ru/biblia/?Rth.1">Руф.</a><span class="panel fading cloud-chapter-links" data-chapters="1-4"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--1Sam" data-chapter-count="31" href="https://azbyka.ru/biblia/?1Sam.1">1Цар.</a><span class="panel fading cloud-chapter-links" data-chapters="1-31"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--2Sam" data-chapter-count="24" href="https://azbyka.ru/biblia/?2Sam.1">2Цар.</a><span class="panel fading cloud-chapter-links" data-chapters="1-24"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--1King" data-chapter-count="22" href="https://azbyka.ru/biblia/?1King.1">3Цар.</a><span class="panel fading cloud-chapter-links" data-chapters="1-22"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--2King" data-chapter-count="25" href="https://azbyka.ru/biblia/?2King.1">4Цар.</a><span class="panel fading cloud-chapter-links" data-chapters="1-25"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--1Chron" data-chapter-count="29" href="https://azbyka.ru/biblia/?1Chron.1">1Пар.</a><span class="panel fading cloud-chapter-links" data-chapters="1-29"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--2Chron" data-chapter-count="36" href="https://azbyka.ru/biblia/?2Chron.1">2Пар.</a><span class="panel fading cloud-chapter-links" data-chapters="1-36"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Ezr" data-chapter-count="10" href="https://azbyka.ru/biblia/?Ezr.1">1Ездр.</a><span class="panel fading cloud-chapter-links" data-chapters="1-10"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--2Ezr" data-chapter-count="9" href="https://azbyka.ru/biblia/?2Ezr.1">2Ездр.</a><span class="panel fading cloud-chapter-links" data-chapters="1-9"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Nehem" data-chapter-count="13" href="https://azbyka.ru/biblia/?Nehem.1">Неем.</a><span class="panel fading cloud-chapter-links" data-chapters="1-13"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Tov" data-chapter-count="14" href="https://azbyka.ru/biblia/?Tov.1">Тов.</a><span class="panel fading cloud-chapter-links" data-chapters="1-14"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Judf" data-chapter-count="16" href="https://azbyka.ru/biblia/?Judf.1">Иудиф.</a><span class="panel fading cloud-chapter-links" data-chapters="1-16"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Est" data-chapter-count="10" href="https://azbyka.ru/biblia/?Est.1">Есф.</a><span class="panel fading cloud-chapter-links" data-chapters="1-10"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--1Mac" data-chapter-count="16" href="https://azbyka.ru/biblia/?1Mac.1">1Мак.</a><span class="panel fading cloud-chapter-links" data-chapters="1-16"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--2Mac" data-chapter-count="15" href="https://azbyka.ru/biblia/?2Mac.1">2Мак.</a><span class="panel fading cloud-chapter-links" data-chapters="1-15"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--3Mac" data-chapter-count="7" href="https://azbyka.ru/biblia/?3Mac.1">3Мак.</a><span class="panel fading cloud-chapter-links" data-chapters="1-7"></span></span></span><span class="book-group book-group-3"><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Job" data-chapter-count="42" href="https://azbyka.ru/biblia/?Job.1">Иов.</a><span class="panel fading cloud-chapter-links" data-chapters="1-42"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Ps" data-chapter-count="151" href="https://azbyka.ru/biblia/?Ps.1">Пс.</a><span class="panel fading cloud-chapter-links" data-chapters="1-151"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Prov" data-chapter-count="31" href="https://azbyka.ru/biblia/?Prov.1">Притч.</a><span class="panel fading cloud-chapter-links" data-chapters="1-31"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Eccl" data-chapter-count="12" href="https://azbyka.ru/biblia/?Eccl.1">Еккл.</a><span class="panel fading cloud-chapter-links" data-chapters="1-12"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Song" data-chapter-count="8" href="https://azbyka.ru/biblia/?Song.1">Песн.</a><span class="panel fading cloud-chapter-links" data-chapters="1-8"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Solom" data-chapter-count="19" href="https://azbyka.ru/biblia/?Solom.1">Прем.</a><span class="panel fading cloud-chapter-links" data-chapters="1-19"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Sir" data-chapter-count="51" href="https://azbyka.ru/biblia/?Sir.1">Сир.</a><span class="panel fading cloud-chapter-links" data-chapters="1-51"></span></span></span><span class="book-group book-group-4"><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Is" data-chapter-count="66" href="https://azbyka.ru/biblia/?Is.1">Ис.</a><span class="panel fading cloud-chapter-links" data-chapters="1-66"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Jer" data-chapter-count="52" href="https://azbyka.ru/biblia/?Jer.1">Иер.</a><span class="panel fading cloud-chapter-links" data-chapters="1-52"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Lam" data-chapter-count="5" href="https://azbyka.ru/biblia/?Lam.1">Плч.</a><span class="panel fading cloud-chapter-links" data-chapters="1-5"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--pJer" data-chapter-count="1" href="https://azbyka.ru/biblia/?pJer.1">ПослИер.</a><span class="panel fading cloud-chapter-links" data-chapters="1"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Bar" data-chapter-count="5" href="https://azbyka.ru/biblia/?Bar.1">Вар.</a><span class="panel fading cloud-chapter-links" data-chapters="1-5"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Ezek" data-chapter-count="48" href="https://azbyka.ru/biblia/?Ezek.1">Иез.</a><span class="panel fading cloud-chapter-links" data-chapters="1-48"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Dan" data-chapter-count="14" href="https://azbyka.ru/biblia/?Dan.1">Дан.</a><span class="panel fading cloud-chapter-links" data-chapters="1-14"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Hos" data-chapter-count="14" href="https://azbyka.ru/biblia/?Hos.1">Ос.</a><span class="panel fading cloud-chapter-links" data-chapters="1-14"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Joel" data-chapter-count="3" href="https://azbyka.ru/biblia/?Joel.1">Иоил.</a><span class="panel fading cloud-chapter-links" data-chapters="1-3"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Am" data-chapter-count="9" href="https://azbyka.ru/biblia/?Am.1">Ам.</a><span class="panel fading cloud-chapter-links" data-chapters="1-9"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Avd" data-chapter-count="1" href="https://azbyka.ru/biblia/?Avd.1">Авд.</a><span class="panel fading cloud-chapter-links" data-chapters="1"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Jona" data-chapter-count="4" href="https://azbyka.ru/biblia/?Jona.1">Ион.</a><span class="panel fading cloud-chapter-links" data-chapters="1-4"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Mic" data-chapter-count="7" href="https://azbyka.ru/biblia/?Mic.1">Мих.</a><span class="panel fading cloud-chapter-links" data-chapters="1-7"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Naum" data-chapter-count="3" href="https://azbyka.ru/biblia/?Naum.1">Наум.</a><span class="panel fading cloud-chapter-links" data-chapters="1-3"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Habak" data-chapter-count="3" href="https://azbyka.ru/biblia/?Habak.1">Авв.</a><span class="panel fading cloud-chapter-links" data-chapters="1-3"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Sofon" data-chapter-count="3" href="https://azbyka.ru/biblia/?Sofon.1">Соф.</a><span class="panel fading cloud-chapter-links" data-chapters="1-3"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Hag" data-chapter-count="2" href="https://azbyka.ru/biblia/?Hag.1">Аг.</a><span class="panel fading cloud-chapter-links" data-chapters="1-2"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Zah" data-chapter-count="14" href="https://azbyka.ru/biblia/?Zah.1">Зах.</a><span class="panel fading cloud-chapter-links" data-chapters="1-14"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Mal" data-chapter-count="4" href="https://azbyka.ru/biblia/?Mal.1">Мал.</a><span class="panel fading cloud-chapter-links" data-chapters="1-4"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--3Ezr" data-chapter-count="16" href="https://azbyka.ru/biblia/?3Ezr.1">3Ездр.</a><span class="panel fading cloud-chapter-links" data-chapters="1-16"></span></span></span><hr><strong>Новый Завет:</strong><span class="book-group book-group-6"><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Mt" data-chapter-count="28" href="https://azbyka.ru/biblia/?Mt.1">Мф.</a><span class="panel fading cloud-chapter-links" data-chapters="1-28"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Mk" data-chapter-count="16" href="https://azbyka.ru/biblia/?Mk.1">Мк.</a><span class="panel fading cloud-chapter-links" data-chapters="1-16"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Lk" data-chapter-count="24" href="https://azbyka.ru/biblia/?Lk.1">Лк.</a><span class="panel fading cloud-chapter-links" data-chapters="1-24"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Jn" data-chapter-count="21" href="https://azbyka.ru/biblia/?Jn.1">Ин.</a><span class="panel fading cloud-chapter-links" data-chapters="1-21"></span></span></span><span class="book-group book-group-7"><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Act" data-chapter-count="28" href="https://azbyka.ru/biblia/?Act.1">Деян.</a><span class="panel fading cloud-chapter-links" data-chapters="1-28"></span></span></span><span class="book-group book-group-8"><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Jac" data-chapter-count="5" href="https://azbyka.ru/biblia/?Jac.1">Иак.</a><span class="panel fading cloud-chapter-links" data-chapters="1-5"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--1Pet" data-chapter-count="5" href="https://azbyka.ru/biblia/?1Pet.1">1Пет.</a><span class="panel fading cloud-chapter-links" data-chapters="1-5"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--2Pet" data-chapter-count="3" href="https://azbyka.ru/biblia/?2Pet.1">2Пет.</a><span class="panel fading cloud-chapter-links" data-chapters="1-3"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--1Jn" data-chapter-count="5" href="https://azbyka.ru/biblia/?1Jn.1">1Ин.</a><span class="panel fading cloud-chapter-links" data-chapters="1-5"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--2Jn" data-chapter-count="1" href="https://azbyka.ru/biblia/?2Jn.1">2Ин.</a><span class="panel fading cloud-chapter-links" data-chapters="1"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--3Jn" data-chapter-count="1" href="https://azbyka.ru/biblia/?3Jn.1">3Ин.</a><span class="panel fading cloud-chapter-links" data-chapters="1"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Juda" data-chapter-count="1" href="https://azbyka.ru/biblia/?Juda.1">Иуд.</a><span class="panel fading cloud-chapter-links" data-chapters="1"></span></span></span><span class="book-group book-group-9"><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Rom" data-chapter-count="16" href="https://azbyka.ru/biblia/?Rom.1">Рим.</a><span class="panel fading cloud-chapter-links" data-chapters="1-16"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--1Cor" data-chapter-count="16" href="https://azbyka.ru/biblia/?1Cor.1">1Кор.</a><span class="panel fading cloud-chapter-links" data-chapters="1-16"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--2Cor" data-chapter-count="13" href="https://azbyka.ru/biblia/?2Cor.1">2Кор.</a><span class="panel fading cloud-chapter-links" data-chapters="1-13"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Gal" data-chapter-count="6" href="https://azbyka.ru/biblia/?Gal.1">Гал.</a><span class="panel fading cloud-chapter-links" data-chapters="1-6"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Eph" data-chapter-count="6" href="https://azbyka.ru/biblia/?Eph.1">Еф.</a><span class="panel fading cloud-chapter-links" data-chapters="1-6"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Phil" data-chapter-count="4" href="https://azbyka.ru/biblia/?Phil.1">Флп.</a><span class="panel fading cloud-chapter-links" data-chapters="1-4"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Col" data-chapter-count="4" href="https://azbyka.ru/biblia/?Col.1">Кол.</a><span class="panel fading cloud-chapter-links" data-chapters="1-4"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--1Thes" data-chapter-count="5" href="https://azbyka.ru/biblia/?1Thes.1">1Фес.</a><span class="panel fading cloud-chapter-links" data-chapters="1-5"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--2Thes" data-chapter-count="3" href="https://azbyka.ru/biblia/?2Thes.1">2Фес.</a><span class="panel fading cloud-chapter-links" data-chapters="1-3"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--1Tim" data-chapter-count="6" href="https://azbyka.ru/biblia/?1Tim.1">1Тим.</a><span class="panel fading cloud-chapter-links" data-chapters="1-6"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--2Tim" data-chapter-count="4" href="https://azbyka.ru/biblia/?2Tim.1">2Тим.</a><span class="panel fading cloud-chapter-links" data-chapters="1-4"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Tit" data-chapter-count="3" href="https://azbyka.ru/biblia/?Tit.1">Тит.</a><span class="panel fading cloud-chapter-links" data-chapters="1-3"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Phlm" data-chapter-count="1" href="https://azbyka.ru/biblia/?Phlm.1">Флм.</a><span class="panel fading cloud-chapter-links" data-chapters="1"></span></span><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Hebr" data-chapter-count="13" href="https://azbyka.ru/biblia/?Hebr.1">Евр.</a><span class="panel fading cloud-chapter-links" data-chapters="1-13"></span></span></span><span class="book-group book-group-10"><span class="cloud-book-wrap hover-active"><a class="cloud-book book--Apok" data-chapter-count="22" href="https://azbyka.ru/biblia/?Apok.1">Откр.</a><span class="panel fading cloud-chapter-links" data-chapters="1-22"></span></span></span></div>    </div>
+</div></main>
+
+    <nav class="rb-nav" role="menu">
+        			<div role="menuitem" class="link icon-chevron-down btn-hide" title="Спрятать/Показать" data-hover-delay="5"></div>
+			<a role="menuitem" class="link icon-info btn-bible-info desktop-only" title="Как читать Библию" target="_blank"
+               href="https://azbyka.ru/10-glavnyh-uslovij-pravilnogo-chtenija-biblii"></a>
+            <div role="menuitem" class="link icon-settings btn-settings" title="Настройки"></div>
+            <a role="menuitem" id="totop" href="#top" aria-label="Наверх" class="link icon-arrow-up invert"></a>
+            </nav>
+
+<div class="footer">
+	<div class="container footer-container widget">
+		<span class="footer-collapse-btn"><span class="footer-collapse-btn-close">✕</span><span class="footer-collapse-btn-open icon-chevron-right"></span></span>
+		<div class="footer-list-wrap">
+			<ul class="footer-list">
+				<li><a href="https://azbyka.ru/bibliya">О Библии</a></li>
+				<li><a href="https://azbyka.ru/o-perevodah-biblii">О переводах Библии</a></li>
+				<li><a href="/biblia/o-biblii-av">Об этой программе</a></li>
+				<li><a href="https://azbyka.ru/otechnik/Biblia/">Толкования Библии</a></li>
+			</ul>
+			<ul class="footer-list">
+				<li><a href="https://azbyka.ru/biblia/biblia-za-god">Библия за год</a></li>
+				<li><a href="https://azbyka.ru/biblia/novyj-zavet-4-raza-v-god">Новый Завет 4 раза за год</a></li>
+			</ul>
+			<ul class="footer-list">
+					<li><a href="https://azbyka.ru/shemy/1/bibleistika">Схемы и пособия</a></li>
+					<li><a href="https://azbyka.ru/biblia/soglasovanie-chetyreh-evangelij">Согласование 4-х Евангелий</a></li>
+					<li><a href="https://azbyka.ru/memo">Учим Писания</a></li>
+					<li><a href="https://azbyka.ru/audio/1/svyashhennoe-pisanie">Аудиобиблия</a></li>
+					<li><a href="https://azbyka.ru/biblia/detskaja-biblia">Детская Библия</a></li>
+					<li><a href="https://azbyka.ru/test/category/svyashchennoe-pisanie-bibliya">Библейские тесты</a></li>
+					<li><a href="https://azbyka.ru/crosswords/1/biblejskie-krossvordy">Библейские кроссворды</a></li>
+					<li><a href="https://azbyka.ru/viktorina/1/svjashhennoe-pisanie">Фотовикторины</a></li>
+			</ul>
+			<ul class="footer-list">
+				<li><a href="/days/">Св. Писание в Календаре</a></li>
+				<li><a href="https://azbyka.ru/otechnik/Pravoslavnoe_Bogosluzhenie/evangelie-bogosluzebnoe-na-cerkovnoslavanskom-azyke/">Богослужебное Евангелие</a></li>
+				<li><a href="https://azbyka.ru/vopros/questions/categories/bibliya/">Вопросы и ответы о Библии</a></li>
+			</ul>
+			<ul class="footer-list">
+				<li><a href="https://azbyka.ru/biblia/slova-iisusa-hrista">Слова Иисуса Христа</a></li>
+				<li><a href="https://azbyka.ru/kratkoe-soderzhanie-biblii">Краткое содержание Библии</a></li>
+			</ul>
+			<ul class="footer-list">
+				<li><a href="/biblia/podstrochnik">Греческий подстрочник</a></li>
+				<li>Синодальный перевод:</span><br>
+					<a rel="nofollow" href="/biblia/downloads/bibliya.fb2" class="download" download>fb2</a>
+					<a rel="nofollow" href="/biblia/downloads/bibliya.pdf" class="download" download> · pdf</a>
+					<a rel="nofollow" href="/biblia/downloads/bibliya.doc" class="download" download> · doc</a>
+					<a rel="nofollow" href="/biblia/downloads/nz.pdf" class="download" download>· pdf (НЗ)</a>
+				</li>
+				<li>
+					Библия на цся:</span>
+					<a title="PDF – кроссплатформенный формат электронных документов. Для просмотра можно использовать официальную бесплатную программу Adobe Reader, а также программы сторонних разработчиков. Документ в этом формате позволяет распечатать труд на принтере целиком."
+					rel="nofollow" href="/biblia/downloads/tsya.pdf" class="download" download><span
+					class="masha_index masha_index94" rel="94"></span>pdf</a>
+				</li>
+				<li><a href="https://t.me/azbible">Канал: t.me/azbible</a></li>
+				<li><a href="https://azbyka.ru/ssylki-na-bibliju">Ссылки на Библию</a></li>
+				<li><a href="/biblia/instruction.html">Вебмастеру</a></li>
+			</ul>
+		</div>
+		<!--noindex-->
+		<div class="footer__feedback-layer">
+			<div class="feedback">
+				<a href="//azbyka.ru/kak-pomoch" class="help-btn">Пожертвовать</a>
+				<div class="retypos-banner" title="Если заметили ошибку, выделите текст и нажмите кнопку &#039;Сообщить об ошибке&#039; или Ctrl+Enter.">Ошибка? Выделение + кнопка!</div>
+				<a title="Написать в редакцию" href="https://azbyka.ru/obratnaja-svjaz" class="feedback-link"><span class="icon-mail"></span></a>
+				<span class="abc-counter footer-stat" data-project="biblia" data-type-1="" data-id-1="" data-type-2="" data-id-2="">
+					<i title="Сейчас читают" class="icon-user"></i>&nbsp;<span class="abc-counter-now"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="container footer-container bquote-wrap">
+		<p class=widget-title>Цитата из Библии</p>
+		<div class=widget>
+		…Если преступлением одного подверглись смерти многие, то тем более благодать Божия и дар по благодати одного Человека, Иисуса Христа, преизбыточествуют для многих (<span class='bg_data_title bg_bibrefs' data-title='?title=Rom&chapter=5:15&type=t_verses&lang=ru' title='Послание апостола Павла к Римлянам гл. 5:15'><span class='bg_data_tooltip'></span><a href='https://azbyka.ru/biblia/?Rom.5:15' target='_self'>Рим.5:15</a></span>).
+		</div>
+	</div>
+</div>
+<script src="/biblia/node_modules/jquery/dist/jquery.min.js"></script>
+<script>window.$ = jQuery;</script>
+<script src="/biblia/assets/js/anti-translate.js"></script>
+
+<div class="settings-wrap popup-wrap">
+    <form class="settings popup">
+        <span class="btn-close icon-x"></span>
+        <p class="title">Настройки</p>
+        <label class="select-wrap">
+            Шрифт <select name="--content-font">
+                <option class="default" value="Tahoma, Geneva, Verdana, sans-serif">Без засечек (sans-serif)</option>
+                <option value="Times New Roman, Bookman, Garamond, sans">C засечками (sans)</option>
+                <option value="Courier, mono">Моноширинный (monospaced)</option>
+                <option value="Roboto Condensed">Сжатый (condensed)</option>
+                <option value="Caveat">Рукописный (script)</option>
+                <option value="IBM Plex Serif">IBM Plex Serif</option>
+                <option value="Vollkorn">Vollkorn</option>
+                <option value="Oranienbaum">Oranienbaum</option>
+            </select>
+        </label>
+        <label class="select-wrap">
+            Размер <select name="font-size">
+                <option value="12.667px">12px</option>
+				<option value="13.667px">13px</option>
+				<option value="14.667px">14px</option>
+				<option value="15.667px">15px</option>
+				<option class="default" value="16.667px">16px</option>
+                <option value="17.667px">17px</option>
+                <option value="18.667px">18px</option>
+                <option value="19.667px">19px</option>
+                <option value="20.667px">20px</option>
+                <option value="21.667px">21px</option>
+                <option value="22.667px">22px</option>
+                <option value="23.667px">23px</option>
+                <option value="24.667px">24px</option>
+                <option value="25.667px">25px</option>
+                <option value="26.667px">26px</option>
+                <option value="27.667px">27px</option>
+                <option value="28.667px">28px</option>
+                <option value="29.667px">29px</option>
+                <option value="30.667px">30px</option>
+                <option value="31.667px">31px</option>
+                <option value="32.667px">32px</option>
+            </select>
+        </label>
+        <label><input name="text-bold" type="checkbox"> Жирный текст</label>
+		<label><input name="text-justify" type="checkbox"> Текст по ширине</label>
+		<label><input name="no-hyphens" type="checkbox" class="inverse-checkbox"> Переносы</label>
+        
+		<hr>
+		
+        <label class="select-wrap">
+            Фон <select name="background">
+                <option class="default" value="">Бежевый</option>
+                <option value="#ddd">Серый</option>
+                <option value="#fff">Белый</option>
+				<option value="#000">Тёмный</option>
+            </select>
+        </label>
+		<label><input name="highlight-columns" type="checkbox"> Цветные колонки</label>
+		<label><input name="unhighlight-direct-speech" type="checkbox" class="inverse-checkbox"> Прямая речь курсивом</label>
+		<label class="select-wrap">
+            Слова Христа <select name="--christ-speech-color">
+                <option class="default" value="inherit">Не выделять цветом</option>
+                <option value="var(--text-red)">Красные</option>
+				<option value="var(--text-green)">Зелёные</option>
+				<option value="var(--text-blue)">Синие</option>
+            </select>
+        </label>
+	
+		<hr>
+		
+		<label class="desktop-only select-wrap">
+            Колонки <select name="--col-width">
+                <option value="25em">Узкая</option>
+                <option value="35em">Средняя</option>
+                <option class="default" value="45em">Широкая</option>
+                <option value="auto">Адаптивная</option>
+            </select>
+        </label>
+		<label><input name="hide-verse-numbers" type="checkbox"> Скрыть номера стихов</label>
+        <label><input name="hide-verse-checkbox" type="checkbox"> Скрыть галочки выбора стихов</label>
+		
+		<hr>
+	
+		<label><input name="not-auto-bookmark" class="inverse-checkbox" type="checkbox"> Сохранять закладку при выходе</label>
+		<label><input name="verse-number-copy" type="checkbox"> Копировать номер каждого стиха</label>
+		<label><input name="verse-line-break-copy" type="checkbox"> Копировать с переносами</label>
+		<label><input name="verse-quotes-copy" type="checkbox"> Копировать с кавычками</label>
+		
+		<hr>
+		
+		<label class="select-wrap">
+            Нижнее меню <select name="bottom-hide-speed">
+                <option value="600">Показывать 0,6 сек</option>
+                <option value="1000">Показывать 1 сек</option>
+				<option value="1500">Показывать 1,5 сек</option>
+                <option class="default" value="2000">Показывать 2 сек</option>
+                <option value="2500">Показывать 2,5 сек</option>
+				<option value="5000">Показывать 5 сек</option>
+				<option value="10000">Показывать 10 сек</option>
+				<option value="never">Показывать всегда</option>
+            </select>
+        </label>
+		
+		<div class="select-wrap desktop-only">
+			Нижняя панель
+			<div class="flex-row">
+				<label><input name="floating-bottom-panel" type="checkbox"> Прятать</label>
+				<label><input name="multiline-nav" class="inverse-checkbox" type="checkbox"> Компактная</label>
+			</div>
+		</div>
+		
+		<hr>
+		
+        <label class="settings-reset link">Сброс настроек</label>
+    </form>
+</div>
+<script>
+    (function(){
+        let sngs = $('.settings-wrap');
+
+        $('input, select', sngs).change( function(e) {
+            if(this.type === 'checkbox'){
+                let val = this.classList.contains('inverse-checkbox') ? ( !this.checked ) : this.checked;
+                lsSet(this.name, val ? 'true' : 'false');
+            }else
+                lsSet(this.name, this.value);
+            applySettings();
+        });
+
+        //reset
+        $('.settings-reset', sngs).click( e => {
+            $('html').removeAttr('class').removeAttr('style');
+            $('input, select', sngs).each((i,el) => { localStorage.removeItem(PREFIX + el.name); });
+            applySettings();
+        });
+
+        $('.btn-settings').click( e => {
+            sngs.toggleClass('active');
+        });
+
+        applySettings(true);
+    })();
+</script>
+<script defer src="/biblia/assets/js/reconnecting-websocket.min.js"></script>
+<script defer src="/biblia/assets/js/statistics.js?v=1.0.1"></script>
+<!--[if lte IE 8]>
+<script>window.location.href = '//azbyka.ru/design/noie.htm';</script><![endif]-->
+<script defer src="/biblia/assets/js/defer.js?v=5"></script>
+<script src="/biblia/assets/js/search.js?v=1.3"></script>
+<script src="/biblia/assets/js/search-operators.js"></script>
+<script src="/biblia/assets/js/base.js?v=4.4"></script>
+
+<script defer src="/biblia/assets/js/book-tools.js?v=4.4"></script>
+<script src="/biblia/assets/js/az-hover.js?v=4.4"></script>
+<script src="/biblia/assets/js/tooltip.js?v=4.4"></script>
+<script src="/biblia/assets/js/top-menu.js?v=4.4"></script>
+<script defer src="/biblia/assets/js/retypos.js?v=1"></script>
+
+<div id="notification_container"></div>
+<template id="notification_template">
+	<div class="notification panel" aria-label="Уведомление">
+	</div>
+</template>
+
+<div id="modal" class="modal popup-wrap" tabindex="-1" role="dialog" aria-label="Диалоговое окно">
+    <div class="modal-dialog popup" role="document">
+        <div class="modal-content"></div>
+    </div>
+</div>
+
+<div id="alert_popup" class="popup-wrap text-center" tabindex="-1" role="dialog" aria-label="Окно с сообщением">
+    <div class="popup" role="document">
+		<p class="title">Ошибка!</p>
+		<p>
+			<button type="button" class="btn-ok" data-label="Хорошо">Хорошо</button>
+		</p>
+	</div>
+</div>
+
+<div id="confirm_popup" class="popup-wrap text-center" tabindex="-1" role="dialog" aria-label="Окно подтверждения">
+    <div class="popup" role="document">
+		<p class="title">Подтверждаете?</p>
+		<p>
+			<button id="confirm_true" type="button" class="btn-ok" aria-label="Да">Да</button>
+			<button id="confirm_false" type="button" class="btn-cancel" aria-label="Нет">Нет</button>
+		</p>
+	</div>
+</div>
+
+<div id="please_register_popup" class="popup-wrap text-center" tabindex="-1" role="dialog" aria-label="Окно подтверждения">
+    <div class="popup" role="document">
+		<span class="btn-close icon-x" aria-label="Закрыть"></span>
+		<p class="title">Требуется регистрация</p>
+		<p>Данная возможность доступна только для зарегистрированных пользователей</p>
+		<p>
+			<a href="/biblia/login?return_to=%2Fbiblia%2Finstruction.html" data-biblia-login><button type="button" class="btn-ok" aria-label="Вход">Вход</button></a>
+			<a href="//azbyka.ru/auth/personal/register"><button type="button" class="btn-cancel" aria-label="Регистрация">Регистрация</button></a>
+		</p>
+	</div>
+</div>
+
+<div id="add_fav_popup" class="popup-wrap" tabindex="-1" role="dialog" aria-label="Окно добавления в избранное">
+    <div class="popup" role="document">
+		<a href="/biblia/personal/favorites" class="btn-personal icon-user" aria-label="Личный кабинет"></a>
+		<span class="btn-close icon-x" aria-label="Закрыть"></span>
+		<p class="title">В избранное</p>
+		<p class="text"></p>
+		<hr>
+		<p id="add_fav_colors">
+			<span class="sub-title">Цвет:</span>
+							<span class="color-swatch fav-bg-0" data-id="0"> </span>
+							<span class="color-swatch fav-bg-1" data-id="1"> </span>
+							<span class="color-swatch fav-bg-2" data-id="2"> </span>
+							<span class="color-swatch fav-bg-3" data-id="3"> </span>
+							<span class="color-swatch fav-bg-4" data-id="4"> </span>
+							<span class="color-swatch fav-bg-5" data-id="5"> </span>
+							<span class="color-swatch fav-bg-6" data-id="6"> </span>
+							<span class="color-swatch fav-bg-7" data-id="7"> </span>
+							<span class="color-swatch fav-bg-8" data-id="8"> </span>
+					</p>
+		<hr>
+		<p class="sub-title">Метки :</p>
+		<p id="add_fav_tag_container" class="tag-container tag-scroller" data-empty-label="(меток нет)"></p>
+		<p class="tag-input-wrap">
+			<input id="add_fav_tag_input" type="text" class="tag-input" placeholder="Введите метки (через пробел)" list="suggestions">
+			<datalist id="suggestions">
+							</datalist>
+		</p>
+		<hr>
+		<textarea name="fav-content" id="fav_content" cols="30" rows="5" aria-label="Комментарий" placeholder="Комментарий" class="add-fav-comment"></textarea>
+		<div class="popup-footer">
+			<button class="fav-remove btn-cancel" data-label="Удалить"><span class="icon-x"></span> Удалить</button>
+			<button id="add_fav_save" type="button" data-disabled="false" class="btn-ok btn-filled" data-label="Сохранить">Сохранить</button>
+		</div>
+	</div>
+</div>
+
+<style>
+	.promo-banner-wrap{
+			display:none;
+			position:fixed;
+			left:0;
+			bottom:1.5rem;
+			width: 100%;
+			z-index:15;
+			transform:translateX(-101%);
+			transition: transform .5s ease;
+		}
+		.promo-banner-wrap.active{
+			transform:translateX(0);
+		}
+		
+		.promo-banner{
+			background: var(--widget-bg);
+			padding:.25em 2em .3em 1.5em;
+			box-shadow: 0px 0px 10px -4px #3a3a3a3a;
+			text-align:center;
+			position:relative;
+		}
+		
+		.promo-banner .btn-close{
+			font-size: 1.25em;
+			cursor:pointer; margin-left:1em;
+			position: absolute;
+			top:0;
+			right:0;
+			padding: .12em;
+		}
+		@media(min-width: 921px){
+			.promo-banner-wrap{
+				top:100px;
+				bottom:unset;
+				max-width: 250px;
+			}
+			.promo-banner{
+				width: 100%;
+				padding:.75em 2em .75em 1.5em;
+				border-radius: 0 .5em .5em 0;
+				box-shadow: 4px 4px 10px -4px #3a3a3a3a;
+			}
+			.promo-banner .btn-close{
+				font-size: 1.25em;
+				padding:.5em;
+			}
+		}
+</style>
+<div class="promo-banner-wrap">
+	<div class="promo-banner"><a href="https://azbyka.ru/social-media#azbible" target="_blank">Цитата из Библии каждое утро</a><span class="btn-close">✕</span></div>
+</div>
+<script>
+	const PROMO_ID = 'bib-promo-telegram-2'; //изменить при смене баннера
+	jQuery($=>{
+		if(window.innerWidth >= 1440) return; //не показываем на десктопах
+	
+		let ctime = new Date().getTime();
+		let pid = localStorage.getItem(PROMO_ID);
+		console.log(PROMO_ID, pid);
+		if(pid=='hide'){
+			localStorage.setItem(PROMO_ID, ctime);
+			pid=false;
+		}
+		if(!pid){ // || ctime > (pid + 14*86400000) //не показывать 14 дней
+			//let removeEvents = 'mousewheel touchstart';
+			let pbw = $('.promo-banner-wrap').show();
+			setTimeout(()=>{
+				pbw.addClass('active');
+			}, 100);
+			let removeBanner = ()=>{
+				pbw.removeClass('active');
+				localStorage.setItem(PROMO_ID,ctime);
+				//$(document).off(removeEvents, removeBanner);
+			}
+			$('.promo-banner .btn-close').click(removeBanner);
+			//$(document).on(removeEvents, removeBanner);
+		}
+	});
+</script>	
+	<template id="favorite_template">
+		<span class="favorite no-fav"
+	data-id=""
+	data-color = ""
+	
+>
+	<span class="tag-container"></span>
+	<span class="comment"></span>
+	<span class="controls">
+		<span class="icon-star fav-edit"></span>
+	</span>
+</span>	</template>
+
+</body>
+</html>

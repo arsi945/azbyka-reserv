@@ -1,0 +1,235 @@
+robots.txt и карты сайта…
+  200 text/plain                         18991 https://azbyka.ru/robots.txt
+  200 text/xml; charset=UTF-8              991 https://azbyka.ru/sitemap_index.xml
+  200 text/xml; charset=UTF-8           303134 https://azbyka.ru/post-sitemap1.xml
+  200 text/xml; charset=UTF-8           244099 https://azbyka.ru/post-sitemap2.xml
+  200 text/xml; charset=UTF-8           227778 https://azbyka.ru/post-sitemap3.xml
+  200 text/xml; charset=UTF-8              783 https://azbyka.ru/audio/sitemap_index.xml
+  200 text/xml; charset=UTF-8           146798 https://azbyka.ru/audio/post-sitemap1.xml
+  200 text/xml; charset=UTF-8            24191 https://azbyka.ru/audio/post-sitemap2.xml
+  200 text/xml; charset=UTF-8             1061 https://azbyka.ru/audio/page-sitemap.xml
+  200 text/xml; charset=UTF-8             1636 https://azbyka.ru/art/sitemap_index.xml
+  200 text/xml; charset=UTF-8            54310 https://azbyka.ru/art/post-sitemap1.xml
+  200 text/xml; charset=UTF-8            52121 https://azbyka.ru/art/post-sitemap2.xml
+  200 text/xml; charset=UTF-8            54475 https://azbyka.ru/art/post-sitemap3.xml
+  200 text/xml; charset=UTF-8              681 https://azbyka.ru/apokalipsis/sitemap_index.xml
+  200 text/xml; charset=UTF-8            21218 https://azbyka.ru/apokalipsis/post-sitemap.xml
+  200 text/xml; charset=UTF-8             1336 https://azbyka.ru/apokalipsis/page-sitemap.xml
+  200 text/xml; charset=UTF-8             3218 https://azbyka.ru/apokalipsis/category-sitemap.xml
+  200 text/xml; charset=UTF-8              689 https://azbyka.ru/bogosluzhenie/sitemap_index.xml
+  200 text/xml; charset=UTF-8            63999 https://azbyka.ru/bogosluzhenie/post-sitemap.xml
+  200 text/xml; charset=UTF-8              856 https://azbyka.ru/bogosluzhenie/page-sitemap.xml
+  200 text/xml; charset=UTF-8             2514 https://azbyka.ru/bogosluzhenie/category-sitemap.xml
+  200 text/xml; charset=UTF-8              819 https://azbyka.ru/biblia/sitemap
+  200 text/xml; charset=UTF-8              415 https://azbyka.ru/chaso-slov/sitemap_index.xml
+  200 text/xml; charset=UTF-8             2922 https://azbyka.ru/chaso-slov/page-sitemap.xml
+  200 text/xml; charset=UTF-8              824 https://azbyka.ru/chinaorthodox/sitemap_index.xml
+  200 text/xml; charset=UTF-8            31404 https://azbyka.ru/chinaorthodox/post-sitemap.xml
+  200 text/xml; charset=UTF-8              982 https://azbyka.ru/chinaorthodox/page-sitemap.xml
+  200 text/xml; charset=UTF-8              762 https://azbyka.ru/chinaorthodox/gallery-sitemap.xml
+  200 text/xml; charset=UTF-8              677 https://azbyka.ru/crosswords/sitemap_index.xml
+  200 text/xml; charset=UTF-8            29840 https://azbyka.ru/crosswords/post-sitemap.xml
+  200 text/xml; charset=UTF-8              839 https://azbyka.ru/crosswords/page-sitemap.xml
+  200 text/xml; charset=UTF-8             1609 https://azbyka.ru/crosswords/category-sitemap.xml
+  200 text/xml; charset=UTF-8              778 https://azbyka.ru/deti/sitemap_index.xml
+  200 text/xml; charset=UTF-8           490228 https://azbyka.ru/deti/post-sitemap1.xml
+  200 text/xml; charset=UTF-8           264158 https://azbyka.ru/deti/post-sitemap2.xml
+  200 text/xml; charset=UTF-8             1161 https://azbyka.ru/deti/page-sitemap.xml
+Корни разделов…
+  200 text/html; charset=UTF-8           70674 https://azbyka.ru/
+  200 text/html; charset=UTF-8           67758 https://azbyka.ru/drevo-sajta
+  200 text/html; charset=UTF-8           74713 https://azbyka.ru/sajty-portala
+  200 text/html; charset=UTF-8           69498 https://azbyka.ru/sajty-portala?print=1
+  200 text/html; charset=UTF-8           85940 https://azbyka.ru/gid
+  200 text/html; charset=UTF-8           81030 https://azbyka.ru/gid?print=1
+  200 text/html; charset=UTF-8           89568 https://azbyka.ru/about-all
+  200 text/html; charset=UTF-8           84819 https://azbyka.ru/about-all?print=1
+  200 text/html; charset=UTF-8           98131 https://azbyka.ru/biblia/
+  200 text/html; charset=UTF-8           63906 https://azbyka.ru/biblia/search
+  302 text/html; charset=utf-8               0 https://azbyka.ru/biblia/login?return_to=%2Fbiblia%2F
+  301 text/html                              0 https://azbyka.ru/biblia?utfcs
+  200 text/html; charset=UTF-8           72037 https://azbyka.ru/biblia/instruction.html
+  200 text/html; charset=UTF-8           91685 https://azbyka.ru/biblia/o-biblii-av
+  302 text/html; charset=utf-8               0 https://azbyka.ru/biblia/login?return_to=%2Fbiblia%2Fo-biblii-av
+  302 text/html; charset=utf-8               0 https://azbyka.ru/biblia/personal/favorites
+  200 text/html; charset=UTF-8          677848 https://azbyka.ru/otechnik/
+  302 text/html; charset=utf-8               0 https://azbyka.ru/otechnik/profile
+  302 text/html; charset=utf-8               0 https://azbyka.ru/otechnik/profile/settings
+  200 text/html; charset=UTF-8           99559 https://azbyka.ru/otechnik/6/
+  200 text/html; charset=UTF-8          305942 https://azbyka.ru/otechnik/world/
+  200 text/html; charset=UTF-8           50913 https://azbyka.ru/otechnik/world/the-sign-of-the-last-days-when/
+  200 text/html; charset=UTF-8          262669 https://azbyka.ru/otechnik/serbian/
+  200 text/html; charset=UTF-8           50909 https://azbyka.ru/otechnik/serbian/miroslavlevo-jevandele/
+  200 text/html; charset=UTF-8          360961 https://azbyka.ru/otechnik/Spravochniki/
+  200 text/html; charset=UTF-8          267738 https://azbyka.ru/otechnik/Nikifor/biblejskaja-entsiklopedija/
+  200 text/html; charset=UTF-8          294169 https://azbyka.ru/otechnik/pravila/
+  200 text/html; charset=UTF-8          119641 https://azbyka.ru/otechnik/Valentin_Asmus/dejanija-vselenskih-soborov/
+  200 text/html; charset=UTF-8            3716 https://azbyka.ru/otechnik/book/annotation/30073
+  200 text/html; charset=UTF-8          207081 https://azbyka.ru/fiction/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/fiction/feed/rss/
+  400 text/html                              0 https://azbyka.ru/fiction/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/fiction
+  200 application/rss+xml; charset=U     10799 https://azbyka.ru/fiction/feed/
+  200 text/html; charset=UTF-8          349240 https://azbyka.ru/molitvoslov/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/molitvoslov/feed/rss
+  301 text/html                              0 https://azbyka.ru/molitvoslov/wp-content/themes/azbyka-molitvoslov
+  400 text/html; charset=UTF-8               0 https://azbyka.ru/molitvoslov/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/molitvoslov
+  200 text/html; charset=UTF-8          154030 https://azbyka.ru/worships/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/worships/feed/rss/
+  400 text/html                              0 https://azbyka.ru/worships/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/worships
+  ! https://azbyka.ru/worships/feed/: network read: IncompleteRead(196337 bytes read)
+  200 text/html; charset=UTF-8           68376 https://azbyka.ru/worships/calendar/
+  200 text/html; charset=UTF-8          174115 https://azbyka.ru/oktoix
+  200 application/rss+xml; charset=U      2758 https://azbyka.ru/oktoix/feed
+  200 text/html; charset=UTF-8          168242 https://azbyka.ru/oktoix?print=1
+  200 text/html; charset=UTF-8          132363 https://azbyka.ru/days/
+  200 text/html; charset=UTF-8           81380 https://azbyka.ru/days/sv-iona
+  200 text/html; charset=UTF-8           89490 https://azbyka.ru/days/menology/A
+  200 text/html; charset=UTF-8         6040006 https://azbyka.ru/days/menology/ikons
+  200 text/html; charset=UTF-8          340024 https://azbyka.ru/days/menology/ikons/A
+  200 text/html; charset=UTF-8          325250 https://azbyka.ru/days/menology/ikons/months/1
+  200 text/html; charset=UTF-8           70525 https://azbyka.ru/days/menology/ikons-savior
+  200 text/html; charset=UTF-8           98017 https://azbyka.ru/days/menology/saints-with-ikon
+  200 text/html; charset=UTF-8           97998 https://azbyka.ru/days/menology/saints-with-ikon?page=1
+  200 text/html; charset=UTF-8         1311036 https://azbyka.ru/days/p-audio-calendar
+  200 text/html; charset=UTF-8           70766 https://azbyka.ru/days/api-help
+  200 text/html; charset=UTF-8            3142 https://azbyka.ru/days/widgets/saints?css=1
+  302 text/html; charset=utf-8               0 https://azbyka.ru/days/api/docs.html
+  200 text/html; charset=UTF-8           98614 https://azbyka.ru/pravo/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/pravo/feed/rss/
+  400 text/html                              0 https://azbyka.ru/pravo/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/pravo
+  200 application/rss+xml; charset=U    256111 https://azbyka.ru/pravo/feed/
+  200 text/html; charset=UTF-8          255873 https://azbyka.ru/imeniny
+  200 application/rss+xml; charset=U     12357 https://azbyka.ru/imeniny/feed
+  200 text/html; charset=UTF-8          249891 https://azbyka.ru/imeniny?print=1
+  200 text/html; charset=UTF-8          209646 https://azbyka.ru/quotes/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/quotes/feed/rss/
+  405 text/plain;charset=UTF-8               0 https://azbyka.ru/quotes/xmlrpc.php
+  400 text/html                              0 https://azbyka.ru/quotes/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/quotes
+  200 text/html; charset=UTF-8          196159 https://azbyka.ru/vopros/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/vopros/feed/rss/
+  400 text/html; charset=utf-8               0 https://azbyka.ru/vopros/wp-admin/admin-ajax.php
+  404 text/html; charset=utf-8               0 https://azbyka.ru/vopros/wp-content/plugins/anspress/templates/js-template
+  301 text/html                              0 https://azbyka.ru/vopros
+  200 text/html; charset=UTF-8          108667 https://azbyka.ru/shemy/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/shemy/feed/rss
+  301 text/html                              0 https://azbyka.ru/shemy/wp-content/themes/azbyka-shemy
+  400 text/html                              0 https://azbyka.ru/shemy/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/shemy
+  200 text/html; charset=UTF-8          129533 https://azbyka.ru/shemy/karta-sajta
+  200 text/html; charset=UTF-8          365843 https://azbyka.ru/kliros/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/kliros/feed/rss/
+  400 text/html; charset=UTF-8               0 https://azbyka.ru/kliros/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/kliros
+  200 application/rss+xml; charset=U     19254 https://azbyka.ru/kliros/feed/
+  200 text/html; charset=UTF-8          189341 https://azbyka.ru/audio/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/audio/feed/rss
+  301 text/html                              0 https://azbyka.ru/audio/wp-content/themes/azbyka-audio
+  400 text/html; charset=UTF-8               0 https://azbyka.ru/audio/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/audio
+  200 text/html; charset=UTF-8          141823 https://azbyka.ru/video/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/video/feed/rss/
+  400 text/html                              0 https://azbyka.ru/video/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/video
+  200 application/rss+xml; charset=U   1251934 https://azbyka.ru/video/feed/
+  200 text/html; charset=UTF-8          153199 https://azbyka.ru/video/karta-sajta/
+  200 text/html; charset=UTF-8          107912 https://azbyka.ru/foto/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/foto/feed/rss/
+  400 text/html                              0 https://azbyka.ru/foto/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/foto
+  200 application/rss+xml; charset=U    556177 https://azbyka.ru/foto/feed/
+  200 text/html; charset=UTF-8          162827 https://azbyka.ru/art/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/art/feed/rss/
+  405 text/plain;charset=UTF-8               0 https://azbyka.ru/art/xmlrpc.php
+  400 text/html                              0 https://azbyka.ru/art/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/art
+  200 text/html; charset=UTF-8          184121 https://azbyka.ru/deti/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/deti/feed/rss
+  301 text/html                              0 https://azbyka.ru/deti/wp-content/themes/azbyka-deti
+  400 text/html                              0 https://azbyka.ru/deti/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/deti
+  200 text/html; charset=UTF-8          191372 https://azbyka.ru/recept/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/recept/feed/rss/
+  400 text/html                              0 https://azbyka.ru/recept/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/recept
+  200 application/rss+xml; charset=U     31460 https://azbyka.ru/recept/feed/
+  200 text/html; charset=UTF-8          118877 https://azbyka.ru/palomnik/
+  200 text/css; charset=utf-8           134230 https://azbyka.ru/palomnik/load.php?lang=ru&modules=ext.sidemenu_link%7Cext.smw.style%7Cext.smw.tooltip.styles%7Cext.srf.styles%7Cmediawiki.hlist%7Cmediawiki.page.gallery.styles%7Cmediawiki.ui.button%2Cicon%7Cmobile.init.styles%7Cskins.minerva.base.styles%7Cskins.minerva.content.styles.images%7Cskins.minerva.icons.wikimedia%7Cskins.minerva.mainMenu.icons%2Cstyles%7Cskins.minerva.mainPage.styles&only=styles&skin=minerva
+  200 application/opensearchdescript      1171 https://azbyka.ru/palomnik/opensearch_desc.php
+  302 text/html; charset=UTF-8               0 https://azbyka.ru/palomnik/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A1%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0
+  200 text/html; charset=UTF-8          113520 https://azbyka.ru/palomnik/blogs/o-trudnichestve/
+  200 text/html; charset=UTF-8           76172 https://azbyka.ru/parkhomenko/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/parkhomenko/feed/rss
+  405 text/plain;charset=UTF-8               0 https://azbyka.ru/parkhomenko/xmlrpc.php
+  400 text/html; charset=UTF-8               0 https://azbyka.ru/parkhomenko/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/parkhomenko
+  200 text/html; charset=UTF-8          133113 https://azbyka.ru/test/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/test/feed/rss
+  301 text/html                              0 https://azbyka.ru/test/wp-content/themes/azbyka-test
+  400 text/html                              0 https://azbyka.ru/test/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/test
+  200 text/html; charset=UTF-8          100584 https://azbyka.ru/viktorina/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/viktorina/feed/rss
+  301 text/html                              0 https://azbyka.ru/viktorina/wp-content/themes/azbyka-viktorina
+  400 text/html; charset=UTF-8               0 https://azbyka.ru/viktorina/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/viktorina
+  200 text/html; charset=UTF-8           94315 https://azbyka.ru/news/
+  301 application/rss+xml; charset=U         0 https://azbyka.ru/news/feed/rss
+  301 text/html                              0 https://azbyka.ru/news/wp-content/themes/azbyka-news
+  400 text/html                              0 https://azbyka.ru/news/wp-admin/admin-ajax.php
+  301 text/html                              0 https://azbyka.ru/news
+  200 text/html; charset=UTF-8          183227 https://azbyka.ru/fond/
+  301 text/html                              0 https://azbyka.ru/fond
+  200 text/html; charset=UTF-8          166920 https://azbyka.ru/fond/?s=
+  200 text/html; charset=UTF-8          168006 https://azbyka.ru/fond/author/boris757/
+  200 application/rss+xml; charset=U      7948 https://azbyka.ru/fond/feed/
+  200 text/html; charset=UTF-8           70172 https://azbyka.ru/prilozhenie-moja-pravoslavnaja-biblioteka
+  200 text/html; charset=UTF-8           64705 https://azbyka.ru/prilozhenie-moja-pravoslavnaja-biblioteka?print=1
+  200 text/html; charset=UTF-8           67884 https://azbyka.ru/prilozhenie-pravoslavnyj-kalendar
+  200 text/html; charset=UTF-8           62473 https://azbyka.ru/prilozhenie-pravoslavnyj-kalendar?print=1
+API движков…
+  200 application/json; charset=UTF-    596086 https://azbyka.ru/wp-json/
+  301 text/html; charset=UTF-8               0 https://azbyka.ru/wp-sitemap.xml
+  301 text/html; charset=UTF-8               0 https://azbyka.ru/sitemap.xml
+  200 application/json; charset=UTF-    527773 https://azbyka.ru/audio/wp-json/
+  404 text/html; charset=UTF-8               0 https://azbyka.ru/audio/wp-sitemap.xml
+  301 text/html; charset=UTF-8               0 https://azbyka.ru/audio/sitemap.xml
+  200 application/json; charset=UTF-    471317 https://azbyka.ru/video/wp-json/
+  301 text/html; charset=UTF-8               0 https://azbyka.ru/video/wp-sitemap.xml
+  301 text/html; charset=UTF-8               0 https://azbyka.ru/video/sitemap.xml
+  200 application/json; charset=UTF-    498831 https://azbyka.ru/art/wp-json/
+  404 text/html                              0 https://azbyka.ru/art/wp-sitemap.xml
+  301 text/html; charset=UTF-8               0 https://azbyka.ru/art/sitemap.xml
+  200 application/json; charset=UTF-    512826 https://azbyka.ru/kliros/wp-json/
+  404 text/html; charset=UTF-8               0 https://azbyka.ru/kliros/wp-sitemap.xml
+  301 text/html; charset=UTF-8               0 https://azbyka.ru/kliros/sitemap.xml
+  200 application/json; charset=UTF-    546799 https://azbyka.ru/fiction/wp-json/
+  404 text/html                              0 https://azbyka.ru/fiction/wp-sitemap.xml
+  301 text/html; charset=UTF-8               0 https://azbyka.ru/fiction/sitemap.xml
+  200 application/json; charset=UTF-    483421 https://azbyka.ru/recept/wp-json/
+  404 text/html                              0 https://azbyka.ru/recept/wp-sitemap.xml
+  301 text/html; charset=UTF-8               0 https://azbyka.ru/recept/sitemap.xml
+  200 application/json; charset=UTF-    525842 https://azbyka.ru/deti/wp-json/
+  404 text/html                              0 https://azbyka.ru/deti/wp-sitemap.xml
+  301 text/html; charset=UTF-8               0 https://azbyka.ru/deti/sitemap.xml
+  200 application/json; charset=UTF-    481081 https://azbyka.ru/shemy/wp-json/
+  404 text/html                              0 https://azbyka.ru/shemy/wp-sitemap.xml
+  301 text/html; charset=UTF-8               0 https://azbyka.ru/shemy/sitemap.xml
+  200 application/json; charset=UTF-    488481 https://azbyka.ru/vopros/wp-json/
+  404 text/html; charset=utf-8               0 https://azbyka.ru/vopros/wp-sitemap.xml
+  404 text/html; charset=utf-8               0 https://azbyka.ru/vopros/sitemap.xml
+  200 application/json; charset=UTF-    482982 https://azbyka.ru/foto/wp-json/
+  404 text/html                              0 https://azbyka.ru/foto/wp-sitemap.xml
+  301 text/html; charset=UTF-8               0 https://azbyka.ru/foto/sitemap.xml
+  200 application/json; charset=UTF-    477816 https://azbyka.ru/news/wp-json/
+  404 text/html                              0 https://azbyka.ru/news/wp-sitemap.xml
+  301 text/html; charset=UTF-8               0 https://azbyka.ru/news/sitemap.xml
+  200 application/json; charset=utf-      2368 https://azbyka.ru/palomnik/api.php?action=query&meta=siteinfo&format=json
+  301 text/html                              0 https://azbyka.ru/palomnik/index.php?title=Special:AllPages
+  302 text/html; charset=utf-8               0 https://azbyka.ru/days/api-v2/doc
+  200 application/json; charset=UTF-      3182 https://azbyka.ru/days/widgets/presentations.json
+Отчёт пробы: probe/20261004-211101

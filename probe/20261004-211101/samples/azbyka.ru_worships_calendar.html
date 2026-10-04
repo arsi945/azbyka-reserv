@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="The orthodox calendar with liturgical readings and troparion.">
+<link rel="apple-touch-icon" sizes="180x180" href="https://azbyka.ru/worships/calendar/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://azbyka.ru/worships/calendar/icons/favicon-192x192.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://azbyka.ru/worships/calendar/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://azbyka.ru/worships/calendar/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://azbyka.ru/worships/calendar/icons/favicon-16x16.png">
+<link rel="manifest" href="https://azbyka.ru/worships/calendar/icons/site.webmanifest">
+<link rel="mask-icon" href="https://azbyka.ru/worships/calendar/icons/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<title>Православный календарь</title>
+
+<style>
+	body {
+		font-family: Geneva, Arial, Helvetica, sans-serif;
+		font-size: 1.2em;
+	}
+	.container {
+	  display: flex;
+	  justify-content: center;
+	}
+	.main {
+		display: block;
+		width: 34%;
+		margin: 0;
+		padding: 0;
+		font-size: 100%;
+	}
+	.day-settings-today {
+		width: 100%; 
+		text-align: center;
+		font-size: 100%;
+		margin-bottom: 0.5em;
+	}
+	.calendar {
+		width: 100%; 
+		text-align: center;
+		font-size: 100%;
+	}
+	.readings {
+		width: 100%; 
+		text-align:left;
+		font-size: 100%;
+	}
+	.tropary {
+		width: 100%; 
+		text-align:left;
+		font-size: 100%;
+	}
+	.footer {
+		width: 100%; 
+		text-align:left;
+		font-size: 60%;
+		color: #333;
+	}
+	details {
+		width: 100%;
+	}
+	summary {
+		cursor: pointer;
+		font-size: 0.9em;
+		margin-bottom: 0.4em;
+	}
+	input[type="button"] {
+		cursor: pointer;
+		font-size: 0.9em;
+		height: 1.8em;
+		border-radius: 0.75em;
+		border: 1px solid #aaa;
+		margin-bottom: 3px;
+	}
+	input#bg_setDay {
+		border-radius: 5px;
+		border: 1px solid #aaa;
+		margin-bottom: 3px;
+		height: 1.5em;
+		font-size: 1.2em;
+ 	}
+	input#bg_worships {
+		width: 100%;
+	}
+	hr {
+		margin:0;
+	}
+	.bg_content {
+		background-color: #eee;
+		padding: 0 0.5em;
+		margin: 0;
+	}
+	div.bg_hide_block {
+		width: 100%; 
+		text-align: right;
+	}
+	.bg_hide_block input {
+		margin-right: 1em;
+	}
+	.bg_descriptions,
+	.bg_bibleRef {
+		cursor: help;
+		text-decoration: underline;
+	}
+
+	details.data {
+		display: none;
+	}
+	
+	div.slider {
+		width: 100%;
+		margin: auto;	
+	}
+	
+	#scroll-left,
+	#scroll-right {
+		display: inline-block;
+		height: 270px;  
+		width: calc(50% - 135px);
+		text-align: center;
+		font-weight: bold;
+		color: darkred;
+		opacity: 0.2;
+		cursor: pointer;
+		user-select: none;
+	}
+	#scroll-left div,
+	#scroll-right div {
+		text-align: center;
+		line-height: 270px;
+	}
+	#scroll-left:hover,
+	#scroll-right:hover {
+		opacity: 0.9;
+		background-color: #fafafa;
+	}
+	
+	#icon-pics{
+		display: inline-block;
+		width: 250px;
+		height: 250px;        
+		overflow: hidden;
+		white-space:nowrap;
+		vertical-align: top;
+		scroll-behavior: smooth;
+	}
+	
+	.icon {
+		border-radius: 5px;
+		display: inline-block;
+		vertical-align: top;
+		margin: 0 10px;
+		width: 230px;
+		height:210px;
+	}
+	.icon img {
+		filter: drop-shadow(0px 3px 3px #400a);
+	}
+	.icon figcaption {
+		width:100%; 
+		font-size: 60%; 
+		text-align: center;
+		height: 3em;
+		white-space: normal;
+	}
+	
+	@media screen and (max-width: 960px) {
+		.main {
+			width: 100%;
+		}
+		input {
+			font-size:100%;
+			color: darkred;
+		}
+	}
+	@media screen and (max-width: 480px) {
+		input#bg_setDay {
+			min-width: calc(100% - 10px);
+			float: left;
+		}
+	}
+	
+</style>
+</head>
+<body>
+<div id="container" class="container">
+<section class="main">
+<!-- Выбор даты -->	
+	<div class="day-settings-today">
+		<input id="bg_yesterdayButton" type="button" value="&#9666; Вчера">
+		<input id="bg_setDay" class="bg_setDay" type="date" value="2026-10-05" title="Выбрать дату"> 
+		<input id="bg_todayButton" type="button" value="Сегодня">
+		<input id="bg_tommorowButton" type="button" value="Завтра &#9656;">
+	</div>
+	
+	<details class="data"><summary>Данные дня</summary>
+		<pre>
+			Array
+(
+    [festivity_ind] => 
+    [festivity_type] => 
+    [festivity_subtype] => 
+    [special_ind] => 
+    [day_type] => 
+    [day_subtype] => 
+    [level] => 6
+    [feast_type] => 3
+    [main_ind] => 0
+    [main_level] => 6
+    [main_type] => event
+    [main_subtype] => 
+    [main_feast_type] => 3
+    [main_rank] => 36
+    [second_ind] => 2
+    [second_level] => 6
+    [second_type] => event
+    [second_subtype] => 
+    [second_feast_type] => 3
+    [second_rank] => 36
+    [tipicon_events] => Array
+        (
+            [0] => 0
+            [1] => 2
+            [2] => 6
+        )
+
+    [top_events] => Array
+        (
+        )
+
+    [icon] => icons-of-saints/5331/p1attek4nj143m7gnqah1358nuk3.png
+    [icon_title] => ап. от 70-ти Кодра́та (ок. 130) (перенос с 21 сентября ст.ст.)
+    [liturgy] => 1
+    [sedmica] => Седмица 19-я по Пятидесятнице
+    [tone] => 1
+    [food] => Поста нет
+    [ordinary_readings] => Array
+        (
+            [0] => Array
+                (
+                    [title] => рядовое
+                    [apostle] => Флп.1:1-7
+                    [gospel] => Лк.3:19-22
+                )
+
+        )
+
+    [events] => Array
+        (
+            [0] => Array
+                (
+                    [title] => ап. от 70-ти Кодра́та (ок. 130) (перенос с 21 сентября ст.ст.)
+                    [translation] => 
+                    [level] => 6
+                    [priority] => 1
+                    [type] => event
+                    [subtype] => 
+                    [feast_type] => 3
+                    [church_type] => 33
+                    [forename] => ап. от 70-ти Кодра́та
+                    [name] => Кодрат
+                    [sanctity] => ап.
+                    [gender] => male
+                    [dual_worship] => 1
+                    [common_tropar] => 
+                    [blessed] => 
+                    [minea_id] => 9697
+                    [taks] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [id] => 2298
+                                    [type] => Тропарь
+                                    [text] => Апо́столе святы́й Кодра́те,/ моли́ ми́лостиваго Бо́га,/ да прегреше́ний оставле́ние// пода́ст душа́м на́шим.
+                                    [title] => Тропарь апостолу от 70-ти Кодрату, епископу Афинскому и Магнезийскому
+                                    [voice] => 3
+                                    [saint_id] => 5331
+                                    [group_tropar] => 0
+                                )
+
+                            [1] => Array
+                                (
+                                    [id] => 2299
+                                    [type] => Кондак
+                                    [text] => Я́ко священнонача́льника че́стна и страда́льца тверде́йша,/ вселе́нная прино́сит Тебе́, Го́споди, Кодра́та апо́стола/ и пе́сньми почита́ет честну́ю его́ па́мять,/ прося́щи всегда́ прегреше́ний оставле́ния// тем дарова́тися пою́щим его́, Благоутро́бне.
+                                    [title] => Кондак апостолу от 70-ти Кодрату, епископу Афинскому и Магнезийскому
+                                    [voice] => 8
+                                    [saint_id] => 5331
+                                    [group_tropar] => 0
+                                )
+
+                            [2] => Array
+                                (
+                                    [id] => 2455
+                                    [type] => Величание
+                                    [text] => Велича́ем тя, апо́столе Христо́в Кодра́те, и чтим боле́зни и труды́ твоя́, и́миже труди́лся еси́ во благове́стии Христо́ве.
+                                    [title] => Величание апостолу от 70-ти Кодрату, епископу Афинскому и Магнезийскому
+                                    [voice] => 
+                                    [saint_id] => 5331
+                                    [group_tropar] => 0
+                                )
+
+                        )
+
+                    [rule] => 09-22
+                    [id_list] => s5331
+                    [imgs] => Array
+                        (
+                            [0] => icons-of-saints/5331/p1attek4nj143m7gnqah1358nuk3.png
+                            [1] => icons-of-saints/5331/p1cpc4rc0u1pn6nno14c618mhuba4.jpg
+                            [2] => icons-of-saints/5331/p1cpc4rc0uqj0bchecr1ue6131a3.jpg
+                        )
+
+                    [readings] => Array
+                        (
+                        )
+
+                    [id] => 123210
+                )
+
+            [1] => Array
+                (
+                    [title] => прор. Ио́ны (VIII в. до Р. Х.)
+                    [translation] => 
+                    [level] => 7
+                    [priority] => 1
+                    [type] => event
+                    [subtype] => 
+                    [feast_type] => 3
+                    [church_type] => 35
+                    [forename] => прор. Ио́ны
+                    [name] => Иона
+                    [sanctity] => прор.
+                    [gender] => male
+                    [dual_worship] => 0
+                    [common_tropar] => 
+                    [blessed] => 
+                    [minea_id] => 
+                    [taks] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [id] => 2456
+                                    [type] => Тропарь
+                                    [text] => Проро́ка Твоего́ Ио́ны па́мять, Го́споди, пра́зднующе,/ тем Тя мо́лим:// спаси́ ду́ши на́ша.
+                                    [title] => Тропарь пророка Ионы
+                                    [voice] => 2
+                                    [saint_id] => 994
+                                    [group_tropar] => 0
+                                )
+
+                            [1] => Array
+                                (
+                                    [id] => 2457
+                                    [type] => Кондак
+                                    [text] => Проро́к ди́вен показа́ся,/ Бо́жие повеле́ние прие́м,/ во о́браз тридне́внаго Воскресе́ния/ в ки́те тридне́вен быв,/ неврежде́н от зве́ря изы́де/ и яви́ся све́тел пропове́дник Ниневи́и, вели́кому гра́ду./ Сего́ ра́ди тя ра́достно, Ио́но, почита́ем,// я́ко человеколю́бия Бо́жия провозве́стника.
+                                    [title] => Кондак пророка Ионы
+                                    [voice] => 2
+                                    [saint_id] => 994
+                                    [group_tropar] => 0
+                                )
+
+                        )
+
+                    [rule] => 09-22
+                    [id_list] => s994
+                    [imgs] => Array
+                        (
+                            [0] => icons-of-saints/994/p1atvi8d50hvcqcmd0g189p163t3.png
+                            [1] => icons-of-saints/994/p1atvi8d51dq71ncm18rifke10h34.png
+                        )
+
+                    [readings] => Array
+                        (
+                        )
+
+                    [id] => 123330
+                )
+
+            [2] => Array
+                (
+                    [title] => сщмч. Фо́ки, епископа Синопскаго (117)
+                    [translation] => 
+                    [level] => 6
+                    [priority] => 1
+                    [type] => event
+                    [subtype] => 
+                    [feast_type] => 3
+                    [church_type] => 30
+                    [forename] => сщмч. Фо́ки, епископа Синопскаго
+                    [name] => Фока
+                    [sanctity] => сщмч.
+                    [gender] => male
+                    [dual_worship] => 1
+                    [common_tropar] => 
+                    [blessed] => 
+                    [minea_id] => 14729
+                    [taks] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [id] => 874
+                                    [type] => Тропарь
+                                    [text] => И нра́вом прича́стник,/ и престо́лом наме́стник апо́столом быв,/ дея́ния обре́л еси́, Богодохнове́нне,/ в виде́ния восхо́д,/ сего́ ра́ди, сло́во и́стины исправля́я,/ и ве́ры ра́ди пострада́л еси́ да́же до кро́ве,/ священному́чениче Фо́ко,/ моли́ Христа́ Бо́га// спасти́ся душа́м на́шим.
+                                    [title] => Тропарь священномученику Фоке Синопскому
+                                    [voice] => 4
+                                    [saint_id] => 2598
+                                    [group_tropar] => 0
+                                )
+
+                            [1] => Array
+                                (
+                                    [id] => 875
+                                    [type] => Кондак
+                                    [text] => Я́ко святи́тель принося́, о́тче, же́ртвы,/ на коне́ц себе́ прине́сл еси́ же́ртву жи́ву,/ свиде́тельствовав зако́нно о Христе́ Бо́зе,/ от А́нгел укрепля́емый,/ и смерть изволя́я,/ сый с вопию́щими тебе́:// прииди́, Фо́ко, с на́ми, и никто́же на ны.
+                                    [title] => Кондак священномученику Фоке Синопскому
+                                    [voice] => 6
+                                    [saint_id] => 2598
+                                    [group_tropar] => 0
+                                )
+
+                        )
+
+                    [rule] => 09-22
+                    [id_list] => s2598
+                    [imgs] => Array
+                        (
+                            [0] => icons-of-saints/2598/p1aoqs6ne9115e10po76e1dmpg323.png
+                        )
+
+                    [readings] => Array
+                        (
+                            [title] => сщмч.
+                            [morning] => 
+                            [apostle] => Евр.4:14-5:6
+                            [gospel] => Ин.10:9-16
+                        )
+
+                    [id] => 123340
+                )
+
+            [3] => Array
+                (
+                    [title] => прп. Ио́ны, пресвитера (IX), отца святых Феофана, творца канонов, и Феодора Начерта́нных
+                    [translation] => 
+                    [level] => 7
+                    [priority] => 1
+                    [type] => event
+                    [subtype] => 
+                    [feast_type] => 3
+                    [church_type] => 30
+                    [forename] => прп. Ио́ны, пресвитера, отца святых Феофана, творца канонов, и Феодора Начерта́нных
+                    [name] => Иона
+                    [sanctity] => прп.
+                    [gender] => male
+                    [dual_worship] => 0
+                    [common_tropar] => 
+                    [blessed] => 
+                    [minea_id] => 
+                    [taks] => Array
+                        (
+                        )
+
+                    [rule] => 09-22
+                    [id_list] => s3105
+                    [imgs] => Array
+                        (
+                        )
+
+                    [readings] => Array
+                        (
+                        )
+
+                    [id] => 123350
+                )
+
+            [4] => Array
+                (
+                    [title] => блж. Параске́вы Дивеевской (1915)
+                    [translation] => 
+                    [level] => 7
+                    [priority] => 1
+                    [type] => event
+                    [subtype] => 
+                    [feast_type] => 3
+                    [church_type] => 30
+                    [forename] => блж. Параске́вы Дивеевской
+                    [name] => Параскева
+                    [sanctity] => блж.
+                    [gender] => female
+                    [dual_worship] => 0
+                    [common_tropar] => 
+                    [blessed] => 
+                    [minea_id] => 
+                    [taks] => Array
+                        (
+                        )
+
+                    [rule] => 09-22
+                    [id_list] => s1063
+                    [imgs] => Array
+                        (
+                            [0] => icons-of-saints/1063/p1atvj39kg8sa13db1q89180f19p23.png
+                        )
+
+                    [readings] => Array
+                        (
+                        )
+
+                    [id] => 123360
+                )
+
+            [5] => Array
+                (
+                    [title] => прп. Ио́ны Яшезерского (после 1592)
+                    [translation] => 
+                    [level] => 7
+                    [priority] => 2
+                    [type] => event
+                    [subtype] => 
+                    [feast_type] => 3
+                    [church_type] => 
+                    [forename] => прп. Ио́ны Яшезерского
+                    [name] => Иона
+                    [sanctity] => прп.
+                    [gender] => male
+                    [dual_worship] => 0
+                    [common_tropar] => 
+                    [blessed] => 
+                    [minea_id] => 
+                    [taks] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [id] => 4389
+                                    [type] => Тропарь
+                                    [text] => Благове́щенския оби́тели устрои́телю усе́рдный,/ сло́вом и́стины ве́ру насади́вый,/ благове́стием же окре́стныя лю́ди, я́ко ни́ву, оби́льно ороси́вый/ и прозябе́ние ди́вное Бо́гу принесы́й,/ восхваля́ем тя любо́вию, преподо́бне о́тче Ио́но,/ и, соверша́юще па́мять твою́, уми́льно вопие́м:// моли́ся, во е́же спасти́ся душа́м на́шим.
+                                    [title] => Тропарь преподобному Ионе Яшезерскому
+                                    [voice] => 8
+                                    [saint_id] => 3976
+                                    [group_tropar] => 0
+                                )
+
+                        )
+
+                    [rule] => 09-22
+                    [id_list] => s3976
+                    [imgs] => Array
+                        (
+                            [0] => icons-of-saints/3976/p1dlolccqfikq19salseaogukv3.jpg
+                        )
+
+                    [readings] => Array
+                        (
+                        )
+
+                    [id] => 123370
+                )
+
+            [6] => Array
+                (
+                    [title] => прп. Макария Жабынского, Белевского чудотворца (XVII)
+                    [translation] => 
+                    [level] => 6
+                    [priority] => 2
+                    [type] => event
+                    [subtype] => 
+                    [feast_type] => 3
+                    [church_type] => 30
+                    [forename] => прп. Макария Жабынского, Белевского чудотворца
+                    [name] => Макарий
+                    [sanctity] => прп.
+                    [gender] => male
+                    [dual_worship] => 0
+                    [common_tropar] => 
+                    [blessed] => 
+                    [minea_id] => 10324
+                    [taks] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [id] => 384
+                                    [type] => Тропарь
+                                    [text] => От мирска́го жития́ изше́д/ в ти́хое приста́нище жи́зни и́ноческия, преподо́бне Мака́рие, вшел еси́,/ в не́йже до́бре подвиза́вся,/ ду́шу твою́ доброде́тельми превысо́кими обогати́л еси́,/ и яви́лся еси́ добр па́стырь и учи́тель и́ноческому собо́ру,/ ему́же и оби́тель возгради́л еси́,/ та́же в безмо́лвие вшед и богови́дения сподо́бився,/ ко Го́споду преста́вился еси́,/ И́же да́ром чуде́с тя обогати́./ Его́же ны́не моли́,// да спасе́т ве́рою и любо́вию почита́ющих святу́ю па́мять твою́.
+                                    [title] => Тропарь преподобному Макарию Жабынскому, Белевскому чудотворцу
+                                    [voice] => 4
+                                    [saint_id] => 879
+                                    [group_tropar] => 0
+                                )
+
+                            [1] => Array
+                                (
+                                    [id] => 385
+                                    [type] => Кондак
+                                    [text] => Житие́ чи́стое, терпе́ние, кро́тость и любо́вь нелицеме́рну,/ воздержа́ние соверше́нное, умиле́ние боже́ственное,/ ве́ру же и наде́жду и́стинну и милосе́рдие стяжа́в,/ равноа́нгельно, Мака́рие, на земли́ пожи́л еси́/ и на Небеси́ Бо́гови с ли́ки безпло́тных предстои́ши./ С ни́миже, свя́те, моли́ся, мир Росси́йстей Це́ркви дарова́ти// и душа́м на́шим ве́лию ми́лость.
+                                    [title] => Кондак преподобному Макарию Жабынскому, Белевскому чудотворцу
+                                    [voice] => 8
+                                    [saint_id] => 879
+                                    [group_tropar] => 0
+                                )
+
+                            [2] => Array
+                                (
+                                    [id] => 386
+                                    [type] => Молитва
+                                    [text] => О, свяще́нная главо́! Вели́кий чудотво́рче, преподо́бне о́тче наш Мака́рие, преблаже́нне и пресла́вне, Ду́ха Свята́го исполне́ние! По́стников похвало́, мона́шествующих сла́во, пусты́ни Жабы́нския возгради́телю и украси́телю, те́плый о нас, гре́шных, моли́твенниче! Ны́не со а́нгельскими во́инствы предстоя́й у Престо́ла всех Царя́ сла́вы, Го́спода, и наслажда́яйся све́та Единосу́щныя Тро́ицы, и с Го́рними си́лами воспева́яй Трисвяту́ю песнь, я́ко дерзнове́ние име́яй, моли́ся Всеми́лостивому Влады́це спасти́ вся ве́рующия во и́мя Его́, испроси́ мир и тишину́ Святы́м Це́рквам низпосла́ти, ве́ре Правосла́вней укрепле́ние, проти́вныя язы́ки, бра́ни хотя́щия, ви́димыя и неви́димыя враги́ низложи́ти, гра́ды, ве́си и оби́тели на́ши утверди́ти, мир весь умири́ти. Моли́ Ми́лостиваго Бо́га, да твои́м благоприя́тным хода́тайством вся правосла́вныя христиа́ны изба́вит Он от гла́да, губи́тельства, тру́са, пото́па, огня́, меча́, от наше́ствия иноплеме́нник и междоусо́бныя бра́ни, ста́рыя да подкрепи́т, ю́ныя да наста́вит, нему́дрых умудри́т, боля́щия исцели́т, плене́нныя и ю́зники свободи́т, сиро́т заступи́т, младе́нцы воспита́ет и вся лю́ди сохрани́т от бед и напа́стей, и от нападе́ния вра́жия, и смертоно́сныя я́звы, внеза́пныя сме́рти и от вся́каго зла. Днесь же с ве́рою приходя́щих рабо́в твои́х, со стра́хом и любо́вию припа́дающих к честны́м моще́м твои́м и о́браз подо́бия твоего́ любе́зно целу́ющих, я́ко те́плый нам засту́пниче, сохрани́, в ско́рбных обстоя́ниих на́ших предста́ни, душе́вных и теле́сных страсте́й свободи́, в день Стра́шнаго суда́ шу́ияго стоя́ния изба́ви и с десны́ми овца́ми моли́твами твои́ми ста́ти сподо́би и слы́шати блаже́нный о́ный глас Влады́ки, Христа́ Бо́га на́шего: «Прииди́те, благослове́ннии Отца́ Моего́, насле́дуйте угото́ванное вам Ца́рство от сложе́ния ми́ра». Ему́же подоба́ет вся́кая сла́ва, честь и поклоне́ние, со Безнача́льным Его́ Отце́м и со Пресвяты́м, и Благи́м, и Животворя́щим Его́ Ду́хом, ны́не и при́сно и во ве́ки веко́в. Ами́нь.
+                                    [title] => Молитва преподобному Макарию Жабынскому, Белевскому чудотворцу
+                                    [voice] => 
+                                    [saint_id] => 879
+                                    [group_tropar] => 0
+                                )
+
+                        )
+
+                    [rule] => 09-22
+                    [id_list] => s879
+                    [imgs] => Array
+                        (
+                            [0] => icons-of-saints/879/p1b7uusg7216tpq3jsbg2211893.jpg
+                            [1] => icons-of-saints/879/p1atvjhf81pdva3blpt1rj81pi94.png
+                            [2] => icons-of-saints/879/p1b7uusg73b3t1dbolr156d1u8r4.jpg
+                        )
+
+                    [readings] => Array
+                        (
+                        )
+
+                    [id] => 123380
+                )
+
+            [7] => Array
+                (
+                    [title] => Собор Тульских святых
+                    [translation] => 
+                    [level] => 7
+                    [priority] => 2
+                    [type] => event
+                    [subtype] => 
+                    [feast_type] => 3
+                    [church_type] => 
+                    [forename] => всех святых, в земле Тульской просиявших
+                    [name] => 
+                    [sanctity] => 
+                    [gender] => male
+                    [dual_worship] => 0
+                    [common_tropar] => 
+                    [blessed] => 
+                    [minea_id] => 
+                    [taks] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [id] => 2221
+                                    [type] => Тропарь
+                                    [text] => Наста́ де́нь све́тлаго торжества́,/ земля́ на́ша ра́дуется,/ и с не́ю Це́рковь Христо́ва весели́тся,/ в прославле́нии Собо́ра Тульских святы́х, Бо́гу угоди́вших,/ к ни́м же мы́ притека́юще, взыва́ем си́це:/ о, пресла́внии сро́дницы на́ши,/ моли́те Христа́ Бо́га дарова́ти ми́ру ми́р,/ Оте́честву благоде́нствие,// и душа́м на́шим ве́лию ми́лость.
+                                    [title] => Тропарь Собору Тульских святых
+                                    [voice] => 2
+                                    [saint_id] => 6505
+                                    [group_tropar] => 0
+                                )
+
+                            [1] => Array
+                                (
+                                    [id] => 2222
+                                    [type] => Кондак
+                                    [text] => Дне́сь Собо́р Тульских святы́х предстои́т в Це́ркви/ и неви́димо за ны́ мо́лится Бо́гу:/ а́нгели со архиере́и славосло́вят,/ му́ченики ликовству́ют,/ преподо́бнии и пра́веднии ра́дуются,/ и лю́дие правосла́внии веселя́тся:// вси́ бо ку́пно мо́лят Преве́чнаго Бо́га.
+                                    [title] => Кондак Собору Тульских святых
+                                    [voice] => 3
+                                    [saint_id] => 6505
+                                    [group_tropar] => 0
+                                )
+
+                        )
+
+                    [rule] => 09-22
+                    [id_list] => s6505
+                    [imgs] => Array
+                        (
+                            [0] => icons-of-saints/6505/p182enumsn16451b853d964p1rl43.jpg
+                        )
+
+                    [readings] => Array
+                        (
+                        )
+
+                    [id] => 123390
+                )
+
+            [8] => Array
+                (
+                    [title] => мч. Фо́ки Вертоградаря (Садовника) (ок. 320)
+                    [translation] => 
+                    [level] => 7
+                    [priority] => 2
+                    [type] => event
+                    [subtype] => 
+                    [feast_type] => 3
+                    [church_type] => 
+                    [forename] => мч. Фо́ки Вертоградаря
+                    [name] => Фока
+                    [sanctity] => мч.
+                    [gender] => male
+                    [dual_worship] => 0
+                    [common_tropar] => 
+                    [blessed] => 
+                    [minea_id] => 
+                    [taks] => Array
+                        (
+                        )
+
+                    [rule] => 09-22
+                    [id_list] => s2275
+                    [imgs] => Array
+                        (
+                            [0] => icons-of-saints/2275/61fb9bb112556184055535.jpg
+                        )
+
+                    [readings] => Array
+                        (
+                        )
+
+                    [id] => 123400
+                )
+
+            [9] => Array
+                (
+                    [title] => прав. Петра Африканского, бывшего мытаря (VI)
+                    [translation] => 
+                    [level] => 7
+                    [priority] => 2
+                    [type] => event
+                    [subtype] => 
+                    [feast_type] => 3
+                    [church_type] => 
+                    [forename] => прав. Петра Африканского, бывшего мытаря
+                    [name] => Петр
+                    [sanctity] => прав.
+                    [gender] => male
+                    [dual_worship] => 0
+                    [common_tropar] => 
+                    [blessed] => 
+                    [minea_id] => 
+                    [taks] => Array
+                        (
+                        )
+
+                    [rule] => 09-22
+                    [id_list] => s2886
+                    [imgs] => Array
+                        (
+                        )
+
+                    [readings] => Array
+                        (
+                        )
+
+                    [id] => 123410
+                )
+
+            [10] => Array
+                (
+                    [title] => сщмч. Феодо́сия Бразского, митрополита (1694) (Румын.)
+                    [translation] => 
+                    [level] => 7
+                    [priority] => 2
+                    [type] => event
+                    [subtype] => 
+                    [feast_type] => 3
+                    [church_type] => 
+                    [forename] => сщмч. Феодо́сия Бразского, митрополита
+                    [name] => Феодосий
+                    [sanctity] => сщмч.
+                    [gender] => male
+                    [dual_worship] => 0
+                    [common_tropar] => 
+                    [blessed] => 
+                    [minea_id] => 
+                    [taks] => Array
+                        (
+                        )
+
+                    [rule] => 09-22
+                    [id_list] => s1851
+                    [imgs] => Array
+                        (
+                            [0] => icons-of-saints/1851/p1atvk57g4o75ba493gsfd1uh93.png
+                        )
+
+                    [readings] => Array
+                        (
+                        )
+
+                    [id] => 123420
+                )
+
+            [11] => Array
+                (
+                    [title] => сщмч. Вениами́на (Воскресенского), епископа Романовского, викария Ярославской епархии (1932)
+                    [translation] => 
+                    [level] => 7
+                    [priority] => 3
+                    [type] => event
+                    [subtype] => 
+                    [feast_type] => 3
+                    [church_type] => 
+                    [forename] => сщмч. Вениами́на, епископа Романовского, викария Ярославской епархии
+                    [name] => Вениамин
+                    [sanctity] => сщмч.
+                    [gender] => male
+                    [dual_worship] => 0
+                    [common_tropar] => 
+                    [blessed] => 
+                    [minea_id] => 
+                    [taks] => Array
+                        (
+                        )
+
+                    [rule] => 09-22
+                    [id_list] => s2109
+                    [imgs] => Array
+                        (
+                            [0] => icons-of-saints/2109/p1atvka49s5la14mcdp1mm05so3.png
+                        )
+
+                    [readings] => Array
+                        (
+                        )
+
+                    [id] => 123430
+                )
+
+        )
+
+)
+		</pre>
+	</details>
+	
+	<div id="calendar" class="calendar">
+	<!-- Икона дня -->
+		<div class="slider">
+		<div id="scroll-left"><div> < </div></div>
+		<div id="icon-pics">
+					<figure class="icon"><img height="210" src="https://azbyka.ru/worships/calendar/images/icons-of-saints/5331/p1attek4nj143m7gnqah1358nuk3.png" title="ап. от 70-ти Кодра́та (ок. 130) (перенос с 21 сентября ст.ст.)" alt="ап. от 70-ти Кодра́та (ок. 130) (перенос с 21 сентября ст.ст.)" /><figcaption>ап. от 70-ти Кодра́та (ок. 130) (перенос с 21 сентября ст.ст.)</figcaption></figure>
+					<figure class="icon"><img height="210" src="https://azbyka.ru/worships/calendar/images/icons-of-saints/994/p1atvi8d50hvcqcmd0g189p163t3.png" title="прор. Ио́ны (VIII в. до Р. Х.)" alt="прор. Ио́ны (VIII в. до Р. Х.)" /><figcaption>прор. Ио́ны (VIII в. до Р. Х.)</figcaption></figure>
+					<figure class="icon"><img height="210" src="https://azbyka.ru/worships/calendar/images/icons-of-saints/2598/p1aoqs6ne9115e10po76e1dmpg323.png" title="сщмч. Фо́ки, епископа Синопскаго (117)" alt="сщмч. Фо́ки, епископа Синопскаго (117)" /><figcaption>сщмч. Фо́ки, епископа Синопскаго (117)</figcaption></figure>
+					<figure class="icon"><img height="210" src="https://azbyka.ru/worships/calendar/images/icons-of-saints/1063/p1atvj39kg8sa13db1q89180f19p23.png" title="блж. Параске́вы Дивеевской (1915)" alt="блж. Параске́вы Дивеевской (1915)" /><figcaption>блж. Параске́вы Дивеевской (1915)</figcaption></figure>
+					<figure class="icon"><img height="210" src="https://azbyka.ru/worships/calendar/images/icons-of-saints/3976/p1dlolccqfikq19salseaogukv3.jpg" title="прп. Ио́ны Яшезерского (после 1592)" alt="прп. Ио́ны Яшезерского (после 1592)" /><figcaption>прп. Ио́ны Яшезерского (после 1592)</figcaption></figure>
+					<figure class="icon"><img height="210" src="https://azbyka.ru/worships/calendar/images/icons-of-saints/879/p1b7uusg7216tpq3jsbg2211893.jpg" title="прп. Макария Жабынского, Белевского чудотворца (XVII)" alt="прп. Макария Жабынского, Белевского чудотворца (XVII)" /><figcaption>прп. Макария Жабынского, Белевского чудотворца (XVII)</figcaption></figure>
+					<figure class="icon"><img height="210" src="https://azbyka.ru/worships/calendar/images/icons-of-saints/6505/p182enumsn16451b853d964p1rl43.jpg" title="Собор Тульских святых" alt="Собор Тульских святых" /><figcaption>Собор Тульских святых</figcaption></figure>
+					<figure class="icon"><img height="210" src="https://azbyka.ru/worships/calendar/images/icons-of-saints/2275/61fb9bb112556184055535.jpg" title="мч. Фо́ки Вертоградаря (Садовника) (ок. 320)" alt="мч. Фо́ки Вертоградаря (Садовника) (ок. 320)" /><figcaption>мч. Фо́ки Вертоградаря (Садовника) (ок. 320)</figcaption></figure>
+					<figure class="icon"><img height="210" src="https://azbyka.ru/worships/calendar/images/icons-of-saints/1851/p1atvk57g4o75ba493gsfd1uh93.png" title="сщмч. Феодо́сия Бразского, митрополита (1694) (Румын.)" alt="сщмч. Феодо́сия Бразского, митрополита (1694) (Румын.)" /><figcaption>сщмч. Феодо́сия Бразского, митрополита (1694) (Румын.)</figcaption></figure>
+					<figure class="icon"><img height="210" src="https://azbyka.ru/worships/calendar/images/icons-of-saints/2109/p1atvka49s5la14mcdp1mm05so3.png" title="сщмч. Вениами́на (Воскресенского), епископа Романовского, викария Ярославской епархии (1932)" alt="сщмч. Вениами́на (Воскресенского), епископа Романовского, викария Ярославской епархии (1932)" /><figcaption>сщмч. Вениами́на (Воскресенского), епископа Романовского, викария Ярославской епархии (1932)</figcaption></figure>
+				</div>
+		<div id="scroll-right"><div> > </div></div>
+		</div>
+	<!-- Дата по новому стилю -->
+		<h3>Понедельник, 5 октября 2026 г.<br>
+	<!-- и по старому стилю -->
+		(22 сентября ст.ст.)</h3>
+	<!-- Название седмицы/Недели -->
+		<h4>Седмица 19-я по Пятидесятнице</h4>
+	<!-- Глас, пост, пища -->
+		<p>Глас 1, Поста нет</p>
+	
+<p><img src="symbols/S6.gif" title="Вседневный" alt="Вседневный" />&nbsp;<span>ап. от 70-ти Кодра́та (ок. 130) (перенос с 21 сентября ст.ст.)</span>&nbsp;<a href="#bg_desc_text"><span class="bg_descriptions" data-desc="s5331"><img src="symbols/L.gif" title="Житие" alt="Житие" /></span></a>. <span>прор. Ио́ны (VIII в. до Р. Х.)</span>&nbsp;<a href="#bg_desc_text"><span class="bg_descriptions" data-desc="s994"><img src="symbols/L.gif" title="Житие" alt="Житие" /></span></a>. <img src="symbols/S6.gif" title="Вседневный" alt="Вседневный" />&nbsp;<span>сщмч. Фо́ки, епископа Синопскаго (117)</span>&nbsp;<a href="#bg_desc_text"><span class="bg_descriptions" data-desc="s2598"><img src="symbols/L.gif" title="Житие" alt="Житие" /></span></a>. <span>прп. Ио́ны, пресвитера (IX), отца святых Феофана, творца канонов, и Феодора Начерта́нных</span>&nbsp;<a href="#bg_desc_text"><span class="bg_descriptions" data-desc="s3105"><img src="symbols/L.gif" title="Житие" alt="Житие" /></span></a>. <span>блж. Параске́вы Дивеевской (1915)</span>&nbsp;<a href="#bg_desc_text"><span class="bg_descriptions" data-desc="s1063"><img src="symbols/L.gif" title="Житие" alt="Житие" /></span></a>. </p><p><span>прп. Ио́ны Яшезерского (после 1592)</span>&nbsp;<a href="#bg_desc_text"><span class="bg_descriptions" data-desc="s3976"><img src="symbols/L.gif" title="Житие" alt="Житие" /></span></a>. <img src="symbols/S6.gif" title="Вседневный" alt="Вседневный" />&nbsp;<span>прп. Макария Жабынского, Белевского чудотворца (XVII)</span>&nbsp;<a href="#bg_desc_text"><span class="bg_descriptions" data-desc="s879"><img src="symbols/L.gif" title="Житие" alt="Житие" /></span></a>. <span>Собор Тульских святых</span>. <span>мч. Фо́ки Вертоградаря (Садовника) (ок. 320)</span>&nbsp;<a href="#bg_desc_text"><span class="bg_descriptions" data-desc="s2275"><img src="symbols/L.gif" title="Житие" alt="Житие" /></span></a>. <span>прав. Петра Африканского, бывшего мытаря (VI)</span>&nbsp;<a href="#bg_desc_text"><span class="bg_descriptions" data-desc="s2886"><img src="symbols/L.gif" title="Житие" alt="Житие" /></span></a>. <span>сщмч. Феодо́сия Бразского, митрополита (1694) (Румын.)</span>&nbsp;<a href="#bg_desc_text"><span class="bg_descriptions" data-desc="s1851"><img src="symbols/L.gif" title="Житие" alt="Житие" /></span></a>. </p><p><span>сщмч. Вениами́на (Воскресенского), епископа Романовского, викария Ярославской епархии (1932)</span>&nbsp;<a href="#bg_desc_text"><span class="bg_descriptions" data-desc="s2109"><img src="symbols/L.gif" title="Житие" alt="Житие" /></span></a>. </p>	</div>
+<!-- Текст Жития -->
+	<div id="bg_desc_text" class="bg_content">
+		</div>
+	<hr>
+	<div class='readings'>
+<h5>Литургия свт. Иоанна Златоуста.</h5><p><i>рядовое:</i> <i>Лит.: Ап.-</i> <span class="bg_bibleRef" title="Показать текст">Флп.1:1-7</span> <i>Ев.-</i> <span class="bg_bibleRef" title="Показать текст">Лк.3:19-22</span> </p><p><i>сщмч.:</i> <i>Лит.: Ап.-</i> <span class="bg_bibleRef" title="Показать текст">Евр.4:14-5:6</span> <i>Ев.-</i> <span class="bg_bibleRef" title="Показать текст">Ин.10:9-16</span> </p>	</div>
+<!-- Текст Библии -->
+	<div id="bg_bible_text" class="bg_content">
+		</div>
+<!-- Тропари, кондаки, молитвы и величания -->
+	<div class='tropary'>
+	<hr>
+	<h3>Тропари, кондаки, молитвы и величания</h3>
+<details><summary>Тропари и кондаки дня</summary>
+<div class="bg_content"><hr>
+<h4>Тропарь небесных чинов Бесплотных, глас 4</h4>
+<p>Небесных воинств Архистратизи,/ молим вас присно мы недостойнии,/ да вашими молитвами оградите нас/ кровом крил невещественныя вашея славы,/ сохраняюще нас, припадающих прилежно и вопиющих:/ от бед избавите нас,// яко чиноначальницы вышних Сил.</p>
+<h4>Кондак небесным чинам Бесплотным, глас 2</h4>
+<p>Архистрати́зи Бо́жии,/ служи́телие Боже́ственныя сла́вы,/ А́нгелов нача́льницы, и челове́ков наста́вницы,/ поле́зное нам проси́те, и ве́лию ми́лость,// я́ко Безпло́тных Архистрати́зи.</p>
+<hr></div></details>
+<details><summary>апостолу от 70-ти Кодрату, епископу Афинскому и Магнезийскому</summary>
+<div class="bg_content"><hr>
+<h4>Тропарь апостолу от 70-ти Кодрату, епископу Афинскому и Магнезийскому, глас 3</h4>
+<p>Апо́столе святы́й Кодра́те,/ моли́ ми́лостиваго Бо́га,/ да прегреше́ний оставле́ние// пода́ст душа́м на́шим.</p>
+<h4>Кондак апостолу от 70-ти Кодрату, епископу Афинскому и Магнезийскому, глас 8</h4>
+<p>Я́ко священнонача́льника че́стна и страда́льца тверде́йша,/ вселе́нная прино́сит Тебе́, Го́споди, Кодра́та апо́стола/ и пе́сньми почита́ет честну́ю его́ па́мять,/ прося́щи всегда́ прегреше́ний оставле́ния// тем дарова́тися пою́щим его́, Благоутро́бне.</p>
+<h4>Величание апостолу от 70-ти Кодрату, епископу Афинскому и Магнезийскому</h4>
+<p>Велича́ем тя, апо́столе Христо́в Кодра́те, и чтим боле́зни и труды́ твоя́, и́миже труди́лся еси́ во благове́стии Христо́ве.</p>
+<hr></div></details>
+<details><summary>пророка Ионы</summary>
+<div class="bg_content"><hr>
+<h4>Тропарь пророка Ионы, глас 2</h4>
+<p>Проро́ка Твоего́ Ио́ны па́мять, Го́споди, пра́зднующе,/ тем Тя мо́лим:// спаси́ ду́ши на́ша.</p>
+<h4>Кондак пророка Ионы, глас 2</h4>
+<p>Проро́к ди́вен показа́ся,/ Бо́жие повеле́ние прие́м,/ во о́браз тридне́внаго Воскресе́ния/ в ки́те тридне́вен быв,/ неврежде́н от зве́ря изы́де/ и яви́ся све́тел пропове́дник Ниневи́и, вели́кому гра́ду./ Сего́ ра́ди тя ра́достно, Ио́но, почита́ем,// я́ко человеколю́бия Бо́жия провозве́стника.</p>
+<hr></div></details>
+<details><summary>священномученику Фоке Синопскому</summary>
+<div class="bg_content"><hr>
+<h4>Тропарь священномученику Фоке Синопскому, глас 4</h4>
+<p>И нра́вом прича́стник,/ и престо́лом наме́стник апо́столом быв,/ дея́ния обре́л еси́, Богодохнове́нне,/ в виде́ния восхо́д,/ сего́ ра́ди, сло́во и́стины исправля́я,/ и ве́ры ра́ди пострада́л еси́ да́же до кро́ве,/ священному́чениче Фо́ко,/ моли́ Христа́ Бо́га// спасти́ся душа́м на́шим.</p>
+<h4>Кондак священномученику Фоке Синопскому, глас 6</h4>
+<p>Я́ко святи́тель принося́, о́тче, же́ртвы,/ на коне́ц себе́ прине́сл еси́ же́ртву жи́ву,/ свиде́тельствовав зако́нно о Христе́ Бо́зе,/ от А́нгел укрепля́емый,/ и смерть изволя́я,/ сый с вопию́щими тебе́:// прииди́, Фо́ко, с на́ми, и никто́же на ны.</p>
+<hr></div></details>
+<details><summary>преподобному Ионе Яшезерскому</summary>
+<div class="bg_content"><hr>
+<h4>Тропарь преподобному Ионе Яшезерскому, глас 8</h4>
+<p>Благове́щенския оби́тели устрои́телю усе́рдный,/ сло́вом и́стины ве́ру насади́вый,/ благове́стием же окре́стныя лю́ди, я́ко ни́ву, оби́льно ороси́вый/ и прозябе́ние ди́вное Бо́гу принесы́й,/ восхваля́ем тя любо́вию, преподо́бне о́тче Ио́но,/ и, соверша́юще па́мять твою́, уми́льно вопие́м:// моли́ся, во е́же спасти́ся душа́м на́шим.</p>
+<hr></div></details>
+<details><summary>преподобному Макарию Жабынскому, Белевскому чудотворцу</summary>
+<div class="bg_content"><hr>
+<h4>Тропарь преподобному Макарию Жабынскому, Белевскому чудотворцу, глас 4</h4>
+<p>От мирска́го жития́ изше́д/ в ти́хое приста́нище жи́зни и́ноческия, преподо́бне Мака́рие, вшел еси́,/ в не́йже до́бре подвиза́вся,/ ду́шу твою́ доброде́тельми превысо́кими обогати́л еси́,/ и яви́лся еси́ добр па́стырь и учи́тель и́ноческому собо́ру,/ ему́же и оби́тель возгради́л еси́,/ та́же в безмо́лвие вшед и богови́дения сподо́бився,/ ко Го́споду преста́вился еси́,/ И́же да́ром чуде́с тя обогати́./ Его́же ны́не моли́,// да спасе́т ве́рою и любо́вию почита́ющих святу́ю па́мять твою́.</p>
+<h4>Кондак преподобному Макарию Жабынскому, Белевскому чудотворцу, глас 8</h4>
+<p>Житие́ чи́стое, терпе́ние, кро́тость и любо́вь нелицеме́рну,/ воздержа́ние соверше́нное, умиле́ние боже́ственное,/ ве́ру же и наде́жду и́стинну и милосе́рдие стяжа́в,/ равноа́нгельно, Мака́рие, на земли́ пожи́л еси́/ и на Небеси́ Бо́гови с ли́ки безпло́тных предстои́ши./ С ни́миже, свя́те, моли́ся, мир Росси́йстей Це́ркви дарова́ти// и душа́м на́шим ве́лию ми́лость.</p>
+<h4>Молитва преподобному Макарию Жабынскому, Белевскому чудотворцу</h4>
+<p>О, свяще́нная главо́! Вели́кий чудотво́рче, преподо́бне о́тче наш Мака́рие, преблаже́нне и пресла́вне, Ду́ха Свята́го исполне́ние! По́стников похвало́, мона́шествующих сла́во, пусты́ни Жабы́нския возгради́телю и украси́телю, те́плый о нас, гре́шных, моли́твенниче! Ны́не со а́нгельскими во́инствы предстоя́й у Престо́ла всех Царя́ сла́вы, Го́спода, и наслажда́яйся све́та Единосу́щныя Тро́ицы, и с Го́рними си́лами воспева́яй Трисвяту́ю песнь, я́ко дерзнове́ние име́яй, моли́ся Всеми́лостивому Влады́це спасти́ вся ве́рующия во и́мя Его́, испроси́ мир и тишину́ Святы́м Це́рквам низпосла́ти, ве́ре Правосла́вней укрепле́ние, проти́вныя язы́ки, бра́ни хотя́щия, ви́димыя и неви́димыя враги́ низложи́ти, гра́ды, ве́си и оби́тели на́ши утверди́ти, мир весь умири́ти. Моли́ Ми́лостиваго Бо́га, да твои́м благоприя́тным хода́тайством вся правосла́вныя христиа́ны изба́вит Он от гла́да, губи́тельства, тру́са, пото́па, огня́, меча́, от наше́ствия иноплеме́нник и междоусо́бныя бра́ни, ста́рыя да подкрепи́т, ю́ныя да наста́вит, нему́дрых умудри́т, боля́щия исцели́т, плене́нныя и ю́зники свободи́т, сиро́т заступи́т, младе́нцы воспита́ет и вся лю́ди сохрани́т от бед и напа́стей, и от нападе́ния вра́жия, и смертоно́сныя я́звы, внеза́пныя сме́рти и от вся́каго зла. Днесь же с ве́рою приходя́щих рабо́в твои́х, со стра́хом и любо́вию припа́дающих к честны́м моще́м твои́м и о́браз подо́бия твоего́ любе́зно целу́ющих, я́ко те́плый нам засту́пниче, сохрани́, в ско́рбных обстоя́ниих на́ших предста́ни, душе́вных и теле́сных страсте́й свободи́, в день Стра́шнаго суда́ шу́ияго стоя́ния изба́ви и с десны́ми овца́ми моли́твами твои́ми ста́ти сподо́би и слы́шати блаже́нный о́ный глас Влады́ки, Христа́ Бо́га на́шего: «Прииди́те, благослове́ннии Отца́ Моего́, насле́дуйте угото́ванное вам Ца́рство от сложе́ния ми́ра». Ему́же подоба́ет вся́кая сла́ва, честь и поклоне́ние, со Безнача́льным Его́ Отце́м и со Пресвяты́м, и Благи́м, и Животворя́щим Его́ Ду́хом, ны́не и при́сно и во ве́ки веко́в. Ами́нь.</p>
+<hr></div></details>
+<details><summary>Собору Тульских святых</summary>
+<div class="bg_content"><hr>
+<h4>Тропарь Собору Тульских святых, глас 2</h4>
+<p>Наста́ де́нь све́тлаго торжества́,/ земля́ на́ша ра́дуется,/ и с не́ю Це́рковь Христо́ва весели́тся,/ в прославле́нии Собо́ра Тульских святы́х, Бо́гу угоди́вших,/ к ни́м же мы́ притека́юще, взыва́ем си́це:/ о, пресла́внии сро́дницы на́ши,/ моли́те Христа́ Бо́га дарова́ти ми́ру ми́р,/ Оте́честву благоде́нствие,// и душа́м на́шим ве́лию ми́лость.</p>
+<h4>Кондак Собору Тульских святых, глас 3</h4>
+<p>Дне́сь Собо́р Тульских святы́х предстои́т в Це́ркви/ и неви́димо за ны́ мо́лится Бо́гу:/ а́нгели со архиере́и славосло́вят,/ му́ченики ликовству́ют,/ преподо́бнии и пра́веднии ра́дуются,/ и лю́дие правосла́внии веселя́тся:// вси́ бо ку́пно мо́лят Преве́чнаго Бо́га.</p>
+<hr></div></details>
+		
+	</div>
+	<input id="bg_worships" type="button" value="Богослужения">
+<!-- Завершение страницы -->	
+<div class="footer">
+	<p>Версия 3.15.2 от 11.05.2026</p>
+</div>	
+</section>
+</div>
+<script>
+	// Получить дату из input типа date и добавить ее в параметр адресной строки
+	var bg_setDay = document.getElementById("bg_setDay");
+	if (bg_setDay) bg_setDay.addEventListener('change', () => setParam(true), false);
+
+	// Установить текущую дату
+	var bg_todayButton = document.getElementById("bg_todayButton");
+	if (bg_todayButton) bg_todayButton.addEventListener('click',  () => setParam(false), false);
+
+	// Установить вчерашнюю дату
+	var bg_yesterdayButton = document.getElementById("bg_yesterdayButton");
+	if (bg_yesterdayButton) bg_yesterdayButton.addEventListener('click',  function() {
+		var date = new Date(document.getElementById("bg_setDay").value);
+		date.setDate(date.getDate() - 1);
+		document.getElementById("bg_setDay").value = date.getFullYear()+"-"+(("0" + (date.getMonth() + 1)).slice(-2))+"-"+(("0" + date.getDate()).slice(-2));
+		setParam(true);
+	}, false);
+
+	// Установить завтрешнюю дату
+	var bg_tommorowButton = document.getElementById("bg_tommorowButton");
+	if (bg_tommorowButton) bg_tommorowButton.addEventListener('click',  function() {
+		var date = new Date(document.getElementById("bg_setDay").value);
+		date.setDate(date.getDate() + 1);
+		document.getElementById("bg_setDay").value = date.getFullYear()+"-"+(("0" + (date.getMonth() + 1)).slice(-2))+"-"+(("0" + date.getDate()).slice(-2));
+		setParam(true);
+	}, false);
+
+	// Перейти на сайт Богослужения сегодня на текущую дату
+	var bg_worships = document.getElementById("bg_worships");
+	if (bg_worships) bg_worships.addEventListener('click',  () => setParam(true, 'https://azbyka.ru/worships'), false);
+
+	// Очистить div с текстом Жития
+	var bg_hide_block1 = document.getElementById("bg_hide_block1");
+	if (bg_hide_block1) bg_hide_block1.addEventListener('click', function() {
+		document.getElementById("bg_desc_text").innerHTML='';
+	}, false);
+
+	// Очистить div с текстом Библии
+	var bg_hide_block2 = document.getElementById("bg_hide_block2");
+	if (bg_hide_block2) bg_hide_block2.addEventListener('click', function() {
+		document.getElementById("bg_bible_text").innerHTML='';
+	}, false);
+	
+	function setParam (param=true, url='') {
+		if (!url) {
+			var url=location.href;
+			url=url.substring(0, url.indexOf('?')); 
+		}
+		if (param) {
+			var d = document.getElementById("bg_setDay");
+			url = url+'?date='+d.value;
+		}
+		location.href=url;
+	}
+
+	// Отправляем POST запрос с ссылкой на Жития 
+	var els1 = document.getElementsByClassName("bg_descriptions");
+	Array.prototype.forEach.call(els1, function(el) {
+		el.addEventListener("click",
+			function() {
+				var url=location.href;
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", url, false);
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				xhr.onreadystatechange = function() {
+					if (this.readyState != 4) return;
+//					location.reload();
+					document.body.innerHTML = '';
+					document.write(xhr.responseText);				
+					return false;
+				}
+				var desc = el.getAttribute('data-desc');
+				xhr.send("desc="+desc);
+			},
+			false
+		);
+	});
+
+	// Отправляем POST запрос с ссылкой на Библию 
+	var els2 = document.getElementsByClassName("bg_bibleRef");
+	Array.prototype.forEach.call(els2, function(el) {
+		el.addEventListener("click",
+			function() {
+				var url=location.href;
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", url, false);
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				xhr.onreadystatechange = function() {
+					if (this.readyState != 4) return;
+//					location.reload();
+					document.body.innerHTML = '';
+					document.write(xhr.responseText);				
+					return false;
+				}
+				var ref = el.innerText;
+				xhr.send("ref="+ref);
+			},
+			false
+		);
+	});
+	
+	var button_left = document.getElementById("scroll-left");
+	var button_right = document.getElementById("scroll-right");
+	var icon = document.getElementById("icon-pics");
+	var icon_width = icon.scrollWidth - 250;
+	if (icon.scrollLeft >= icon_width) button_left.style.opacity = 0;
+	else button_left.style.opacity = 1;
+	if (icon.scrollLeft <= 0) button_right.style.opacity = 0;
+	else button_right.style.opacity = 1;
+
+	
+	button_left.onclick = () => {
+		icon.scrollLeft += 256;
+		if (icon.scrollLeft+256 >= icon_width) button_left.style.opacity = 0;
+		else button_left.style.opacity = 1;
+		if (icon.scrollLeft+256 <= 0) button_right.style.opacity = 0;
+		else button_right.style.opacity = 1;
+	};
+	button_right.onclick = () => {
+		icon.scrollLeft -= 256;
+		var scroll_left = icon.scrollLeft;
+		if (icon.scrollLeft-256 >= icon_width) button_left.style.opacity = 0;
+		else button_left.style.opacity = 1;
+		if (icon.scrollLeft-256 <= 0) button_right.style.opacity = 0;
+		else button_right.style.opacity = 1;
+	};
+
+/******************************************************************************
+
+	Действия на телефоне:
+		Сдвиг экрана - переход на другую дату
+		Двойной тап - возврат на сегодня
+	
+*******************************************************************************/
+	var startX;
+	var element = document.getElementById('container');
+	var lastTouchEnd = 0;
+
+	element.addEventListener('touchstart', (e) => {
+		startX = e.touches[0].clientX; // Начальная X координата
+	});
+
+	element.addEventListener('touchmove', (e) => {
+		var currentX = e.touches[0].clientX;
+		var deltaX = currentX - startX;
+		// Можно двигать элемент:
+		element.style.transform = `translateX(${deltaX}px)`;
+	});
+
+	element.addEventListener('touchend', (e) => {
+		var endX = e.changedTouches[0].clientX;
+		var deltaX = endX - startX;
+
+		if (deltaX < -50) { // Свайп влево (отрицательное смещение)
+			element.style.transform = 'translateX(-100%)'; // Скрыть элемент влево
+			var date = new Date(document.getElementById("bg_setDay").value);
+			date.setDate(date.getDate() + 1);
+			document.getElementById("bg_setDay").value = date.getFullYear()+"-"+(("0" + (date.getMonth() + 1)).slice(-2))+"-"+(("0" + date.getDate()).slice(-2));
+			setParam(true);
+		} else if (deltaX > 50) { // Свайп вправо
+			element.style.transform = 'translateX(+100%)'; // Скрыть элемент вправо
+			var date = new Date(document.getElementById("bg_setDay").value);
+			date.setDate(date.getDate() - 1);
+			document.getElementById("bg_setDay").value = date.getFullYear()+"-"+(("0" + (date.getMonth() + 1)).slice(-2))+"-"+(("0" + date.getDate()).slice(-2));
+			setParam(true);
+		} else {
+			// Возврат в исходное положение, если свайп короткий
+			element.style.transform = 'translateX(0)';
+		}
+		
+		// Двойной тап - возврат на сегодня
+		const now = Date.now();
+		// Если разница между текущим и предыдущим событием меньше,
+		// например, 300ms, то это двойной тап
+		if (now - lastTouchEnd < 300) {
+			e.preventDefault(); // Предотвратить прокрутку, если нужно
+			setParam(false);
+		}
+		lastTouchEnd = now;
+	});
+
+</script>
+</body>
+</html>

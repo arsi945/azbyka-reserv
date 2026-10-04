@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" prefix="og: //ogp.me/ns#" ><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="canonical" href="https://azbyka.ru/days/api-help">
+	<title>Виджет православного календаря на Вашем сайте</title>
+    <meta name="description" content="Открытый API для больших возможностей. Чтения Священного Писания, тропари и кондаки, праздники, церковные тексты, иконы."><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://azbyka.ru/days/#website","url":"https://azbyka.ru/days/","name":"Православный церковный календарь","inLanguage":"ru-RU","publisher":{"@type":"Organization","@id":"https://azbyka.ru/#organization","name":"Православный портал «Азбука веры»","url":"https://azbyka.ru/"},"isPartOf":{"@id":"https://azbyka.ru/#website"}},{"@type":"WebPage","@id":"https://azbyka.ru/days/api-help#webpage","url":"https://azbyka.ru/days/api-help","name":"Виджет православного календаря на Вашем сайте","description":"Открытый API для больших возможностей. Чтения Священного Писания, тропари и кондаки, праздники, церковные тексты, иконы.","inLanguage":"ru-RU","isPartOf":{"@id":"https://azbyka.ru/days/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://azbyka.ru/days/img/calendar_social.png?1.0.2"}}]}</script>    <meta property="og:site_name" content="Православный церковный календарь" />
+    <meta property="og:title" content="Виджет православного календаря на Вашем сайте" />
+    <meta property="og:description" content="Открытый API для больших возможностей. Чтения Священного Писания, тропари и кондаки, праздники, церковные тексты, иконы." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://azbyka.ru/days/api-help" />
+				<meta property="og:image" content="https://azbyka.ru/days/img/calendar_social.png?1.0.2">
+		<meta property="og:image:secure_url" content="https://azbyka.ru/days/img/calendar_social.png?1.0.2" />
+		<meta property="og:image:width" content="1200"/>
+		<meta property="og:image:height" content="630"/>
+		<meta property="og:image:alt" content="Виджет православного календаря на Вашем сайте" />
+		<meta property="og:image:type" content="image/jpeg" />
+    		
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Виджет православного календаря на Вашем сайте" />
+	<meta name="twitter:description" content="Открытый API для больших возможностей. Чтения Священного Писания, тропари и кондаки, праздники, церковные тексты, иконы." />
+	<meta name="twitter:image" content="https://azbyka.ru/days/img/calendar_social.png?1.0.2" />
+	<link rel="image_src" href="https://azbyka.ru/days/img/calendar_social.png?1.0.2">
+	<link rel="icon" type="image/svg+xml" href="/days/img/fav/favicon.svg?1.0.2">
+	<link rel="apple-touch-icon" sizes="60x60" href='/days/img/fav/apple-icon-60x60.png?1.0.2'>
+	<link rel="apple-touch-icon" sizes="57x57" href='/days/img/fav/apple-icon-57x57.png?1.0.2'>
+	<link rel="apple-touch-icon" sizes="72x72" href='/days/img/fav/apple-icon-72x72.png?1.0.2'>
+	<link rel="apple-touch-icon" sizes="76x76" href='/days/img/fav/apple-icon-76x76.png?1.0.2'>
+	<link rel="apple-touch-icon" sizes="114x114" href='/days/img/fav/apple-icon-114x114.png?1.0.2'>
+	<link rel="apple-touch-icon" sizes="120x120" href='/days/img/fav/apple-icon-120x120.png?1.0.2'>
+	<link rel="apple-touch-icon" sizes="144x144" href='/days/img/fav/apple-icon-144x144.png?1.0.2'>
+	<link rel="apple-touch-icon" sizes="152x152" href='/days/img/fav/apple-icon-152x152.png?1.0.2'>
+	<link rel="apple-touch-icon" sizes="180x180" href='/days/img/fav/apple-icon-180x180.png?1.0.2'>
+	<link rel="icon" type="image/png" sizes="192x192" href='/days/img/fav/android-icon-192x192.png?1.0.2'>
+	<link rel="icon" type="image/png" sizes="32x32" href='/days/img/fav/favicon-32x32.png?1.0.2'>
+	<link rel="icon" type="image/png" sizes="96x96" href='/days/img/fav/favicon-96x96.png?1.0.2'>
+	<link rel="icon" type="image/png" sizes="16x16" href='/days/img/fav/favicon-16x16.png?1.0.2'>
+	<link rel="manifest" href="/days/img/fav/manifest.json?1.0.2">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/days/img/fav/ms-icon-144x144.png?1.0.2">
+	<meta name="theme-color" content="#ffffff">
+
+	<link href="/days/css/top-menu.css?1.8.42" rel="stylesheet" />
+	<link href="/days/css/main.css?1.8.42" rel="stylesheet" />
+	<link href="/days/css/common.css?1.8.42" rel="stylesheet" />
+	<link href="/days/css/desktop.css?1.8.42" rel="stylesheet" media="(min-width: 921px)"/>
+	<link href="/days/css/youtube.optimizer.css?1.8.42" rel="stylesheet" />
+	<link href="/days/css/calendar_base.css?1.8.42" rel="stylesheet" />
+
+	
+	
+<script type="text/javascript">
+    var bOtherPage,
+        bPathName = window.location.pathname,
+        bg_bibrefs = {
+        "ajaxurl": "https:\/\/ajax.azbyka.ru\/bibrefs",
+        "content": "#content",
+        "preq": "0"
+    };
+
+    window.getConstant = function (name){
+        switch(name){
+            case "APP_DIR":
+                return 'days/'  ;
+            case "SITE_URL":
+                return `https://azbyka.ru/days/`;
+            default:
+                console.error("getConstant: Unknown constant");
+        }
+    }
+</script>
+
+		<script src="/days/js/head.js?1.3.3"></script>
+	<script src="/days/js/jquery.min.1.12.4.js?1.3.3"></script>
+	<script defer src="/days/js/mobile-menu.js?1.3.3"></script>
+	<script defer src="/days/js/loadAndGo.js?1.3.3"></script>
+
+	<script type='text/javascript' id='retypos_proc-js-extra'>
+		var retypos = {
+			"contextmenu":"0",
+			"container":"#content",
+			"correctTypo":"correctTypo.php"
+		};
+	</script>
+	<script>
+		let hasMouse = window.matchMedia('(hover:hover)').matches;
+
+		window.az_deferred_styles = [
+			'css/deferred.css?v=11',
+			'css/fonts.css',
+			'css/font-awesome.min.css',
+		];
+		if(hasMouse){
+			az_deferred_styles.push('css/hover.css');
+		}
+
+		window.az_deferred_styles_ontouch = [
+			'css/autocomplete.css',
+			'css/azbyka_test.css?v=5',
+			'css/retypos.css?v=5',
+		];
+
+		window.az_deferred_scripts = [
+			'js/autocomplete.min.js',
+			'//eterfund.ru/api/email/svcCheckEmail.js',
+			'js/slider.js?v=12',
+			'js/youtube.optimizer.js',
+			'js/test.js?v=4',
+			'js/inline-audio.js?v=1.7',
+			'js/retypos.js?v=3',
+			'js/top-menu.js?v=1',
+			'js/tooltip.js?v=1',
+		];
+
+		if(hasMouse){
+			az_deferred_scripts.push('js/az-drag.js');
+		}
+
+		if(hasMouse && window.innerWidth > 520){
+			az_deferred_scripts.push('js/bg_bibrefs.js?v=6');
+		}
+	</script>
+	
+	<!--[if lte IE 9]><script>window.location.href = '//azbyka.ru/design/noie.htm';</script><![endif]-->
+</head>
+
+<body class="">
+	<!--noindex-->
+	<!-- Yandex.Metrika counter -->
+	<noscript><div><img src="https://mc.yandex.ru/watch/5565880" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+	<!--/noindex-->
+
+		
+
+
+	<nav id="nav-box">
+	<div class="pre-header-nav">Разделы портала «Азбука&nbsp;веры»</div>
+	<a class="av-logo-link" href="//azbyka.ru"></a>
+    <ul id="main-nav">
+        <li class="menu-item menu-item-has-children"><span class='link'>Гид <i class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/gid'><i class="fa fa-question-circle-o"
+                            aria-hidden="true"></i> Гид по порталу</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/'><i class="fa fa-home" aria-hidden="true"></i>
+                        Главная</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/drevo-sajta'><i class="fa fa-sitemap"
+                            aria-hidden="true"></i> Древо портала</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/1/s-chego-nachat'><i class="fa fa-user-plus"
+                            aria-hidden="true"></i> С чего начать</a></li>
+                <li class="menu-item"><a href='https://t.me/AzbykaruBot'><i class="fa fa-search" aria-hidden="true"></i>
+                        TG бот</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Библиотеки <i
+                    class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/biblia/'><i class="fa fa-book" aria-hidden="true"></i>
+                        Библия</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/otechnik/'><i class="fa fa-files-o"
+                            aria-hidden="true"></i> «Отечник»</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/fiction/'><i class="fa fa-copyright"
+                            aria-hidden="true"></i> Художественная литература</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/pravo/'><i class="fa fa-balance-scale"
+                            aria-hidden="true"></i> Церковное право</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/dictionary'><i class="fa fa-graduation-cap"
+                            aria-hidden="true"></i> Энциклопедия</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Календарь <i
+                    class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/days/p-audio-calendar'><i class="fa fa-headphones"
+                            aria-hidden="true"></i> Аудиокалендарь</a></li>
+                <li class="menu-item m-hide"><a href='https://azbyka.ru/extension'><i class="fa fa-chrome"
+                            aria-hidden="true"></i> Расширение Chrome</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Молитва <i class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/palomnik/'><i class="fa fa-globe"
+                            aria-hidden="true"></i> Азбука паломника</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/kliros/'><i class="fa fa-music" aria-hidden="true"></i>
+                        Азбука певческая</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/worships/'><i class="fa fa-file-text"
+                            aria-hidden="true"></i> Богослужение сегодня</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/chaso-slov/'><i class="fa fa-clock-o"
+                            aria-hidden="true"></i> Молимся по часам</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/molitvoslov/'><i class="fa fa-fire"
+                            aria-hidden="true"></i> Молитвослов</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/bogosluzhenie/'><i class="fa fa-bell"
+                            aria-hidden="true"></i> Переводы Богослужений</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/psalms/'><i class="fa fa-group" aria-hidden="true"></i>
+                        Читаем Псалтирь</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Медиа <i class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/news'><i class="fa fa-newspaper-o"
+                            aria-hidden="true"></i> Азбука новостей</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/foto/'><i class="fa fa-camera-retro"
+                            aria-hidden="true"></i> Азбука фото</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/audio/'><i class="fa fa-volume-up"
+                            aria-hidden="true"></i> Аудио</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/video/'><i class="fa fa-video-camera"
+                            aria-hidden="true"></i> Видео</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/bozhestvennaja-liturgija'><i class="fa fa-bell"
+                            aria-hidden="true"></i> Литургия</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/audio/radio.html'><i class="fa fa-volume-up"
+                            aria-hidden="true"></i> Радио</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/bogosluzhenie-online'><i class="fa fa-video-camera"
+                            aria-hidden="true"></i> Трансляция из храма</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/parkhomenko/foto/'><i class="fa fa-camera"
+                            aria-hidden="true"></i> Фоторассказы</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/life/'><i class="fa fa-road" aria-hidden="true"></i>
+                        Христианская жизнь</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/social-media'><i class="fa fa-telegram"
+                            aria-hidden="true"></i> Социальные медиа</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Проверь себя <i
+                    class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/quiz/'><i class="fa fa-code-fork"
+                            aria-hidden="true"></i> Квизы</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/crosswords/'><i class="fa fa-pencil"
+                            aria-hidden="true"></i> Кроссворды</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/test/'><i class="fa fa-check-square-o"
+                            aria-hidden="true"></i> Тесты</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/viktorina/'><i class="fa fa-image"
+                            aria-hidden="true"></i> Фотовикторины</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/games/'><i class="fa fa-gamepad"
+                            aria-hidden="true"></i> Игры</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/memo/'><i class="fa fa-refresh" aria-hidden="true"></i>
+                        Учим Писания</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Тематическое <i
+                    class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/death/'><i class="fa fa-cloud-upload"
+                            aria-hidden="true"></i> Азбука бессмертия</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/art/'><i class="fa fa-paint-brush"
+                            aria-hidden="true"></i> Азбука искусства</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/apokalipsis/'><i class="fa fa-font"
+                            aria-hidden="true"></i> Апокалипсис</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/vopros/'><i class="fa fa-question-circle"
+                            aria-hidden="true"></i> Вопросы и ответы</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/ikona/'><i class="fa fa-plus-square"
+                            aria-hidden="true"></i> Иконы</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/katehizacija/'><i class="fa fa-bullhorn"
+                            aria-hidden="true"></i> Катехизация</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/way/'><i class="fa fa-location-arrow"
+                            aria-hidden="true"></i> Мой путь к Богу</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/opros/'><i class="fa fa-bar-chart"
+                            aria-hidden="true"></i> Опросы</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/shemy/'><i class="fa fa-table" aria-hidden="true"></i>
+                        Пособия</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/propovedi/'><i class="fa fa-pencil"
+                            aria-hidden="true"></i> Проповеди</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/sueverie/'><i class="fa fa-street-view"
+                            aria-hidden="true"></i> Суевериям.нет</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/forum/'><i class="fa fa-comments-o"
+                            aria-hidden="true"></i> Форум</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/quotes'><i class="fa fa-bookmark"
+                            aria-hidden="true"></i> Цитаты Св. отцов</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/chinaorthodox/'><i class="fa fa-handshake-o"
+                            aria-hidden="true"></i> 东正教信仰入门</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/japanorthodox/'><i class="fa fa-circle"
+                            aria-hidden="true"></i> 正教の本</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item-has-children"><span class='link'>Семья и здоровье <i
+                    class="fa fa-angle-down"></i></span>
+            <ul class="sub-menu">
+                <li class="menu-item"><a href='https://azbyka.ru/znakomstva/'><i class="fa fa-link"
+                            aria-hidden="true"></i> Азбука верности</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/deti/'><i class="fa fa-child" aria-hidden="true"></i>
+                        Азбука воспитания</a></li>
+				<li class="menu-item"><a href='https://azbyka.ru/trezvost/'><i class="fa fa-unlink"
+                            aria-hidden="true"></i> Азбука трезвости</a></li>	
+                <li class="menu-item"><a href='https://azbyka.ru/zdorovie/'><i class="fa fa-medkit"
+                            aria-hidden="true"></i> Азбука здоровья</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/recept/'><i class="fa fa-cutlery"
+                            aria-hidden="true"></i> Азбука рецептов</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/garden/'><i class="fa fa-envira"
+                            aria-hidden="true"></i> Азбука садовода</a></li>
+                <li class="menu-item"><a href='https://azbyka.ru/semya/'><i class="fa fa-home" aria-hidden="true"></i>
+                        Азбука супружества</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+	<div class="w-nav w-nav-top">
+		<div class="row-fluid">
+			<div id="nav" class="wrapper">
+				<div class="nav__left">
+																		
+<ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList">
+	<li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+		<a itemprop="item" href="https://azbyka.ru/" title="Азбука веры">
+			<span itemprop="name">Азбука веры</span>
+		</a>
+		<meta itemprop="position" content="1">
+	</li>
+	<li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+							<a itemprop="item" href="https://azbyka.ru/days/" title="Церковный календарь">
+							<span itemprop="name" content="📅 Календарь" >Церковный календарь</span>
+			<meta itemprop="position" content="2">
+		
+			</a>
+			</li>
+							<li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+				<span itemprop="name">Виджет православного календаря на Вашем сайте</span> 				<meta itemprop="position" content="3">
+			</li>
+			</ul>
+																<a class="header-help-btn help-btn mob-hide" href="//azbyka.ru/kak-pomoch">Пожертвовать</a>
+				</div>
+
+
+				<div id="main_title">
+																						<a href="/days/">
+							<span class="mob-hide">Православный							</span>церковный календарь						</a>
+					
+									</div>
+				<div class="nav__right">
+					<div class="btn-settings" onclick="AZ.toggleSettings()">
+	<i class="fa fa-gear"></i>
+	<div class="settings-help-wrap"><span class="settings-help">Вы можете настроить размер шрифта, цвет фона и часовой пояс</span></div>
+</div>					<div id="search">
+						<form action="/days/search" class="fm-speech">
+							<input class="search-form-field" value="" name="q" type="search"
+								placeholder="Поиск по календарю">
+							<i class="speech fa fa-microphone"></i>
+							<button class="search-form-button" type="submit" aria-label="Найти"><i class="fa fa-search"
+									aria-hidden="true"></i></button>
+						</form>
+					</div>
+					<div class="top-telegram"><a href="https://azbyka.ru/social-media" rel="noopener noreferrer" target="_blank"><i class="fa fa-telegram"></i> TG-каналы</a></div>
+					<a class="help-btn desk-hide" href="https://azbyka.ru/kak-pomoch">Пожертвовать</a>
+											
+
+    
+    
+    
+    
+<div class="counter">
+    <span class="abc-counter" data-project="days"
+          data-type-1="pg"
+          data-id-1="$days$api-help"
+          data-type-2=""
+          data-id-2="">
+
+        <i title="Всего просмотров" class="fa fa-eye"></i>
+        <span class="abc-counter-views"></span>
+
+        <i title="Сейчас читают" class="fa fa-user-o"></i>
+        <span class="abc-counter-now"></span>
+    </span>
+</div>									</div>
+			</div>
+		</div>
+
+		    <div class="top-saints">
+        <span class="view_all">
+            <a href="https://azbyka.ru/mesyaceslov">Месяцеслов</a> (<a href="/svyatcy" rel="noopener noreferrer" target="_blank">святцы):</a>
+        </span>
+        							<a href="/days/menology/A" title="А">А–Я</a>
+			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			            </div>
+
+	</div>
+
+			<div id="mobnav" class="mobnav">
+			<span class="mobnav-btn mobnav-btn-sitemap" data-target="#nav-box" role="button" tabindex="0" aria-label="Меню портала"><span class="av-logo-link"></span></span>
+			<a class="mobnav-btn" href="https://azbyka.ru/kak-pomoch" target="_blank" aria-label="Пожертвовать"><i class="fa fa-rub"></i></a>
+			<a class="mobnav-btn mobnav-btn-left" href="#left-bar" aria-label="Календарь"><i class="fa fa-calendar"></i></a>
+			<span class="mobnav-btn mobnav-btn-search" data-target="#search" role="button" tabindex="0" aria-label="Поиск"><i class="fa fa-search"></i></span>
+			<span class="mobnav-btn mobnav-btn-settings" data-target=".settings-wrap" role="button" tabindex="0" aria-label="Настройки"><i class="fa fa-gear"></i></span>
+		</div>
+	
+	<div id="content">
+		<div class="wrapper">
+			<div id="main" class="active">
+
+				<style type="text/css">
+	#api_select td input,
+	#api_select td label {
+		vertical-align: middle;
+	}
+
+	.a {
+		color: #007bff;
+	}
+
+	.b {
+		color: #28a745;
+	}
+
+	.c {
+		color: #dc3545;
+	}
+
+	.d {
+		color: #17a2b8;
+	}
+
+	.h span {
+		font-weight: bold;
+	}
+
+	.t {
+		font-weight: bold;
+		color: #444;
+		padding: 5px 10px;
+		display: inline-block;
+	}
+
+	.pad {
+		display: block;
+		height: 5px;
+	}
+
+	#content .block h1 {
+		background: #f4d49d url(../img/bg/h_bg.png) left bottom repeat-x;
+		color: var(--accent-color, #900);
+		font-family: 'Kurale', serif;
+		font-size: 16px;
+		min-height: 35px;
+		margin: 0 0 7px;
+		padding-top: 12px;
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+	#codearea {
+		width: 100%;
+	}
+	.api-widget-wrapper {
+		border: 2px solid #c66;
+		padding: 3px;
+		margin: 3px;
+	}
+	@media (min-width: 768px) {
+		#codearea {
+			width: calc(99% - 300px);
+		}
+		.api-widget-wrapper {
+			width: 300px;
+			float: right;
+		}
+		#main .block .api-widget-wrapper p {
+			text-align: left;
+		}
+	}
+	.block h2 {
+		font-family: Arial, sans-serif;
+	}
+</style>
+<h1>Святые дня на вашем сайте</h1>
+<div class="block">
+	<h2>Виджет отображения основного блока</h2>
+	<p>Вы можете разместить на своём сайте наш блок со святыми текущего дня.</p>
+	<p>Для этого выберите подходящий вам вариант ниже:</p>
+	<form id="api_select">
+		<table class="filter" cellpadding="4">
+			<tbody>
+				<tr>
+					<td>
+						Тип					</td>
+				</tr>
+				<tr>
+					<td>
+						<input id="form_type_0" name="type" value="js" checked="checked" type="radio"> <label
+							for="form_type_0">JavaScript</label> </td>
+					<td>
+						<input id="form_type_1" name="type" value="iframe" type="radio"> <label
+							for="form_type_1">iframe</label> </td>
+				</tr>
+				<tr>
+					<td>
+						<input name="css" value="1" checked="checked" type="checkbox" id="form_css"> <label
+							for="form_css">Подключить наш CSS</label> </td>
+					<td>
+						<div class="for_js_only"><input name="image" value="1" checked="checked" type="checkbox"
+								id="form_image"> <label for="form_image">Показывать икону дня</label></div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="for_js_only"><input name="async" value="1" checked="checked" type="checkbox"
+								id="form_async"> <label for="form_async">Асинхронная загрузка</label></div>
+					</td>
+					<td>
+						<div class="for_js_only"><input name="prevNextLinks" value="1" checked="checked" type="checkbox"
+								id="form_prevNextLinks"> <label for="form_prevNextLinks">Ссылки на другие дни</label></div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<p>Ваш код:</p>
+	<div class="api-widget-wrapper">
+		<!-- Поместите этот блок туда, где должен располагаться виджет -->
+		<div class="azbyka-saints"></div>
+		<script>
+			window.___azcfg = {
+				api: "https://azbyka.ru/days/widgets",
+				css: 'https://azbyka.ru/days/css/api.min.css',
+				image: '1',
+				prevNextLinks: '0'
+			};
+			(function() {
+				var el = document.createElement('script');
+				el.type = 'text/javascript';
+				el.async = true;
+				el.src = 'https://azbyka.ru/days/js/api.min.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(el, s);
+			})();
+		</script>
+	</div>
+	<p><textarea id="codearea" rows="20"></textarea></p>
+
+	<script>
+		var iframe_code_begin = '<iframe src="';
+		var iframe_code_end = '" width="468" height="60" frameborder="no"></iframe>';
+		var iframe_css_url = `https://azbyka.ru/days/widgets/saints?css=1`;
+		var iframe_nocss_url = `https://azbyka.ru/days/widgets/saints`;
+		var js_code_begin = '<!-- Поместите этот блок туда, где должен располагаться виджет -->\n\
+<div class="azbyka-saints"></div>\n\
+<script>\n\
+window.___azcfg = {\n\
+  api: \'https://azbyka.ru/days/widgets\'';
+		var js_code_middle = '\n};\n\(function() {\n\
+  var el = document.createElement(\'script\');\n\
+  el.type = \'text/javascript\';';
+		var js_code_end = '\n  el.src = \'https://azbyka.ru/days/js/api.min.js\';\n\
+  var s = document.getElementsByTagName(\'script\')[0];\n\  s.parentNode.insertBefore(el, s);\n\
+})();\n<\/script>';
+		var js_code_async = '\n  el.async = true;';
+		var js_code_css = ',\n\  css: \'https://azbyka.ru/days/css/api.min.css\'';
+		var js_code_image = ',\n\  image: \'1\'';
+		var js_code_prevNextLinks = ',\n\  prevNextLinks: \'1\'';
+		var css = true;
+		var async = true;
+		var image = true;
+		var prevNextLinks = true;
+		var type = 'js';
+		$(function () {
+			var code = get_code('js');
+			$('#codearea').val(code);
+			$('#api_select').on('change', ':input', function () {
+				var value = $(this).val();
+				switch ($(this).attr('name')) {
+					case 'type':
+						if (value === 'iframe') {
+							$('.for_js_only').hide();
+						} else {
+							$('.for_js_only').show();
+						}
+						type = value;
+						break;
+					case 'css':
+						css = $(this).is(':checked');
+						break;
+					case 'image':
+						image = $(this).is(':checked');
+						break;
+					case 'async':
+						async = $(this).is(':checked');
+						break;
+					case 'prevNextLinks':
+						prevNextLinks = $(this).is(':checked');
+						break;
+					default:
+						break;
+				}
+				code = get_code(type);
+				$('#codearea').val(code);
+			});
+		});
+
+		function get_code() {
+			if (type === 'iframe') {
+				var code = iframe_code_begin;
+				code += css ? iframe_css_url : iframe_nocss_url;
+				code += iframe_code_end;
+			} else {
+				code = js_code_begin;
+				if (css) code += js_code_css;
+				if (image) code += js_code_image;
+				if (prevNextLinks) code += js_code_prevNextLinks;
+				code += js_code_middle;
+				if (async) code += js_code_async;
+				code += js_code_end;
+			}
+			return code;
+		}
+	</script>
+	<h3>Дополнительная настройка</h3>
+	<p>
+		Если у Вас есть необходимость самостоятельно отображать блок Вы можете воспользоваться API endpoint, по адресу		<pre>https://azbyka.ru/days/widgets/presentations.json</pre>
+		Который имеет специальные параметры:	</p>
+	<ul>
+		<li>prevNextLinks=1 - Дополнительные ссылки на другие даты</li>
+		<li>image=1 - массив фот</li>
+		<li>date=2026-10-05 - Дата в формате Y-m-d, по-умолчанию сегодня</li>
+	</ul>
+</div>
+<div class="block">
+	<h2>Как зарегистрировать пользователя API</h2>
+	<ul>
+		<li>Зарегистрируйте пользователя API по адресу <a href="https://azbyka.ru/days/register/userapi">https://azbyka.ru/days/register/userapi</a></li>
+		<li>Подтвердите емейл</li>
+		<li>Ожидайте одобрения администратора</li>
+		<li>После одобрения администратора вы можете воспользоваться документацией по адресу			<a href="https://azbyka.ru/days/api/docs.html">https://azbyka.ru/days/api/docs.html</a></li>
+	</ul>
+</div>
+<div class="block">
+	<h2>API рассчитываемые точки</h2>
+	<p>
+		<a href="/days/register/userapi">Необходима регистрация пользователя API</a>
+	</p>
+	<p>
+		<a href="https://azbyka.ru/days/api/thoughts-st-theophan/2026-10-05.json">https://azbyka.ru/days/api/thoughts-st-theophan/2026-10-05.json</a> - Получение мыслей св. Феофана с Html	</p>
+	<p>
+		<a href="https://azbyka.ru/days/api/news-feed/2026-10-05.json">https://azbyka.ru/days/api/news-feed/2026-10-05.json</a> - Получение ленты новостей на текущий день	</p>
+	<p>
+		<a href="https://azbyka.ru/days/api/daytype/2026-10-05.json">https://azbyka.ru/days/api/daytype/2026-10-05.json</a> - Получение информации на текущий день, включая ленту новостей	</p>
+	<p>
+		<a href="https://azbyka.ru/days/api/holiday-date-link/svetloe-hristovo-voskresenie-pasha">https://azbyka.ru/days/api/holiday-date-link/svetloe-hristovo-voskresenie-pasha</a> - Получение ссылки на дату конкретного праздника по его uri	</p>
+	<p>
+		<a href="https://azbyka.ru/days/api/saint-date-link/Nikolaj-Mirlikijskij">https://azbyka.ru/days/api/saint-date-link/Nikolaj-Mirlikijskij</a> - Получение ссылки на дату конкретного святого по его uri	</p>
+</div>
+
+<div class="block" id="migration-to-v2">
+	<h2>API v2</h2>
+	<p>
+		Доступна новая версия API по адресу		<a href="https://azbyka.ru/days/api-v2/doc">https://azbyka.ru/days/api-v2/doc</a>.
+		Первая версия API будет удалена в скором времени. Рекомендуем начать переход на v2.	</p>
+	<h3>Отличия v2 от v1</h3>
+	<ul>
+		<li>Дата передаётся в URI</li>
+		<li>Оптимизированные запросы к БД</li>
+		<li>Отдельный эндпоинт для данных напрямую, вне главного блока.</li>
+	</ul>
+</div>
+<div class="block">
+	<h2>Виджет определителя именин для сайтов</h2>
+
+	<h3>Виджет через iframe</h3>
+	<textarea id="codearea" rows="4" style="width: 99%;">
+<!--Поместите этот блок туда, где должен располагаться определитель именин-->
+<div id="namedayWidget" date-replace="0" data-absoluteurl="https://azbyka.ru/"></div>
+<script async src="https://azbyka.ru/days/js/nameday.min.js"></script>
+	</textarea>
+
+	<h3>Виджет через api</h3>
+	<textarea id="codearea" rows="15" style="width: 99%;">
+
+<script src="https://azbyka.ru/days/js/namedayWidget.js"></script>
+<link href="https://azbyka.ru/days/css/nameday_widget.css" rel="stylesheet" />
+
+<div id="name-day">
+	<div class="widget-title">Определитель именин <a
+				href="https://azbyka.ru/days/p-pojasnenija-k-opredelitelju-imenin"
+				rel="noopener noreferrer" target="_blank"><i class="tip fa fa-question-circle-o"></i></a></div>	<div id="namedayWidget">
+		<div class="form-row controls">
+			<input id="ndwName" name="name" type="text" class="text" placeholder="Имя в крещении" autocomplete="off" minlength="2">
+			<a
+				class="button help-button"
+				href="https://azbyka.ru/days/p-pojasnenija-k-opredelitelju-imenin"
+				rel="noopener noreferrer" target="_blank">
+				<i class="tip fa fa-question"></i>
+			</a>
+		</div>
+		<div class="form-row controls">
+			<input id="ndwBirthday" name="birthday" type="text" class="text" placeholder="Дата рожд. (дд.мм)" pattern="\d{1,2}.\d{1,2}" maxlength="5">
+			<button type="submit" id="nameday-button" class="search-button" title="Определить"><i class="fa fa-search"></i></button>
+		</div>
+		<div class="form-row">
+			<label><input id="ndwNewmartyr" name="newmartyr" type="checkbox" checked > С новомучениками</label>
+		</div>
+		<div id="namedayWidgetResult"></div>
+	</div>
+</div>
+<script>
+	namedayWidget({
+		formUrl: `https://azbyka.ru/days/saints/nameday`,
+		searchNameUrl: `https://azbyka.ru/days/saints/nameday/search-name`,
+		blank: true,
+		replace: false
+	});
+</script>
+	</textarea>
+</div>
+
+
+    <div class="block">
+        <h2>Виджет фото дня</h2>
+
+        <h3>Виджет через iframe</h3>
+        <textarea id="codearea" rows="4" style="width: 99%;">
+<!--Поместите этот блок туда, где должен располагаться виджет-->
+<div id="photoOfDayWidget" date-replace="0" data-absoluteurl="https://azbyka.ru/days/"></div>
+<script async src="https://azbyka.ru/days/js/photo-of-day-widget.js"></script>
+	</textarea>
+
+
+    </div>
+
+									<div class="block boxes taks_block random_test body_classes " >
+						<h2>Случайный тест</h2>
+						<div class="azbyka_random_test" data-level="0" data-limit="1"></div>
+					</div>
+				
+											</div>
+
+			<div id="left-bar" class="sidebar left-sidebar">
+				<div class="box">
+					<div id="x-calendar" class="widget calendar-widget">
+						<div class="pika-month"><div id="pika-title-yd" class="pika-title" role="heading" aria-level="3" aria-live="assertive"><button class="pika-prev fa fa-angle-left" title="предыдущий месяц"></button><div class="pika-select-wrap month-select-wrap"><div class="pika-select pika-select-month"><div class="pika-select-option" data-value="1" >Январь</div><div class="pika-select-option" data-value="2" >Февраль</div><div class="pika-select-option" data-value="3" >Март</div><div class="pika-select-option" data-value="4" >Апрель</div><div class="pika-select-option" data-value="5" >Май</div><div class="pika-select-option" data-value="6" >Июнь</div><div class="pika-select-option" data-value="7" >Июль</div><div class="pika-select-option" data-value="8" >Август</div><div class="pika-select-option" data-value="9" >Сентябрь</div><div class="pika-select-option" data-value="10" data-selected="selected">Октябрь</div><div class="pika-select-option" data-value="11" >Ноябрь</div><div class="pika-select-option" data-value="12" >Декабрь</div></div><span class="pika-select-label">Октябрь</span></div><button class="pika-next fa fa-angle-right" title="следующий месяц"></button><div class="pika-select-wrap year-select-wrap"><div class="pika-select pika-select-year"><div class="pika-select-option" data-value="2024" >2024</div><div class="pika-select-option" data-value="2025" >2025</div><div class="pika-select-option" data-value="2026" data-selected="selected">2026</div><div class="pika-select-option" data-value="2027" >2027</div><div class="pika-select-option" data-value="2028" >2028</div></div><span class="pika-select-label">2026</span></div></div><div class="pika-table month"><div class="pika-weekday"><abbr title="пн">Пн</abbr></div><div class="pika-weekday"><abbr title="вт">Вт</abbr></div><div class="pika-weekday"><abbr title="ср">Ср</abbr></div><div class="pika-weekday"><abbr title="чт">Чт</abbr></div><div class="pika-weekday"><abbr title="пт">Пт</abbr></div><div class="pika-weekday"><abbr title="сб">Сб</abbr></div><div class="pika-weekday"><abbr title="вс">Вс</abbr></div><a href="https://azbyka.ru/days/2026-09-28"
+        class="pika-day is-outside-current-month"
+        title="28.09 2026 г. (15.09 ст. ст.)
+Седмица 18-я по Пятидесятнице">
+        28
+    </a><a href="https://azbyka.ru/days/2026-09-29"
+        class="pika-day is-outside-current-month"
+        title="29.09 2026 г. (16.09 ст. ст.)
+Седмица 18-я по Пятидесятнице">
+        29
+    </a><a href="https://azbyka.ru/days/2026-09-30"
+        class="pika-day is-outside-current-month"
+        title="30.09 2026 г. (17.09 ст. ст.)
+Седмица 18-я по Пятидесятнице">
+        30
+    </a><a href="https://azbyka.ru/days/2026-10-01"
+        class="pika-day"
+        title="1.10 2026 г. (18.09 ст. ст.)
+Седмица 18-я по Пятидесятнице">
+        1
+    </a><a href="https://azbyka.ru/days/2026-10-02"
+        class="pika-day post wedding"
+        title="2.10 2026 г. (19.09 ст. ст.)
+Седмица 18-я по Пятидесятнице">
+        2
+    </a><a href="https://azbyka.ru/days/2026-10-03"
+        class="pika-day"
+        title="3.10 2026 г. (20.09 ст. ст.)
+Седмица 18-я по Пятидесятнице. Суббота по Воздвижении">
+        3
+    </a><a href="https://azbyka.ru/days/2026-10-04"
+        class="pika-day wedding"
+        title="4.10 2026 г. (21.09 ст. ст.)
+Неделя 18-я по Пятидесятнице, по Воздвижении">
+        4
+    </a><span
+        class="pika-day is-today wedding"
+        title="5.10 2026 г. (22.09 ст. ст.)
+Седмица 19-я по Пятидесятнице">
+        5
+    </span><a href="https://azbyka.ru/days/2026-10-06"
+        class="pika-day"
+        title="6.10 2026 г. (23.09 ст. ст.)
+Седмица 19-я по Пятидесятнице">
+        6
+    </a><a href="https://azbyka.ru/days/2026-10-07"
+        class="pika-day post wedding"
+        title="7.10 2026 г. (24.09 ст. ст.)
+Седмица 19-я по Пятидесятнице">
+        7
+    </a><a href="https://azbyka.ru/days/2026-10-08"
+        class="pika-day"
+        title="8.10 2026 г. (25.09 ст. ст.)
+Седмица 19-я по Пятидесятнице">
+        8
+    </a><a href="https://azbyka.ru/days/2026-10-09"
+        class="pika-day post wedding"
+        title="9.10 2026 г. (26.09 ст. ст.)
+Седмица 19-я по Пятидесятнице">
+        9
+    </a><a href="https://azbyka.ru/days/2026-10-10"
+        class="pika-day"
+        title="10.10 2026 г. (27.09 ст. ст.)
+Седмица 19-я по Пятидесятнице">
+        10
+    </a><a href="https://azbyka.ru/days/2026-10-11"
+        class="pika-day wedding"
+        title="11.10 2026 г. (28.09 ст. ст.)
+Неделя 19-я по Пятидесятнице">
+        11
+    </a><a href="https://azbyka.ru/days/2026-10-12"
+        class="pika-day wedding"
+        title="12.10 2026 г. (29.09 ст. ст.)
+Седмица 20-я по Пятидесятнице">
+        12
+    </a><a href="https://azbyka.ru/days/2026-10-13"
+        class="pika-day"
+        title="13.10 2026 г. (30.09 ст. ст.)
+Седмица 20-я по Пятидесятнице">
+        13
+    </a><a href="https://azbyka.ru/days/2026-10-14"
+        class="pika-day post great12 wedding"
+        title="14.10 2026 г. (1.10 ст. ст.)
+Седмица 20-я по Пятидесятнице
+Покров Пресвятой Владычицы нашей Богородицы и Приснодевы Марии">
+        14
+    </a><a href="https://azbyka.ru/days/2026-10-15"
+        class="pika-day"
+        title="15.10 2026 г. (2.10 ст. ст.)
+Седмица 20-я по Пятидесятнице">
+        15
+    </a><a href="https://azbyka.ru/days/2026-10-16"
+        class="pika-day post wedding"
+        title="16.10 2026 г. (3.10 ст. ст.)
+Седмица 20-я по Пятидесятнице">
+        16
+    </a><a href="https://azbyka.ru/days/2026-10-17"
+        class="pika-day"
+        title="17.10 2026 г. (4.10 ст. ст.)
+Седмица 20-я по Пятидесятнице">
+        17
+    </a><a href="https://azbyka.ru/days/2026-10-18"
+        class="pika-day wedding"
+        title="18.10 2026 г. (5.10 ст. ст.)
+Неделя 20-я по Пятидесятнице">
+        18
+    </a><a href="https://azbyka.ru/days/2026-10-19"
+        class="pika-day wedding"
+        title="19.10 2026 г. (6.10 ст. ст.)
+Седмица 21-я по Пятидесятнице">
+        19
+    </a><a href="https://azbyka.ru/days/2026-10-20"
+        class="pika-day"
+        title="20.10 2026 г. (7.10 ст. ст.)
+Седмица 21-я по Пятидесятнице">
+        20
+    </a><a href="https://azbyka.ru/days/2026-10-21"
+        class="pika-day post wedding"
+        title="21.10 2026 г. (8.10 ст. ст.)
+Седмица 21-я по Пятидесятнице">
+        21
+    </a><a href="https://azbyka.ru/days/2026-10-22"
+        class="pika-day"
+        title="22.10 2026 г. (9.10 ст. ст.)
+Седмица 21-я по Пятидесятнице">
+        22
+    </a><a href="https://azbyka.ru/days/2026-10-23"
+        class="pika-day post wedding"
+        title="23.10 2026 г. (10.10 ст. ст.)
+Седмица 21-я по Пятидесятнице">
+        23
+    </a><a href="https://azbyka.ru/days/2026-10-24"
+        class="pika-day"
+        title="24.10 2026 г. (11.10 ст. ст.)
+Седмица 21-я по Пятидесятнице">
+        24
+    </a><a href="https://azbyka.ru/days/2026-10-25"
+        class="pika-day wedding"
+        title="25.10 2026 г. (12.10 ст. ст.)
+Неделя 21-я по Пятидесятнице">
+        25
+    </a><a href="https://azbyka.ru/days/2026-10-26"
+        class="pika-day wedding"
+        title="26.10 2026 г. (13.10 ст. ст.)
+Седмица 22-я по Пятидесятнице">
+        26
+    </a><a href="https://azbyka.ru/days/2026-10-27"
+        class="pika-day"
+        title="27.10 2026 г. (14.10 ст. ст.)
+Седмица 22-я по Пятидесятнице">
+        27
+    </a><a href="https://azbyka.ru/days/2026-10-28"
+        class="pika-day post wedding"
+        title="28.10 2026 г. (15.10 ст. ст.)
+Седмица 22-я по Пятидесятнице">
+        28
+    </a><a href="https://azbyka.ru/days/2026-10-29"
+        class="pika-day"
+        title="29.10 2026 г. (16.10 ст. ст.)
+Седмица 22-я по Пятидесятнице">
+        29
+    </a><a href="https://azbyka.ru/days/2026-10-30"
+        class="pika-day post calendar-parent memorial wedding"
+        title="30.10 2026 г. (17.10 ст. ст.)
+Седмица 22-я по Пятидесятнице. Поминовение всех православных христиан, безвинно богоборцами убиенных или безвинно пребывавших в заключении">
+        30
+    </a><a href="https://azbyka.ru/days/2026-10-31"
+        class="pika-day"
+        title="31.10 2026 г. (18.10 ст. ст.)
+Седмица 22-я по Пятидесятнице">
+        31
+    </a><a href="https://azbyka.ru/days/2026-11-01"
+        class="pika-day is-outside-current-month"
+        title="1.11 2026 г. (19.10 ст. ст.)
+Неделя 22-я по Пятидесятнице">
+        1
+    </a></div></div>
+
+						<details class="legend">
+							<summary>
+								<div class="legend-item" title="Обозначение постов в ячейках">
+									<div class="legend-square post"></div> - посты
+								</div>
+								<div class="legend-item" title="Обозначение праздников в ячейках">
+									<div class="legend-square great12"></div> - праздники
+								</div>
+							</summary>
+							<div class="legend-item" title="Обозначение дней поминовения в ячейках">
+								<div class="legend-square memorial"></div> - поминовение усопших
+							</div>
+						</details>
+						<script>
+							document.addEventListener('DOMContentLoaded', function(){
+								const TARGET = "#x-calendar .pika-month";
+
+								function loadCalendar(year, month, theDate){
+									$.get(window.getConstant('SITE_URL') + `calendar-month/${year}/${month}/${theDate}`, function(data) {
+										$(TARGET).replaceWith(data);
+										initXControls();
+									});
+								}
+
+								function getTheDate(month_move = 0) {
+									let theYear = $('.pika-select-year [data-selected]').attr('data-value');
+									let theMonth = ( parseInt($('.pika-select-month [data-selected]').attr('data-value')) + month_move);
+									if(theMonth < 1){ theYear--; theMonth = 12 };
+									if(theMonth > 12){ theYear++; theMonth = 1 };
+									let theDate = '2026-10-05';
+
+									$target = $(TARGET);
+									$target.addClass('calendar-loading');
+									loadCalendar(theYear, theMonth, theDate);
+								}
+
+								function initXControls(){
+									$('.pika-select-wrap').mouseenter(function(e){
+										$(this).addClass('active');
+									});
+									$('.pika-select-wrap').mouseleave(function(e){
+										$(this).removeClass('active');
+									});
+									$('.pika-prev').click(e=>{
+										getTheDate(-1);
+									});
+									$('.pika-next').click(e=>{
+										getTheDate(1);
+									});
+									$('.pika-select-option').click(function(e){
+										let $t = $(this);
+										$t.parent().find('.pika-select-option').removeAttr('data-selected');
+										$t.attr('data-selected', 'selected');
+										getTheDate();
+									});
+								}
+								initXControls();
+							});
+						</script>
+					</div>
+					<div class="widget">
+						<div class="widget-title">Календари</div>
+						<ul>
+							<li><a href="/days/calendar" rel="noopener noreferrer" target="_blank">На год <i class="fa fa-calendar"></i></a></li>
+							<li><a href="/days/p-kalendar-venchanij" rel="noopener noreferrer" target="_blank">Венчаний</a></li>
+							<li><a href="https://azbyka.ru/zdorovie/kalendar_beremennosti" rel="noopener noreferrer" target="_blank">Беременности</a></li>
+						</ul>
+					</div>
+
+				</div>
+				<div class="box">
+					<div class="widget" id="name-day">
+	<details>
+		<summary class="widget-title nameday-widget-title">Определитель именин</summary>
+
+		<div id="name-day">
+		<div id="namedayWidget">
+		<div class="form-row controls">
+			<input id="ndwName" name="name" type="text" class="text" placeholder="Имя в крещении" autocomplete="off" minlength="2">
+			<a
+				class="button help-button"
+				href="https://azbyka.ru/days/p-pojasnenija-k-opredelitelju-imenin"
+				rel="noopener noreferrer" target="_blank">
+				<i class="tip fa fa-question"></i>
+			</a>
+		</div>
+		<div class="form-row controls">
+			<input id="ndwBirthday" name="birthday" type="text" class="text" placeholder="Дата рожд. (дд.мм)" pattern="\d{1,2}.\d{1,2}" maxlength="5">
+			<button type="submit" id="nameday-button" class="search-button" title="Определить"><i class="fa fa-search"></i></button>
+		</div>
+		<div class="form-row">
+			<label><input id="ndwNewmartyr" name="newmartyr" type="checkbox" checked > С новомучениками</label>
+		</div>
+		<div id="namedayWidgetResult"></div>
+	</div>
+</div>
+		    <div class="top-saints">
+        <span class="view_all">
+            <a href="https://azbyka.ru/mesyaceslov">Месяцеслов</a> (<a href="/svyatcy" rel="noopener noreferrer" target="_blank">святцы):</a>
+        </span>
+        							<a href="/days/menology/A" title="А">А–Я</a>
+			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			        			            </div>
+
+
+		<script defer src="/days/js/autocomplete.min.js?1.3.3"></script>
+		<script defer src="/days/js/namedayWidget.js?1.3.3"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function(){
+			namedayWidget({
+					formUrl: `/days/saints/nameday`,
+					searchNameUrl: `/days/saints/nameday/search-name`,
+					blank: true,
+					replace: false
+			});
+
+			let nameInput = document.getElementById('ndwName');
+			let birthdayInput = document.getElementById('ndwBirthday');
+			autocomplete({
+				input: nameInput,
+				fetch: async function (text, update) {
+					text = text.toLowerCase();
+
+					const response = await fetch(settings.searchNameUrl + '?term=' + encodeURI(text), {
+						method: "GET",
+						headers: {
+							'Accept': 'application/json',
+							'Content-Type': 'application/json'
+						}
+					})
+
+					if (response.ok) {
+						let json = await response.json();
+						if (json instanceof Array){
+							update(json)
+						}
+					}
+				},
+				onSelect: function (item) {
+					nameInput.value = item.label;
+					birthdayInput.focus = true;
+				}
+			});
+			});
+		</script>
+	</details>
+</div>
+
+<script>
+
+
+</script>
+
+					<div class="widget widget-memory-dates">
+						<a href="/days/p-pamjatnye-daty-2026" rel="noopener noreferrer" target="_blank">
+							<div class="widget-title">Памятные даты 2026</div>
+						</a>
+					</div>
+
+					<div class="widget calculators">
+						<a href="/days/calculator" rel="noopener noreferrer" target="_blank">
+							<div class="widget-title">Калькуляторы</div>
+						</a>
+					</div>
+
+					<div class="widget pomin">
+		<details>	<summary id="usop" class="widget-title">Поминальные дни 2026</summary>
+	<ul>
+											<li>
+				<a
+				href="https://azbyka.ru/days/2026-02-08"
+				class="commemorations_date" title="Поминовение пострадавших в годину гонений за веру Христову">
+					8 февраля
+				</a>
+			</li>
+														<li>
+				<a
+				href="https://azbyka.ru/days/2026-02-14"
+				class="commemorations_date" title="Вселенская родительская (мясопустная) суббота">
+					14 февраля
+				</a>
+			</li>
+														<li>
+				<a
+				href="https://azbyka.ru/days/2026-03-07"
+				class="commemorations_date" title="Вторая суббота Великого поста">
+					7 марта
+				</a>
+			</li>
+														<li>
+				<a
+				href="https://azbyka.ru/days/2026-03-14"
+				class="commemorations_date" title="Третья суббота Великого поста">
+					14 марта
+				</a>
+			</li>
+														<li>
+				<a
+				href="https://azbyka.ru/days/2026-03-21"
+				class="commemorations_date" title="Четвертая суббота Великого поста">
+					21 марта
+				</a>
+			</li>
+														<li>
+				<a
+				href="https://azbyka.ru/days/2026-04-21"
+				class="commemorations_date" title="Радоница">
+					21 апреля
+				</a>
+			</li>
+														<li>
+				<a
+				href="https://azbyka.ru/days/2026-05-09"
+				class="commemorations_date" title="Поминовение усопших воинов">
+					9 мая
+				</a>
+			</li>
+														<li>
+				<a
+				href="https://azbyka.ru/days/2026-05-30"
+				class="commemorations_date" title="Троицкая вселенская родительская суббота">
+					30 мая
+				</a>
+			</li>
+														<li>
+				<a
+				href="https://azbyka.ru/days/2026-10-30"
+				class="commemorations_date" title="Поминовение всех православных христиан, безвинно богоборцами убиенных или безвинно пребывавших в заключении">
+					30 октября
+				</a>
+			</li>
+														<li>
+				<a
+				href="https://azbyka.ru/days/2026-11-07"
+				class="commemorations_date" title="Димитриевская родительская суббота">
+					7 ноября
+				</a>
+			</li>
+						</ul>
+	</details>
+	<details>	<summary class="widget-title">Расчёт 3, 9, 40 дней <a href="/pominovenie-usopshix" target="_blank" aria-label="О поминовении усопших"><i class="fa fa-question-circle-o"></i></a></summary>
+	<form id="commemorations_form">
+		<div class="form-row controls">
+			<input name="death_date" id="death_date" type="tel" class="text" placeholder="Кончина дд.мм" title="Кончина дд.мм" pattern="[0-9]{1,2}\.[0-9]{1,2}" maxlength="5">
+			<button type="submit" class="search-button" title="определить"><i class="fa fa-search"></i></button>
+		</div>
+	</form>
+	<div id="commemorationsWidgetResult"></div>
+	</details></div>
+
+<script defer src="https://azbyka.ru/days/js/pomin-widget.js?1.3.3"></script>
+
+					<div class="menu-wrap widget">
+					<details>
+			<summary class="widget-title">О календаре</summary>
+			<ul class="start-menu">
+									<li><a href="/days/p-pojasnenija-k-kalendarju">Пояснения к календарю</a></li>
+									<li><a href="https://azbyka.ru/vremya">Что такое время</a></li>
+									<li><a href="/days/p-tip-svjatosti">Лики святости</a></li>
+									<li><a href="/days/p-istorija-kalendarja">История календарей</a></li>
+									<li><a href="/days/p-kalendarnye-cikly">Календарные циклы</a></li>
+							</ul>
+		</details>
+					<details>
+			<summary class="widget-title">Богослужения</summary>
+			<ul class="start-menu">
+									<li><a href="https://azbyka.ru/1/bogosluzheniya">О богослужении</a></li>
+									<li><a href="/days/p-bogosluzhebnye-krugi">Богослужебные круги</a></li>
+									<li><a href="/days/p-pojasnenija-k-kalendarju#oblach">Богослужебные цвета</a></li>
+							</ul>
+		</details>
+					<details>
+			<summary class="widget-title">Посты</summary>
+			<ul class="start-menu">
+									<li><a href="https://azbyka.ru/1/o_postah">О постах</a></li>
+									<li><a href="/days/p-kalendar-postov-i-trapez">Календарь постов</a></li>
+									<li><a href="https://azbyka.ru/velikiy-post">Великий пост 2027</a></li>
+									<li><a href="/days/p-mnogodnevnye-posty">Многодневные посты</a></li>
+									<li><a href="/days/p-odnodnevnye-posty">Однодневные посты</a></li>
+									<li><a href="https://azbyka.ru/test/pravoslavnye-posty"><i class="fa fa-check-circle-o"></i> Православные посты</a></li>
+									<li><a href="https://azbyka.ru/test/velikij-post"><i class="fa fa-check-circle-o"></i> Великий Пост</a></li>
+							</ul>
+		</details>
+					<details>
+			<summary class="widget-title">Праздники</summary>
+			<ul class="start-menu">
+									<li><a href="/days/p-cerkovnye-prazdniki-daty-obyjasnenija-i-tradicii">Церковные праздники</a></li>
+									<li><a href="https://azbyka.ru/paskha">Пасха 2027</a></li>
+									<li><a href="/days/p-znaki-prazdnikov">Знаки праздников</a></li>
+									<li><a href="https://azbyka.ru/imeniny">Именины</a></li>
+							</ul>
+		</details>
+					<details>
+			<summary class="widget-title">Иконы</summary>
+			<ul class="start-menu">
+									<li><a href="/days/menology/ikons-savior">Иконы Спасителя</a></li>
+									<li><a href="/days/menology/ikons">Иконы Богородицы</a></li>
+									<li><a href="/days/menology/saints-with-ikon">Иконы святых</a></li>
+									<li><a href="/days/menology/angels-with-ikon">Иконы ангелов</a></li>
+							</ul>
+		</details>
+	</div>
+
+
+					<div class="widget subscribe">
+	<details>
+	<summary class="widget-title">Email подписка <a href="/days/p-subscribe-help" aria-label="О подписке"><i class="fa fa-question-circle-o"></i></a></summary>
+	<div>
+		<form name="personal_account" method="post" action="/days/account/save-subscription"><div id="personal_account"><div><input type="text" id="personal_account_fullName" name="personal_account[fullName]" required="required" placeholder="Имя" /></div><div><input type="email" id="personal_account_email" name="personal_account[email]" required="required" placeholder="E-mail" class="svcCheckEmail" /></div><div><select id="personal_account_type" name="personal_account[type]"><option value="3" selected="selected">Ежедневно</option><option value="7">Великие праздники</option><option value="8">Сегодняшнее событие</option></select></div><div><button type="submit" id="personal_account_submit" name="personal_account[submit]">Подписаться</button></div><input type="hidden" id="personal_account__token" name="personal_account[_token]" value="427c69a8ba4788f4.j7K6algTTelGZR4OhSMMk5tA3sdS21xJ2cLr3DKXIJA.6tuKAWghIaV-F1900FR14eMflIkB9hIQqZOqrALlEMXO4dYLFEV5mCMuVw" /></div></form>
+	</div>
+	</details>
+</div>
+
+					<!--div class="widget sidebar-links">
+	<a href="https://azbyka.ru/social-media" rel="noopener noreferrer" target="_blank">
+		<div class="widget-title"><i class="fa fa-telegram"></i> Telegram-каналы</div>
+	</a>
+</div-->				</div>
+			</div>
+
+			<div id="right-bar" class="sidebar right-sidebar">
+
+					<div class="widget quote-of-day">
+		<div class="widget-title">Цитата дня</div>
+		<div class="box"><p>Когда душа вся всеми силами и чувствами обращена к Господу, в ней все светло, радостно и покойно.</p>
+
+<p style="text-align: right; font-style: italic;">свт. <a href="https://azbyka.ru/otechnik/Feofan_Zatvornik/">Феофан Затворник</a></p>
+
+<p>&nbsp;</p></div>
+	</div>
+
+
+				            <div class="widget dayfoto">
+        <div class="widget-title">Фото дня</div>
+        <span
+            class='foto-box group2 simple-text'
+            data-fancybox-href="/days/storage/images/photos-of-day/a406f7078de6a2c0550b9908b51396b6.jpg"
+			data-lightbox-title="Соборная молитва. В руках у молящихся свечи. Свеча, являющаяся нашей добровольной жертвой на храм, является также символом нашей веры и молитвы. Пусть язычок пламени слаб и мал, но он светит и греет. Вот также и вера наша, которую следует бережно хранить от угасания, разгоняет мрак нашей жизни и согревает нас. &lt;i&gt; (фото Д.Терентьева) &lt;/i&gt;"
+			>
+            <img
+                class="square50"
+                src="https://azbyka.ru/days/cache/300x240/storage/images/photos-of-day/a406f7078de6a2c0550b9908b51396b6.jpg"
+                srcset="https://azbyka.ru/days/cache/600x480/storage/images/photos-of-day/a406f7078de6a2c0550b9908b51396b6.jpg 2x"
+                alt="Соборная молитва. В руках у молящихся свечи. Свеча, являющаяся нашей добровольной жертвой на храм, является также символом нашей веры и молитвы. Пусть язычок пламени слаб и мал, но он светит и греет. Вот также и вера наша, которую следует бережно хранить от угасания, разгоняет мрак нашей жизни и согревает нас.  (фото Д.Терентьева) "
+                loading="lazy"
+            >
+        </span>
+    </div>
+
+
+				<div class="widget audio_services">
+	<div class="widget-title"><a href="/days/p-audio-calendar">Аудиокалендарь</a></div>
+	<div class="box">
+					<p><span class="btn-play-group" data-group="audio-widget"><i class="fa fa-volume-up"></i> Все жития 5 окт.</span></p>							<div class="audio-wrap">
+					<div class="audio-title">Прор. И<span class="accent">о</span>ны</div>
+					
+<span class="inline-player__wrap has-progress">
+	<i class="inline-player fa fa-volume-up" data-src="https://azbyka.ru/days/storage/media/audio_services/685192f082dea_5 октября Прор. Ионы.mp3" data-group="audio-widget"></i><span class="player-time">0:00</span>
+		<span class="player-line"></span>	<a class="player-download" href="https://azbyka.ru/days/storage/media/audio_services/685192f082dea_5 октября Прор. Ионы.mp3" download aria-label="Скачать аудио"><i class="fa fa-download"></i></a></span>
+				</div>
+							<div class="audio-wrap">
+					<div class="audio-title">Духовный совет дня</div>
+					
+<span class="inline-player__wrap has-progress">
+	<i class="inline-player fa fa-volume-up" data-src="https://azbyka.ru/days/storage/media/audio_services/685193031dc74_5 октября Духовный совет дня.mp3" data-group="audio-widget"></i><span class="player-time">0:00</span>
+		<span class="player-line"></span>	<a class="player-download" href="https://azbyka.ru/days/storage/media/audio_services/685193031dc74_5 октября Духовный совет дня.mp3" download aria-label="Скачать аудио"><i class="fa fa-download"></i></a></span>
+				</div>
+							<p class="radio"><a href="//azbyka.ru/audio/radio.html">Православное радио</a></p>
+	</div>
+</div>
+
+
+				
+
+
+					<div class="widget day-in-history">
+		<div class="widget-title">Этот день в истории</div>
+        <div class="box">
+							<p><p><strong>1992 год.</strong> Православная Церковь Молдовы получила статус самоуправляемой.</p>
+<p><strong>5 октября.</strong> Всемирный день учителя (ЮНЕСКО).</p></p>
+					</div>
+	</div>
+
+
+					<div class="widget sticker">
+		<div class="widget-title">День за днем</div>
+		<p class="box prolog">
+			<a href="/otechnik/prochee/den-za-dnem/10_5" title="Мир душевный">Мир душевный</a>
+		</p>
+	</div>
+
+
+					<div class="widget">
+		<div class="widget-title">Пролог в поучениях</div>
+		<div class="box">
+							<p class="prolog"><a href="https://azbyka.ru/otechnik/Viktor_Gurev/prolog-v-pouchenijah-na-kazhdyj-den-goda/28">В особенных путях Промысла Божия в нашей жизни мы должны видеть призывание нас к покаянию и исправлению</a>
+				</p>
+					</div>
+	</div>
+
+
+				<div class="widget sticker">
+	<div class="widget-title">Об Ангеле-Хранителе</div>
+	<p class="box prolog">
+	<a href="https://azbyka.ru/razmyshleniya-xristianina-ob-angele-xranitele/7">Размышления на каждый день месяца</a> </p>
+</div>
+
+								<div data-sidebar-feed="term"></div>
+				<div data-sidebar-feed="question"></div>
+				<div data-sidebar-feed="life"></div>
+
+				        				    <div class="widget dayfoto">
+        <div class="widget-title">Картина дня			<a class="help-link" href="https://azbyka.ru/art/hristos-i-bogatyj-yunosha/" aria-label="О картине"><i class="fa fa-question-circle"></i></a>
+		</div>
+            <a
+                href="https://azbyka.ru/art/hristos-i-bogatyj-yunosha/"
+                class='foto-box group2'
+                title="Христос и богатый юноша. Гофман Генрих Фердинанд (1813-1853)."
+                >
+                <img
+                    class="square50"
+                    src="https://azbyka.ru/days/cache/300x240/storage/images/pictures-of-day/6477141b5b5f3374883530.jpg"
+                    srcset="https://azbyka.ru/days/cache/600x480/storage/images/pictures-of-day/6477141b5b5f3374883530.jpg 2x"
+                    alt="Христос и богатый юноша. Гофман Генрих Фердинанд (1813-1853)."
+                    loading="lazy"
+                >
+            </a>
+    </div>
+
+
+				<div data-sidebar-feed="opros"></div>
+				<script>
+					document.addEventListener('DOMContentLoaded', function () {
+						var slots = document.querySelectorAll('[data-sidebar-feed]');
+						if (!slots.length) return;
+
+						function load() {
+							// t — номер 30-секундного интервала: nginx кеширует каждый адрес отдельно, данные не старше 30 с
+							var url = '/days/widgets/feed?t=' + Math.floor(Date.now() / 30000);
+							fetch(url, {headers: {'Accept': 'application/json'}})
+								.then(function (response) { return response.ok ? response.json() : {}; })
+								.catch(function () { return {}; })
+								.then(function (html) {
+									slots.forEach(function (slot) {
+										var widget = html[slot.dataset.sidebarFeed];
+										if (widget) {
+											slot.outerHTML = widget;
+										} else {
+											slot.remove();
+										}
+									});
+								});
+						}
+
+						// Грузим, когда до виджетов остаётся ~1500 px: на телефоне они на восьмом экране и ниже,
+						// до них доходят не все; на десктопе они в пределах запаса и грузятся сразу
+						if (!('IntersectionObserver' in window)) {
+							load();
+							return;
+						}
+						var observer = new IntersectionObserver(function (entries) {
+							if (entries.some(function (entry) { return entry.isIntersecting; })) {
+								observer.disconnect();
+								load();
+							}
+						}, {rootMargin: '1500px 0px'});
+						slots.forEach(function (slot) { observer.observe(slot); });
+					});
+				</script>
+
+				
+
+				<div class="footer-help-block">
+					<a class="footer-help-btn help-btn" href="//azbyka.ru/kak-pomoch">Пожертвовать</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer" class="row-fluid">
+		<div class="footer-container wrapper">
+			<p class="footer-container__center">
+				<a title="Прикрепить к своему календарю" href="/days/ics-calendar-help" class="footer-email">Прикрепить к своему календарю</a>
+				<a title="Вебмастеру" href="/days/api-help" class="footer-email">Вебмастеру</a>
+				<a title="Написать в редакцию" href="https://azbyka.ru/obratnaja-svjaz?the_url=https%3A%2F%2Fazbyka.ru%2Fdays%2F" rel="noopener noreferrer" target="_blank" class="footer-email">Обратная связь</a>
+				<span class="retypos-banner">Ошибка? Выделение + кнопка!<span class=info>Если заметили ошибку, выделите текст и нажмите кнопку 'Сообщить об ошибке' или Ctrl+Enter.</span></span>			</p>
+		</div>
+	</div>
+
+	<div class="visible-tab"> </div>
+
+	<div class="subscribe"></div>
+
+	<a id="totop" href="#top" class="invert" aria-label="Наверх"><i class="fa fa-arrow-up"></i></a>
+	
+	<script defer src="/days/js/jquery.av-speech.js?1.3.3"></script>
+	<script defer src="/days/js/reconnecting-websocket.min.js?1.3.3"></script>
+	<script defer src="/days/js/statistics.js?1.3.3"></script>
+	<script defer src="/days/js/common.js?1.3.3"></script>
+	<script defer src="/days/js/gallery.js?1.3.3"></script>
+	<script defer src="/days/js/deferred.js?1.3.3"></script>
+</body>
+
+</html>

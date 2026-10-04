@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="ru-RU" prefix="og: https://ogp.me/ns#" class="sidebar-toggle">
+<head>
+		<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google" content="notranslate">
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/favicon.svg?ver=1.14">
+	<link rel="icon" type="image/ico" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/favicon.ico?ver=1.14">
+	<link rel="apple-touch-icon" sizes="57x57" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/apple-icon-57x57.png?ver=1.14">
+	<link rel="apple-touch-icon" sizes="60x60" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/apple-icon-60x60.png?ver=1.14">
+	<link rel="apple-touch-icon" sizes="72x72" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/apple-icon-72x72.png?ver=1.14">
+	<link rel="apple-touch-icon" sizes="76x76" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/apple-icon-76x76.png?ver=1.14">
+	<link rel="apple-touch-icon" sizes="114x114" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/apple-icon-114x114.png?ver=1.14">
+	<link rel="apple-touch-icon" sizes="120x120" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/apple-icon-120x120.png?ver=1.14">
+	<link rel="apple-touch-icon" sizes="144x144" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/apple-icon-144x144.png?ver=1.14">
+	<link rel="apple-touch-icon" sizes="152x152" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/apple-icon-152x152.png?ver=1.14">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/apple-icon-180x180.png?ver=1.14">
+	<link rel="icon" type="image/png" sizes="192x192"  href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/android-icon-192x192.png?ver=1.14">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/favicon-32x32.png?ver=1.14">
+	<link rel="icon" type="image/png" sizes="96x96" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/favicon-96x96.png?ver=1.14">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/favicon-16x16.png?ver=1.14">
+	<link rel="manifest" href="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/manifest.json?ver=1.14">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-TileImage" content="https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes/assets/images/favicons/ms-icon-144x144.png?ver=1.14">
+	<meta name="theme-color" content="#f1e9d6">
+	
+	<link rel="alternate" type="application/rss+xml" title="Православные цитаты RSS Feed" href="https://azbyka.ru/quotes/feed/rss/">
+	<link rel="alternate" type="application/atom+xml" title="Православные цитаты Atom Feed" href="https://azbyka.ru/quotes/feed/atom/">
+	<link rel="pingback" href="https://azbyka.ru/quotes/xmlrpc.php">
+		<script id="az_settings_js">
+		var AZ = window.AZ || {};
+		AZ.theme_path = 'https://azbyka.ru/quotes/wp-content/themes/azbyka-quotes';
+		AZ.ajax_path = 'https://azbyka.ru/quotes/wp-admin/admin-ajax.php';
+		AZ.post_id = '128871';
+		AZ.logged_in = false;
+		AZ.sso_logged_in = !!localStorage.getItem('az_sso_email');
+		AZ.tooltip_selector = '.az-tip, abbr, [data-tip-text]';
+					localStorage.setItem('az_sso_reflink', location.href);
+				/*
+		if(localStorage.getItem('az_sso_email') && !AZ.logged_in){
+			let tries = parseInt(localStorage.getItem('login_refresh_tries'));
+			if(isNaN(tries)) tries = 0;
+			if(tries < 2){
+				tries++;
+				localStorage.setItem('login_refresh_tries', tries);
+				location.reload();
+			}else
+				console.log('tried to login too much');
+		}else{
+			localStorage.removeItem('login_refresh_tries');
+		}
+		*/
+		
+		AZ.project = 'quotes';
+		AZ.settingVars = { "theme" : 0, "body-bg": 0, "side-bg" : 0, "widget-bg" : 0, "text-color" : 0, "link-color" : 0, "accent-color" : 0, "backdrop-color":0, "font-base-size" : 0, "text-font" : 0, "title-font" : 0, "text-align" : 0, "pagination-autoload" : 0 }; //0 - cross-site; 1 - local
+		AZ.sessionToggles = ["sidebar-hide"];
+		AZ.settings = {};
+		
+		AZ.nameSetting = name => 'az_' + (AZ.settingVars[name] ? AZ.project + '_' : '' ) + name;
+		AZ.getSetting = name => localStorage.getItem(AZ.nameSetting(name));
+		AZ.setSetting = (name, val) => {localStorage.setItem(AZ.nameSetting(name), val); AZ.applySettings();};
+		
+		AZ.applySettings = ()=>{
+			let docStyle = '', docClasses = document.documentElement.classList;
+
+			if(!AZ.settings.length){
+				docClasses.remove('sidebar-show');
+				docClasses.remove('sidebar-hide');
+			}
+
+			let gf_loaded = false;
+
+			for(let name in AZ.settingVars){
+				let val = AZ.getSetting(name);
+				if(val && val !== 'undefined'){
+					//google fonts
+					if (name.includes('-font') && !val.includes(',')) {
+						let head = document.getElementsByTagName('head')[0];
+						if (!gf_loaded) {
+							let pre_lnk = document.createElement('link');
+							pre_lnk.rel = 'preconnect';
+							pre_lnk.href = 'https://fonts.gstatic.com';
+							head.appendChild(pre_lnk);
+							gf_loaded = true;
+							console.log(pre_lnk);
+						}
+						let link = document.createElement('link');
+						link.href = 'https://fonts.googleapis.com/css2?family=' + val.replace(' ', '+') + ':wght@400;700&display=swap';
+						link.rel = 'stylesheet';
+						link.type = 'text/css';
+						head.appendChild(link);
+						console.log(link);
+					}
+
+					AZ.settings[name] = val;
+					docStyle+='--'+name+':'+ val+';';
+					
+					if(name === 'theme')	//todo: other?
+						document.documentElement.setAttribute('data-'+name.replace('--',''), val);
+				}
+			}
+			
+			for(let name of AZ.sessionToggles){
+				if(sessionStorage.getItem(name) === 'true')
+					document.documentElement.classList.add(name);
+			}
+
+			document.documentElement.style.cssText = docStyle;
+		};
+
+		AZ.applySettings();
+	</script>
+	
+<!-- SEO от Rank Math - https://rankmath.com/ -->
+<title>Цитаты святых отцов и учителей Церкви</title>
+<meta name="description" content="Сборник изречений святых отцов Православной Церкви. Цитаты святых отцов на каждый день по любой теме."/>
+<meta name="robots" content="follow, index"/>
+<link rel="canonical" href="https://azbyka.ru/quotes/" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Цитаты святых отцов и учителей Церкви" />
+<meta property="og:description" content="Сборник изречений святых отцов Православной Церкви. Цитаты святых отцов на каждый день по любой теме." />
+<meta property="og:url" content="https://azbyka.ru/quotes/" />
+<meta property="og:site_name" content="Православные цитаты" />
+<meta property="og:image" content="https://azbyka.ru/quotes/wp-content/uploads/2025/01/quotes.png" />
+<meta property="og:image:secure_url" content="https://azbyka.ru/quotes/wp-content/uploads/2025/01/quotes.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Цитаты святых отцов и учителей Церкви" />
+<meta name="twitter:description" content="Сборник изречений святых отцов Православной Церкви. Цитаты святых отцов на каждый день по любой теме." />
+<meta name="twitter:image" content="https://azbyka.ru/quotes/wp-content/uploads/2025/01/quotes.png" />
+<script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"EducationalOrganization","@id":"https://azbyka.ru/quotes/#organization","name":"\u041f\u0440\u0430\u0432\u043e\u0441\u043b\u0430\u0432\u043d\u044b\u0435 \u0446\u0438\u0442\u0430\u0442\u044b","url":"https://azbyka.ru/quotes","logo":{"@type":"ImageObject","@id":"https://azbyka.ru/quotes/#logo","url":"https://azbyka.ru/quotes/wp-content/uploads/2025/01/ms-icon-150x150-1.png","contentUrl":"https://azbyka.ru/quotes/wp-content/uploads/2025/01/ms-icon-150x150-1.png","caption":"\u041f\u0440\u0430\u0432\u043e\u0441\u043b\u0430\u0432\u043d\u044b\u0435 \u0446\u0438\u0442\u0430\u0442\u044b","inLanguage":"ru-RU","width":"150","height":"150"}},{"@type":"WebSite","@id":"https://azbyka.ru/quotes/#website","url":"https://azbyka.ru/quotes","name":"\u041f\u0440\u0430\u0432\u043e\u0441\u043b\u0430\u0432\u043d\u044b\u0435 \u0446\u0438\u0442\u0430\u0442\u044b","alternateName":"\u0426\u0438\u0442\u0430\u0442\u044b \u0441\u0432\u044f\u0442\u044b\u0445 \u043e\u0442\u0446\u043e\u0432","publisher":{"@id":"https://azbyka.ru/quotes/#organization"},"inLanguage":"ru-RU","potentialAction":{"@type":"SearchAction","target":"https://azbyka.ru/sear/?searchid=1639178&amp;text={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"CollectionPage","@id":"https://azbyka.ru/quotes/#webpage","url":"https://azbyka.ru/quotes/","name":"\u0426\u0438\u0442\u0430\u0442\u044b \u0441\u0432\u044f\u0442\u044b\u0445 \u043e\u0442\u0446\u043e\u0432 \u0438 \u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439 \u0426\u0435\u0440\u043a\u0432\u0438","about":{"@id":"https://azbyka.ru/quotes/#organization"},"isPartOf":{"@id":"https://azbyka.ru/quotes/#website"},"inLanguage":"ru-RU"}]}</script>
+<!-- /Rank Math WordPress SEO плагин -->
+
+
+<link rel="alternate" type="application/rss+xml" title="Православные цитаты &raquo; Лента" href="https://azbyka.ru/quotes/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Православные цитаты &raquo; Лента комментариев" href="https://azbyka.ru/quotes/comments/feed/" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel='stylesheet' id='bg_counter_styles-css' href='https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/plugins/Bg-Az-Counter-GitHub/css/styles.css?ver=1782804161' media='all' />
+<link data-minify="1" rel='stylesheet' id='myBooks-css' href='https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/plugins/Bg-Personal/css/myBooks.css?ver=1782804161' media='all' />
+<link data-minify="1" rel='stylesheet' id='bg_bibrefs_styles-css' href='https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/plugins/bg-biblie-references/css/styles.css?ver=1782804161' media='all' />
+<link data-minify="1" rel='stylesheet' id='azbyka-styles-css' href='https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/themes/azbyka/assets/css/styles.css?ver=1782804161' media='all' />
+<link data-minify="1" rel='stylesheet' id='azbyka-style-css' href='https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/themes/azbyka-quotes/style.css?ver=1782804161' media='all' />
+<link data-minify="1" rel='stylesheet' id='az-archive-css' href='https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/themes/azbyka/assets/css/archive.css?ver=1782808079' media='all' />
+<link data-minify="1" rel='stylesheet' id='top-menu-css' href='https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/themes/azbyka/assets/css/top-menu.css?ver=1782804161' media='all' />
+<link data-minify="1" rel='stylesheet' id='font-awesome-css' href='https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/themes/azbyka/assets/font-awesome/css/font-awesome.min.css?ver=1782804161' media='all' />
+<link data-minify="1" rel='stylesheet' id='youtube-optimizer-css' href='https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/themes/azbyka/inc/youtube-optimizer/youtube.optimizer.css?ver=1782804161' media='all' />
+<script data-minify="1" id="jquery-js" src="https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/themes/azbyka/assets/js/vendor/azjeycuery.js?ver=1782804161"></script>
+<script data-minify="1" id="youtube-optimizer-js" src="https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/themes/azbyka/inc/youtube-optimizer/youtube.optimizer.js?ver=1782804161"></script>
+<link rel="https://api.w.org/" href="https://azbyka.ru/quotes/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://azbyka.ru/quotes/xmlrpc.php?rsd" />
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym");
+
+   ym(5565880, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true,
+        trackHash:true
+   });
+</script>
+<!-- /Yandex.Metrika counter -->
+		
+	<script type="text/javascript">
+	    var templateURI = 'https://azbyka.ru/quotes/wp-content/themes/azbyka';
+	</script>
+<meta name="generator" content="WP Rocket 3.23.3.3" data-wpr-features="wpr_minify_js wpr_minify_css wpr_cdn wpr_mobile" /></head>
+
+<body class="home blog wp-theme-azbyka wp-child-theme-azbyka-quotes" id="main-body">
+	
+	<noscript><div><img src="https://mc.yandex.ru/watch/5565880" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- Mobile Top menu -->
+		<div data-rocket-location-hash="8dad8f1f597be3ccf146a70e3f171ad9" class="main-nav-list">
+			<ul>
+			<li><span id="main-nav-0" data-target="#nav-box" role="button" tabindex="0" aria-label="Сайты портала"><img src="https://azbyka.ru/wp-content/themes/azbyka-av/assets/images/favicons/favicon.svg" loading="lazy"></span></li><li><a id="main-nav-1" href="#header" class="selected-button" tabindex="1" aria-label="Меню сайта"><i class="fa fa-bars" aria-hidden="true"></i></a></li><li><span id="main-nav-3" data-target="#widgets" role="button" tabindex="2" aria-label="Дополнительно"><i class="fa fa-info-circle" aria-hidden="true"></i></span></li><li><span id="main-nav-2" data-target="#header_search" role="button" tabindex="3" aria-label="Поиск"><i class="fa fa-search" aria-hidden="true"></i></span></li><li><a id="main-nav-6" href="https://azbyka.ru/quotes/personal/" tabindex="4" aria-label="Личный кабинет"><i class="fa fa-user user-only" aria-hidden="true"></i><i class="fa fa-sign-in guest-only" aria-hidden="true"></i></a></li>			</ul>
+		</div>
+		<!-- End of Mobile Top menu -->
+			
+	<nav id="nav-box" class="top-panel">
+		<div class=main-box>
+			<div class="pre-header-nav m-show">Разделы портала «Азбука&nbsp;веры»</div>
+			<ul id="main-nav" class="nav">
+			<li class="menu-item"><a  href='https://azbyka.ru/'><img class="nav-logo" src="https://azbyka.ru/wp-content/themes/azbyka-av/assets/images/favicons/favicon.svg" loading="lazy"><span class="nav-home-label"> Главная</span></a></li><li class="menu-item menu-item-has-children"><span  class='link'>Гид <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/gid'><i class="fa fa-question-circle-o" aria-hidden="true"></i> Гид по порталу</a></li><li class="menu-item"><a  href='https://azbyka.ru/drevo-sajta'><i class="fa fa-sitemap" aria-hidden="true"></i> Древо портала</a></li><li class="menu-item"><a  href='https://azbyka.ru/1/s-chego-nachat'><i class="fa fa-user-plus" aria-hidden="true"></i> С чего начать</a></li><li class="menu-item"><a  href='https://t.me/AzbykaruBot'><i class="fa fa-search" aria-hidden="true"></i> TG бот</a></li></ul></li><li class="menu-item menu-item-has-children"><span  class='link'>Библиотеки <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/biblia/'><i class="fa fa-book" aria-hidden="true"></i> Библия</a></li><li class="menu-item"><a  href='https://azbyka.ru/otechnik/'><i class="fa fa-files-o" aria-hidden="true"></i> «Отечник»</a></li><li class="menu-item"><a  href='https://azbyka.ru/fiction/'><i class="fa fa-copyright" aria-hidden="true"></i> Художественная литература</a></li><li class="menu-item"><a  href='https://azbyka.ru/pravo/'><i class="fa fa-balance-scale" aria-hidden="true"></i> Церковное право</a></li><li class="menu-item"><a  href='https://azbyka.ru/dictionary'><i class="fa fa-graduation-cap" aria-hidden="true"></i> Энциклопедия</a></li></ul></li><li class="menu-item menu-item-has-children"><span  class='link'>Календарь <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/days/'><i class="fa fa-calendar" aria-hidden="true"></i> Церковный календарь</a></li><li class="menu-item"><a  href='https://azbyka.ru/days/p-audio-calendar'><i class="fa fa-headphones" aria-hidden="true"></i> Аудиокалендарь</a></li><li class="menu-item m-hide"><a  href='https://azbyka.ru/extension'><i class="fa fa-chrome" aria-hidden="true"></i> Расширение Chrome</a></li></ul></li><li class="menu-item menu-item-has-children"><span  class='link'>Молитва <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/palomnik/'><i class="fa fa-globe" aria-hidden="true"></i> Азбука паломника</a></li><li class="menu-item"><a  href='https://azbyka.ru/kliros/'><i class="fa fa-music" aria-hidden="true"></i> Азбука певческая</a></li><li class="menu-item"><a  href='https://azbyka.ru/worships/'><i class="fa fa-file-text" aria-hidden="true"></i> Богослужение сегодня</a></li><li class="menu-item"><a  href='https://azbyka.ru/chaso-slov/'><i class="fa fa-clock-o" aria-hidden="true"></i> Молимся по часам</a></li><li class="menu-item"><a  href='https://azbyka.ru/molitvoslov/'><i class="fa fa-fire" aria-hidden="true"></i> Молитвослов</a></li><li class="menu-item"><a  href='https://azbyka.ru/bogosluzhenie/'><i class="fa fa-bell" aria-hidden="true"></i> Переводы Богослужений</a></li><li class="menu-item"><a  href='https://azbyka.ru/psalms/'><i class="fa fa-group" aria-hidden="true"></i> Читаем Псалтирь</a></li></ul></li><li class="menu-item menu-item-has-children"><span  class='link'>Медиа <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/news'><i class="fa fa-newspaper-o" aria-hidden="true"></i> Азбука новостей</a></li><li class="menu-item"><a  href='https://azbyka.ru/foto/'><i class="fa fa-camera-retro" aria-hidden="true"></i> Азбука фото</a></li><li class="menu-item"><a  href='https://azbyka.ru/audio/'><i class="fa fa-volume-up" aria-hidden="true"></i> Аудио</a></li><li class="menu-item"><a  href='https://azbyka.ru/video/'><i class="fa fa-video-camera" aria-hidden="true"></i> Видео</a></li><li class="menu-item"><a  href='https://azbyka.ru/bozhestvennaja-liturgija'><i class="fa fa-bell" aria-hidden="true"></i> Литургия</a></li><li class="menu-item"><a  href='https://azbyka.ru/audio/radio.html'><i class="fa fa-volume-up" aria-hidden="true"></i> Радио</a></li><li class="menu-item"><a  href='https://azbyka.ru/bogosluzhenie-online'><i class="fa fa-video-camera" aria-hidden="true"></i> Трансляция из храма</a></li><li class="menu-item"><a  href='https://azbyka.ru/parkhomenko/foto/'><i class="fa fa-camera" aria-hidden="true"></i> Фоторассказы</a></li><li class="menu-item"><a  href='https://azbyka.ru/life/'><i class="fa fa-road" aria-hidden="true"></i> Христианская жизнь</a></li><li class="menu-item"><a  href='https://azbyka.ru/social-media'><i class="fa fa-users" aria-hidden="true"></i> Социальные медиа</a></li></ul></li><li class="menu-item menu-item-has-children"><span  class='link'>Проверь себя <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quiz/'><i class="fa fa-code-fork" aria-hidden="true"></i> Квизы</a></li><li class="menu-item"><a  href='https://azbyka.ru/crosswords/'><i class="fa fa-pencil" aria-hidden="true"></i> Кроссворды</a></li><li class="menu-item"><a  href='https://azbyka.ru/test/'><i class="fa fa-check-square-o" aria-hidden="true"></i> Тесты</a></li><li class="menu-item"><a  href='https://azbyka.ru/viktorina/'><i class="fa fa-image" aria-hidden="true"></i> Фотовикторины</a></li><li class="menu-item"><a  href='https://azbyka.ru/games/'><i class="fa fa-gamepad" aria-hidden="true"></i> Игры</a></li><li class="menu-item"><a  href='https://azbyka.ru/memo/'><i class="fa fa-refresh" aria-hidden="true"></i> Учим Писания</a></li></ul></li><li class="menu-item menu-item-has-children"><span  class='link'>Тематическое <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/death/'><i class="fa fa-cloud-upload" aria-hidden="true"></i> Азбука бессмертия</a></li><li class="menu-item"><a  href='https://azbyka.ru/art/'><i class="fa fa-paint-brush" aria-hidden="true"></i> Азбука искусства</a></li><li class="menu-item"><a  href='https://azbyka.ru/apokalipsis/'><i class="fa fa-font" aria-hidden="true"></i> Апокалипсис</a></li><li class="menu-item"><a  href='https://azbyka.ru/vopros/'><i class="fa fa-question-circle" aria-hidden="true"></i> Вопросы и ответы</a></li><li class="menu-item"><a  href='https://azbyka.ru/ikona/'><i class="fa fa-plus-square" aria-hidden="true"></i> Иконы</a></li><li class="menu-item"><a  href='https://azbyka.ru/katehizacija/'><i class="fa fa-bullhorn" aria-hidden="true"></i> Катехизация</a></li><li class="menu-item"><a  href='https://azbyka.ru/way/'><i class="fa fa-location-arrow" aria-hidden="true"></i> Мой путь к Богу</a></li><li class="menu-item"><a  href='https://azbyka.ru/opros/'><i class="fa fa-bar-chart" aria-hidden="true"></i> Опросы</a></li><li class="menu-item"><a  href='https://azbyka.ru/shemy/'><i class="fa fa-table" aria-hidden="true"></i> Пособия</a></li><li class="menu-item"><a  href='https://azbyka.ru/propovedi/'><i class="fa fa-pencil" aria-hidden="true"></i> Проповеди</a></li><li class="menu-item"><a  href='https://azbyka.ru/sueverie/'><i class="fa fa-street-view" aria-hidden="true"></i> Суевериям.нет</a></li><li class="menu-item"><a  href='https://azbyka.ru/forum/'><i class="fa fa-comments-o" aria-hidden="true"></i> Форум</a></li><li class="menu-item"><a  href='https://azbyka.ru/chinaorthodox/'><i class="fa fa-handshake-o" aria-hidden="true"></i> 东正教信仰入门</a></li><li class="menu-item"><a  href='https://azbyka.ru/japanorthodox/'><i class="fa fa-circle" aria-hidden="true"></i> 正教の本</a></li></ul></li><li class="menu-item menu-item-has-children"><span  class='link'>Семья и здоровье <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/znakomstva/'><i class="fa fa-link" aria-hidden="true"></i> Азбука верности</a></li><li class="menu-item"><a  href='https://azbyka.ru/deti/'><i class="fa fa-child" aria-hidden="true"></i> Азбука воспитания</a></li><li class="menu-item"><a  href='https://azbyka.ru/trezvost/'><i class="fa fa-unlink" aria-hidden="true"></i> Азбука трезвости</a></li><li class="menu-item"><a  href='https://azbyka.ru/zdorovie/'><i class="fa fa-medkit" aria-hidden="true"></i> Азбука здоровья</a></li><li class="menu-item"><a  href='https://azbyka.ru/recept/'><i class="fa fa-cutlery" aria-hidden="true"></i> Азбука рецептов</a></li><li class="menu-item"><a  href='https://azbyka.ru/garden/'><i class="fa fa-envira" aria-hidden="true"></i> Азбука садовода</a></li><li class="menu-item"><a  href='https://azbyka.ru/semya/'><i class="fa fa-home" aria-hidden="true"></i> Азбука супружества</a></li></ul></li>			</ul>
+		</div>
+	</nav>
+
+<!-- Header -->
+<div data-rocket-location-hash="3f2ddb048e4140dffc0c860da28d2b85" class="main-box">
+	<header data-rocket-location-hash="a9fe56a8b3614d793db8af078ff199c5" class="header" id="header"> 
+		<div data-rocket-location-hash="6171531811532ce7e8657622cefaf198" class="header-top">
+			<div class="header-breadcrumbs"><ul class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'>
+				<a itemprop='item' href='https://azbyka.ru/' title='Азбука веры'>
+					<span itemprop='name'>Азбука веры</span>
+				</a>
+				<meta itemprop='position' content='1'>
+			</li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'>
+				<span itemprop='name'>Православные цитаты</span>
+				<meta itemprop='position' content='2'>
+			</li></ul></div>		<!-- Вход в личный кабинет, если установлен плагин Profile Builder --> 
+						<div class="header-login m-hide">
+				<a href="https://azbyka.ru/quotes/personal" rel="nofollow" title="Войти в личный кабинет" class=user-only title="Личное"><i class="fa fa-user" aria-hidden="true"></i></a>
+				<a href="//azbyka.ru/auth" rel="nofollow" title="Войти в личный кабинет" class=guest-only>Вход <i class="fa fa-sign-in"></i></a>
+			</div>
+						<!-- End ¬ход в личный кабинет -->
+	<!-- Settings -->
+<!--noindex-->
+<div class="settings" id="settings" data-nosnippet>
+<a class="settings-button btn-settings" id="settings-button" title="Настройки">
+		<i class="fa fa-gear"></i>
+	</a>
+</div>
+<!--/noindex-->
+<!-- End Settings -->
+<div class="header-search" id="header_search">	
+	<form id="labnol" action="https://azbyka.ru/quotes/yandex_search" method="get" target="_self" accept-charset="utf-8" class="search-form">
+		<input type="hidden" name="searchid" value="11608510">
+		<input type="hidden" name="l10n" value="ru">
+		<input type="hidden" name="reqenc" value="">
+		<input type="search" name="text" id="transcript" value="" class="search-form-field">
+		<div class="speech start-dictation"><i class="fa fa-microphone"></i></div>
+		<button type="submit" class="search-form-button"><i class="fa fa-search"></i></button>
+	</form>
+	</div>		</div>
+		<div data-rocket-location-hash="2bc5b6f4263a3a52fb9b151bf52c6e87" class="header-main header-wrap"> 	
+			<div class="logo"><div class="main-title">Православные цитаты</div><p class="header-subtitle"></p></div><a class="button header-help-btn" href="//azbyka.ru/kak-pomoch">Пожертвовать</a>		</div>
+
+		
+	</header>
+</div>
+<!-- End Header -->
+<!-- Main area -->
+<div data-rocket-location-hash="a30d2e201f71347eab2dd42a56a757b2" class="main-box">
+	<main data-rocket-location-hash="f324754f8d1507971b1c2cec96dba789" class="main-area" id="main-area">
+			<!-- Sidebar -->
+	<section data-rocket-location-hash="37251cfc5e9e844b7eb81c23c5cdb41c" class="main-area-sidebar">
+			<span class="btn-sidebar-toggle"><i class="fa fa-chevron-left"></i></span>
+<div class="sidebar-header header-wrap"><div class="logo"><h1><div class="main-title">Православные цитаты</div></h1><p class="header-subtitle"></p></div><a class="button header-help-btn" href="//azbyka.ru/kak-pomoch">Пожертвовать</a></div><!-- Main sidebar area-->
+<aside class="widgets-area">
+<!-- Специальный блок -->
+	<!-- End Специальный блок -->
+
+<!-- Left menu -->
+	<div class="widget-navi">
+				<!-- Специальное меню -->
+			<div class="widget"><div class="widget-item  menu-expand-full opened_child opened_child--mobile"><ul id="left-navigation" class="left-nav cat-menu"><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/religiya/' class='active initial-active'>Религия <span class=count>(185)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/eres/' class='active initial-active'>Ересь <span class=count>(48)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/raskol/' class='active initial-active'>Раскол <span class=count>(14)</span></a></li></ul></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/ateizm/' class='active initial-active'>Атеизм <span class=count>(61)</span></a></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/bog/' class='active initial-active'>Бог <span class=count>(107)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/lyubov-boga/' class='active initial-active'>Божественная любовь <span class=count>(177)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/volya-bozhiya/' class='active initial-active'>Воля Божия <span class=count>(429)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/vsemogushhestvo-bozhie/' class='active initial-active'>Всемогущество Божие <span class=count>(90)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/dar-bozhij/' class='active initial-active'>Дар Божий <span class=count>(109)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/zapovedi-bozhii/' class='active initial-active'>Заповеди Божии <span class=count>(344)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/pomosh-bozhija/' class='active initial-active'>Милосердие Божие <span class=count>(253)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/promysl-bozhij/' class='active initial-active'>Промысл Божий <span class=count>(450)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/svojstva-boga/' class='active initial-active'>Свойства Бога <span class=count>(90)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/svyataya-troicza/' class='active initial-active'>Святая Троица <span class=count>(43)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/svjatoj-duh/' class='active initial-active'>Святой Дух <span class=count>(198)</span></a></li></ul></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/iisus-hristos/' class='active initial-active'>Иисус Христос <span class=count>(305)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/bogopoznanie/' class='active initial-active'>Богопознание <span class=count>(354)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/nakazanija-bozhii/' class='active initial-active'>Наказания Божии <span class=count>(160)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/pamyat-bozhiya/' class='active initial-active'>Память Божия <span class=count>(82)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/strah-bozhij/' class='active initial-active'>Страх Божий <span class=count>(244)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/bogorodicza/' class='active initial-active'>Богородица <span class=count>(49)</span></a></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/besplotnye-duhi/' class='active initial-active'>Бесплотные духи <span class=count>(7)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/angely/' class='active initial-active'>Ангелы <span class=count>(63)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/padshie-duhi/' class='active initial-active'>Падшие духи <span class=count>(448)</span></a></li></ul></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/vera/' class='active initial-active'>Вера <span class=count>(462)</span></a></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/dobro-dobrodeteli/' class='active initial-active'>Добро, добродетели <span class=count>(892)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/blagotvoritelnost/' class='active initial-active'>Благотворительность <span class=count>(41)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/blagodarenie/' class='active initial-active'>Благодарение <span class=count>(148)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/blagodat/' class='active initial-active'>Благодать <span class=count>(190)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/vozderzhanie/' class='active initial-active'>Воздержание <span class=count>(257)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/devstvo/' class='active initial-active'>Девство <span class=count>(49)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/krotkost/' class='active initial-active'>Кротость <span class=count>(140)</span></a></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/lyubov/' class='active initial-active'>Любовь <span class=count>(199)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/lyubov-k-bogu/' class='active initial-active'>Любовь к Богу <span class=count>(288)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/lyubov-k-blizhnemu/' class='active initial-active'>Любовь к ближнему <span class=count>(316)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/lyubov-k-vragu/' class='active initial-active'>Любовь к врагу <span class=count>(117)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/lyubov-plotskaya/' class='active initial-active'>Любовь плотская <span class=count>(18)</span></a></li></ul></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/miloserdie/' class='active initial-active'>Милосердие <span class=count>(339)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/molchanie/' class='active initial-active'>Молчание <span class=count>(152)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/mudrost/' class='active initial-active'>Мудрость <span class=count>(116)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/nestyazhanie/' class='active initial-active'>Нестяжание <span class=count>(51)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/oblichenie-porokov/' class='active initial-active'>Обличение <span class=count>(80)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/plach/' class='active initial-active'>Плач <span class=count>(233)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/pokayanie-dobro-dobrodeteli/' class='active initial-active'>Покаяние <span class=count>(514)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/poslushanie/' class='active initial-active'>Послушание <span class=count>(130)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/pravda/' class='active initial-active'>Правда <span class=count>(94)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/pravednost/' class='active initial-active'>Праведность <span class=count>(85)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/proshhenie/' class='active initial-active'>Прощение грехов <span class=count>(56)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/revnost/' class='active initial-active'>Ревность <span class=count>(17)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/sluzhenie/' class='active initial-active'>Служение <span class=count>(18)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/smirenie/' class='active initial-active'>Смирение <span class=count>(653)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/terpenie/' class='active initial-active'>Терпение <span class=count>(255)</span></a></li></ul></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/duhovnaya-zhizn/' class='active initial-active'>Духовная жизнь <span class=count>(407)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/duhovnaya-borba/' class='active initial-active'>Духовная борьба <span class=count>(258)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/prelest/' class='active initial-active'>Духовная прелесть <span class=count>(86)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/duhovnik/' class='active initial-active'>Духовный отец <span class=count>(84)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/trezvenie/' class='active initial-active'>Трезвение <span class=count>(113)</span></a></li></ul></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/duhovnoe-chtenie/' class='active initial-active'>Духовное чтение <span class=count>(78)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/evangelie/' class='active initial-active'>Евангелие <span class=count>(115)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/psaltir/' class='active initial-active'>Псалтирь <span class=count>(17)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/svyatootecheskaya-literatura/' class='active initial-active'>Святоотеческая литература <span class=count>(43)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/svyashhennoe-pisanie/' class='active initial-active'>Священное Писание <span class=count>(259)</span></a></li></ul></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/zemnaya-zhizn/' class='active initial-active'>Земная жизнь <span class=count>(494)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/bednost/' class='active initial-active'>Бедность <span class=count>(111)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/bolezni-i-nemoshhi/' class='active initial-active'>Болезни и немощи <span class=count>(312)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/vospitanie-detej/' class='active initial-active'>Воспитание детей <span class=count>(302)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/zdorove/' class='active initial-active'>Здоровье <span class=count>(43)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/iskushenija/' class='active initial-active'>Искушения <span class=count>(271)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/obshhenie/' class='active initial-active'>Общение <span class=count>(267)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/odezhda/' class='active initial-active'>Одежда <span class=count>(23)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/pishha/' class='active initial-active'>Пища <span class=count>(54)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/prazdniki/' class='active initial-active'>Праздники <span class=count>(58)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/skorb/' class='active initial-active'>Скорбь <span class=count>(308)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/stradanie/' class='active initial-active'>Страдание <span class=count>(169)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/trud/' class='active initial-active'>Труд <span class=count>(165)</span></a></li></ul></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/ikonopochitanie/' class='active initial-active'>Иконопочитание <span class=count>(31)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/krest/' class='active initial-active'>Крест <span class=count>(127)</span></a></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/molitva/' class='active initial-active'>Молитва <span class=count>(374)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/iisusova-molitva/' class='active initial-active'>Иисусова молитва <span class=count>(354)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/krestnoe-znamenie/' class='active initial-active'>Крестное знамение <span class=count>(40)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/molitva-gospodnja/' class='active initial-active'>Молитва Господня <span class=count>(29)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/molitvennoe-pravilo/' class='active initial-active'>Молитвенное правило <span class=count>(99)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/molitvennyj-trud/' class='active initial-active'>Молитвенный труд <span class=count>(395)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/molitvy-svjatym/' class='active initial-active'>Молитвы святым <span class=count>(45)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/poklony/' class='active initial-active'>Поклоны <span class=count>(27)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/psalmopenie/' class='active initial-active'>Псалмопение <span class=count>(45)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/sila-molitvy/' class='active initial-active'>Сила молитвы <span class=count>(232)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/czerkovnaya-molitva/' class='active initial-active'>Церковная молитва <span class=count>(69)</span></a></li></ul></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/post/' class='active initial-active'>Пост <span class=count>(340)</span></a></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/svyatost/' class='active initial-active'>Святость <span class=count>(67)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/czarstvo-bozhie/' class='active initial-active'>Царство Божие <span class=count>(128)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/moshhi-svyatyh/' class='active initial-active'>Мощи святых <span class=count>(16)</span></a></li></ul></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/smert/' class='active initial-active'>Смерть <span class=count>(180)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/vseobsh-voskresenie/' class='active initial-active'>Всеобщее воскресение <span class=count>(116)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/zagrobnaja-zhizn/' class='active initial-active'>Загробная жизнь <span class=count>(179)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/mytarstva/' class='active initial-active'>Мытарства <span class=count>(15)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/pamyat-smertnaja/' class='active initial-active'>Память смертная <span class=count>(214)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/strah-smerti/' class='active initial-active'>Страх смерти <span class=count>(79)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/strashnyj-sud/' class='active initial-active'>Страшный Суд <span class=count>(108)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/chas-smerti/' class='active initial-active'>Час смерти <span class=count>(92)</span></a></li></ul></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/strasti-i-grehi/' class='active initial-active'>Страсти и грехи <span class=count>(69)</span></a><ul class="sub-menu"><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/strasti/' class='active initial-active'>Страсти <span class=count>(371)</span></a><ul class="sub-menu"><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/chrevougodie/' class='active initial-active'>Чревоугодие <span class=count>(163)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/kurenie/' class='active initial-active'>Курение <span class=count>(9)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/obedenie/' class='active initial-active'>Объядение <span class=count>(13)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/pyanstvo/' class='active initial-active'>Пьянство <span class=count>(121)</span></a></li></ul></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/blud/' class='active initial-active'>Блуд <span class=count>(160)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/pohot/' class='active initial-active'>Похоть <span class=count>(64)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/slastolyubie/' class='active initial-active'>Сластолюбие <span class=count>(62)</span></a></li></ul></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/srebrolyubie/' class='active initial-active'>Сребролюбие <span class=count>(260)</span></a></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/gnev/' class='active initial-active'>Гнев <span class=count>(297)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/mest/' class='active initial-active'>Месть <span class=count>(34)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/nenavist/' class='active initial-active'>Ненависть <span class=count>(29)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/pamyatozlobie/' class='active initial-active'>Памятозлобие <span class=count>(61)</span></a></li></ul></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/pechal/' class='active initial-active'>Печаль <span class=count>(101)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/otchayanie/' class='active initial-active'>Отчаяние <span class=count>(67)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/strah/' class='active initial-active'>Страх <span class=count>(56)</span></a></li></ul></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/unynie/' class='active initial-active'>Уныние <span class=count>(85)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/lenost/' class='active initial-active'>Леность <span class=count>(91)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/prazdnost/' class='active initial-active'>Праздность <span class=count>(56)</span></a></li></ul></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/tshheslavie/' class='active initial-active'>Тщеславие <span class=count>(195)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/lukavstvo/' class='active initial-active'>Лукавство <span class=count>(23)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/lozh/' class='active initial-active'>Ложь <span class=count>(81)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/chelovekougodie/' class='active initial-active'>Человекоугодие <span class=count>(17)</span></a></li></ul></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/gordost/' class='active initial-active'>Гордость <span class=count>(431)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/zavist/' class='active initial-active'>Зависть <span class=count>(189)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/zloslovie/' class='active initial-active'>Злословие <span class=count>(119)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/kleveta/' class='active initial-active'>Клевета <span class=count>(70)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/liczemerie/' class='active initial-active'>Лицемерие <span class=count>(62)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/obida/' class='active initial-active'>Обида <span class=count>(89)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/osuzhdenie/' class='active initial-active'>Осуждение <span class=count>(234)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/ropot/' class='active initial-active'>Ропот <span class=count>(25)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/samolyubie/' class='active initial-active'>Самолюбие <span class=count>(77)</span></a></li></ul></li></ul></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/grehi/' class='active initial-active'>Грехи <span class=count>(678)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/vojny/' class='active initial-active'>Войны <span class=count>(45)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/greh-samoubijstva/' class='active initial-active'>Грех самоубийства <span class=count>(18)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/zlo/' class='active initial-active'>Зло <span class=count>(269)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/izlishestvo/' class='active initial-active'>Излишество <span class=count>(197)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/klyatva/' class='active initial-active'>Клятва <span class=count>(51)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/koldovstvo/' class='active initial-active'>Колдовство <span class=count>(36)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/slava/' class='active initial-active'>Слава <span class=count>(87)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/yazyk/' class='active initial-active'>Язык <span class=count>(192)</span></a></li></ul></li></ul></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/czerkovnye-tainstva/' class='active initial-active'>Церковные Таинства <span class=count>(26)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/brak/' class='active initial-active'>Брак <span class=count>(301)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/evharistiya/' class='active initial-active'>Евхаристия <span class=count>(139)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/eleosvyashhenie-soborovanie/' class='active initial-active'>Елеосвящение (Соборование) <span class=count>(12)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/kreshhenie/' class='active initial-active'>Крещение <span class=count>(80)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/miropomazanie/' class='active initial-active'>Миропомазание <span class=count>(5)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/pokayanie-ispoved/' class='active initial-active'>Покаяние (Исповедь) <span class=count>(208)</span></a></li></ul></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/czerkov/' class='active initial-active'>Церковь <span class=count>(158)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/monashestvo/' class='active initial-active'>Монашество <span class=count>(519)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/svyashhenstvo/' class='active initial-active'>Священство <span class=count>(393)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/hram/' class='active initial-active'>Храм <span class=count>(143)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/hristianin/' class='active initial-active'>Христианин <span class=count>(239)</span></a></li></ul></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/chelovek/' class='active initial-active'>Человек <span class=count>(118)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/lyubopytstvo/' class='active initial-active'>Любопытство <span class=count>(17)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/volya/' class='active initial-active'>Воля <span class=count>(102)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/druzhba/' class='active initial-active'>Дружба <span class=count>(75)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/duh/' class='active initial-active'>Дух <span class=count>(50)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/dusha/' class='active initial-active'>Душа <span class=count>(502)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/obshhestvo/' class='active initial-active'>Общество <span class=count>(235)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/plot/' class='active initial-active'>Плоть <span class=count>(211)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/poznanie-sebja/' class='active initial-active'>Познание себя <span class=count>(128)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/pomysly/' class='active initial-active'>Помыслы <span class=count>(394)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/svoboda/' class='active initial-active'>Свобода <span class=count>(147)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/duhovnoe-serdce/' class='active initial-active'>Сердце <span class=count>(187)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/sny/' class='active initial-active'>Сны <span class=count>(48)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/soblazny/' class='active initial-active'>Соблазны <span class=count>(124)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/sovest/' class='active initial-active'>Совесть <span class=count>(136)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/um/' class='active initial-active'>Ум <span class=count>(163)</span></a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes/chelovecheskaya-priroda/' class='active initial-active'>Человеческая природа <span class=count>(108)</span></a></li><li class="menu-item menu-item-has-children"><a  href='https://azbyka.ru/quotes/chuvstva/' class='active initial-active'>Чувства <span class=count>(67)</span></a><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quotes/styd/' class='active initial-active'>Стыд <span class=count>(59)</span></a></li></ul></li></ul></li><li class="menu-item hidden"><a  href='https://azbyka.ru/quotes/bez-avtora/' class='active initial-active'>Автор неизвестен <span class=count>(7)</span></a></li><li class="menu-item hidden"><a  href='https://azbyka.ru/quotes/k-pereraspredeleniyu/' class='active initial-active'>К перераспределению <span class=count>(1)</span></a></li></ul></div></div>		<!-- End Специальное меню -->
+		
+		<div id="text-5" class="widget widget_text">			<div class="textwidget"><ul>
+<li><a href="//azbyka.ru/quotes/avtor">Все авторы <span class=count>(236)</span></a></li>
+</ul>
+</div>
+		</div>
+		
+		<p class="btn-more-widgets-wrap m-show">
+			<button id="widgets_more" class="btn-more-widgets"><i class="fa fa-info-circle" aria-hidden="true"></i> ещё</button>
+		</p>
+	</div>
+<!-- End Left menu -->
+	
+	<div class="widgets" id="widgets">
+		
+<!-- Dynamic menus -->
+		<div class="widgets-sidebar" id="widgets-sidebar">
+			<div id="bg_counter_top_widget-3" class="widget widget_bg_counter_top_widget"><p class="widget-title">Популярное</p>
+	<div class="widget-item">
+		<div class="widget-inner">
+			<ul class="bg-az-top-posts">
+<li><a href="https://azbyka.ru/quotes/my-imeem-nepobedimogo-soyuznika-blagodat-duha/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="8157" data-type="post" data-value="1246" data-status="publish">...Мы имеем непобедимого союзника — благодать Духа</a> <span class="bg-az-count">1.2<span class=bg-counter-multiplier>K</span></span></li>
+<li><a href="https://azbyka.ru/quotes/v-czerkvi-ne-dolzhno-govorit/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="17613" data-type="post" data-value="747" data-status="publish">В церкви не должно говорить</a> <span class="bg-az-count">747</span></li>
+<li><a href="https://azbyka.ru/quotes/gde-prosto-tam-angelov-so-sto/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="7504" data-type="post" data-value="569" data-status="publish">Где просто, там Ангелов со сто</a> <span class="bg-az-count">569</span></li>
+<li><a href="https://azbyka.ru/quotes/poslushanie-vyshe-posta-i-molitvy/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="7156" data-type="post" data-value="540" data-status="publish">Послушание — выше поста и молитвы</a> <span class="bg-az-count">540</span></li>
+<li><a href="https://azbyka.ru/quotes/kto-nas-korit-tot-nam-darit/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="14977" data-type="post" data-value="529" data-status="publish">Кто нас корит, тот нам дарит</a> <span class="bg-az-count">529</span></li>
+<li><a href="https://azbyka.ru/quotes/sotvori-so-mnoj-kak-izvolish/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="47606" data-type="post" data-value="496" data-status="publish">Сотвори со мной как изволишь</a> <span class="bg-az-count">496</span></li>
+<li><a href="https://azbyka.ru/quotes/ne-ishhite-lyubvi-ot-lyudej/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="1408" data-type="post" data-value="458" data-status="publish">Не ищите  любви от людей</a> <span class="bg-az-count">458</span></li>
+<li><a href="https://azbyka.ru/quotes/nastoyashhaya-zhizn-est-put/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="74735" data-type="post" data-value="440" data-status="publish">Настоящая жизнь есть путь</a> <span class="bg-az-count">440</span></li>
+<li><a href="https://azbyka.ru/quotes/otnimi-u-lyubvi-terpenie/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="1240" data-type="post" data-value="408" data-status="publish">Отними у любви терпение</a> <span class="bg-az-count">408</span></li>
+<li><a href="https://azbyka.ru/quotes/esli-napadet-na-tebya-gnev-pospeshnee/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="15192" data-type="post" data-value="393" data-status="publish">Если нападет на тебя гнев, поспешнее</a> <span class="bg-az-count">393</span></li>
+<li><a href="https://azbyka.ru/quotes/bog-lyubit-truzhenikov-tolko-by-oni/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="11408" data-type="post" data-value="389" data-status="publish">Бог любит тружеников, только бы они</a> <span class="bg-az-count">389</span></li>
+<li><a href="https://azbyka.ru/quotes/vo-vsem-i-vsegda-prosit-pomoshh-u-boga/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="74677" data-type="post" data-value="385" data-status="publish">во всем и всегда просить помощь у Бога</a> <span class="bg-az-count">385</span></li>
+<li><a href="https://azbyka.ru/quotes/vo-vremya-chteniya-apostola-mozhno-sidet/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="17030" data-type="post" data-value="344" data-status="publish">Во время чтения «Апостола» можно сидеть</a> <span class="bg-az-count">344</span></li>
+<li><a href="https://azbyka.ru/quotes/ne-slushaj-diavola-kogda-nasheptyvaet/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="13904" data-type="post" data-value="328" data-status="publish">Не слушай диавола, когда нашептывает</a> <span class="bg-az-count">328</span></li>
+<li><a href="https://azbyka.ru/quotes/skuka-unyniyu-vnuka-a-leni-doch/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="15342" data-type="post" data-value="323" data-status="publish">Скука – унынию внука, , а лени – дочь</a> <span class="bg-az-count">323</span></li>
+<li><a href="https://azbyka.ru/quotes/pobede-hristovoj-mogut-radovatsya-vse-chelovecheskie-sushhestva/" title="Надо творить милостыню с разумением, чтобы не повредить человеку." data-ID="1163" data-type="post" data-value="274" data-status="publish">Победе Христовой могут радоваться все человеческие существа</a> <span class="bg-az-count">274</span></li>
+</ul>
+		</div>
+	</div>
+</div>
+<div id="text-4" class="widget widget_text"><p class="widget-title">Сборники цитат</p>
+			<div class="textwidget"><ul>
+<li><a href="https://azbyka.ru/otechnik/prochee/sokrovishnitsa-duhovnoj-mudrosti/" target="_blank" rel="noopener">Сокровищница духовной мудрости</a></li>
+<li><a href="https://azbyka.ru/otechnik/Biblia/tsitaty-iz-biblii/" target="_blank" rel="noopener">Цитаты из Библии</a></li>
+<li><a href="https://azbyka.ru/otechnik/Grigorij_Djachenko/prakticheskaja-simfonija-dlja-propovednikov-slova-bozhija/" target="_blank" rel="noopener">Практическая симфония для проповедников Слова Божия</a></li>
+<li><a href="https://azbyka.ru/otechnik/prochee/#simfonii" target="_blank" rel="noopener">Симфонии по творениям святых отцов</a></li>
+<li><a href="https://azbyka.ru/otechnik/Spravochniki/entsiklopedija-izrechenij-svjatyh-ottsov-i-uchitelej-tserkvi-po-razlichnym-voprosam-duhovnoj-zhizni/" target="_blank" rel="noopener">Энциклопедия изречений Святых отцов и учителей Церкви по различным вопросам духовной жизни</a></li>
+</ul>
+</div>
+		</div>
+<div id="text-2" class="widget widget_text"><p class="widget-title">Словарь</p>
+			<div class="textwidget"><ul>
+<li><a href="https://azbyka.ru/simfoniya" target="_blank" rel="noopener">Симфония</a></li>
+<li><a href="https://azbyka.ru/testimonii" target="_blank" rel="noopener">Тестимонии</a></li>
+<li><a href="https://azbyka.ru/citirovanie" target="_blank" rel="noopener">Цитирование</a></li>
+</ul>
+</div>
+		</div>
+<div id="text-3" class="widget widget_text"><p class="widget-title">Наши Tg-каналы</p>
+			<div class="textwidget"><ul>
+<li><a href="https://t.me/azbible" target="_blank" rel="noopener">Цитата из Библии</a></li>
+<li><a href="https://t.me/azsaints" target="_blank" rel="noopener">Цитаты святых</a></li>
+</ul>
+</div>
+		</div>
+		</div>
+	<!-- Хук для дополнительных действий -->
+				<div class="widgets-sidebar" id="widgets-sidebar2">
+			<div id="text-6" class="widget widget_text">			<div class="textwidget"><p class="text-center"><a href="https://azbyka.ru/obratnaja-svjaz"></p>
+<div class="cupid-green">Предложите цитату для размещения</div>
+<p></a></p>
+</div>
+		</div>
+<div id="bg_counter_online_widget-2" class="widget widget_bg_counter_online_widget">	<div class="widget-item">
+		<div class="widget-inner">
+			<span class="bg-az-counter">
+				<p><span class="bg-az-counter-title">Сейчас в разделе</span> <span><span class="bg-az-counter-now">13</span>&nbsp;<span class="bg-az-counter-unit">чел.</span></span></p>
+				<p><span class="bg-az-counter-title">Всего просмотров</span> <span class="bg-az-counter-views" data-format="long">1.1&nbsp;млн.</span></p>
+							<p><span class="bg-az-counter-title">Всего цитат</span> <span class="bg-az-counter-posts">28208</span></p>
+										</span>
+		</div>
+	</div>
+</div>
+		</div>
+<!-- End Dynamic menus -->
+	
+<!-- Footer -->
+		<footer class="footer">
+			<!-- Donate button -->
+			<p class="text-center">
+			<a href="//azbyka.ru/kak-pomoch" class="help-btn footer-help-btn">Пожертвовать</a>
+			</p>
+			<!-- //Donate button -->
+			
+			<div class="footer-info">
+				<!-- Footer menu-->
+				<ul id="footer-navigation" class="footer-nav"><li class="menu-item"><a href="https://azbyka.ru/obratnaja-svjaz?the_url=https%3A%2F%2Fazbyka.ru%2Fquotes%2F">Обратная связь</a></li><li class="menu-item"><a href="https://azbyka.ru/azbuka-very-na-vashem-sajte">Вебмастеру</a></li></ul>				<!-- Socializing buttons -->
+				<div class="social-share__pre"><i class="fa fa-share-alt"></i> поделиться:</div>
+				
+			<div class="social-share__wrap">
+				<a href="https://vk.ru/share.php?url=https%3A%2F%2Fazbyka.ru%2Fquotes%2F" title="Поделиться в  ВК"><i class="fa fa-vk"></i></a>
+				<a href="https://connect.ok.ru/offer?url=https%3A%2F%2Fazbyka.ru%2Fquotes%2F" title="Поделиться в  ОК"><i class="fa fa-odnoklassniki"></i></a>
+				<a href="https://t.me/share/url?text=%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0+%D0%BC%D1%8B+%D0%BE%D0%BF%D0%BB%D0%B0%D0%BA%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC+%D0%BD%D0%B0%D1%88%D0%B8+%D0%BF%D0%B0%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F%2C+%D0%BD%D0%B0%D1%81+%D0%BF%D0%BE%D0%B4%D0%BD%D0%B8%D0%BC%D0%B0%D0%B5%D1%82+%D0%B8+%D1%83%D1%82%D0%B5%D1%88%D0%B0%D0%B5%D1%82+%D0%A1%D0%B0%D0%BC+%D0%91%D0%BE%D0%B3.&url=https%3A%2F%2Fazbyka.ru%2Fquotes%2F" title="Поделиться в  Telegram"><i class="fa fa-paper-plane"></i></a>
+			</div>			</div>
+
+			<div class="footer-box">
+				<!-- ReTypos logo -->
+								<!-- //ReTypos logo -->
+			</div>
+			<!-- Copyright -->
+			<div class="footer-copy">
+				<p>©2026 Православные цитаты</p>
+			</div>
+			<!--//Copyright -->
+
+		</footer>
+<!-- End Footer -->
+		<p class="btn-more-widgets-wrap m-show">
+			<button id="widgets_contents" class="btn-more-widgets"><i class="fa fa-bars" aria-hidden="true"></i> к содержанию</button>
+		</p>
+		
+	</div>
+</aside>
+
+	</section>
+	<!-- End Sidebar -->
+			<!-- Content -->
+		<section data-rocket-location-hash="a436a472c6e199a8ff0f17f4f537de5a" class="main-area-content posts-loop">
+				
+
+	<article class="article" id="post-128871">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/plach/" title="Категория: Плач">Плач</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/kogda-my-oplakivaem-nashi-padeniya/" title="Перейти: Когда мы оплакиваем наши падения, нас…">Когда мы оплакиваем наши падения, нас поднимает и утешает Сам Бог.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>С. Л. Худиев, православный апологет</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/s-l-hudiev-pravoslavnyj-apologet/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Sergej_Hudiev/soblazn-komforta/#:~:text=%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0%20%D0%BC%D1%8B%20%D0%BE%D0%BF%D0%BB%D0%B0%D0%BA%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC%20%D0%BD%D0%B0%D1%88%D0%B8%20%D0%BF%D0%B0%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F%2C%20%D0%BD%D0%B0%D1%81,%D0%B8%20%D1%83%D1%82%D0%B5%D1%88%D0%B0%D0%B5%D1%82%20%D0%A1%D0%B0%D0%BC%20%D0%91%D0%BE%D0%B3" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128871" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128871"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128869">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/post/" title="Категория: Пост">Пост</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/praktika-pravoslavnyh-postov/" title="Перейти: Практика православных постов не является по…">Практика православных постов не является по своему главному предназначению психологической или оздоровительной – мы постимся, чтобы почтить Бога, а не чтобы поправить телесное здоровье. Но у нее есть важный побочный оздоровительный эффект. И физически, и психологически воздержание приносит нам пользу. Более того, способность к воздержанию – это один из самых важных навыков в жизни.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>С. Л. Худиев, православный апологет</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/s-l-hudiev-pravoslavnyj-apologet/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Sergej_Hudiev/soblazn-komforta/#:~:text=%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D0%BD%D1%8B%D1%85%20%D0%BF%D0%BE%D1%81%D1%82%D0%BE%D0%B2%20%D0%BD%D0%B5%20%D1%8F%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%D1%81%D1%8F%20%D0%BF%D0%BE,%D0%B2%D0%B0%D0%B6%D0%BD%D1%8B%D1%85%20%D0%BD%D0%B0%D0%B2%D1%8B%D0%BA%D0%BE%D0%B2%20%D0%B2%20%D0%B6%D0%B8%D0%B7%D0%BD%D0%B8" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128869" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128869"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128867">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/izlishestvo/" title="Категория: Излишество">Излишество</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/lyudi-mechtayut-stat-bogatymi-i-znamenitymi/" title="Перейти: Люди мечтают стать богатыми и знаменитыми,…">Люди мечтают стать богатыми и знаменитыми, чтобы получить наивысший уровень комфорта, который можно купить за деньги, а потом оказывается, что этот уровень ничуть не мешает им спиваться и вообще быть глубоко несчастными.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>С. Л. Худиев, православный апологет</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/s-l-hudiev-pravoslavnyj-apologet/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Sergej_Hudiev/soblazn-komforta/#:~:text=%D0%9B%D1%8E%D0%B4%D0%B8%20%D0%BC%D0%B5%D1%87%D1%82%D0%B0%D1%8E%D1%82%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%20%D0%B1%D0%BE%D0%B3%D0%B0%D1%82%D1%8B%D0%BC%D0%B8%20%D0%B8%20%D0%B7%D0%BD%D0%B0%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8B%D0%BC%D0%B8%2C,%D0%B2%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%20%D0%B1%D1%8B%D1%82%D1%8C%20%D0%B3%D0%BB%D1%83%D0%B1%D0%BE%D0%BA%D0%BE%20%D0%BD%D0%B5%D1%81%D1%87%D0%B0%D1%81%D1%82%D0%BD%D1%8B%D0%BC%D0%B8" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128867" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128867"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128865">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/chelovecheskaya-priroda/" title="Категория: Человеческая природа">Человеческая природа</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/nas-tyanet-k-tomu-chto-obespechit-nam-gnienie-a-ne-rost/" title="Перейти: Так странно устроен падший человек –…">Так странно устроен падший человек – нас тянет к тому, что обеспечит нам гниение, а не рост.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>С. Л. Худиев, православный апологет</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/s-l-hudiev-pravoslavnyj-apologet/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Sergej_Hudiev/soblazn-komforta/#:~:text=%D0%A2%D0%B0%D0%BA%20%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%BD%D0%BE%20%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%20%D0%BF%D0%B0%D0%B4%D1%88%D0%B8%D0%B9%20%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA%20%E2%80%93,%D0%B3%D0%BD%D0%B8%D0%B5%D0%BD%D0%B8%D0%B5%2C%20%D0%B0%20%D0%BD%D0%B5%20%D1%80%D0%BE%D1%81%D1%82" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128865" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128865"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128863">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/dobro-dobrodeteli/" title="Категория: Добро, добродетели">Добро, добродетели</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/budet-nam-luchshe-kogda-my-sami-budem-luchshe/" title="Перейти: Будет нам лучше, когда мы сами…">Будет нам лучше, когда мы сами будем лучше!</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%91%D1%83%D0%B4%D0%B5%D1%82%20%D0%BD%D0%B0%D0%BC%20%D0%BB%D1%83%D1%87%D1%88%D0%B5%2C%20%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0%20%D0%BC%D1%8B%20%D1%81%D0%B0%D0%BC%D0%B8%20%D0%B1%D1%83%D0%B4%D0%B5%D0%BC%20%D0%BB%D1%83%D1%87%D1%88%D0%B5%21" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128863" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128863"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128817">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/bog/" title="Категория: Бог">Бог</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/bog-nas-uslyshit-esli-i-my-ego-budem-slushat/" title="Перейти: Бог нас услышит, если и мы…">Бог нас услышит, если и мы Его будем слушать.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%91%D0%BE%D0%B3%20%D0%BD%D0%B0%D1%81%20%D1%83%D1%81%D0%BB%D1%8B%D1%88%D0%B8%D1%82%2C%20%D0%B5%D1%81%D0%BB%D0%B8%20%D0%B8%20%D0%BC%D1%8B%20%D0%95%D0%B3%D0%BE%20%D0%B1%D1%83%D0%B4%D0%B5%D0%BC%20%D1%81%D0%BB%D1%83%D1%88%D0%B0%D1%82%D1%8C" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128817" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128817"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128815">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/obshhestvo/" title="Категория: Общество">Общество</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/obnovlenie-narodnoj-zhizni-vsegda-vozmozhno/" title="Перейти: Обновление народной жизни всегда возможно, если…">Обновление народной жизни всегда возможно, если сохраняются его духовные ценности.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%BE%D0%B9%20%D0%B6%D0%B8%D0%B7%D0%BD%D0%B8%20%D0%B2%D1%81%D0%B5%D0%B3%D0%B4%D0%B0%20%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%B5%D1%81%D0%BB%D0%B8%20%D1%81%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D1%8F%D1%8E%D1%82%D1%81%D1%8F%20%D0%B5%D0%B3%D0%BE%20%D0%B4%D1%83%D1%85%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5%20%D1%86%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128815" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128815"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128813">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/chelovek/" title="Категория: Человек">Человек</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/ili-kak-lyudi-ili-pust-nas-ne-budet/" title="Перейти: Или как люди, или пусть нас…">Или как люди, или пусть нас не будет!</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%98%D0%BB%D0%B8%20%D0%BA%D0%B0%D0%BA%20%D0%BB%D1%8E%D0%B4%D0%B8%2C%20%D0%B8%D0%BB%D0%B8%20%D0%BF%D1%83%D1%81%D1%82%D1%8C%20%D0%BD%D0%B0%D1%81%20%D0%BD%D0%B5%20%D0%B1%D1%83%D0%B4%D0%B5%D1%82%21" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128813" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128813"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128811">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/trud/" title="Категория: Труд">Труд</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/vsyakuyu-rabotu-chelovek-mozhet-delat-kak-ugodnik-bozhij/" title="Перейти: Всякую работу человек может делать, как…">Всякую работу человек может делать, как угодник Божий.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%92%D1%81%D1%8F%D0%BA%D1%83%D1%8E%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%83%20%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA%20%D0%BC%D0%BE%D0%B6%D0%B5%D1%82%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%2C%20%D0%BA%D0%B0%D0%BA%20%D1%83%D0%B3%D0%BE%D0%B4%D0%BD%D0%B8%D0%BA%20%D0%91%D0%BE%D0%B6%D0%B8%D0%B9" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128811" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128811"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128809">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/obshhenie/" title="Категория: Общение">Общение</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/uspokojte-dushu-utishte-golos/" title="Перейти: Успокойте душу, утишьте голос, не превозмогайте…">Успокойте душу, утишьте голос, не превозмогайте друг друга криком, чтобы кровь не ударила вам в голову, а слово не нажало на курок.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%A3%D1%81%D0%BF%D0%BE%D0%BA%D0%BE%D0%B9%D1%82%D0%B5%20%D0%B4%D1%83%D1%88%D1%83%2C%20%D1%83%D1%82%D0%B8%D1%88%D1%8C%D1%82%D0%B5%20%D0%B3%D0%BE%D0%BB%D0%BE%D1%81%2C%20%D0%BD%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B3%D0%B0%D0%B9%D1%82%D0%B5,%D0%BD%D0%B5%20%D0%BD%D0%B0%D0%B6%D0%B0%D0%BB%D0%BE%20%D0%BD%D0%B0%20%D0%BA%D1%83%D1%80%D0%BE%D0%BA" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128809" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128809"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128807">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/obshhenie/" title="Категория: Общение">Общение</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/pust-slova-nashi-budut-blagimi-a-dokazatelstva-krepkimi/" title="Перейти: Пусть слова наши будут благими, а…">Пусть слова наши будут благими, а доказательства крепкими.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9F%D1%83%D1%81%D1%82%D1%8C%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%BD%D0%B0%D1%88%D0%B8%20%D0%B1%D1%83%D0%B4%D1%83%D1%82%20%D0%B1%D0%BB%D0%B0%D0%B3%D0%B8%D0%BC%D0%B8%2C%20%D0%B0%20%D0%B4%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D1%82%D0%B2%D0%B0%20%D0%BA%D1%80%D0%B5%D0%BF%D0%BA%D0%B8%D0%BC%D0%B8" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128807" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128807"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128805">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/obida/" title="Категория: Обида">Обида</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/v-mire-net-cheloveka-kto-mozhet-menya-unizit/" title="Перейти: Человек суеты ради бывает очень чувствителен,…">Человек суеты ради бывает очень чувствителен, когда кто-то желает его унизить, однако пустое это дело. Человеку не следует зря тратить силы на бессмыслицу. В мире нет человека, кто может меня унизить. Может и голову мне отсечь, а унизить меня не может.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%A7%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA%20%D1%81%D1%83%D0%B5%D1%82%D1%8B%20%D1%80%D0%B0%D0%B4%D0%B8%20%D0%B1%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%20%D0%BE%D1%87%D0%B5%D0%BD%D1%8C%20%D1%87%D1%83%D0%B2%D1%81%D1%82%D0%B2%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%BD%2C,%D1%83%D0%BD%D0%B8%D0%B7%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%BD%D0%B5%20%D0%BC%D0%BE%D0%B6%D0%B5%D1%82" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128805" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128805"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128802">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/svyatost/" title="Категория: Святость">Святость</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/blazhenstvo-v-nashih-rukah/" title="Перейти: Блаженство – это не счастье. Счастье…">Блаженство – это не счастье. Счастье – реальность этого мира, который от нас не зависит. Все мы хотим быть счастливыми. Блаженство – в наших руках. Человек может быть блажен и больным. Может быть блажен и в заключении. Может быть блажен, даже когда поведут его на гильотину. От него зависит это блаженство. Оно в его руках. Таким вот образом становятся святыми.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%91%D0%BB%D0%B0%D0%B6%D0%B5%D0%BD%D1%81%D1%82%D0%B2%D0%BE%20%E2%80%93%20%D1%8D%D1%82%D0%BE%20%D0%BD%D0%B5%20%D1%81%D1%87%D0%B0%D1%81%D1%82%D1%8C%D0%B5.%20%D0%A1%D1%87%D0%B0%D1%81%D1%82%D1%8C%D0%B5,%D0%B2%D0%BE%D1%82%20%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%BC%20%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D1%8F%D1%82%D1%81%D1%8F%20%D1%81%D0%B2%D1%8F%D1%82%D1%8B%D0%BC%D0%B8" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128802" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128802"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128799">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/zagrobnaja-zhizn/" title="Категория: Загробная жизнь">Загробная жизнь</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/my-gotovim-sebya-dlya-raya-ili-ada-kazhdyj-dlya-svoej-duhovnoj-keli/" title="Перейти: Мы готовим себя для рая или…">Мы готовим себя для рая или ада, каждый – для своей духовной кельи. Праведнику не дано почувствовать адские муки, а грешнику – испытать блаженство, ибо так они сами себе определили.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9C%D1%8B%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%B8%D0%BC%20%D1%81%D0%B5%D0%B1%D1%8F%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B0%D1%8F%20%D0%B8%D0%BB%D0%B8,%D0%BE%D0%BD%D0%B8%20%D1%81%D0%B0%D0%BC%D0%B8%20%D1%81%D0%B5%D0%B1%D0%B5%20%D0%BE%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B8%D0%BB%D0%B8" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128799" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128799"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128797">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/dobro-dobrodeteli/" title="Категория: Добро, добродетели">Добро, добродетели</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/v-dobrodeteli-postoyanno-nuzhno-vozrastat/" title="Перейти: В добродетели постоянно нужно возрастать, перейти…">В добродетели постоянно нужно возрастать, перейти порог высшей свободы «не мочь грешить». перейти порог высшей свободы «не мочь грешить».</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%92%20%D0%B4%D0%BE%D0%B1%D1%80%D0%BE%D0%B4%D0%B5%D1%82%D0%B5%D0%BB%D0%B8%20%D0%BF%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%BD%D0%BE%20%D0%BD%D1%83%D0%B6%D0%BD%D0%BE%20%D0%B2%D0%BE%D0%B7%D1%80%D0%B0%D1%81%D1%82%D0%B0%D1%82%D1%8C%2C%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B9%D1%82%D0%B8,%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D1%8B%20%C2%AB%D0%BD%D0%B5%20%D0%BC%D0%BE%D1%87%D1%8C%20%D0%B3%D1%80%D0%B5%D1%88%D0%B8%D1%82%D1%8C%C2%BB" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128797" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128797"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128795">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/duhovnik/" title="Категория: Духовный отец">Духовный отец</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/my-vse-nuzhdaemsya-v-dobryh-lyudyah-i-dobryh-pastyryah/" title="Перейти: Мы все нуждаемся в добрых людях…">Мы все нуждаемся в добрых людях и добрых пастырях, так что готовы видеть их и там, где их нет, или там, где они таковы лишь по видимости.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9C%D1%8B%20%D0%B2%D1%81%D0%B5%20%D0%BD%D1%83%D0%B6%D0%B4%D0%B0%D0%B5%D0%BC%D1%81%D1%8F%20%D0%B2%20%D0%B4%D0%BE%D0%B1%D1%80%D1%8B%D1%85%20%D0%BB%D1%8E%D0%B4%D1%8F%D1%85,%D1%82%D0%B0%D0%BA%D0%BE%D0%B2%D1%8B%20%D0%BB%D0%B8%D1%88%D1%8C%20%D0%BF%D0%BE%20%D0%B2%D0%B8%D0%B4%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128795" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128795"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128793">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/duhovnaya-zhizn/" title="Категория: Духовная жизнь">Духовная жизнь</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/nuzhno-prezhde-vsego-postroit-mir-v-samom-sebe/" title="Перейти: Нужно прежде всего построить мир в…">Нужно прежде всего построить мир в самом себе, а затем – вокруг себя.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9D%D1%83%D0%B6%D0%BD%D0%BE%20%D0%BF%D1%80%D0%B5%D0%B6%D0%B4%D0%B5%20%D0%B2%D1%81%D0%B5%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B8%D1%80%20%D0%B2,%D0%B7%D0%B0%D1%82%D0%B5%D0%BC%20%E2%80%93%20%D0%B2%D0%BE%D0%BA%D1%80%D1%83%D0%B3%20%D1%81%D0%B5%D0%B1%D1%8F" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128793" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128793"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128791">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/iskushenija/" title="Категория: Искушения">Искушения</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/iskusheniya-nas-delayut-krepche/" title="Перейти: Если бы не было у нас…">Если бы не было у нас искушений, были бы мы такими легкомысленными. Так что искушения нас делают крепче.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%95%D1%81%D0%BB%D0%B8%20%D0%B1%D1%8B%20%D0%BD%D0%B5%20%D0%B1%D1%8B%D0%BB%D0%BE%20%D1%83%20%D0%BD%D0%B0%D1%81,%D0%B8%D1%81%D0%BA%D1%83%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BD%D0%B0%D1%81%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%8E%D1%82%20%D0%BA%D1%80%D0%B5%D0%BF%D1%87%D0%B5" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128791" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128791"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128789">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/skorb/" title="Категория: Скорбь">Скорбь</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/chelovek-i-v-neschaste-dolzhen-ostavatsya-spokojnym/" title="Перейти: Человек и в несчастье должен оставаться…">Человек и в несчастье должен оставаться спокойным, ибо уксус разъедает свою бутылку.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%A7%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA%20%D0%B8%20%D0%B2%20%D0%BD%D0%B5%D1%81%D1%87%D0%B0%D1%81%D1%82%D1%8C%D0%B5%20%D0%B4%D0%BE%D0%BB%D0%B6%D0%B5%D0%BD%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B0%D1%82%D1%8C%D1%81%D1%8F,%D1%83%D0%BA%D1%81%D1%83%D1%81%20%D1%80%D0%B0%D0%B7%D1%8A%D0%B5%D0%B4%D0%B0%D0%B5%D1%82%20%D1%81%D0%B2%D0%BE%D1%8E%20%D0%B1%D1%83%D1%82%D1%8B%D0%BB%D0%BA%D1%83" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128789" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128789"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128787">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/grehi/" title="Категория: Грехи">Грехи</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/net-grehov-velikih-i-malyh/" title="Перейти: Нет грехов великих и малых! Велик…">Нет грехов великих и малых! Велик тот грех, что овладел тобой, а малый – тот, с которым ты справился.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9D%D0%B5%D1%82%20%D0%B3%D1%80%D0%B5%D1%85%D0%BE%D0%B2%20%D0%B2%D0%B5%D0%BB%D0%B8%D0%BA%D0%B8%D1%85%20%D0%B8%20%D0%BC%D0%B0%D0%BB%D1%8B%D1%85%21%20%D0%92%D0%B5%D0%BB%D0%B8%D0%BA,%D1%81%20%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D1%8B%D0%BC%20%D1%82%D1%8B%20%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%81%D1%8F" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128787" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128787"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128785">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/duhovnaya-borba/" title="Категория: Духовная борьба">Духовная борьба</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/odolevat-odin-greh-za-drugim-i-porok-za-porokom/" title="Перейти: Нельзя ожидать, что все получится сразу.…">Нельзя ожидать, что все получится сразу. Это выражение лености. Хотелось бы по-быстрому того, что может быть достигнуто только трудом. Мы должны бороться со слабостями, которые у нас есть, одолевать один грех за другим и порок за пороком. На всяком посту надлежит нам победить по греху, с которым мы свыклись.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9D%D0%B5%D0%BB%D1%8C%D0%B7%D1%8F%20%D0%BE%D0%B6%D0%B8%D0%B4%D0%B0%D1%82%D1%8C%2C%20%D1%87%D1%82%D0%BE%20%D0%B2%D1%81%D0%B5%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%81%D1%8F%20%D1%81%D1%80%D0%B0%D0%B7%D1%83.,%D1%81%20%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D1%8B%D0%BC%20%D0%BC%D1%8B%20%D1%81%D0%B2%D1%8B%D0%BA%D0%BB%D0%B8%D1%81%D1%8C" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128785" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128785"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128783">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/duhovnaya-borba/" title="Категория: Духовная борьба">Духовная борьба</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/put-bozhij-nelegok/" title="Перейти: Путь Божий нелегок. Но и честен.…">Путь Божий нелегок. Но и честен. Он подразумевает непрестанную борьбу с самим собой, со страстями, с неправдами, с сатаной, с мукой. Это путь любви. К себе, ближним, всему живому, да и к врагам. Награда в конце пути – вечная небесная слава в Царствии Божьем.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9F%D1%83%D1%82%D1%8C%20%D0%91%D0%BE%D0%B6%D0%B8%D0%B9%20%D0%BD%D0%B5%D0%BB%D0%B5%D0%B3%D0%BE%D0%BA.%20%D0%9D%D0%BE%20%D0%B8%20%D1%87%D0%B5%D1%81%D1%82%D0%B5%D0%BD.,%D1%81%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%B2%20%D0%A6%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B8%D0%B8%20%D0%91%D0%BE%D0%B6%D1%8C%D0%B5%D0%BC" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128783" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128783"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128781">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/smert/" title="Категория: Смерть">Смерть</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/luchshe-mertvyj-chelovek-chem-zhivoj-nelyud/" title="Перейти: Для нас нет другого выбора: лучше…">Для нас нет другого выбора: лучше мертвый человек, чем живой нелюдь. Ибо человек, когда мертв, не мертв пред Богом Живым. Пред Ним нелюдь мертв, и пока ходит и ступает по этой земле.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%94%D0%BB%D1%8F%20%D0%BD%D0%B0%D1%81%20%D0%BD%D0%B5%D1%82%20%D0%B4%D1%80%D1%83%D0%B3%D0%BE%D0%B3%D0%BE%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%B0%3A%20%D0%BB%D1%83%D1%87%D1%88%D0%B5,%D1%81%D1%82%D1%83%D0%BF%D0%B0%D0%B5%D1%82%20%D0%BF%D0%BE%20%D1%8D%D1%82%D0%BE%D0%B9%20%D0%B7%D0%B5%D0%BC%D0%BB%D0%B5" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128781" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128781"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128778">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/hram/" title="Категория: Храм">Храм</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/zvony-kolokolov-preduprezhdenie-chto-nad-nami-nebo/" title="Перейти: Звоны колоколов – не крики боли,…">Звоны колоколов – не крики боли, но предупреждение, что над нами небо, что с него Бог все видит и всем выносит последний суд.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%97%D0%B2%D0%BE%D0%BD%D1%8B%20%D0%BA%D0%BE%D0%BB%D0%BE%D0%BA%D0%BE%D0%BB%D0%BE%D0%B2%20%E2%80%93%20%D0%BD%D0%B5%20%D0%BA%D1%80%D0%B8%D0%BA%D0%B8%20%D0%B1%D0%BE%D0%BB%D0%B8%2C,%D0%B2%D1%81%D0%B5%D0%BC%20%D0%B2%D1%8B%D0%BD%D0%BE%D1%81%D0%B8%D1%82%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D0%BD%D0%B8%D0%B9%20%D1%81%D1%83%D0%B4" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128778" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128778"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128776">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/czerkovnaya-molitva/" title="Категория: Церковная молитва">Церковная молитва</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/obshhaya-molitva-v-hrame-gde-vse-nam-napominaet-o-boge/" title="Перейти: Общая молитва в храме, где все…">Общая молитва в храме, где все нам напоминает о Боге, есть наивысшая степень молитвы. Ни личная молитва не может заменить общую, ни общая – личную. Нам необходимы обе.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9E%D0%B1%D1%89%D0%B0%D1%8F%20%D0%BC%D0%BE%D0%BB%D0%B8%D1%82%D0%B2%D0%B0%20%D0%B2%20%D1%85%D1%80%D0%B0%D0%BC%D0%B5%2C%20%D0%B3%D0%B4%D0%B5%20%D0%B2%D1%81%D0%B5,%D0%BB%D0%B8%D1%87%D0%BD%D1%83%D1%8E.%20%D0%9D%D0%B0%D0%BC%20%D0%BD%D0%B5%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B8%D0%BC%D1%8B%20%D0%BE%D0%B1%D0%B5" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128776" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128776"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128773">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/hram/" title="Категория: Храм">Храм</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/hramy-svyaz-chelovecheskaya-s-czarstviem-nebesnym/" title="Перейти: Нам, людям этого мира, храмы напоминают…">Нам, людям этого мира, храмы напоминают о бренности жизни, предупреждая нас вместе с тем о вечности Царствия Небесного&#8230; Храмы, из которых возносятся молитвы, – связь человеческая с Царствием Небесным.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9D%D0%B0%D0%BC%2C%20%D0%BB%D1%8E%D0%B4%D1%8F%D0%BC%20%D1%8D%D1%82%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%B8%D1%80%D0%B0%2C%20%D1%85%D1%80%D0%B0%D0%BC%D1%8B%20%D0%BD%D0%B0%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D1%8E%D1%82,%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20%D1%81%20%D0%A6%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B8%D0%B5%D0%BC%20%D0%9D%D0%B5%D0%B1%D0%B5%D1%81%D0%BD%D1%8B%D0%BC" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128773" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128773"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128771">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/krestnoe-znamenie/" title="Категория: Крестное знамение">Крестное знамение</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/dyavol-trepeshhet-pered-krestom-i-bezhit-v-strahe/" title="Перейти: Грешник так не боится места наказания,…">Грешник так не боится места наказания, как дьявол трепещет перед Крестом и бежит в страхе, не смея даже взглянуть на его силу (ибо сила Креста есть Сам Господь Иисус Христос), которая жжет его, словно огонь.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%93%D1%80%D0%B5%D1%88%D0%BD%D0%B8%D0%BA%20%D1%82%D0%B0%D0%BA%20%D0%BD%D0%B5%20%D0%B1%D0%BE%D0%B8%D1%82%D1%81%D1%8F%20%D0%BC%D0%B5%D1%81%D1%82%D0%B0%20%D0%BD%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%B8%D1%8F%2C,%D0%B6%D0%B6%D0%B5%D1%82%20%D0%B5%D0%B3%D0%BE%2C%20%D1%81%D0%BB%D0%BE%D0%B2%D0%BD%D0%BE%20%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128771" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128771"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128769">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/promysl-bozhij/" title="Категория: Промысл Божий">Промысл Божий</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/kogda-bog-popuskaet-golod-vojnu-ne-ko-vremeni-dozhdi/" title="Перейти: Когда Бог попускает голод, войну, не…">Когда Бог попускает голод, войну, не ко времени дожди, засухи, град, землетрясение и прочее, то происходит это от грехов народа. Поэтому причина всех зол лежит в нас самих.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0%20%D0%91%D0%BE%D0%B3%20%D0%BF%D0%BE%D0%BF%D1%83%D1%81%D0%BA%D0%B0%D0%B5%D1%82%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B4%2C%20%D0%B2%D0%BE%D0%B9%D0%BD%D1%83%2C%20%D0%BD%D0%B5,%D0%BB%D0%B5%D0%B6%D0%B8%D1%82%20%D0%B2%20%D0%BD%D0%B0%D1%81%20%D1%81%D0%B0%D0%BC%D0%B8%D1%85" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128769" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128769"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128767">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/sila-molitvy/" title="Категория: Сила молитвы">Сила молитвы</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/net-nichego-dragoczennee-molitvy-v-zhizni-chelovecheskoj/" title="Перейти: Нет ничего драгоценнее молитвы в жизни…">Нет ничего драгоценнее молитвы в жизни человеческой. Она и невозможное делает возможным, тяжелое делает легким, неугодное превращает в угодное.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9D%D0%B5%D1%82%20%D0%BD%D0%B8%D1%87%D0%B5%D0%B3%D0%BE%20%D0%B4%D1%80%D0%B0%D0%B3%D0%BE%D1%86%D0%B5%D0%BD%D0%BD%D0%B5%D0%B5%20%D0%BC%D0%BE%D0%BB%D0%B8%D1%82%D0%B2%D1%8B%20%D0%B2%20%D0%B6%D0%B8%D0%B7%D0%BD%D0%B8,%D0%BD%D0%B5%D1%83%D0%B3%D0%BE%D0%B4%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D1%82%20%D0%B2%20%D1%83%D0%B3%D0%BE%D0%B4%D0%BD%D0%BE%D0%B5" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128767" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128767"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128764">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/molitva/" title="Категория: Молитва">Молитва</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/molitva-ladan-samyj-priyatnyj-bogu/" title="Перейти: Молитва – ладан, самый приятный Богу,…">Молитва – ладан, самый приятный Богу, надежнейший мост для перехода через искушения волн житейских, необоримая стена всех, кто верует, мирное пристанище, Божественное одеяние, которое облекает душу великой добротой и красотой.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9C%D0%BE%D0%BB%D0%B8%D1%82%D0%B2%D0%B0%20%E2%80%93%20%D0%BB%D0%B0%D0%B4%D0%B0%D0%BD%2C%20%D1%81%D0%B0%D0%BC%D1%8B%D0%B9%20%D0%BF%D1%80%D0%B8%D1%8F%D1%82%D0%BD%D1%8B%D0%B9%20%D0%91%D0%BE%D0%B3%D1%83%2C,%D0%B2%D0%B5%D0%BB%D0%B8%D0%BA%D0%BE%D0%B9%20%D0%B4%D0%BE%D0%B1%D1%80%D0%BE%D1%82%D0%BE%D0%B9%20%D0%B8%20%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D1%82%D0%BE%D0%B9" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128764" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128764"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128762">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/pravda/" title="Категория: Правда">Правда</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/chelovek-ne-mozhet-byt-passiven-kogda-rech-idet-o-zashhite-istiny/" title="Перейти: Человек не может быть пассивен, когда…">Человек не может быть пассивен, когда речь идет о защите истины, правды и свободы. И все-таки нельзя отвечать преступлением на преступление.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%A7%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA%20%D0%BD%D0%B5%20%D0%BC%D0%BE%D0%B6%D0%B5%D1%82%20%D0%B1%D1%8B%D1%82%D1%8C%20%D0%BF%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B5%D0%BD%2C%20%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0,%D0%BE%D1%82%D0%B2%D0%B5%D1%87%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%B5%D1%81%D1%82%D1%83%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B5%D1%81%D1%82%D1%83%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128762" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128762"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128760">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/dobro-dobrodeteli/" title="Категория: Добро, добродетели">Добро, добродетели</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/sdelaem-hotya-by-to-chto-obyazany/" title="Перейти: Если мы не в состоянии сделать…">Если мы не в состоянии сделать больше, тогда сделаем хотя бы то, что обязаны.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BC%D1%8B%20%D0%BD%D0%B5%20%D0%B2%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B8%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C,%D0%B1%D1%8B%20%D1%82%D0%BE%2C%20%D1%87%D1%82%D0%BE%20%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D0%BD%D1%8B" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128760" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128760"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128758">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/styd/" title="Категория: Стыд">Стыд</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/hotya-by-styd-da-sohranit-nas/" title="Перейти: Если недостанет нам силы и храбрости,…">Если недостанет нам силы и храбрости, хотя бы стыд да сохранит нас, чтобы не унизили мы свое святое имя ни перед собой, ни перед людьми в мире.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%B5%D1%82%20%D0%BD%D0%B0%D0%BC%20%D1%81%D0%B8%D0%BB%D1%8B%20%D0%B8%20%D1%85%D1%80%D0%B0%D0%B1%D1%80%D0%BE%D1%81%D1%82%D0%B8%2C,%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%20%D0%BB%D1%8E%D0%B4%D1%8C%D0%BC%D0%B8%20%D0%B2%20%D0%BC%D0%B8%D1%80%D0%B5" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128758" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128758"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128756">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/lyubov-k-blizhnemu/" title="Категория: Любовь к ближнему">Любовь к ближнему</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/vsyakogo-cheloveka-dolzhno-prinimat-kak-cheloveka/" title="Перейти: Всякого человека должно принимать как человека.">Всякого человека должно принимать как человека.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%92%D1%81%D1%8F%D0%BA%D0%BE%D0%B3%D0%BE%20%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA%D0%B0%20%D0%B4%D0%BE%D0%BB%D0%B6%D0%BD%D0%BE%20%D0%BF%D1%80%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D1%82%D1%8C%20%D0%BA%D0%B0%D0%BA%20%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA%D0%B0" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128756" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128756"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128753">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/styd/" title="Категория: Стыд">Стыд</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/vsegda-nuzhno-pomnit-chto-styd-v-sovershenii-greha/" title="Перейти: Всегда нужно помнить, что стыд –…">Всегда нужно помнить, что стыд – в совершении греха, а не в исповеди и исправлении жизни.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%92%D1%81%D0%B5%D0%B3%D0%B4%D0%B0%20%D0%BD%D1%83%D0%B6%D0%BD%D0%BE%20%D0%BF%D0%BE%D0%BC%D0%BD%D0%B8%D1%82%D1%8C%2C%20%D1%87%D1%82%D0%BE%20%D1%81%D1%82%D1%8B%D0%B4%20%E2%80%93,%D0%B8%D1%81%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B8%20%D0%B8%20%D0%B8%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8%20%D0%B6%D0%B8%D0%B7%D0%BD%D0%B8" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128753" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128753"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128751">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/oblichenie-porokov/" title="Категория: Обличение">Обличение</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/neprostitelnym-grehom-bylo-by-opravdyvat-che-libo-prestuplenie/" title="Перейти: Ни по-людски, ни по-христиански защищать преступление,…">Ни по-людски, ни по-христиански защищать преступление, а непростительным грехом было бы оправдывать чье-либо преступление.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9D%D0%B8%20%D0%BF%D0%BE%2D%D0%BB%D1%8E%D0%B4%D1%81%D0%BA%D0%B8%2C%20%D0%BD%D0%B8%20%D0%BF%D0%BE%2D%D1%85%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%20%D0%B7%D0%B0%D1%89%D0%B8%D1%89%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%B5%D1%81%D1%82%D1%83%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%2C,%D0%B1%D1%8B%20%D0%BE%D0%BF%D1%80%D0%B0%D0%B2%D0%B4%D1%8B%D0%B2%D0%B0%D1%82%D1%8C%20%D1%87%D1%8C%D0%B5%2D%D0%BB%D0%B8%D0%B1%D0%BE%20%D0%BF%D1%80%D0%B5%D1%81%D1%82%D1%83%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128751" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128751"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128749">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/zlo/" title="Категория: Зло">Зло</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/zlo-neraskayannoe-stanovitsya-istochnikom-novyh-zol/" title="Перейти: Зло забытое, сокрытое и нераскаянное становится…">Зло забытое, сокрытое и нераскаянное становится источником новых зол.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%97%D0%BB%D0%BE%20%D0%B7%D0%B0%D0%B1%D1%8B%D1%82%D0%BE%D0%B5%2C%20%D1%81%D0%BE%D0%BA%D1%80%D1%8B%D1%82%D0%BE%D0%B5%20%D0%B8%20%D0%BD%D0%B5%D1%80%D0%B0%D1%81%D0%BA%D0%B0%D1%8F%D0%BD%D0%BD%D0%BE%D0%B5%20%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%81%D1%8F%20%D0%B8%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%BE%D0%BC%20%D0%BD%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B7%D0%BE%D0%BB" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128749" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128749"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128747">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/duhovnoe-serdce/" title="Категория: Сердце">Сердце</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/granicza-zla-i-dobra-ne-prohodit-mezhdu-rasami/" title="Перейти: Граница зла и добра не проходит…">Граница зла и добра не проходит между расами, народами и верами, но пересекает всякое сердце человеческое.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%93%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0%20%D0%B7%D0%BB%D0%B0%20%D0%B8%20%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%20%D0%BD%D0%B5%20%D0%BF%D1%80%D0%BE%D1%85%D0%BE%D0%B4%D0%B8%D1%82,%D0%BF%D0%B5%D1%80%D0%B5%D1%81%D0%B5%D0%BA%D0%B0%D0%B5%D1%82%20%D0%B2%D1%81%D1%8F%D0%BA%D0%BE%D0%B5%20%D1%81%D0%B5%D1%80%D0%B4%D1%86%D0%B5%20%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128747" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128747"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128745">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/religiya/" title="Категория: Религия">Религия</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/hristianstvo-ne-est-passivnost/" title="Перейти: Христианство не есть пассивность. Не призывает…">Христианство не есть пассивность. Не призывает нас Сын Божий к пассивности перед злом и перед преступниками, но будем защищаться, только защищаться как люди и ни в коем случае – как нелюди.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%A5%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%B0%D0%BD%D1%81%D1%82%D0%B2%D0%BE%20%D0%BD%D0%B5%20%D0%B5%D1%81%D1%82%D1%8C%20%D0%BF%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%8C.%20%D0%9D%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D1%82,%D1%81%D0%BB%D1%83%D1%87%D0%B0%D0%B5%20%E2%80%93%20%D0%BA%D0%B0%D0%BA%20%D0%BD%D0%B5%D0%BB%D1%8E%D0%B4%D0%B8" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128745" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128745"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><article class="article" id="post-128741">
+	
+	
+	<div class="article-content">
+					<ul class="article-categories article-loop-categories">
+																							<li class="category"><a href="https://azbyka.ru/quotes/zlo/" title="Категория: Зло">Зло</a></li>
+												</ul>
+				<h2 class="article-title">
+			<a href="https://azbyka.ru/quotes/ne-po-evangelski-eto-delat-zlo-chtoby-vyshlo-dobro/" title="Перейти: Не по-евангельски это – делать зло,…">Не по-евангельски это – делать зло, чтобы вышло добро, как учит нас святой апостол Павел, и как веками учили нас наши матери. Ибо зло добра не приносит.</a>
+		</h2>
+		<div class=sub-title><span class=avtor>патр. Сербский Павел (Стойчевич)</span> • <a class=avtor-all href="https://azbyka.ru/quotes/avtor/patr-serbskij-pavel/">Все цитаты автора</a> • <a class=trud href="https://azbyka.ru/otechnik/Pavel-Stojchevich/pavel-patriarh-serbskij-budem-lyudmi-zhizn-i-slovo-patriarha-pavla/#:~:text=%D0%9D%D0%B5%20%D0%BF%D0%BE%2D%D0%B5%D0%B2%D0%B0%D0%BD%D0%B3%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%20%D1%8D%D1%82%D0%BE%20%E2%80%93%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D0%B7%D0%BB%D0%BE%2C,%D0%B7%D0%BB%D0%BE%20%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%20%D0%BD%D0%B5%20%D0%BF%D1%80%D0%B8%D0%BD%D0%BE%D1%81%D0%B8%D1%82" target="_blank">Источник</a></div>				<footer class="article-footer">
+					<ul class="article-bar">
+			<li class=my-books-wrap>	<div class="my-book loading" data-post_id="128741" data-page="1" data-paragraph="0" data-my_book="0">
+		<a href="https://azbyka.ru/auth" class="register-link guest-only" title="Вход и регистрация"><i class="fa fa-heart-o"></i></a>
+		<span class="bg_favorite user-only"><i class="fa fa-heart-o"></i></span>
+		<span class="bg_response"></span>
+	</div></li>	<li class="footer__btn-copy" title="Копировать цитату"><i class="fa fa-copy"></i></li>
+	<li class="footer__btn-share"><i class="fa fa-share-alt"></i></li>
+				
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="128741"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views">--</span> <i title="Сейчас читают" class="fa fa-user-o" style="display:none"></i> <span class="bg-az-counter-now"></span> <i title="Оценка пользователей" class="fa fa-star-o"></i> <span class="bg-az-counter-score">0.0</span></span></li>
+						
+						
+					</ul>
+				</footer>
+			</div>
+
+</article><div class="az-pagination">
+	<nav class="navigation pagination" aria-label="Навигация по постам">
+		<h2 class="screen-reader-text">Навигация по постам</h2>
+		<div class="nav-links"><span aria-current="page" class="page-numbers current">1</span>
+<a class="page-numbers" href="https://azbyka.ru/quotes/page/2/">2</a>
+<a class="page-numbers" href="https://azbyka.ru/quotes/page/3/">3</a>
+<span class="page-numbers dots">&hellip;</span>
+<a class="page-numbers" href="https://azbyka.ru/quotes/page/705/">705</a>
+<a class="page-numbers" href="https://azbyka.ru/quotes/page/706/">706</a>
+<a class="next page-numbers" href="https://azbyka.ru/quotes/page/2/">»</a></div>
+	</nav><button class="pagination-load-more" title="Загрузить ещё"><i class="fa fa-arrow-down"></i></button></div>
+		</section>
+		<!-- End Content -->
+			</main> 
+</div>
+<!-- End Main area -->
+
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/quotes/*"},{"not":{"href_matches":["/quotes/wp-*.php","/quotes/wp-admin/*","/quotes/wp-content/uploads/*","/quotes/wp-content/*","/quotes/wp-content/plugins/*","/quotes/wp-content/themes/azbyka-quotes/*","/quotes/wp-content/themes/azbyka/*","/quotes/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<style type="text/css"> 
+         /* Hide reCAPTCHA V3 badge */
+        .grecaptcha-badge {
+        
+            visibility: hidden !important;
+        
+        }
+    </style>		<script>
+			jQuery(function($){
+				let getLink = child=>{
+					let link = $(child).closest('article').find('.article-title a').attr('href');
+					if(!link) link = location.href;
+					
+					return link;
+				}
+				//copy to clipboard
+				function copyTextToClipboard(text) {
+					const textArea = document.createElement("textarea");
+					textArea.value = text;
+					document.body.appendChild(textArea);
+					textArea.select();
+					document.execCommand("copy");
+					document.body.removeChild(textArea);
+				}
+				
+				let initAll = ()=>{
+					$('.footer__btn-share').click(function(e){
+						let shareWrap = $(this).find('.dynamic-share-wrap');
+						if(shareWrap.length){
+							shareWrap.toggleClass('active');
+							
+							return;
+						}
+						
+						let link = getLink(this);
+						
+						link = encodeURIComponent(link);
+						shareWrap = $('<div class="dynamic-share-wrap"></div>');
+						shareWrap.append('<a target="_blank" href="//vkontakte.ru/share.php?url='+link+'"><i class="fa fa-vk"></i></a>');
+						shareWrap.append('<a target="_blank" href="//api.whatsapp.com/send?text='+link+'"><i class="fa fa-whatsapp"></i></a>');
+						shareWrap.append('<a target="_blank" href="//t.me/share/url?url='+link+'"><i class="fa fa-telegram"></i></a>');
+						
+						$(this).append(shareWrap);
+						setTimeout(()=>shareWrap.toggleClass('active'), 10);
+					});
+					
+					//Copy link
+					$('.footer__btn-copy').click(function(e){
+						let $t = $(this), article = $t.closest('.article');
+						let link = getLink(this), text = article.find('h1, .article-title a').text(), avtor = article.find('.avtor').text();
+						copyTextToClipboard(text+"\n"+avtor+"\n"+link);
+						$t.addClass('copied');
+						setTimeout(()=>$t.removeClass('copied'), 2000);
+					});
+				}
+				
+				initAll();
+				
+				//Listen to DOM change
+				let processing = true;
+				let mainArea = document.querySelector('.main-area-content');
+				if(mainArea){
+					let resetProcessingLater = ()=>setTimeout(()=>processing = false, 100);
+				
+					$(document).ready(e=>{
+						var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+						if (MutationObserver) {
+							let observer = new MutationObserver(mutationsList => { 
+								if(processing) return;
+								
+								console.log('re-init on mutation');
+								processing = true;
+								if('myBooks' in window && 'init' in myBooks)
+									myBooks.init();
+								
+								//clean
+								$('.footer__btn-share, .footer__btn-copy').off('click');
+								initAll();
+								
+								resetProcessingLater();
+							});
+							observer.observe(mainArea, { childList: true, subtree: true });
+						}
+						
+						resetProcessingLater();
+					});
+				}
+			});
+		</script>
+			<script id="az-post-list-loader-js">
+			(function(){
+				//logic
+				let pagination = document.querySelector('.az-pagination');
+				if(!pagination){
+					console.log('no pagination found');
+					return;
+				}
+				let current = 1;//parseInt(document.querySelector('.pagination .page-numbers.current').textContent);
+				let last = 706;//parseInt(document.querySelector('.pagination .page-numbers.dots+.page-numbers').textContent);
+				let loading = false;
+			
+				const observer = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting && (localStorage.getItem('az_pagination-autoload') === 'true') && !loading) {
+							loadNext();
+						}
+					});
+				}, {
+					root: null,
+					rootMargin: '0px',
+					threshold: 0
+				});
+			
+				let finalize = ()=>{
+					pagination.classList.remove('loading');
+					observer.disconnect();
+					console.log('no more posts');
+				}
+			
+				let loadNext = ()=>{
+					current ++;
+					if(current <= last){
+						console.log('loading page '+current);
+						pagination.classList.add('loading');
+						loading = true;
+						let pageUrl = location.href.split('#')[0].split('/page/')[0].replace(/\/$/, "") + '/page/' + current, 
+							url = pageUrl + '/?content_only=1';
+						window.history.pushState("", "Страница "+current, pageUrl);
+						asyncLoad(url);
+					}else{
+						finalize();
+					}
+				};
+			
+				async function asyncLoad(url) {
+					const response = await fetch(url);
+					let body = await response.text();
+					body = body.replaceAll('?content_only=1', '');
+					pagination.insertAdjacentHTML('beforebegin', body);
+					if(body.includes('az-pagination')){
+						observer.unobserve(pagination)
+						pagination.remove();
+						initLoadMore();
+					}
+					loading = false;
+					if(current == last) finalize();
+					console.log('loaded page '+current);
+					
+					if(window.scrollY + window.innerHeight > pagination.offsetTop)
+						loadNext();
+				}
+				
+				
+				//load more
+				function initLoadMore(){
+					let loadMore = document.querySelector('.pagination-load-more');
+					if(loadMore)
+						loadMore.onclick = loadNext;
+					
+					pagination = document.querySelector('.az-pagination');
+					if(pagination)
+						observer.observe(pagination);
+				}
+				initLoadMore();
+			})();
+		</script>
+				<div data-rocket-location-hash="7c6b1db798d8f467c7e4d590ffa70a0e" id="notification_container"></div>
+		<aside id="az_toolbox">
+			<i class="fa fa-cog btn-settings"></i>		<a class="rub-help-btn" href="//azbyka.ru/kak-pomoch" title="Пожертвовать"><i class="fa fa-rub"></i></a>
+				<i class="scroll-top fa fa-arrow-up active invert" id="scroll-top" title="Вверх"></i>
+			</aside>
+		<div data-rocket-location-hash="fffdf77fe0e0af304ec4fbe6476bc926" class="az-sso-messages" style="position:fixed;bottom:0;left:0;z-index:200;display:none"><p class="az-content-echo">Входим...</p><p class="az-content-echo">Куки не обнаружены, не ЛК</p></div>	<div data-rocket-location-hash="c93ee596b68e376a1a82ce6b391551e7" class="settings-wrap" id="settings_wrap" style="display: none;">
+		<div data-rocket-location-hash="bce3ca8ffbf93bc3b25ff5741acc38f5" class="settings-box" id="settings-box">
+			<div data-rocket-location-hash="58126b73e76c4398a8384012d1df7587" class="settings-item" data-setting="font-base-size">
+				<span class="settings-caption">Размер шрифта: </span>
+				<span class="settings-field letter-button" id="decrease_letter" title="Уменьшить шрифт">A-</span>
+				<span class="settings-field letter-size" id="size_letter" title="Размер шрифта основного текста">15</span>
+				<span class="settings-field letter-button" id="increase_letter" title="Увеличить шрифт">A+</span>
+			</div>
+
+			<div data-rocket-location-hash="8489a2619fc484c014ccc0e102733258" class="settings-item theme-settings-item" data-setting="theme">
+				<span class="settings-caption">Тёмная тема:</span>
+				<span data-id="1" data-value="light" class="settings-field selectedBox" title="Светлая"><i class="fa fa-lightbulb-o"></i></span>
+				<span data-id="2" data-value="dark" class="settings-field" title="Тёмная"><i class="fa fa-moon-o"></i></span>
+				</div>
+
+			<details class="settings-colors-wrap">
+				<summary>Цвета</summary>
+
+				<div class="settings-item" data-setting="body-bg">
+					<span class="settings-caption">Цвет фона: </span>
+					<span data-id="1" class="settings-field settings-color-box"></span>
+					<span data-id="3" class="settings-field settings-color-box"></span>
+					<span data-id="4" class="settings-field settings-color-box selectedBox"></span>
+					<input type="color" data-id="0" value="#999999" class="settings-field settings-color-box">
+				</div>
+				
+				<div class="settings-item" data-setting="text-color">
+					<span class="settings-caption">Цвет текста: </span>
+					<span data-id="1" class="settings-field settings-color-box"></span>
+					<span data-id="3" class="settings-field settings-color-box"></span>
+					<span data-id="4" class="settings-field settings-color-box selectedBox"></span>
+					<input type="color" data-id="0" value="#999999" class="settings-field settings-color-box">
+				</div>
+				
+				<div class="settings-item" data-setting="link-color">
+					<span class="settings-caption">Цвет ссылок: </span>
+					<span data-id="1" class="settings-field settings-color-box"></span>
+					<span data-id="3" class="settings-field settings-color-box"></span>
+					<span data-id="4" class="settings-field settings-color-box selectedBox"></span>
+					<input type="color" data-id="0" value="#999999" class="settings-field settings-color-box">
+				</div>
+				
+				<div class="settings-item" data-setting="accent-color">
+					<span class="settings-caption">Цвет акцентов <i class="fa fa-question-circle btn-details" title="Особо выделяемые цветом элементы"></i></span>
+					<span data-id="1" class="settings-field settings-color-box"></span>
+					<span data-id="3" class="settings-field settings-color-box"></span>
+					<span data-id="4" class="settings-field settings-color-box selectedBox"></span>
+					<input type="color" data-id="0" value="#999999" class="settings-field settings-color-box">
+				</div>
+
+				<div class="settings-item m-hide" data-setting="side-bg">
+					<span class="settings-caption">Цвет полей <i class="fa fa-question-circle btn-details" title="Боковые области экрана"></i></span>
+					<span data-id="1" class="settings-field settings-color-box"></span>
+					<span data-id="3" class="settings-field settings-color-box"></span>
+					<span data-id="4" class="settings-field settings-color-box selectedBox"></span>
+					<input type="color" data-id="0" value="#999999" class="settings-field settings-color-box">
+				</div>
+				
+				<div class="settings-item" data-setting="widget-bg">
+					<span class="settings-caption">Фон подложек <i class="fa fa-question-circle btn-details" title="Цвет фона окон и панелей"></i></span>
+					<span data-id="1" class="settings-field settings-color-box"></span>
+					<span data-id="3" class="settings-field settings-color-box"></span>
+					<span data-id="4" class="settings-field settings-color-box selectedBox"></span>
+					<input type="color" data-id="0" value="#999999" class="settings-field settings-color-box">
+				</div>
+
+			</details>
+
+			<div data-rocket-location-hash="878a9e857992d91acaade5651b3c0b58" class="settings-item font-settings-item" data-setting="title-font">
+				<span class="settings-caption">Заголовки:</span>
+				<select class="settings-field settings-field-select" data-id="0">
+					<option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Прямой (Lucida)</option>
+					<option value="'Times New Roman', sans">С засечками (Times)</option>
+					<option value="Georgia-my, sans">Georgia</option>
+					<option value="Courier, mono">Моноширинный</option>
+					<option value="Roboto Condensed">Сжатый</option>
+					<option value="Caveat">Рукописный</option>
+					<option value="IBM Plex Serif">IBM Plex Serif</option>
+					<option value="Vollkorn">Vollkorn</option>
+					<option value="Oranienbaum">Oranienbaum</option>
+				</select>
+			</div>
+
+			<div data-rocket-location-hash="0eda2f9b7dc3b719a98d83ce42ac750f" class="settings-item font-settings-item" data-setting="text-font">
+				<span class="settings-caption">Текст:</span>
+				<select class="settings-field settings-field-select" data-id="0">
+					<option value="system-ui, sans-serif">Прямой (Системный)</option>
+					<option value="'Times New Roman', sans">С засечками (Times)</option>
+					<option value="Georgia-my, sans">Georgia</option>
+					<option value="Courier, mono">Моноширинный</option>
+					<option value="Roboto Condensed">Сжатый</option>
+					<option value="Caveat">Рукописный</option>
+					<option value="IBM Plex Serif">IBM Plex Serif</option>
+					<option value="Vollkorn">Vollkorn</option>
+					<option value="Oranienbaum">Oranienbaum</option>
+				</select>
+			</div>
+
+			<div data-rocket-location-hash="d34c9b862af0f7651bf3019b1b5e1de0" class="settings-item" data-setting="text-align">
+				<span class="settings-caption">Выравнивание:</span>
+				<span data-id="1" data-value="left" class="settings-field selectedBox" title="по левому краю"><i class="fa fa-align-left"></i></span>
+				<span data-id="2" data-value="justify" class="settings-field" title="по ширине"><i class="fa fa-align-justify"></i></span>
+			</div>
+			
+			<div data-rocket-location-hash="03298de449f105860a7db3e7a8a05dfc" class="settings-item" data-setting="pagination-autoload">
+				<span class="settings-caption">Загрузка страниц:</span>
+				<span data-id="1" data-value="false" class="settings-field selectedBox" title="вручную"><i class="fa fa-hand-o-down"></i></span>
+				<span data-id="2" data-value="true" class="settings-field" title="автоматически"><i class="fa fa-refresh"></i></span>
+			</div>
+
+			<span class="settings-reset" id="settings-reset"><i class="fa fa-undo"></i> Сбросить настройки</span>
+			<span class="settings-close" id="settings-close"></span>
+		</div>
+	</div>
+	<script id="bg_counter_websocket-js" src="https://azbyka.ru/quotes/wp-content/plugins/Bg-Az-Counter-GitHub/js/reconnecting-websocket.min.js?ver=2.9.4"></script>
+<script id="bg_counter_proc-js-extra">
+var bg_counter = {"counterurl":"https://stat.azbyka.ru/counters","rateurl":"https://stat.azbyka.ru/rate","scoreurl":"https://stat.azbyka.ru/item-score","batch":"https://stat.azbyka.ru/batch-query","batch_rating":"https://stat.azbyka.ru/batch-rating","websocket":"wss://stat.azbyka.ru/realtime-view","updatesocket":"wss://stat.azbyka.ru/updates","updatetime":"3000","maxreconnect":"5","project":"/project/quotes","type":"index","ID":"1","countviews":"on","votes5":"\u0433\u043e\u043b\u043e\u0441\u043e\u0432","votes2":"\u0433\u043e\u043b\u043ec\u0430","vote1":"\u0433\u043e\u043b\u043e\u0441","short_num":{"K":" \u0442\u044b\u0441.","M":" \u043c\u043b\u043d.","MM":" \u043c\u043b\u0440\u0434."},"voted":"\u0423\u0436\u0435 \u0433\u043e\u043b\u043e\u0441\u043e\u0432\u0430\u043b\u0438","price":["\u0445\u0443\u0434\u043e","\u0441\u043b\u0430\u0431\u043e","\u0441\u043d\u043e\u0441\u043d\u043e","\u0434\u043e\u0441\u0442\u043e\u0439\u043d\u043e","\u0447\u0443\u0434\u0435\u0441\u043d\u043e"],"debug":""};
+//# sourceURL=bg_counter_proc-js-extra
+</script>
+<script data-minify="1" id="bg_counter_proc-js" src="https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/plugins/Bg-Az-Counter-GitHub/js/counter.js?ver=1782804161"></script>
+<script id="myBooks-js-extra">
+var myBooks = {"ajaxurl":"https://azbyka.ru/quotes/wp-admin/admin-ajax.php","nonce":"7d25a6e5e1","rest_nonce":"03c91597be","siteurl":"https://azbyka.ru/quotes","pageurl":"/quotes/","post_id":"128871","is_logged_in":"","page":"1","is_single":"","is_personal":"","template":"https://azbyka.ru/quotes/wp-content/plugins/Bg-Personal/","allow_bookmarks":""};
+//# sourceURL=myBooks-js-extra
+</script>
+<script data-minify="1" id="myBooks-js" src="https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/plugins/Bg-Personal/js/myBooks.js?ver=1782804161"></script>
+<script id="bg_bibrefs_proc-js-extra">
+var bg_bibrefs = {"main_script":"https://azbyka.ru/quotes/wp-content/plugins/bg-biblie-references/js/bg_bibrefs.js","ajaxurl":"//ajax.azbyka.ru/bibrefs","content":"main","preq":"0"};
+//# sourceURL=bg_bibrefs_proc-js-extra
+</script>
+<script data-minify="1" id="bg_bibrefs_proc-js" src="https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/plugins/bg-biblie-references/js/bg_bibrefs_loader.js?ver=1782804161"></script>
+<script id="az-settings-js-extra">
+var azbyka = {"root_url":"https://azbyka.ru/quotes","project":"/quotes","darktheme":"https://azbyka.ru/quotes/wp-content/themes/azbyka/settings/js/darktheme.css?ver=4.1.5.1.14","yellowtheme":"https://azbyka.ru/quotes/wp-content/themes/azbyka/settings/js/yellowtheme.css?ver=4.1.5.1.14","is_home":"1"};
+//# sourceURL=az-settings-js-extra
+</script>
+<script data-minify="1" id="az-settings-js" src="https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/themes/azbyka/settings/js/az-settings.js?ver=1782804161"></script>
+<script data-minify="1" id="top-menu-js" src="https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/themes/azbyka/assets/js/top-menu.js?ver=1782804161"></script>
+<script data-minify="1" id="speech-js" src="https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/themes/azbyka/assets/js/speech.js?ver=1782804161"></script>
+<script data-minify="1" id="azbyka-social-js" src="https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/themes/azbyka/assets/js/social.js?ver=1782804161"></script>
+<script data-minify="1" id="azbyka-main-js" src="https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/themes/azbyka/assets/js/main.js?ver=1782804161"></script>
+<script data-minify="1" id="az-seo-js" src="https://azbyka.ru/quotes/wp-content/cache/min/1/quotes/wp-content/themes/azbyka/assets/js/seo.js?ver=1782804161"></script>
+<script id="heartbeat-js" src="https://azbyka.ru/quotes/wp-content/plugins/wp-rocket/assets/js/heartbeat.js?ver=3.23.3.3"></script>
+
+<script>var rocket_beacon_data = {"ajax_url":"https:\/\/azbyka.ru\/quotes\/wp-admin\/admin-ajax.php","nonce":"941236e12c","url":"https:\/\/azbyka.ru\/quotes","is_mobile":true,"width_threshold":393,"height_threshold":830,"delay":500,"debug":null,"status":{"atf":true,"lrc":true,"preconnect_external_domain":true},"elements":"img, video, picture, p, main, div, li, svg, section, header, span","lrc_threshold":1800,"preconnect_external_domain_elements":["link","script","iframe"],"preconnect_external_domain_exclusions":["static.cloudflareinsights.com","rel=\"profile\"","rel=\"preconnect\"","rel=\"dns-prefetch\"","rel=\"icon\""]}</script><script data-name="wpr-wpr-beacon" src='https://azbyka.ru/quotes/wp-content/plugins/wp-rocket/assets/js/wpr-beacon.min.js' async></script></body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->

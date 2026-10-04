@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Комментарии: Октоих	</title>
+	<atom:link href="https://azbyka.ru/oktoix/feed" rel="self" type="application/rss+xml" />
+	<link>https://azbyka.ru/oktoix</link>
+	<description></description>
+	<lastBuildDate>Mon, 18 May 2026 14:58:07 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=7.1.2</generator>
+	<item>
+		<title>
+		Автор: Кирилл ☦		</title>
+		<link>https://azbyka.ru/oktoix#comment-1514</link>
+
+		<dc:creator><![CDATA[Кирилл ☦]]></dc:creator>
+		<pubDate>Wed, 04 May 2022 08:01:50 +0000</pubDate>
+		<guid isPermaLink="false">http://azbyka.ru/wp/?p=8389#comment-1514</guid>
+
+					<description><![CDATA[В ответ на &lt;a href=&quot;https://azbyka.ru/oktoix#comment-1513&quot;&gt;bolshoi-kranyandex-ru&lt;/a&gt;.
+
+Да, для изучения Октоиха необходимо знание базовых понятий, без этого никак.]]></description>
+			<content:encoded><![CDATA[В ответ на <a href="https://azbyka.ru/oktoix#comment-1513">bolshoi-kranyandex-ru</a>.<br /><br />Да, для изучения Октоиха необходимо знание базовых понятий, без этого никак.]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		Автор: bolshoi-kranyandex-ru		</title>
+		<link>https://azbyka.ru/oktoix#comment-1513</link>
+
+		<dc:creator><![CDATA[bolshoi-kranyandex-ru]]></dc:creator>
+		<pubDate>Tue, 03 May 2022 19:10:19 +0000</pubDate>
+		<guid isPermaLink="false">http://azbyka.ru/wp/?p=8389#comment-1513</guid>
+
+					<description><![CDATA[В статье использованы церковнослужебные словосочетания понятные только людям знакомым с церковной литургикой. Поэтому в уме не возникает ассоциативных связей, т.е. о чем это и к чему относится.]]></description>
+			<content:encoded><![CDATA[В статье использованы церковнослужебные словосочетания понятные только людям знакомым с церковной литургикой. Поэтому в уме не возникает ассоциативных связей, т.е. о чем это и к чему относится.]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>
