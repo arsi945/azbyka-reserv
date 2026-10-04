@@ -1,0 +1,24 @@
+[site]
+start_urls = [
+  "https://azbyka.ru/otechnik/Ignatij_Brjanchaninov/tom2-asketicheskie-opyty/",
+  "https://azbyka.ru/otechnik/Antonij_Surozhskij/uchites-molitsja/",
+  "https://azbyka.ru/biblia/?Mt.1&r",
+  "https://azbyka.ru/biblia/in/?Mt.1:1",
+  "https://azbyka.ru/audio/nikolaj-serbskij-besedy-na-evangeliya.html",
+  "https://azbyka.ru/video/zolotoj-vek-islama/",
+  "https://azbyka.ru/days/2026-10-04",
+  "https://azbyka.ru/worships/",
+  "https://azbyka.ru/molitvoslov/akafist-svyashhennomucheniku-sergiyu-mechevu-presviteru-moskovskomu.html",
+  "https://azbyka.ru/kliros/antifon-2-blazhenna-dlya-smeshannogo-hora/",
+  "https://azbyka.ru/foto/golgofo-raspyatskij-skit/",
+  "https://azbyka.ru/fiction/alaya-chuma/",
+  "https://azbyka.ru/dictionary",
+]
+sitemap_urls = []
+
+[crawl]
+min_delay = 1.0
+seed_days = false
+
+[rules]
+add_exclude = ['(?i)(sitemap[^/]*\.xml(\.gz)?$|/biblia/sitemap)']

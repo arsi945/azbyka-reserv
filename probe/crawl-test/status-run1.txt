@@ -1,0 +1,63 @@
+Всего адресов: 153305
+  в очереди        152114
+  скачано            1189, 399.0 МБ
+  ошибка                1
+  редирект              1
+
+По группам (section), первые 40 по объёму:
+  группа                                     скачано   очередь  ошибки      объём
+  /wp-content                                    798      2590       0   355.2 МБ
+  /parkhomenko                                     8      6511       0    21.7 МБ
+  /palomnik                                        7     17111       0     5.1 МБ
+  /quotes                                        154     29271       0     4.3 МБ
+  /recept                                         12     18797       0     2.8 МБ
+  /molitvoslov                                     7      3505       0     1.5 МБ
+  /vopros                                         14      9577       0     1.4 МБ
+  /news                                            8      4724       0   834.0 КБ
+  /deti                                            5      5608       0   754.7 КБ
+  /fiction                                        10      5630       0   725.0 КБ
+  /life                                            7      3738       0   505.8 КБ
+  /zdorovie                                        6      3438       0   472.1 КБ
+  /garden                                          4      3338       0   436.9 КБ
+  /kliros                                          7      2653       1   390.5 КБ
+  /art                                            12      2768       0   362.5 КБ
+  /post-sitemap1.xml                               1         0       0   296.0 КБ
+  /post-sitemap2.xml                               1         0       0   238.4 КБ
+  /post-sitemap3.xml                               1         0       0   222.4 КБ
+  /video                                           5      1591       0   206.9 КБ
+  /audio                                           5      1414       0   201.2 КБ
+  /sueverie                                        4      1305       0   183.6 КБ
+  /foto                                            4      1195       0   152.5 КБ
+  /semya                                           4       908       0   128.0 КБ
+  /way                                             7       808       0   119.5 КБ
+  /pravo                                           5       828       0   104.2 КБ
+  /test                                            6       582       0    76.5 КБ
+  /post-sitemap4.xml                               1         0       0    70.3 КБ
+  /shemy                                           4       419       0    67.0 КБ
+  /bogosluzhenie                                   4       319       0    66.5 КБ
+  /propovedi                                       4       384       0    61.0 КБ
+  /memo                                            5       492       0    57.9 КБ
+  /japanorthodox                                   4       333       0    52.0 КБ
+  /frontinskiy                                     4       305       0    49.3 КБ
+  /katehizacija                                    4       299       0    49.2 КБ
+  /trezvost                                        4       246       0    39.6 КБ
+  /chinaorthodox                                   5       236       0    37.9 КБ
+  /crosswords                                      4       221       0    32.2 КБ
+  /apokalipsis                                     4       156       0    25.8 КБ
+  /worships                                        4       130       0    18.9 КБ
+  /viktorina                                       4       127       0    18.7 КБ
+
+Не обходились (по правилам):
+  запрет robots.txt                    95
+  исключено конфигом                    3
+  самые частые:
+    [robots] /shemy: 85  напр. https://azbyka.ru/shemy/schemes/odezhdy-na-ikonah/image008_002.jpg
+    [robots] /audio: 4  напр. https://azbyka.ru/audio/audio/wp-content/themes/azbyka-audio/assets/images/personal/my_favorites.png
+    [robots] /worships: 2  напр. https://azbyka.ru/worships/calendar/
+    [exclude] /znakomstva: 2  напр. https://azbyka.ru/znakomstva/sitemap_index.xml
+    [robots] /parkhomenko: 2  напр. https://azbyka.ru/parkhomenko/google_search
+    [robots] /trezvost: 2  напр. https://azbyka.ru/trezvost/yandex_search/
+    [exclude] /forum: 1  напр. https://azbyka.ru/forum/sitemap.xml
+
+Ошибки (чаще всего):
+        1  ошибка 500 HTTP 500  напр. https://azbyka.ru/kliros/post-sitemap1.xml

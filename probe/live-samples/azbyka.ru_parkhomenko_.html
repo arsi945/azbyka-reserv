@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="ru-RU" prefix="og: https://ogp.me/ns#" class="sidebar-toggle">
+<head>
+		<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google" content="notranslate">
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/favicon.svg?ver=0.1.2">
+	<link rel="icon" type="image/ico" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/favicon.ico?ver=0.1.2">
+	<link rel="apple-touch-icon" sizes="57x57" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/apple-icon-57x57.png?ver=0.1.2">
+	<link rel="apple-touch-icon" sizes="60x60" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/apple-icon-60x60.png?ver=0.1.2">
+	<link rel="apple-touch-icon" sizes="72x72" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/apple-icon-72x72.png?ver=0.1.2">
+	<link rel="apple-touch-icon" sizes="76x76" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/apple-icon-76x76.png?ver=0.1.2">
+	<link rel="apple-touch-icon" sizes="114x114" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/apple-icon-114x114.png?ver=0.1.2">
+	<link rel="apple-touch-icon" sizes="120x120" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/apple-icon-120x120.png?ver=0.1.2">
+	<link rel="apple-touch-icon" sizes="144x144" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/apple-icon-144x144.png?ver=0.1.2">
+	<link rel="apple-touch-icon" sizes="152x152" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/apple-icon-152x152.png?ver=0.1.2">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/apple-icon-180x180.png?ver=0.1.2">
+	<link rel="icon" type="image/png" sizes="192x192"  href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/android-icon-192x192.png?ver=0.1.2">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/favicon-32x32.png?ver=0.1.2">
+	<link rel="icon" type="image/png" sizes="96x96" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/favicon-96x96.png?ver=0.1.2">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/favicon-16x16.png?ver=0.1.2">
+	<link rel="manifest" href="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/manifest.json?ver=0.1.2">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-TileImage" content="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/assets/images/favicons/ms-icon-144x144.png?ver=0.1.2">
+	<meta name="theme-color" content="#f1e9d6">
+	
+	<link rel="alternate" type="application/rss+xml" title="Сайт священника Константина Пархоменко RSS Feed" href="https://azbyka.ru/parkhomenko/feed/rss">
+	<link rel="alternate" type="application/atom+xml" title="Сайт священника Константина Пархоменко Atom Feed" href="https://azbyka.ru/parkhomenko/feed/atom">
+	<link rel="pingback" href="https://azbyka.ru/parkhomenko/xmlrpc.php">
+		<script id="az_settings_js">
+		var AZ = window.AZ || {};
+		AZ.ajax_path = 'https://azbyka.ru/parkhomenko/wp-admin/admin-ajax.php';
+		AZ.post_id = '2371';
+		AZ.logged_in = false;
+		AZ.sso_logged_in = !!localStorage.getItem('az_sso_email');
+		
+		localStorage.setItem('az_sso_reflink', location.href);
+		
+		/*
+		if(localStorage.getItem('az_sso_email') && !AZ.logged_in){
+			let tries = parseInt(localStorage.getItem('login_refresh_tries'));
+			if(isNaN(tries)) tries = 0;
+			if(tries < 2){
+				tries++;
+				localStorage.setItem('login_refresh_tries', tries);
+				location.reload();
+			}else
+				console.log('tried to login too much');
+		}else{
+			localStorage.removeItem('login_refresh_tries');
+		}
+		*/
+		
+		AZ.project = 'parkhomenko';
+		AZ.settingVars = { "theme" : 0, "body-bg": 0, "side-bg" : 0, "widget-bg" : 0, "text-color" : 0, "link-color" : 0, "accent-color" : 0, "backdrop-color":0, "font-base-size" : 0, "text-font" : 0, "title-font" : 0, "text-align" : 0, "pagination-autoload" : 0 }; //0 - cross-site; 1 - local
+		AZ.sessionToggles = ["sidebar-hide"];
+		AZ.settings = {};
+		
+		AZ.nameSetting = name => 'az_' + (AZ.settingVars[name] ? AZ.project + '_' : '' ) + name;
+		AZ.getSetting = name => localStorage.getItem(AZ.nameSetting(name));
+		AZ.setSetting = (name, val) => {localStorage.setItem(AZ.nameSetting(name), val); AZ.applySettings();};
+		
+		AZ.applySettings = ()=>{
+			let docStyle = '', docClasses = document.documentElement.classList;
+
+			if(!AZ.settings.length){
+				docClasses.remove('sidebar-show');
+				docClasses.remove('sidebar-hide');
+			}
+
+			let gf_loaded = false;
+
+			for(let name in AZ.settingVars){
+				let val = AZ.getSetting(name);
+				if(val && val !== 'undefined'){
+					//google fonts
+					if (name.includes('-font') && !val.includes(',')) {
+						let head = document.getElementsByTagName('head')[0];
+						if (!gf_loaded) {
+							let pre_lnk = document.createElement('link');
+							pre_lnk.rel = 'preconnect';
+							pre_lnk.href = 'https://fonts.gstatic.com';
+							head.appendChild(pre_lnk);
+							gf_loaded = true;
+							console.log(pre_lnk);
+						}
+						let link = document.createElement('link');
+						link.href = 'https://fonts.googleapis.com/css2?family=' + val.replace(' ', '+') + ':wght@400;700&display=swap';
+						link.rel = 'stylesheet';
+						link.type = 'text/css';
+						head.appendChild(link);
+						console.log(link);
+					}
+
+					AZ.settings[name] = val;
+					docStyle+='--'+name+':'+ val+';';
+					
+					if(name === 'theme')	//todo: other?
+						document.documentElement.setAttribute('data-'+name.replace('--',''), val);
+				}
+			}
+			
+			for(let name of AZ.sessionToggles){
+				if(sessionStorage.getItem(name) === 'true')
+					document.documentElement.classList.add(name);
+			}
+
+			document.documentElement.style.cssText = docStyle;
+		};
+
+		AZ.applySettings();
+	</script>
+	
+<!-- SEO от Rank Math - https://rankmath.com/ -->
+<style type='text/css'></style><link rel='stylesheet' id='azbyka-style'  href='https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/style.css'  media='all' /><title>Сайт священника Константина Пархоменко</title>
+<meta name="description" content="- Сайт священника Константина Пархоменко"/>
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+<link rel="canonical" href="https://azbyka.ru/parkhomenko/" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Сайт священника Константина Пархоменко" />
+<meta property="og:description" content="- Сайт священника Константина Пархоменко" />
+<meta property="og:url" content="https://azbyka.ru/parkhomenko/" />
+<meta property="og:site_name" content="Сайт священника Константина Пархоменко" />
+<meta property="og:updated_time" content="2024-07-04T08:47:13+04:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Сайт священника Константина Пархоменко" />
+<meta name="twitter:description" content="- Сайт священника Константина Пархоменко" />
+<meta name="twitter:label1" content="Автор" />
+<meta name="twitter:data1" content="Вадим Петрович Богайсков" />
+<meta name="twitter:label2" content="Время чтения" />
+<meta name="twitter:data2" content="Меньше минуты" />
+<script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":["Person","Organization"],"@id":"https://azbyka.ru/parkhomenko/#person","name":"Boris757"},{"@type":"WebSite","@id":"https://azbyka.ru/parkhomenko/#website","url":"https://azbyka.ru/parkhomenko","name":"\u0421\u0430\u0439\u0442 \u0441\u0432\u044f\u0449\u0435\u043d\u043d\u0438\u043a\u0430 \u041a\u043e\u043d\u0441\u0442\u0430\u043d\u0442\u0438\u043d\u0430 \u041f\u0430\u0440\u0445\u043e\u043c\u0435\u043d\u043a\u043e","publisher":{"@id":"https://azbyka.ru/parkhomenko/#person"},"inLanguage":"ru-RU","potentialAction":{"@type":"SearchAction","target":"https://azbyka.ru/sear/?searchid=1639178&amp;text={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"/parkhomenko/banners/k","url":"/parkhomenko/banners/k","width":"200","height":"200","inLanguage":"ru-RU"},{"@type":"WebPage","@id":"https://azbyka.ru/parkhomenko/#webpage","url":"https://azbyka.ru/parkhomenko/","name":"\u0421\u0430\u0439\u0442 \u0441\u0432\u044f\u0449\u0435\u043d\u043d\u0438\u043a\u0430 \u041a\u043e\u043d\u0441\u0442\u0430\u043d\u0442\u0438\u043d\u0430 \u041f\u0430\u0440\u0445\u043e\u043c\u0435\u043d\u043a\u043e","datePublished":"2020-02-03T11:06:23+04:00","dateModified":"2024-07-04T08:47:13+04:00","about":{"@id":"https://azbyka.ru/parkhomenko/#person"},"isPartOf":{"@id":"https://azbyka.ru/parkhomenko/#website"},"primaryImageOfPage":{"@id":"/parkhomenko/banners/k"},"inLanguage":"ru-RU"},{"@type":"Article","headline":"\u0421\u0430\u0439\u0442 \u0441\u0432\u044f\u0449\u0435\u043d\u043d\u0438\u043a\u0430 \u041a\u043e\u043d\u0441\u0442\u0430\u043d\u0442\u0438\u043d\u0430 \u041f\u0430\u0440\u0445\u043e\u043c\u0435\u043d\u043a\u043e","datePublished":"2020-02-03T11:06:23+04:00","dateModified":"2024-07-04T08:47:13+04:00","publisher":{"@id":"https://azbyka.ru/parkhomenko/#person"},"description":" - \u0421\u0430\u0439\u0442 \u0441\u0432\u044f\u0449\u0435\u043d\u043d\u0438\u043a\u0430 \u041a\u043e\u043d\u0441\u0442\u0430\u043d\u0442\u0438\u043d\u0430 \u041f\u0430\u0440\u0445\u043e\u043c\u0435\u043d\u043a\u043e","name":"\u0421\u0430\u0439\u0442 \u0441\u0432\u044f\u0449\u0435\u043d\u043d\u0438\u043a\u0430 \u041a\u043e\u043d\u0441\u0442\u0430\u043d\u0442\u0438\u043d\u0430 \u041f\u0430\u0440\u0445\u043e\u043c\u0435\u043d\u043a\u043e","@id":"https://azbyka.ru/parkhomenko/#richSnippet","isPartOf":{"@id":"https://azbyka.ru/parkhomenko/#webpage"},"image":{"@id":"/parkhomenko/banners/k"},"inLanguage":"ru-RU","mainEntityOfPage":{"@id":"https://azbyka.ru/parkhomenko/#webpage"}}]}</script>
+<!-- /Rank Math WordPress SEO плагин -->
+
+<link rel="alternate" type="application/rss+xml" title="Сайт священника Константина Пархоменко &raquo; Лента" href="https://azbyka.ru/parkhomenko/feed" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://azbyka.ru/parkhomenko/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fazbyka.ru%2Fparkhomenko%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://azbyka.ru/parkhomenko/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fazbyka.ru%2Fparkhomenko%2F&#038;format=xml" />
+<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+
+			<link rel='preload' as='style' href='https://azbyka.ru/parkhomenko/wp-content/plugins/Bg-Az-Counter-GitHub/css/styles.css'  media='all' />
+			<link rel='stylesheet' id='bg_counter_styles'  href='https://azbyka.ru/parkhomenko/wp-content/plugins/Bg-Az-Counter-GitHub/css/styles.css'  media='all' />
+			
+			<link rel='preload' as='style' href='https://azbyka.ru/parkhomenko/wp-content/plugins/bg-biblie-references/css/styles.css'  media='all' />
+			<link rel='stylesheet' id='bg_bibrefs_styles'  href='https://azbyka.ru/parkhomenko/wp-content/plugins/bg-biblie-references/css/styles.css'  media='all' />
+			
+			<link rel='preload' as='style' href='https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/css/styles.css'  media='all' />
+			<link rel='stylesheet' id='azbyka-styles'  href='https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/css/styles.css'  media='all' />
+			
+			<link rel='preload' as='style' href='https://azbyka.ru/parkhomenko/wp-content/themes/azbyka-parkhomenko/style.css'  media='all' />
+			
+			
+			<link rel='preload' as='style' href='https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/css/singular.css'  media='all' />
+			<link rel='stylesheet' id='az-singular'  href='https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/css/singular.css'  media='all' />
+			
+			<link rel='preload' as='style' href='https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/css/archive.css'  media='all' />
+			<link rel='stylesheet' id='az-archive'  href='https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/css/archive.css'  media='all' />
+			
+			<link rel='preload' as='style' href='https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/css/top-menu.css?v=3.3.6.0.1.2'  media='all' />
+			<link rel='stylesheet' id='top-menu'  href='https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/css/top-menu.css?v=3.3.6.0.1.2'  media='all' />
+			
+			<link rel='preload' as='style' href='https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/font-awesome/css/font-awesome.min.css'  media='all' />
+			<link rel='stylesheet' id='font-awesome'  href='https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/font-awesome/css/font-awesome.min.css'  media='all' />
+			
+			<link rel='preload' as='style' href='https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/inc/youtube-optimizer/youtube.optimizer.css?v=3'  media='all' />
+			<link rel='stylesheet' id='youtube-optimizer'  href='https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/inc/youtube-optimizer/youtube.optimizer.css?v=3'  media='all' />
+			<style id='wbcr-wll-inline-css' type='text/css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;background:#000;margin:5px}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;cursor:pointer;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:72px;width:72px;left:50%;top:50%;margin-left:-36px;margin-top:-36px;position:absolute;background:url(https://azbyka.ru/parkhomenko/wp-content/plugins/clearfy_package/plugins/lazy-load/assets/img/youtube.png) no-repeat;cursor:pointer}
+/*# sourceURL=wbcr-wll-inline-css */
+</style>
+<script  src="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/js/vendor/azjeycuery.js" id="jquery-js"></script>
+<script  defer="defer" src="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/inc/youtube-optimizer/youtube.optimizer.js" id="youtube-optimizer-js"></script>
+<link rel="https://api.w.org/" href="https://azbyka.ru/parkhomenko/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://azbyka.ru/parkhomenko/wp-json/wp/v2/pages/2371" /><!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym");
+
+   ym(5565880, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true,
+        trackHash:true
+   });
+</script>
+<!-- /Yandex.Metrika counter -->
+					<style>
+				.clickable{
+					cursor:pointer;
+				}
+				.img-wrap{
+					position: relative;
+					display: inline-block;
+					height: 100%;
+				}
+				.img-wrap .button-wrap{
+					position: absolute;
+					top: 1em;
+					right: 1em;
+					opacity: 0;
+					transform: translateX(10px);
+					pointer-events: none;
+					transition: opacity .3s ease, transform .3s ease;
+				}
+				.img-wrap .button-wrap .button{
+					display: block;
+					background: var(--body-bg);
+					border: 0;
+					box-shadow: 0 2px 10px -5px #3a3a3a3a;
+				}
+				.img-wrap .button-wrap .button,
+				.img-wrap .button-wrap .button .fa{
+					color: var(--accent-color);
+				}
+				.img-wrap .button-wrap .button+.button{
+					margin-top: 1em;
+				}
+				.img-wrap:hover .button-wrap{
+					opacity: 1;
+					transform: none;
+					pointer-events: all;
+				}
+				.bz-lightbox{
+					position:fixed;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					z-index:10;
+					margin:0;
+					background-color:#0007;
+					display:flex;
+					align-items:center;
+					justify-content:center;
+					cursor:pointer;
+					z-index: 10000;
+				}
+				.bz-lightbox img{
+					max-height:90vh;
+					cursor: zoom-in;
+				}
+				.bz-lightbox.fullscreen{
+					overflow-y: auto;
+					display: block;
+				}
+				.bz-lightbox.fullscreen img{
+					object-fit: cover;
+					max-height: unset;
+					width: 100%;
+					cursor: zoom-out;
+				}
+				.panzoom{
+					object-fit: none!important;
+				}
+				html.locked{
+					overflow: hidden;
+				}
+			</style>
+			<script>
+			jQuery(document).ready($=>{
+				let allImages = $('.main-page-content img:not(.avatar)').not('.video-preview img');
+				let hasMouse = window.matchMedia('(hover:hover)').matches && window.innerWidth > 520;
+				let full_img_href = {};
+				let doc = $('html');
+				let containerWidth = $('.main-area-content').width() || window.innerWidth;
+				let currentImg;
+				
+				allImages.each((i,el)=>{
+					//Получаем src полной версии
+					let src = el.dataset['lazySrc'] || el.dataset['src'] || el.src;
+					let p = $(el).parent();
+					if(p.is('a')){
+						let href = p.attr('href');
+						if(!href.match(/\.(jpg|png|gif|webp|tiff|svg)$/i))
+							return;
+					
+						full_img_href[src] = href;
+						p.click(e=>e.preventDefault());
+					}else{
+						full_img_href[src] = src.replace(/\-\d{3,4}.\d{3,4}\.(\w{3,4})$/, '.$1');
+					}
+					
+					if('full_img_share_download' in AZ && AZ.full_img_share_download){
+					
+						//Кнопки скачать/поделиться
+						$(el).on('mouseover touch', async function(e){
+							let parent = $(this).closest(':not(img,span,a)');
+							if(!parent.is('.img-wrap')){
+								parent.addClass('img-wrap');
+								let btnWrap = $('<div class="button-wrap"><i class="button fa fa-share-alt btn-share" onclick="navigator.share({url:\''+full_img_href[src]+'\'});return false"></i><a class="button" href="'+full_img_href[src]+'" download><i class="fa fa-download btn-download"></i></a></div>');
+								parent.append(btnWrap);
+							}
+						});
+					
+					}
+					
+					
+					//console.log(el, 'img parent is', p);
+					el.classList.add('clickable');
+					el.addEventListener('click', function (e){
+						//console.log('click on img wrap', this.src, full_img_href[this.src]);
+						e.preventDefault();
+						if(!hasMouse) return; //Откл. lightbox на мобилах.
+
+						currentImg = this;
+						doc.addClass('locked');
+						
+						let box = $('<figure class="bz-lightbox"><img src = "'+full_img_href[this.src]+'"/></figure>');
+						box.hide();
+						$('body').append(box);
+						box.fadeIn(400);
+						
+												
+						box.click(e=>{
+							let $img = $(e.target).closest('img');
+							if(hasMouse && $img.length && $img.width() != $(currentImg).attr('width')){
+								box.toggleClass('fullscreen');
+							}else{
+								doc.removeClass('locked');
+								box.fadeOut(300, ()=>{
+									box.remove()
+								});
+							}
+						});
+					});
+				});
+				//console.log('full_img_href:',full_img_href);
+			})
+			</script>
+			
+	<script type="text/javascript">
+	    var templateURI = 'https://azbyka.ru/parkhomenko/wp-content/themes/azbyka';
+	</script>
+</head>
+
+<body class="home wp-singular page-template-default page page-id-2371 wp-theme-azbyka wp-child-theme-azbyka-parkhomenko" id="main-body">
+	
+	<noscript><div><img src="https://mc.yandex.ru/watch/5565880" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- Mobile Top menu -->
+<div class="main-nav-list">
+	<ul>
+		<li><span id="main-nav-0" data-target="#nav-box"><img src="https://azbyka.ru/wp-content/themes/azbyka-av/assets/images/favicons/favicon.svg" loading="lazy"></li>
+		<li><a id="main-nav-1" href="#header" class="selected-button"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
+		<li><span id="main-nav-3" data-target="#widgets"><i class="fa fa-info-circle" aria-hidden="true"></i></span></li>
+		<li><span id="main-nav-2" data-target="#header_search"><i class="fa fa-search" aria-hidden="true"></i></span></li>
+		<li><a id="main-nav-6" disabled><i class="fa fa-user user-only" aria-hidden="true"></i><i class="fa fa-sign-in guest-only" aria-hidden="true"></i></a></li>
+	</ul>
+</div>
+<!-- End of Mobile Top menu -->	
+	<nav id="nav-box" class="top-panel">
+		<div class=main-box>
+			<a class="nav-logo" href="//azbyka.ru"><img src="https://azbyka.ru/wp-content/themes/azbyka-av/assets/images/favicons/favicon.svg" loading="lazy"></a>
+			<div class="pre-header-nav m-show">Разделы портала «Азбука&nbsp;веры»</div>
+			<ul id="main-nav" class="nav">
+			<li class="menu-item menu-item-has-children"><span  class='link'>Гид <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/gid'><i class="fa fa-question-circle-o" aria-hidden="true"></i> Гид по порталу</a></li><li class="menu-item"><a  href='https://azbyka.ru/'><i class="fa fa-home" aria-hidden="true"></i> Главная</a></li><li class="menu-item"><a  href='https://azbyka.ru/drevo-sajta'><i class="fa fa-sitemap" aria-hidden="true"></i> Древо портала</a></li><li class="menu-item"><a  href='https://azbyka.ru/s-chego-nachat'><i class="fa fa-user-plus" aria-hidden="true"></i> С чего начать</a></li><li class="menu-item"><a  href='https://t.me/AzbykaruBot'><i class="fa fa-search" aria-hidden="true"></i> TG бот</a></li></ul></li><li class="menu-item menu-item-has-children"><span  class='link'>Библиотеки <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/biblia/'><i class="fa fa-book" aria-hidden="true"></i> Библия</a></li><li class="menu-item"><a  href='https://azbyka.ru/otechnik/'><i class="fa fa-files-o" aria-hidden="true"></i> «Отечник»</a></li><li class="menu-item"><a  href='https://azbyka.ru/fiction/'><i class="fa fa-copyright" aria-hidden="true"></i> Художественная литература</a></li><li class="menu-item"><a  href='https://azbyka.ru/pravo/'><i class="fa fa-balance-scale" aria-hidden="true"></i> Церковное право</a></li><li class="menu-item"><a  href='https://azbyka.ru/dictionary'><i class="fa fa-graduation-cap" aria-hidden="true"></i> Энциклопедия</a></li></ul></li><li class="menu-item menu-item-has-children"><span  class='link'>Календарь <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/days/'><i class="fa fa-calendar" aria-hidden="true"></i> Православный церковный календарь</a></li><li class="menu-item"><a  href='https://azbyka.ru/days/p-audio-calendar'><i class="fa fa-headphones" aria-hidden="true"></i> Аудиокалендарь</a></li><li class="menu-item m-hide"><a  href='https://azbyka.ru/extension'><i class="fa fa-chrome" aria-hidden="true"></i> Расширение Chrome</a></li></ul></li><li class="menu-item menu-item-has-children"><span  class='link'>Молитва <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/palomnik/'><i class="fa fa-globe" aria-hidden="true"></i> Азбука паломника</a></li><li class="menu-item"><a  href='https://azbyka.ru/kliros/'><i class="fa fa-music" aria-hidden="true"></i> Азбука певческая</a></li><li class="menu-item"><a  href='https://azbyka.ru/worships/'><i class="fa fa-file-text" aria-hidden="true"></i> Богослужение сегодня</a></li><li class="menu-item"><a  href='https://azbyka.ru/chaso-slov/'><i class="fa fa-clock-o" aria-hidden="true"></i> Молимся по часам</a></li><li class="menu-item"><a  href='https://azbyka.ru/molitvoslov/'><i class="fa fa-fire" aria-hidden="true"></i> Молитвослов</a></li><li class="menu-item"><a  href='https://azbyka.ru/bogosluzhenie/'><i class="fa fa-bell" aria-hidden="true"></i> Переводы Богослужений</a></li><li class="menu-item"><a  href='https://azbyka.ru/psalms/'><i class="fa fa-group" aria-hidden="true"></i> Читаем Псалтирь</a></li></ul></li><li class="menu-item menu-item-has-children"><span  class='link'>Медиа <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/news'><i class="fa fa-newspaper-o" aria-hidden="true"></i> Азбука новостей</a></li><li class="menu-item"><a  href='https://azbyka.ru/foto/'><i class="fa fa-camera-retro" aria-hidden="true"></i> Азбука фото</a></li><li class="menu-item"><a  href='https://azbyka.ru/audio/'><i class="fa fa-volume-up" aria-hidden="true"></i> Аудио</a></li><li class="menu-item"><a  href='https://azbyka.ru/video/'><i class="fa fa-video-camera" aria-hidden="true"></i> Видео</a></li><li class="menu-item"><a  href='https://azbyka.ru/bozhestvennaja-liturgija'><i class="fa fa-bell" aria-hidden="true"></i> Литургия</a></li><li class="menu-item"><a  href='https://azbyka.ru/audio/radio.html'><i class="fa fa-volume-up" aria-hidden="true"></i> Радио</a></li><li class="menu-item"><a  href='https://azbyka.ru/bogosluzhenie-online'><i class="fa fa-video-camera" aria-hidden="true"></i> Трансляция из храма</a></li><li class="menu-item"><a  href='https://azbyka.ru/parkhomenko/foto/'><i class="fa fa-camera" aria-hidden="true"></i> Фоторассказы</a></li><li class="menu-item"><a  href='https://azbyka.ru/life/'><i class="fa fa-road" aria-hidden="true"></i> Христианская жизнь</a></li><li class="menu-item"><a  href='https://azbyka.ru/telegram-kanaly'><i class="fa fa-telegram" aria-hidden="true"></i> TG-каналы</a></li><li class="menu-item"><a  href='https://azbyka.ru/whatsapp-kanaly'><i class="fa fa-whatsapp" aria-hidden="true"></i> Whatsapp</a></li></ul></li><li class="menu-item menu-item-has-children"><span  class='link'>Проверь себя <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/quiz/'><i class="fa fa-code-fork" aria-hidden="true"></i> Квизы</a></li><li class="menu-item"><a  href='https://azbyka.ru/crosswords/'><i class="fa fa-pencil" aria-hidden="true"></i> Кроссворды</a></li><li class="menu-item"><a  href='https://azbyka.ru/test/'><i class="fa fa-check-square-o" aria-hidden="true"></i> Тесты</a></li><li class="menu-item"><a  href='https://azbyka.ru/viktorina/'><i class="fa fa-image" aria-hidden="true"></i> Фотовикторины</a></li><li class="menu-item"><a  href='https://azbyka.ru/games/'><i class="fa fa-gamepad" aria-hidden="true"></i> Игры</a></li></ul></li><li class="menu-item menu-item-has-children"><span  class='link'>Тематическое <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/death/'><i class="fa fa-cloud-upload" aria-hidden="true"></i> Азбука бессмертия</a></li><li class="menu-item"><a  href='https://azbyka.ru/art/'><i class="fa fa-paint-brush" aria-hidden="true"></i> Азбука искусства</a></li><li class="menu-item"><a  href='https://azbyka.ru/apokalipsis/'><i class="fa fa-font" aria-hidden="true"></i> Апокалипсис</a></li><li class="menu-item"><a  href='https://azbyka.ru/vopros/'><i class="fa fa-question-circle" aria-hidden="true"></i> Вопросы и ответы</a></li><li class="menu-item"><a  href='https://azbyka.ru/ikona/'><i class="fa fa-plus-square" aria-hidden="true"></i> Иконы</a></li><li class="menu-item"><a  href='https://azbyka.ru/katehizacija/'><i class="fa fa-bullhorn" aria-hidden="true"></i> Катехизация</a></li><li class="menu-item"><a  href='https://azbyka.ru/way/'><i class="fa fa-location-arrow" aria-hidden="true"></i> Мой путь к Богу</a></li><li class="menu-item"><a  href='https://azbyka.ru/opros/'><i class="fa fa-bar-chart" aria-hidden="true"></i> Опросы</a></li><li class="menu-item"><a  href='https://azbyka.ru/shemy/'><i class="fa fa-table" aria-hidden="true"></i> Пособия</a></li><li class="menu-item"><a  href='https://azbyka.ru/propovedi/'><i class="fa fa-pencil" aria-hidden="true"></i> Проповеди</a></li><li class="menu-item"><a  href='https://sueverie.net/'><i class="fa fa-street-view" aria-hidden="true"></i> Суевериям.нет</a></li><li class="menu-item"><a  href='https://azbyka.ru/forum/'><i class="fa fa-comments-o" aria-hidden="true"></i> Форум</a></li><li class="menu-item"><a  href='https://azbyka.ru/quotes'><i class="fa fa-bookmark" aria-hidden="true"></i> Цитаты Св. отцов</a></li><li class="menu-item"><a  href='https://azbyka.ru/chinaorthodox/'><i class="fa fa-handshake-o" aria-hidden="true"></i> 东正教信仰入门</a></li><li class="menu-item"><a  href='https://azbyka.ru/japanorthodox/'><i class="fa fa-circle" aria-hidden="true"></i> 正教の本</a></li></ul></li><li class="menu-item menu-item-has-children"><span  class='link'>Семья и здоровье <i class="fa fa-angle-down"></i></span><ul class="sub-menu"><li class="menu-item"><a  href='https://azbyka.ru/znakomstva/'><i class="fa fa-link" aria-hidden="true"></i> Азбука верности</a></li><li class="menu-item"><a  href='https://azbyka.ru/deti/'><i class="fa fa-child" aria-hidden="true"></i> Азбука воспитания</a></li><li class="menu-item"><a  href='https://azbyka.ru/zdorovie/'><i class="fa fa-medkit" aria-hidden="true"></i> Азбука здоровья</a></li><li class="menu-item"><a  href='https://azbyka.ru/recept/'><i class="fa fa-cutlery" aria-hidden="true"></i> Азбука рецептов</a></li><li class="menu-item"><a  href='https://azbyka.ru/garden/'><i class="fa fa-envira" aria-hidden="true"></i> Азбука садовода</a></li><li class="menu-item"><a  href='https://azbyka.ru/semya/'><i class="fa fa-home" aria-hidden="true"></i> Азбука супружества</a></li></ul></li>			</ul>
+		</div>
+	</nav>
+
+<!-- Header -->
+<div class="main-box">
+	<header class="header" id="header"> 
+		<div class="header-top">
+			<div class="header-breadcrumbs"><ul class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'>
+				<a itemprop='item' href='https://azbyka.ru/' title='Азбука веры'>
+					<span itemprop='name'>Азбука веры</span>
+				</a>
+				<meta itemprop='position' content='1'>
+			</li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'>
+				<span itemprop='name'>Сайт священника</span>
+				<meta itemprop='position' content='2'>
+			</li></ul></div>		<!-- Вход в личный кабинет, если установлен плагин Profile Builder --> 
+						<!-- End ¬ход в личный кабинет -->
+	<!-- Settings -->
+<!--noindex-->
+<div class="settings" id="settings" data-nosnippet>
+<a class="settings-button btn-settings" id="settings-button" title="Настройки">
+		<i class="fa fa-gear"></i>
+	</a>
+</div>
+<!--/noindex-->
+<!-- End Settings -->
+<div class="header-search" id="header_search">	
+	<form id="labnol" action="https://azbyka.ru/parkhomenko/yandex_search" method="get" target="_self" accept-charset="utf-8" class="search-form">
+		<input type="hidden" name="searchid" value="2381953">
+		<input type="hidden" name="l10n" value="ru">
+		<input type="hidden" name="reqenc" value="">
+		<input type="search" name="text" id="transcript" value="" class="search-form-field">
+		<div class="speech start-dictation"><i class="fa fa-microphone"></i></div>
+		<button type="submit" class="search-form-button"><i class="fa fa-search"></i></button>
+	</form>
+	</div>		</div>
+		<div class="header-main header-wrap"> 	
+			<div class="logo"><div class="main-title">САЙТ СВЯЩЕННИКА</div><p class="header-subtitle">Константина Пархоменко</p></div>		</div>
+
+		
+	</header>
+</div>
+<!-- End Header -->
+
+<!-- Main area -->
+<div class="main-box">
+	<main class="main-area" id="main-area">
+			<!-- Sidebar -->
+	<section class="main-area-sidebar">
+			<span class="btn-sidebar-toggle"><i class="fa fa-chevron-left"></i></span>
+<div class="sidebar-header header-wrap"><div class="logo"><h1><div class="main-title">САЙТ СВЯЩЕННИКА</div></h1><p class="header-subtitle">Константина Пархоменко</p></div></div><!-- Main sidebar area-->
+<aside class="widgets-area">
+<!-- Специальный блок -->
+	<!-- End Специальный блок -->
+
+<!-- Left menu -->
+	<div class="widget-navi open-by-default">
+				<!-- Специальное меню -->
+					<!-- End Специальное меню -->
+		
+					<div class="widget">
+						<div class="widget-item  opened_child opened_child--mobile"><div class="menu-soderzhanie-container"><ul id="left-navigation" class="left-nav"><li id="menu-item-2344" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2344"><a href="https://azbyka.ru/parkhomenko/1/knigi">Книги</a></li>
+<li id="menu-item-2391" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2391"><a href="https://azbyka.ru/parkhomenko/iz-dnevnika-svyashhennika.html">Из дневника священника</a></li>
+<li id="menu-item-2396" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2396"><a href="https://azbyka.ru/parkhomenko/foto/">Фоторассказы</a></li>
+<li id="menu-item-2356" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2356"><a href="https://azbyka.ru/parkhomenko/1/stati">Статьи</a></li>
+<li id="menu-item-2337" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2337"><a href="https://azbyka.ru/parkhomenko/1/v-pomoshh-roditelyam">В помощь родителям</a></li>
+<li id="menu-item-2338" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2338"><a href="https://azbyka.ru/parkhomenko/1/v-pomoshh-roditelyam/stati-detyam">Статьи детям</a></li>
+<li id="menu-item-2397" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2397"><a href="/forum/forumdisplay.php?f=108">Ответы на вопросы</a></li>
+<li id="menu-item-2355" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2355"><a href="https://azbyka.ru/parkhomenko/1/moj-lyubimyj-sobor">Мой любимый собор</a></li>
+<li id="menu-item-2359" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2359"><a>Видео</a>
+<ul class="sub-menu sub-menu-closed">
+	<li id="menu-item-2339" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-2339"><a href="https://azbyka.ru/parkhomenko/1/video">Семейная воскресная школа</a>
+	<ul class="sub-menu sub-menu-closed">
+		<li id="menu-item-2341" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2341"><a href="https://azbyka.ru/parkhomenko/1/video/cikl-1-ot-sotvoreniya-mira-do-rozhdestva">Цикл 1. От сотворения мира до Рождества Христова</a></li>
+		<li id="menu-item-2342" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2342"><a href="https://azbyka.ru/parkhomenko/1/video/cikl-2-posle-rozhdestva-do-maslenicy">Цикл 2. От Рождества Христова до Масленицы</a></li>
+	</ul>
+</li>
+	<li id="menu-item-2634" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2634"><a href="https://www.youtube.com/watch?v=ov-OWBpBKHY&#038;list=PLurK6pOco5XS-ZZx-kemPOzjZzUAFMWSe">Ежедневные видеотолкования Евангелия (YouTube)</a></li>
+	<li id="menu-item-2635" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2635"><a href="https://www.youtube.com/watch?v=r-UFcRtSk3Y&#038;list=PLurK6pOco5XTQC2JXXrqEqj0QoPkKsu5T">Видеотолкования на весь Ветхий Завет (YouTube)</a></li>
+	<li id="menu-item-2632" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2632"><a href="https://www.youtube.com/playlist?list=PLurK6pOco5XS-9j2VNxi-IZAEH61rgRCR">Видеоответы на вопросы (YouTube)</a></li>
+	<li id="menu-item-2360" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2360"><a href="https://www.youtube.com/channel/UCYkrLa9ooC95td-r6sHM7WA">Канал на YouTube</a></li>
+</ul>
+</li>
+<li id="menu-item-2364" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2364"><a>Аудио</a>
+<ul class="sub-menu sub-menu-closed">
+	<li id="menu-item-2365" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2365"><a href="https://azbyka.ru/audio/lekcii-svyashhennika-konstantina-parkhomenko.html">Лекции</a></li>
+	<li id="menu-item-2366" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2366"><a href="https://azbyka.ru/audio/propovedi-svyashhennika-konstantina-parkhomenko.html">Проповеди</a></li>
+	<li id="menu-item-2369" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2369"><a href="https://azbyka.ru/audio/bozhestvennaya-liturgiya-svyatogo-ioanna-zlatousta.html">Литургия свт. Иоанна Златоуста</a></li>
+</ul>
+</li>
+<li id="menu-item-2345" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-2345"><a href="https://azbyka.ru/parkhomenko/1/knizhnaya-polka">Книжная полка</a>
+<ul class="sub-menu sub-menu-closed">
+	<li id="menu-item-2346" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2346"><a href="https://azbyka.ru/parkhomenko/1/knizhnaya-polka/antonij-fedorov">Антоний Федоров</a></li>
+	<li id="menu-item-2347" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2347"><a href="https://azbyka.ru/parkhomenko/1/knizhnaya-polka/afanaseva-veronika-konstantinovna">Афанасьева Вероника Константиновна</a></li>
+	<li id="menu-item-2348" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2348"><a href="https://azbyka.ru/parkhomenko/1/knizhnaya-polka/dmitrij-leontev">Дмитрий Леонтьев</a></li>
+	<li id="menu-item-2349" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2349"><a href="https://azbyka.ru/parkhomenko/1/knizhnaya-polka/lyudmila-zotova">Людмила Зотова</a></li>
+	<li id="menu-item-2350" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2350"><a href="https://azbyka.ru/parkhomenko/1/knizhnaya-polka/lyudmila-nikeeva">Людмила Никеева</a></li>
+	<li id="menu-item-2351" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2351"><a href="https://azbyka.ru/parkhomenko/1/knizhnaya-polka/nataliya-avdejchuk">Наталия Авдейчук</a></li>
+	<li id="menu-item-2352" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2352"><a href="https://azbyka.ru/parkhomenko/1/knizhnaya-polka/protodiakon-sergij-shalberov">протодиакон Сергий Шалберов</a></li>
+	<li id="menu-item-2353" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2353"><a href="https://azbyka.ru/parkhomenko/1/knizhnaya-polka/rixard-vurmbrandt">Рихард Вурмбрандт</a></li>
+	<li id="menu-item-2354" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2354"><a href="https://azbyka.ru/parkhomenko/1/knizhnaya-polka/svyashhennik-dmitrij-rumyancev">священник Дмитрий Румянцев</a></li>
+</ul>
+</li>
+</ul></div></div>
+			</div>
+				
+		<p class="btn-more-widgets-wrap m-show">
+			<button id="widgets_more" class="btn-more-widgets"><i class="fa fa-info-circle" aria-hidden="true"></i> ещё</button>
+		</p>
+	</div>
+<!-- End Left menu -->
+	
+	<div class="widgets" id="widgets">
+		
+<!-- Dynamic menus -->
+		<div class="widgets-sidebar" id="widgets-sidebar">
+			<div id="bg_counter_online_widget-2" class="widget widget_bg_counter_online_widget">	<div class="widget-item">
+		<div class="widget-inner">
+			<span class="bg-az-counter">
+				<p><span class="bg-az-counter-title">Сейчас в разделе</span> <span><span class="bg-az-counter-now"></span>&nbsp;<span class="bg-az-counter-unit">чел.</span></span></p>
+				<p><span class="bg-az-counter-title">Всего просмотров</span> <span class="bg-az-counter-views"></span></p>
+				<p><span class="bg-az-counter-title">Всего записей</span> <span class="bg-az-counter-posts">116</span></p>
+			</span>
+		</div>
+	</div>
+</div>
+		</div>
+	<!-- Хук для дополнительных действий -->
+				<div class="widgets-sidebar" id="widgets-sidebar2">
+					</div>
+<!-- End Dynamic menus -->
+	
+<!-- Footer -->
+		<footer class="footer">
+			<!-- Donate button -->
+			<p class="text-center">
+			<a href="//azbyka.ru/kak-pomoch" class="help-btn footer-help-btn">Пожертвовать</a>
+			</p>
+			<!-- //Donate button -->
+			
+			<div class="footer-info">
+				<!-- Footer menu-->
+				<ul id="footer-navigation" class="footer-nav"><li class="menu-item"><a href="https://azbyka.ru/parkhomenko/karta-sajta">Карта раздела</a></li><li class="menu-item"><a href="https://azbyka.ru/obratnaja-svjaz?the_url=https%3A%2F%2Fazbyka.ru%2Fparkhomenko%2F">Обратная связь</a></li>
+			<li class="menu-item"><a href="https://azbyka.ru/azbuka-very-na-vashem-sajte">Вебмастеру</a></li>
+			</ul>				<!-- Socializing buttons -->
+				<div class="social-share__pre"><i class="fa fa-share-alt"></i> поделиться:</div>
+				
+			<div class="social-share__wrap">
+				<a href="https://vk.com/share.php?url=https%3A%2F%2Fazbyka.ru%2Fparkhomenko%2F" title="Поделиться в  ВК"><i class="fa fa-vk"></i></a>
+				<a href="https://connect.ok.ru/offer?url=https%3A%2F%2Fazbyka.ru%2Fparkhomenko%2F" title="Поделиться в  ОК"><i class="fa fa-odnoklassniki"></i></a>
+				<a href="https://t.me/share/url?text=&url=https%3A%2F%2Fazbyka.ru%2Fparkhomenko%2F" title="Поделиться в  Telegram"><i class="fa fa-paper-plane"></i></a>
+				<a class="m-show" href="whatsapp://send?text=https%3A%2F%2Fazbyka.ru%2Fparkhomenko%2F" title="Поделиться в  Whatsapp"><i class="fa fa-whatsapp"></i></a>
+			</div>			</div>
+
+			<div class="footer-box">
+				<!-- ReTypos logo -->
+								<!-- //ReTypos logo -->
+			</div>
+			<!-- Copyright -->
+			<div class="footer-copy">
+				<p>©2026 Сайт священника Константина Пархоменко</p>
+			</div>
+			<!--//Copyright -->
+
+		</footer>
+<!-- End Footer -->
+		<p class="btn-more-widgets-wrap m-show">
+			<button id="widgets_contents" class="btn-more-widgets"><i class="fa fa-bars" aria-hidden="true"></i> к содержанию</button>
+		</p>
+		
+	</div>
+</aside>
+
+	</section>
+	<!-- End Sidebar -->
+			<!-- Content -->
+		<section class="main-area-content">
+			
+				<article id="post-2371" class="post-2371 page type-page status-publish hentry">
+		<h2 class="article-single-title page-title"></h2>	
+		
+	<div class="article-single-content main-page-content"><p class="main-banner-wrapper"><script type="text/javascript">// <![CDATA[   
+		$k = Math.floor(Math.random()*59)+1;
+		document.write('<img alt="" decoding="async" class="img_sidebar" src="/parkhomenko/banners/k'+$k+'.jpg" title="священник Константин Пархоменко" />'); 
+		setInterval(function() {
+			$k = Math.floor(Math.random()*59)+1;
+			jQuery('img.img_sidebar').attr('src', '/parkhomenko/banners/k'+$k+'.jpg'); 
+		}, 10000);
+	// ]]\>
+</script><br />
+<noscript><br />
+<img decoding="async" class="img_sidebar" src="/parkhomenko/foto/IMG_1137_small.jpg" width="248" title="священник Константин Пархоменко" alt="священник Константин Пархоменко" /><br />
+</noscript></p>
+
+
+
+
+<p style="text-align: center;"><a href="https://azbyka.ru/parkhomenko/biografiya">Биография</a> • <a href="https://azbyka.ru/parkhomenko/zachem-pastyryu-nuzhen-svoj-internet-sajt">Зачем пастырю нужен свой интернет-сайт?</a><br />
+<a href="https://azbyka.ru/parkhomenko/help"><span style="color: #dc143c;">Молитва о близких</span></a><br />
+<a href="https://azbyka.ru/forum/xfa-blog-list/svjaschennik-konstantin-parxomenko.727/">БЛОГ</a></p>
+
+
+
+
+<p>&nbsp;</p>
+
+
+
+
+<p>От любви Божией человек может отлучить себя только сам, сознательной богоборческой и греховной жизнью.<br />
+<em><a href="/svyashhennik">Священник</a> Константин Пархоменко</em></p>
+
+
+
+
+<p>В основе христианства лежит не сумма каких-то отвлечённых знаний, но живой опыт общения с Богом как с Отцом Небесным.<br />
+<em>Священник Константин Пархоменко</em></p>
+
+
+
+
+<p>Вере в Бога вообще нельзя научить, приведя ряд формул или пунктов, как учат физике или математике. Что же можно?.. Можно вступить в диалог с душой ученика и пойти с ней рядом в поисках смысла и Бога. И только тогда возможно обрести Бога.<br />
+<em>Священник Константин Пархоменко</em></p>
+
+
+
+
+<p>Православие интересно для ребенка. Оно интересно не только разукрашенным храмом, завораживающим обрядом, необычными одеждами, пением и проч. Православие интересно самим учением, ведь оно учит о том, что духовный мир – это такая же реальность, как и мир наш, земной, и этот духовный мир – рядом, просто он невидим.<br />
+<em>Священник Константин Пархоменко</em></p>
+
+
+
+
+<p>Христианин – это не просто теоретически верующий человек. Это человек, который находится в благодатном, говоря более понятным современным языком – энергетическом единении с Богом.<br />
+<em>Священник Константин Пархоменко</em></p>
+
+
+</p>
+</div>
+	
+	<div class="page-pagination "></div>
+		
+		
+				<footer class="article-footer">
+					<ul class="article-bar">
+						
+							<li class="article-footer__count"><span class="bg-az-counter" data-type="post" data-ID="2371"><i title="Всего просмотров" class="fa fa-eye"></i> <span class="bg-az-counter-views"></span> <i title="Сейчас читают" class="fa fa-user-o"></i> <span class="bg-az-counter-now"></span></span></li>
+						
+						
+					</ul>
+				</footer>
+				<div class="article-post-footer">
+					<div class="social-links">
+			<a rel="nofollow" href="https://azbyka.ru/telegram-kanaly" class="social-links__tg"><i class="fa fa-telegram" aria-hidden="true"></i> TG-каналы</a> 
+		</div>
+				<a href="?print=1" target="_blank" class="article-single-print"><i class="fa fa-print"></i></a>
+		
+			<div class="social-share__wrap">
+				<a href="https://vk.com/share.php?url=https%3A%2F%2Fazbyka.ru%2Fparkhomenko%2F" title="Поделиться в  ВК"><i class="fa fa-vk"></i></a>
+				<a href="https://connect.ok.ru/offer?url=https%3A%2F%2Fazbyka.ru%2Fparkhomenko%2F" title="Поделиться в  ОК"><i class="fa fa-odnoklassniki"></i></a>
+				<a href="https://t.me/share/url?text=&url=https%3A%2F%2Fazbyka.ru%2Fparkhomenko%2F" title="Поделиться в  Telegram"><i class="fa fa-paper-plane"></i></a>
+				<a class="m-show" href="whatsapp://send?text=https%3A%2F%2Fazbyka.ru%2Fparkhomenko%2F" title="Поделиться в  Whatsapp"><i class="fa fa-whatsapp"></i></a>
+			</div>		</div>
+			
+</article>
+
+				
+						</section>
+		<!-- End Content -->
+			</main> 
+</div>
+<!-- End Main area -->
+
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/parkhomenko/*"},{"not":{"href_matches":["/parkhomenko/wp-*.php","/parkhomenko/wp-admin/*","/parkhomenko/wp-content/uploads/*","/parkhomenko/wp-content/*","/parkhomenko/wp-content/plugins/*","/parkhomenko/wp-content/themes/azbyka-parkhomenko/*","/parkhomenko/wp-content/themes/azbyka/*","/parkhomenko/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+	<script>
+		document.querySelectorAll('a[href^="mailto:"]').forEach((a)=>{
+			console.log('@azbyka.ru:', a);
+			a.setAttribute('target','_blank');
+		});
+	</script>
+			<script id="az-post-list-loader-js">
+			(function(){
+				//logic
+				let pagination = document.querySelector('.az-pagination');
+				if(!pagination){
+					console.log('no pagination found');
+					return;
+				}
+				let current = 1;//parseInt(document.querySelector('.pagination .page-numbers.current').textContent);
+				let last = 0;//parseInt(document.querySelector('.pagination .page-numbers.dots+.page-numbers').textContent);
+				let loading = false;
+			
+				const observer = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting && (localStorage.getItem('az_pagination-autoload') === 'true') && !loading) {
+							loadNext();
+						}
+					});
+				}, {
+					root: null,
+					rootMargin: '0px',
+					threshold: 0
+				});
+			
+				let finalize = ()=>{
+					pagination.classList.remove('loading');
+					observer.disconnect();
+					console.log('no more posts');
+				}
+			
+				let loadNext = ()=>{
+					current ++;
+					if(current <= last){
+						console.log('loading page '+current);
+						pagination.classList.add('loading');
+						loading = true;
+						let pageUrl = location.href.split('#')[0].split('/page/')[0].replace(/\/$/, "") + '/page/' + current, 
+							url = pageUrl + '/?content_only=1';
+						window.history.pushState("", "Страница "+current, pageUrl);
+						asyncLoad(url);
+					}else{
+						finalize();
+					}
+				};
+			
+				async function asyncLoad(url) {
+					const response = await fetch(url);
+					let body = await response.text();
+					body = body.replaceAll('?content_only=1', '');
+					pagination.insertAdjacentHTML('beforebegin', body);
+					if(body.includes('az-pagination')){
+						observer.unobserve(pagination)
+						pagination.remove();
+						initLoadMore();
+					}
+					loading = false;
+					if(current == last) finalize();
+					console.log('loaded page '+current);
+					
+					if(window.scrollY + window.innerHeight > pagination.offsetTop)
+						loadNext();
+				}
+				
+				
+				//load more
+				function initLoadMore(){
+					let loadMore = document.querySelector('.pagination-load-more');
+					if(loadMore)
+						loadMore.onclick = loadNext;
+					
+					pagination = document.querySelector('.az-pagination');
+					if(pagination)
+						observer.observe(pagination);
+				}
+				initLoadMore();
+			})();
+		</script>
+			<div id="notification_container"></div>
+	<aside id="az_toolbox">
+		<i class="fa fa-cog btn-settings"></i>		<i class="scroll-top fa fa-arrow-up active invert" id="scroll-top" title="Вверх"></i>
+		</aside>
+		<div class="settings-wrap" id="settings_wrap" style="display: none;">
+	<div class="settings-box" id="settings-box">
+		<div class="settings-item" data-setting="font-base-size">
+			<span class="settings-caption">Размер шрифта: </span>
+			<span class="settings-field letter-button" id="decrease_letter" title="Уменьшить шрифт">A-</span>
+			<span class="settings-field letter-size" id="size_letter" title="Размер шрифта основного текста">15</span>
+			<span class="settings-field letter-button" id="increase_letter" title="Увеличить шрифт">A+</span>
+		</div>
+
+		<div class="settings-item theme-settings-item" data-setting="theme">
+			<span class="settings-caption">Тёмная тема:</span>
+			<span data-id="1" data-value="light" class="settings-field selectedBox" title="Светлая"><i class="fa fa-lightbulb-o"></i></span>
+			<span data-id="2" data-value="dark" class="settings-field" title="Тёмная"><i class="fa fa-moon-o"></i></span>
+			</div>
+
+		<details class="settings-colors-wrap">
+			<summary>Цвета</summary>
+
+			<div class="settings-item" data-setting="body-bg">
+				<span class="settings-caption">Цвет фона: </span>
+				<span data-id="1" class="settings-field settings-color-box"></span>
+				<span data-id="3" class="settings-field settings-color-box"></span>
+				<span data-id="4" class="settings-field settings-color-box selectedBox"></span>
+				<input type="color" data-id="0" value="#999999" class="settings-field settings-color-box">
+			</div>
+			
+			<div class="settings-item" data-setting="text-color">
+				<span class="settings-caption">Цвет текста: </span>
+				<span data-id="1" class="settings-field settings-color-box"></span>
+				<span data-id="3" class="settings-field settings-color-box"></span>
+				<span data-id="4" class="settings-field settings-color-box selectedBox"></span>
+				<input type="color" data-id="0" value="#999999" class="settings-field settings-color-box">
+			</div>
+			
+			<div class="settings-item" data-setting="link-color">
+				<span class="settings-caption">Цвет ссылок: </span>
+				<span data-id="1" class="settings-field settings-color-box"></span>
+				<span data-id="3" class="settings-field settings-color-box"></span>
+				<span data-id="4" class="settings-field settings-color-box selectedBox"></span>
+				<input type="color" data-id="0" value="#999999" class="settings-field settings-color-box">
+			</div>
+			
+			<div class="settings-item" data-setting="accent-color">
+				<span class="settings-caption">Цвет акцентов <i class="fa fa-question-circle btn-details" title="Особо выделяемые цветом элементы"></i></span>
+				<span data-id="1" class="settings-field settings-color-box"></span>
+				<span data-id="3" class="settings-field settings-color-box"></span>
+				<span data-id="4" class="settings-field settings-color-box selectedBox"></span>
+				<input type="color" data-id="0" value="#999999" class="settings-field settings-color-box">
+			</div>
+
+			<div class="settings-item m-hide" data-setting="side-bg">
+				<span class="settings-caption">Цвет полей <i class="fa fa-question-circle btn-details" title="Боковые области экрана"></i></span>
+				<span data-id="1" class="settings-field settings-color-box"></span>
+				<span data-id="3" class="settings-field settings-color-box"></span>
+				<span data-id="4" class="settings-field settings-color-box selectedBox"></span>
+				<input type="color" data-id="0" value="#999999" class="settings-field settings-color-box">
+			</div>
+			
+			<div class="settings-item" data-setting="widget-bg">
+				<span class="settings-caption">Фон подложек <i class="fa fa-question-circle btn-details" title="Цвет фона окон и панелей"></i></span>
+				<span data-id="1" class="settings-field settings-color-box"></span>
+				<span data-id="3" class="settings-field settings-color-box"></span>
+				<span data-id="4" class="settings-field settings-color-box selectedBox"></span>
+				<input type="color" data-id="0" value="#999999" class="settings-field settings-color-box">
+			</div>
+
+		</details>
+
+		<div class="settings-item font-settings-item" data-setting="title-font">
+			<span class="settings-caption">Заголовки:</span>
+			<select class="settings-field settings-field-select" data-id="0">
+				<option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Прямой (Lucida)</option>
+				<option value="'Times New Roman', sans">С засечками (Times)</option>
+				<option value="Georgia-my, sans">Georgia</option>
+				<option value="Courier, mono">Моноширинный</option>
+				<option value="Roboto Condensed">Сжатый</option>
+				<option value="Caveat">Рукописный</option>
+				<option value="IBM Plex Serif">IBM Plex Serif</option>
+				<option value="Vollkorn">Vollkorn</option>
+				<option value="Oranienbaum">Oranienbaum</option>
+			</select>
+		</div>
+
+		<div class="settings-item font-settings-item" data-setting="text-font">
+			<span class="settings-caption">Текст:</span>
+			<select class="settings-field settings-field-select" data-id="0">
+				<option value="Helvetica, Arial, sans-serif">Прямой (Arial)</option>
+				<option value="'Times New Roman', sans">С засечками (Times)</option>
+				<option value="Georgia-my, sans">Georgia</option>
+				<option value="Courier, mono">Моноширинный</option>
+				<option value="Roboto Condensed">Сжатый</option>
+				<option value="Caveat">Рукописный</option>
+				<option value="IBM Plex Serif">IBM Plex Serif</option>
+				<option value="Vollkorn">Vollkorn</option>
+				<option value="Oranienbaum">Oranienbaum</option>
+			</select>
+		</div>
+
+		<div class="settings-item" data-setting="text-align">
+			<span class="settings-caption">Выравнивание:</span>
+			<span data-id="1" data-value="left" class="settings-field selectedBox" title="по левому краю"><i class="fa fa-align-left"></i></span>
+			<span data-id="2" data-value="justify" class="settings-field" title="по ширине"><i class="fa fa-align-justify"></i></span>
+		</div>
+		
+		<div class="settings-item" data-setting="pagination-autoload">
+			<span class="settings-caption">Загрузка страниц:</span>
+			<span data-id="1" data-value="false" class="settings-field selectedBox" title="вручную"><i class="fa fa-hand-o-down"></i></span>
+			<span data-id="2" data-value="true" class="settings-field" title="автоматически"><i class="fa fa-refresh"></i></span>
+		</div>
+
+		<span class="settings-reset" id="settings-reset"><i class="fa fa-undo"></i> Сбросить настройки</span>
+		<span class="settings-close" id="settings-close"></span>
+	</div>
+	</div>
+	<script  defer="defer" src="https://azbyka.ru/parkhomenko/wp-content/plugins/Bg-Az-Counter-GitHub/js/reconnecting-websocket.min.js" id="bg_counter_websocket-js"></script>
+<script  defer="defer" src="https://azbyka.ru/parkhomenko/wp-content/plugins/Bg-Az-Counter-GitHub/js/rating.js" id="bg_counter_rating-js"></script>
+<script type="text/javascript" id="bg_counter_proc-js-extra">
+/* <![CDATA[ */
+var bg_counter = {"counterurl":"https://stat.azbyka.ru/counters","rateurl":"https://stat.azbyka.ru/rate","scoreurl":"https://stat.azbyka.ru/item-score","batch":"https://stat.azbyka.ru/batch-query","websocket":"wss://stat.azbyka.ru/realtime-view","updatesocket":"wss://stat.azbyka.ru/updates","updatetime":"3000","maxreconnect":"5","project":"/project/parkhomenko","type":"post","ID":"2371","countviews":"on","votes5":"\u0433\u043e\u043b\u043e\u0441\u043e\u0432","votes2":"\u0433\u043e\u043b\u043ec\u0430","vote1":"\u0433\u043e\u043b\u043e\u0441","voted":"\u0412\u044b \u0443\u0436\u0435 \u043f\u0440\u043e\u0433\u043e\u043b\u043e\u0441\u043e\u0432\u0430\u043b\u0438","price":["\u0445\u0443\u0434\u043e","\u0441\u043b\u0430\u0431\u043e","\u0441\u043d\u043e\u0441\u043d\u043e","\u0434\u043e\u0441\u0442\u043e\u0439\u043d\u043e","\u0447\u0443\u0434\u0435\u0441\u043d\u043e"],"debug":""};
+//# sourceURL=bg_counter_proc-js-extra
+/* ]]> */
+</script>
+<script  defer="defer" src="https://azbyka.ru/parkhomenko/wp-content/plugins/Bg-Az-Counter-GitHub/js/counter.js" id="bg_counter_proc-js"></script>
+<script type="text/javascript" id="bg_bibrefs_proc-js-extra">
+/* <![CDATA[ */
+var bg_bibrefs = {"ajaxurl":"http://ajax.azbyka.ru/bibrefs","content":"#content","preq":"0"};
+//# sourceURL=bg_bibrefs_proc-js-extra
+/* ]]> */
+</script>
+<script  defer="defer" src="https://azbyka.ru/parkhomenko/wp-content/plugins/bg-biblie-references/js/bg_bibrefs.js" id="bg_bibrefs_proc-js"></script>
+<script type="text/javascript" id="az-settings-js-extra">
+/* <![CDATA[ */
+var azbyka = {"root_url":"https://azbyka.ru/parkhomenko","project":"/parkhomenko","darktheme":"https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/settings/js/darktheme.css?ver=3.3.6.0.1.2","yellowtheme":"https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/settings/js/yellowtheme.css?ver=3.3.6.0.1.2","is_home":"1"};
+//# sourceURL=az-settings-js-extra
+/* ]]> */
+</script>
+<script  defer="defer" src="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/settings/js/az-settings.js" id="az-settings-js"></script>
+<script  defer="defer" src="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/js/top-menu.js" id="top-menu-js"></script>
+<script  defer="defer" src="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/js/speech.js" id="speech-js"></script>
+<script  defer="defer" src="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/js/social.js" id="azbyka-social-js"></script>
+<script  defer="defer" src="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/js/main.js" id="azbyka-main-js"></script>
+<script  defer="defer" src="https://azbyka.ru/parkhomenko/wp-content/themes/azbyka/assets/js/tooltip.js" id="az-tooltip-js"></script>
+<noscript id="bz_custom_code" data-load="scroll" data-delay="4000">if(!window.bz_custom_code_loaded){(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym");
+
+   ym(5565880, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true,
+        trackHash:true
+   });}
+			window.bz_custom_code_loaded = true;</noscript><noscript data-load="defer"></noscript>		
+		<script>
+		let doc = document;
+		let addScript = (n)=>{
+			console.log('addScript -> ', n);
+			let src = n.getAttribute('data-src');
+			let el = doc.createElement("script");
+			if(src)
+				el.src = src;
+			else{
+				let s = doc.createTextNode(n.textContent);
+				el.appendChild(s);
+			}
+			n.parentNode.insertBefore(el,n);
+		}
+		let addStyle = (el, par)=>{
+			let val = el.textContent;
+			console.log('deferred -> ');
+			console.log(val);
+			//if(el.parentNode)
+				//el.parentNode.removeChild(el);
+			par.innerHTML += val;
+		}
+		
+		let nNode = doc.createElement('div');
+			nNode.classList.add('bz-defer-loaded');
+		
+		let loadDeferredStyles = function() {
+			let nds = doc.querySelectorAll("noscript[data-load='defer']");
+			nds.forEach(
+			(el)=>{
+				let func = (el.getAttribute('data-type') === 'script') ? addScript : addStyle;
+				let timer = el.getAttribute('data-delay');
+				if(timer)
+					setTimeout(func, timer, el, nNode)
+				else
+					func(el, nNode);
+			});
+			doc.body.append(nNode);
+			
+			//deferred scripts SRC
+			if(window.bz_opt_deferred_scripts){
+				console.log('deferred scripts: ', window.bz_opt_deferred_scripts);
+				for(sid in bz_opt_deferred_scripts){
+					var tg = doc.createElement('script');
+					tg.id = sid;
+					tg.defer = 'defer';
+					tg.src = bz_opt_deferred_scripts[sid];
+					doc.body.appendChild(tg);
+				}
+			}
+			
+			//custom code
+			ccode = doc.getElementById('bz_custom_code');
+			if(ccode){
+				let timer = ccode.getAttribute('data-delay') || 0;
+				setTimeout(addScript, timer, ccode);
+			}
+		};
+		
+		let goNext = (f)=>{
+			if(typeof window.requestAnimationFrame !== undefined)
+				requestAnimationFrame(f);
+			else
+				setTimeout(f, 10); 
+		}
+		
+		window.addEventListener('load', function() {
+			goNext(loadDeferredStyles);
+		});
+		
+		//on scroll/click/touch
+		let addScrollNodes = () => {
+			console.log('on scroll load -> ');
+			let sn = doc.querySelectorAll("noscript[data-load='scroll']");
+			sn.forEach((el)=>{
+				console.log(el.id);
+				addScript(el);
+			});
+		}
+		
+		let bz_first_scroll = true;
+		let on_fst_scroll = () => {
+			if (bz_first_scroll) {
+				bz_first_scroll = false;
+				goNext(addScrollNodes);
+				window.removeEventListener('scroll', on_fst_scroll);
+				doc.removeEventListener('click', on_fst_scroll);
+				doc.removeEventListener('touchstart', on_fst_scroll);
+			}
+		};
+		window.addEventListener('scroll', on_fst_scroll);
+		doc.addEventListener('click', on_fst_scroll);
+		doc.addEventListener('touchstart', on_fst_scroll);
+		</script>
+	
+</body>
+</html>

@@ -1,0 +1,73 @@
+Всего адресов: 7890
+  в очереди          7320
+  скачано             551, 109.5 МБ
+  нет (404)             8
+  ошибка                7
+  редирект              4
+
+По группам (section), первые 40 по объёму:
+  группа                                     скачано   очередь  ошибки      объём
+  /biblia                                        311      4905       0    98.1 МБ
+  /molitvoslov                                   136      1149       1     8.4 МБ
+  /worships                                       93        12       6     1.8 МБ
+  /common                                          1         0       0   897.7 КБ
+  /days                                            1       269       0   180.4 КБ
+  /pravo                                           1       175       0    96.3 КБ
+  /wp-content                                      3         0       0    22.0 КБ
+  /robots.txt                                      1         0       0    18.5 КБ
+  внешн: ajax.azbyka.ru                            1         0       0       27 Б
+  внешн: media.azbyka.ru                           1         0       0       26 Б
+  внешн: stat.azbyka.ru                            1         0       0       26 Б
+  внешн: tube.azbyka.ru                            1         0       0       26 Б
+  /                                                0         1       0        0 Б
+  /1                                               0        12       0        0 Б
+  /10-glavnyh-uslovij-pravilnogo-chtenija-         0         1       0        0 Б
+  /akafist                                         0         1       0        0 Б
+  /alliluiarij                                     0         1       0        0 Б
+  /angel                                           0         1       0        0 Б
+  /angel-xranitel                                  0         1       0        0 Б
+  /apokalipsis                                     0         1       0        0 Б
+  /apokrif                                         0         1       0        0 Б
+  /art                                             0         2       0        0 Б
+  /arxangel                                        0         1       0        0 Б
+  /asketika                                        0         1       0        0 Б
+  /assets                                          0         0       0        0 Б
+  /audio                                           0        16       0        0 Б
+  /azbuka-very-na-vashem-sajte                     0         1       0        0 Б
+  /bdenie                                          0         1       0        0 Б
+  /bessrebrennik                                   0         1       0        0 Б
+  /bibliya                                         0         1       0        0 Б
+  /blagodat                                        0         1       0        0 Б
+  /blagodushie                                     0         1       0        0 Б
+  /blazhennyj                                      0         1       0        0 Б
+  /blud                                            0         1       0        0 Б
+  /bog                                             0         1       0        0 Б
+  /bogoostavlennost                                0         1       0        0 Б
+  /bogorodica                                      0         1       0        0 Б
+  /bogorodichny                                    0         1       0        0 Б
+  /bogoslujenie                                    0         1       0        0 Б
+  /bogosluzhebnye-ukazaniya                        0         2       0        0 Б
+
+Не обходились (по правилам):
+  исключено конфигом                 1865
+  запрет robots.txt                  1024
+  дата вне диапазона                    3
+  самые частые:
+    [exclude] /biblia: 766  напр. https://azbyka.ru/biblia/sitemap
+    [robots] /biblia: 407  напр. https://azbyka.ru/biblia/personal/favorites
+    [robots] /audio: 315  напр. https://azbyka.ru/audio/audio1/zachala/Jn/Jn.20:1-10.mp3
+    [exclude] /auth: 299  напр. https://azbyka.ru/auth/
+    [exclude] /znakomstva: 279  напр. https://azbyka.ru/znakomstva/sitemap_index.xml
+    [exclude] /forum: 279  напр. https://azbyka.ru/forum/sitemap.xml
+    [exclude] /molitvoslov: 165  напр. https://azbyka.ru/molitvoslov/sitemap_index.xml
+    [robots] /molitvoslov: 129  напр. https://azbyka.ru/molitvoslov/wp-content/uploads/bg_forreaders/document-pdf.svg
+    [robots] /counters: 24  напр. https://stat.azbyka.ru/counters
+    [robots] /rate: 24  напр. https://stat.azbyka.ru/rate
+    [robots] /item-score: 24  напр. https://stat.azbyka.ru/item-score
+    [robots] /batch-query: 24  напр. https://stat.azbyka.ru/batch-query
+
+Ошибки (чаще всего):
+        6  ошибка 405 HTTP 405  напр. https://azbyka.ru/worships/wp-content/themes/azbyka-worships/assets/images/favicons/androi
+        1  ошибка 403 HTTP 403  напр. https://azbyka.ru/molitvoslov/wp-content/plugins/Bg-Personal/
+
+Встроенные видео/плееры (команда video): new=26

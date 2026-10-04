@@ -1,0 +1,85 @@
+
+[site]
+# azbyka.org за Cloudflare-челленджем: алиас оставить, fallback выключить
+alias_fallback = false
+# мусор/кэш-бастинг (ver/v безопасно отбрасывать: проверено на css/js/jpg/epub/m4b)
+add_drop_params = ["ver", "v", "the_url", "content_only", "nowprocket", "_wpnonce"]
+# хосты медиа (они поддомены — уже в области, но пусть будут явно)
+extra_media_hosts = ["media.azbyka.ru"]
+# стартовые адреса дополнительно
+add_start_urls = [
+  "https://azbyka.ru/dictionary",
+  "https://azbyka.ru/days/calendar",
+  "https://azbyka.ru/biblia/podstrochnik",
+  "https://azbyka.ru/biblia/strong/greek",
+  "https://azbyka.ru/biblia/strong/hebrew",
+  "https://azbyka.ru/biblia/downloads/bibliya.pdf",
+  "https://azbyka.ru/biblia/downloads/bibliya.fb2",
+  "https://azbyka.ru/biblia/downloads/bibliya.doc",
+  "https://azbyka.ru/biblia/downloads/nz.pdf",
+  "https://azbyka.ru/biblia/downloads/tsya.pdf",
+]
+
+[crawl]
+min_delay = 1.0            # сайт выдержал 1 req/s без 429; 0.5 не проверяли
+# respect_robots = false   # ← только по решению владельца; тогда обязательно exclude ниже
+add_date_filter_patterns = [
+  '^https://azbyka\.ru/biblia/days/',
+  '^https://azbyka\.ru/bogosluzhebnye-ukazaniya',
+]
+# Тексты служб: 9 URL на день (ссылки только в JS). Фильтр дат уже покрывает /worships/.
+seed_date_templates = [
+  "https://azbyka.ru/worships/?date={date}&worship=vespers",
+  "https://azbyka.ru/worships/?date={date}&worship=matins",
+  "https://azbyka.ru/worships/?date={date}&worship=chas1",
+  "https://azbyka.ru/worships/?date={date}&worship=chas3",
+  "https://azbyka.ru/worships/?date={date}&worship=chas6",
+  "https://azbyka.ru/worships/?date={date}&worship=liturgy",
+  "https://azbyka.ru/worships/?date={date}&worship=chas9",
+  "https://azbyka.ru/worships/?date={date}&worship=requests",
+  "https://azbyka.ru/worships/?date={date}&worship=chants",
+  "https://azbyka.ru/biblia/days/{date}",
+]
+# ⚠ для worships нужно отключить Clean-param `worship` (см. §14 п.4), иначе шаблоны схлопнутся.
+# Разумно сузить диапазон для worships/biblia-days (например 2024–2030), иначе 46 лет × 10 = 168 тыс. URL.
+add_asset_host_blocklist = ["stat.azbyka.ru", "ajax.azbyka.ru", "cackle.me", "cdn.jsdelivr.net/npm/yandex-metrica-watch"]
+# embed_hosts: убрать "ok.ru" и "vk.com" (ловят кнопки «поделиться») или фильтровать по /embed/
+
+[rules]
+add_exclude = [
+  # служебные сабдомены
+  '^https?://(stat|ajax)\.azbyka\.ru/',
+  # Отечник: AJAX-дубли глав, аннотации, кабинет, поиск
+  '^https://azbyka\.ru/otechnik/(ajax|ajx|context-search|search|profile|settings|users|favor|favorites|book/annotation)(/|\?|$)',
+  # скачивание Отечника без куки всё равно 302→/auth (убрать строку, если есть cookies_file)
+  '^https://azbyka\.ru/otechnik/books/(download|original)/',
+  # личные кабинеты всех разделов
+  '(?i)/(personal|profile)(/|\?|$)',
+  # Библия: стихи/диапазоны, многоколоночный режим, «с ударениями», без кода перевода
+  '^https://azbyka\.ru/biblia/\?[^&]*:',
+  '^https://azbyka\.ru/biblia/\?.*~',
+  '^https://azbyka\.ru/biblia/\?.*&ru$',
+  '^https://azbyka\.ru/biblia/\?[1-4]?[A-Za-z]+\.\d+$',
+  '^https://azbyka\.ru/biblia/(search|login|personal)',
+  # обратная связь, подгрузка, печать, ленты, поиск
+  '^https://azbyka\.ru/obratnaja-svjaz\?',
+  '(?i)[?&](content_only|feed|print)=',
+  '(?i)/(yandex_search|google_search)(/|\?|$)',
+  '/comment-page-\d+',
+  # тесты: отдельные вопросы и служебные скрипты
+  '^https://azbyka\.ru/test/(gettest|getresponse)\.php',
+  '^https://azbyka\.ru/test/.*\?(question|rtf)',
+  # мусор из inline-JS
+  "[*']|%27|\\+%27",
+  '/wp-content/(themes|plugins)/[^/]+/?$',
+  # worships: кабинет/календарь (Disallow)
+  '^https://azbyka\.ru/worships/(calendar|__chants)/',
+  # m4b — склейки mp3 по 0,5–2 ГБ (убрать, если нужны)
+  '(?i)\.m4b(\?|$)',
+  # уменьшенные копии картинок WP (оригинал есть в srcset); убрать, если важна точная вёрстка
+  '(?i)/wp-content/uploads/.+-\d{2,4}x\d{2,4}\.(jpe?g|png|webp)(\?|$)',
+]
+
+[[query_cap]]   # Библия после exclude: 1 361 глава × 55 переводов ≈ 75 тыс. + 34,7 тыс. /in/
+pattern = '^https://azbyka\.ru/biblia/'
+value = 120000
