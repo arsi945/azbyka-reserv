@@ -23,8 +23,11 @@ class Site:
         return self
 
     def __exit__(self, *a):
-        self.server.shutdown()
-        self.server.server_close()
+        try:
+            self.server.shutdown()
+            self.server.server_close()
+        except OSError:
+            pass
 
     def hit(self, path: str) -> int:
         with self.lock:

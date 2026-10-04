@@ -158,3 +158,26 @@ def test_relink_picks_up_new_rules(tmp_path):
         assert n >= 1
         r, _ = rows(data)
         assert r[site.base + "/forum/x"]["status"] == "queued"
+
+
+def test_network_outage_does_not_burn_tries(tmp_path):
+    import threading
+    import time as _t
+
+    with Site() as site:
+        cfg = make_cfg(site, pause_on_network_error=1, max_tries=2)
+        data = str(tmp_path / "data")
+        c = Crawler(cfg, data)
+        # «сеть пропала» сразу после старта: сервер выключается
+        def kill():
+            _t.sleep(0.3)
+            site.server.shutdown()
+            site.server.server_close()
+        threading.Thread(target=kill, daemon=True).start()
+        c.run(progress_every=0.3, max_seconds=6)
+        c.store.close()
+        _, conn = rows(data)
+        errs = conn.execute("SELECT COUNT(*) FROM urls WHERE status='error'").fetchone()[0]
+        queued = conn.execute("SELECT COUNT(*) FROM urls WHERE status='queued'").fetchone()[0]
+        assert queued > 0
+        assert errs <= 2  # первые пара ошибок могли засчитаться до определения «нет сети»

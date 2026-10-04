@@ -360,13 +360,15 @@ class Crawler:
     def _partial_path(self, url: str) -> str:
         return fs_path(os.path.join(self.partial_dir, hashlib.sha1(url.encode()).hexdigest() + ".part"))
 
-    def _note_net_error(self) -> None:
+    def _note_net_error(self) -> int:
+        """Учитывает сетевую ошибку; возвращает число ошибок подряд."""
         with self._err_lock:
             self._net_errors += 1
             n = self._net_errors
         if n >= 10 and n % 10 == 0:
             log.warning("Много сетевых ошибок подряд (%d). Сеть недоступна? Пауза %d с.", n, self.cfg.pause_on_network_error)
             self.limiter.pause(self.cfg.pause_on_network_error)
+        return n
 
     def _note_ok(self) -> None:
         with self._err_lock:
@@ -411,7 +413,10 @@ class Crawler:
                     os.remove(tmp)
                 return
             if str(e).startswith("network"):
-                self._note_net_error()
+                if self._note_net_error() >= 3:
+                    # похоже, пропала сеть целиком: не тратим попытки этого адреса
+                    self.store.requeue(task.id, str(e), task.tries)
+                    return
             self._retry_or_fail(task, str(e))
             return
         self._handle_response(task, resp, tmp)
@@ -659,6 +664,13 @@ class Crawler:
         reset = self.store.reset_active()
         if reset:
             log.info("возвращено в очередь после прошлого запуска: %d", reset)
+        # временные сбои прошлых сеансов (сеть, 5xx, 429) — повторить
+        again = self.store.requeue_where(
+            "status='error' AND (error LIKE 'network%' OR error LIKE 'HTTP 5%' OR error LIKE 'HTTP 429%'"
+            " OR error LIKE 'обрыв%' OR error LIKE 'internal%')"
+        )
+        if again:
+            log.info("повторяем адреса с временными ошибками прошлых сеансов: %d", again)
         self.seed()
         threads = []
         for i in range(self.cfg.page_workers):
