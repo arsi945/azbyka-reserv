@@ -38,46 +38,87 @@ def _config(args):
     return load_config(path)
 
 
+# коды завершения сбора (их понимает zapusk.bat / zapusk.sh)
+EXIT_DONE, EXIT_MORE, EXIT_DISK, EXIT_TLS, EXIT_LOCKED, EXIT_INTERRUPTED = 0, 3, 4, 5, 6, 130
+
+
+def _locked_or_exit(data_dir: str):
+    from .fsutil import acquire_lock
+
+    lock = acquire_lock(data_dir)
+    if lock is None:
+        print(f"Сбор для папки {os.path.abspath(data_dir)} уже запущен в другом окне. "
+              "Второй запуск не нужен — закройте это окно.")
+    return lock
+
+
 def cmd_crawl(args) -> int:
     from .crawler import Crawler
 
     cfg = _config(args)
+    lock = _locked_or_exit(args.data)
+    if lock is None:
+        return EXIT_LOCKED
     setup_logging(args.data, args.verbose)
+    _windows_console_setup()
+    _warn_onedrive(args.data)
     log.info("azbyka-reserv %s: данные в %s", __version__, os.path.abspath(args.data))
     c = Crawler(cfg, args.data)
-    _auto_relink(c, cfg)
     _keep_awake(True)
     try:
+        try:
+            _auto_relink(c, cfg)
+        except KeyboardInterrupt:
+            log.info("Разбор прерван — продолжится при следующем запуске.")
+            return EXIT_INTERRUPTED
+        if c.stop.is_set():
+            return EXIT_INTERRUPTED
         c.run(max_seconds=args.max_minutes * 60 if args.max_minutes else 0)
     finally:
         _keep_awake(False)
     counts = c.store.counts()
     log.info("Итог: %s. Причина остановки: %s", counts, c.stop_reason or "—")
     queued = counts.get("queued", 0)
-    # 0 — всё скачано; 3 — осталось в очереди (обёртка перезапустит);
-    # 4 — мало места на диске; 130 — остановлено пользователем
     if c.stop_reason.startswith("мало места"):
-        return 4
+        return EXIT_DISK
+    if c.stop_reason.startswith("tls"):
+        return EXIT_TLS
     if c.stop_reason.startswith("прервано"):
-        return 130
-    return 0 if queued == 0 and c.stop_reason.startswith("очередь пуста") else 3
+        return EXIT_INTERRUPTED
+    return EXIT_DONE if queued == 0 and c.stop_reason.startswith("очередь пуста") else EXIT_MORE
 
 
 def _auto_relink(c, cfg) -> None:
-    """Если обновилась программа или настройки — один раз заново разобрать
-    уже скачанные страницы по новым правилам (без обращения к сайту)."""
-    import hashlib
-    import json
+    """Если изменились правила допуска ссылок (новая версия программы или
+    настроек) — заново разобрать уже скачанное, без обращения к сайту.
+    Разбор продолжается с места остановки, если его прервали."""
+    from .crawler import EXTRACT_VERSION
 
-    sig = hashlib.sha1((__version__ + json.dumps(cfg.raw, sort_keys=True, ensure_ascii=False)).encode()).hexdigest()
+    sig = EXTRACT_VERSION + ":" + cfg.admission_signature()
     old = c.store.get_meta("rules_sig")
-    if old is not None and old != sig:
-        done = c.store.query("SELECT COUNT(*) FROM urls WHERE status='done'")[0][0]
-        if done:
-            log.info("Программа или настройки обновились — разбираем скачанное (%d) по новым правилам…", done)
-            c.store.reset_active()
-            c.relink()
-    c.store.set_meta("rules_sig", sig)
+    pending = c.store.get_meta("relink_target")
+    if old is None and pending is None:
+        c.store.set_meta("rules_sig", sig)  # первый запуск — разбирать нечего
+        return
+    if old == sig and pending is None:
+        return
+    if pending != sig:
+        c.store.set_meta("relink_target", sig)
+        c.store.del_meta("relink_pos")
+    done = c.store.query("SELECT COUNT(*) FROM urls WHERE status='done'")[0][0]
+    if done:
+        log.info("Правила обхода изменились — разбираем уже скачанное (%d записей) по новым правилам. "
+                 "Это без интернета; можно прервать — продолжится с того же места.", done)
+        c.store.reset_active()
+        try:
+            c.relink(resume_key="relink_pos")
+        except KeyboardInterrupt:
+            c.stop.set()
+            raise
+    if not c.stop.is_set():
+        c.store.set_meta("rules_sig", sig)
+        c.store.del_meta("relink_target")
+        c.store.del_meta("relink_pos")
 
 
 def _keep_awake(on: bool) -> None:
@@ -94,10 +135,47 @@ def _keep_awake(on: bool) -> None:
         pass
 
 
+def _windows_console_setup() -> None:
+    """Windows: выключить «режим выделения» консоли (QuickEdit). Иначе один
+    щелчок мышью по окну замораживает вывод — и весь сбор вместе с ним."""
+    if os.name != "nt":
+        return
+    try:
+        import ctypes
+
+        k = ctypes.windll.kernel32
+        h = k.GetStdHandle(-10)  # STD_INPUT_HANDLE
+        mode = ctypes.c_uint()
+        if k.GetConsoleMode(h, ctypes.byref(mode)):
+            ENABLE_QUICK_EDIT, ENABLE_EXTENDED_FLAGS = 0x0040, 0x0080
+            k.SetConsoleMode(h, (mode.value & ~ENABLE_QUICK_EDIT) | ENABLE_EXTENDED_FLAGS)
+    except Exception:  # noqa: BLE001
+        pass
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(errors="replace")  # не падать на символах, которых нет в кодировке консоли
+        except Exception:  # noqa: BLE001
+            pass
+
+
+def _warn_onedrive(data_dir: str) -> None:
+    path = os.path.normcase(os.path.abspath(data_dir))
+    for var in ("OneDrive", "OneDriveConsumer", "OneDriveCommercial"):
+        od = os.environ.get(var)
+        if od and path.startswith(os.path.normcase(os.path.abspath(od))):
+            log.warning("ВНИМАНИЕ: папка архива внутри OneDrive (%s). Терабайты будут выгружаться в облако, "
+                        "а файлы — блокироваться синхронизацией. Лучше указать отдельный диск, "
+                        "например: zapusk.bat D:\\azbyka", od)
+            return
+
+
 def cmd_relink(args) -> int:
     from .crawler import Crawler
 
     cfg = _config(args)
+    lock = _locked_or_exit(args.data)
+    if lock is None:
+        return EXIT_LOCKED
     setup_logging(args.data, args.verbose)
     c = Crawler(cfg, args.data)
     c.store.reset_active()

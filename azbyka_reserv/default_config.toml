@@ -19,7 +19,7 @@ https_hosts = ["azbyka.ru"]
 drop_params = [
   "utm_*", "fbclid", "gclid", "yclid", "ysclid", "_ga", "_gl", "_openstat", "mc_cid", "mc_eid",
   "replytocom", "share", "amp", "from_widget", "ref", "_", "msclkid", "the_url", "nowprocket",
-  "_wpnonce", "content_only",
+  "_wpnonce", "content_only", "sid", "PHPSESSID",
   # метки версий у стилей/скриптов/файлов: ?ver=5.1, ?v=4.4 — один и тот же файл
   "ver", "v",
 ]
@@ -209,6 +209,7 @@ date_filter_patterns = [
   '^https://azbyka\.ru/worships/',
   '^https://azbyka\.ru/biblia/days/',
   '^https://azbyka\.ru/bogosluzhebnye-ukazaniya',
+  '^https://azbyka\.ru/kliros/for-date',
 ]
 # Страницы календаря на каждый день диапазона (ближайшие к сегодняшнему — первыми).
 seed_days = true
@@ -242,8 +243,10 @@ seed_date_templates = [
   { template = "https://azbyka.ru/bogosluzhebnye-ukazaniya?date={date}", from = "2020-01-01", to = "2035-12-31", priority = 40 },
 ]
 
-# Если сеть пропала (много ошибок подряд) — пауза в секундах и повтор.
+# Если сеть пропала (главный сайт не отвечает) — пауза в секундах и повтор.
 pause_on_network_error = 300
+# Неудачный адрес повторяется через 30 с, 60 с, 2 мин… (до часа), остальные идут своим чередом.
+retry_backoff = 30
 
 [peertube]
 # Собственный видеосервер портала (6 267 роликов, ~3 000 часов). Ролики
@@ -259,14 +262,18 @@ default_priority = 50
 
 # Не обходить (регулярные выражения по полному URL).
 exclude = [
-  # форумы: пользовательский контент и персональные данные (включить можно в своём конфиге)
-  '^https://azbyka\.ru/(forum|detforum|duhovnikforum|zdorovie/forum|palomnik/forum)(/|$)',
+  # форумы всех разделов: пользовательский контент и персональные данные
+  # (включить можно в своём конфиге)
+  '^https://azbyka\.ru/([^/]+/)?(forum|detforum|duhovnikforum)(/|$)',
   # знакомства
   '^https://azbyka\.ru/znakomstva',
   # служебные поддомены: счётчики, всплывающие подсказки
   '^https?://(stat|ajax)\.azbyka\.ru/',
-  # вход/регистрация/выход/личный кабинет — особенно важно при работе с куками
-  '(?i)/(login|logout|log-out|signin|sign-in|signup|sign-up|register|registration|lostpassword|password-reset|auth|oauth|account|profile|personal|cabinet|lk|my-account|cart|checkout|basket|favorites)(/|\?|$)',
+  # вход/регистрация/выход/личный кабинет — особенно важно при работе с куками.
+  # Без (?i) и без коротких слов: иначе задело бы, например, /Lk/ (Евангелие от Луки).
+  '^https://azbyka\.ru/(auth|lk|account|cabinet|personal)(/|\?|$)',
+  '/(login|logout|log-out|signin|sign-in|signup|sign-up|register|registration|lostpassword|password-reset|oauth|my-account|cart|checkout|basket)(/|\?|$)',
+  '/(personal|profile|favorites)(/|\?|$)',
   '(?i)wp-login\.php|/wp-admin/|xmlrpc\.php|/wp-json/|/wp-cron\.php|admin-ajax\.php',
   '(?i)[?&](action=logout|logout=|do=logout)',
   # поиск и фильтры-ловушки
@@ -401,7 +408,7 @@ value = 150000
 pattern = '^https://azbyka\.ru/days/'
 value = 30000
 [[query_cap]]
-pattern = '^https://azbyka\.ru/(worships/|bogosluzhebnye-ukazaniya)'
+pattern = '^https://azbyka\.ru/(worships/|bogosluzhebnye-ukazaniya|kliros/for-date)'
 value = 200000
 [[query_cap]]  # постраничный список роликов PeerTube
 pattern = '^https://tube\.azbyka\.ru/api/'

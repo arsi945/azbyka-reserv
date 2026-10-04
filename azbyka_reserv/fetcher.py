@@ -3,11 +3,16 @@
 from __future__ import annotations
 
 import email.message
+import email.utils
 import gzip
 import hashlib
 import http.client
 import http.cookiejar
+import io
+import json
+import logging
 import os
+import re
 import socket
 import ssl
 import threading
@@ -18,7 +23,18 @@ import zlib
 from dataclasses import dataclass, field
 from urllib.parse import unquote
 
+log = logging.getLogger("azbyka_reserv")
+
 CHUNK = 256 * 1024
+MAX_RETRY_AFTER = 900.0
+
+# Типы, которые имеет смысл держать в памяти и разбирать на ссылки.
+TEXTUAL_CTYPES = (
+    "text/", "application/xhtml+xml", "application/xml", "application/json", "application/ld+json",
+    "application/javascript", "application/x-javascript", "audio/x-mpegurl", "audio/mpegurl",
+    "application/vnd.apple.mpegurl", "application/x-mpegurl", "application/rss+xml", "application/atom+xml",
+    "application/x-gzip", "application/gzip",
+)
 
 
 class RateLimiter:
@@ -46,9 +62,10 @@ class RateLimiter:
                     self._next = now + self.min_delay
                     return
                 delay = start - now
-            if stop is not None and stop.wait(min(delay, 1.0)):
-                return
-            elif stop is None:
+            if stop is not None:
+                if stop.wait(min(delay, 1.0)):
+                    return
+            else:
                 time.sleep(min(delay, 1.0))
 
 
@@ -91,7 +108,7 @@ class Response:
     filename: str | None = None
     length: int | None = None
     body: bytes | None = None  # для страниц (в памяти)
-    tmp_path: str | None = None  # для потоковых файлов
+    tmp_path: str | None = None  # тело записано в файл (большое/двоичное)
     size: int = 0
     sha1: str = ""
     partial_resumed: bool = False
@@ -99,36 +116,133 @@ class Response:
 
 
 class FetchError(Exception):
-    def __init__(self, msg: str, retryable: bool = True, status: int | None = None) -> None:
+    """kind: network | tls | truncated | toolarge | stopped | other"""
+
+    def __init__(self, msg: str, retryable: bool = True, status: int | None = None, kind: str = "other") -> None:
         super().__init__(msg)
         self.retryable = retryable
         self.status = status
+        self.kind = kind
 
 
-def _disposition_filename(value: str | None) -> str | None:
+def _fix_mojibake(s: str) -> str:
+    """UTF-8, ошибочно прочитанный как latin-1 (частая беда заголовков)."""
+    try:
+        return s.encode("latin-1").decode("utf-8")
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        return s
+
+
+def disposition_filename(value: str | None) -> str | None:
+    """Имя файла из Content-Disposition; filename* (RFC 5987/2231) важнее filename."""
     if not value:
         return None
     msg = email.message.Message()
     msg["content-disposition"] = value
-    name = msg.get_filename()
-    if name:
-        # get_filename раскрывает RFC 2231 (filename*=UTF-8''...)
-        try:
-            # некоторые серверы шлют UTF-8 байты в latin-1
-            fixed = name.encode("latin-1").decode("utf-8")
-            name = fixed
-        except (UnicodeEncodeError, UnicodeDecodeError):
-            pass
-        name = unquote(name).replace("\\", "/").rsplit("/", 1)[-1].strip()
-        return name or None
-    return None
+    params = msg.get_params(header="content-disposition") or []
+    star = plain = None
+    for k, v in params[1:]:
+        k = k.lower()
+        if k == "filename":
+            if isinstance(v, tuple):  # RFC 2231 (filename*=charset''...)
+                star = email.utils.collapse_rfc2231_value(v)
+            else:
+                plain = v
+        elif k == "filename*":
+            raw = v if isinstance(v, str) else email.utils.collapse_rfc2231_value(v)
+            m = re.match(r"(?i)([\w-]+)''(.*)", raw)
+            if m:
+                try:
+                    star = unquote(m.group(2), encoding=m.group(1))
+                except LookupError:
+                    star = unquote(m.group(2))
+            else:
+                star = unquote(raw)
+    name = star or plain
+    if not name:
+        return None
+    if star is None:
+        name = _fix_mojibake(unquote(name))
+    name = name.replace("\\", "/").rsplit("/", 1)[-1].strip().strip('"')
+    if not name or set(name.rsplit(".", 1)[0]) <= {"_", ".", "-", " ", "?"}:
+        return None  # ASCII-заглушка вроде «____.pdf» бесполезна — возьмём имя из URL
+    return name
+
+
+def parse_retry_after(value: str | None) -> float | None:
+    if not value:
+        return None
+    value = value.strip()
+    if value.isdigit():
+        return min(float(value), MAX_RETRY_AFTER)
+    try:
+        dt = email.utils.parsedate_to_datetime(value)
+    except (TypeError, ValueError):
+        return None
+    if dt is None:
+        return None
+    return max(0.0, min(dt.timestamp() - time.time(), MAX_RETRY_AFTER))
 
 
 def load_cookies(path: str) -> http.cookiejar.CookieJar:
+    """cookies.txt (Netscape). Сессионные куки (expires=0) тоже отправляются;
+    BOM в начале файла (выгрузка из Windows-редакторов) допускается."""
     jar = http.cookiejar.MozillaCookieJar()
-    if path:
-        jar.load(path, ignore_discard=True, ignore_expires=True)
+    if not path:
+        return jar
+    try:
+        with open(path, encoding="utf-8-sig", errors="replace") as f:
+            text = f.read()
+    except OSError as e:
+        log.error("Не удалось прочитать файл кук %s: %s — продолжаю без них", path, e)
+        return jar
+    if not text.lstrip().startswith("#"):
+        text = "# Netscape HTTP Cookie File\n" + text
+    try:
+        jar._really_load(io.StringIO(text), path, ignore_discard=True, ignore_expires=True)  # noqa: SLF001
+    except (http.cookiejar.LoadError, ValueError) as e:
+        log.error("Файл кук %s в неверном формате (%s) — продолжаю без них. Нужен формат Netscape cookies.txt.", path, e)
+        return jar
+    for c in jar:
+        if not c.expires:  # 0 или None: сессионная кука из браузера
+            c.expires = None
+            c.discard = False
+    log.info("Загружено кук: %d", len(jar))
     return jar
+
+
+def make_ssl_context() -> ssl.SSLContext:
+    """Проверка сертификатов через системное хранилище.
+
+    На Windows лучше всего работает пакет truststore (использует проверку самой
+    Windows, с подгрузкой корневых сертификатов). Если он не установлен — обычный
+    контекст Python плюс набор certifi, если он есть.
+    """
+    try:
+        import truststore  # type: ignore
+
+        return truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+    except Exception:  # noqa: BLE001
+        pass
+    ctx = ssl.create_default_context()
+    try:
+        import certifi  # type: ignore
+
+        ctx.load_verify_locations(certifi.where())
+    except Exception:  # noqa: BLE001
+        pass
+    return ctx
+
+
+_NET_EXC = (urllib.error.URLError, socket.timeout, TimeoutError, ConnectionError, http.client.HTTPException,
+            ssl.SSLError, OSError)
+
+
+def _wrap_net_error(e: BaseException, where: str) -> FetchError:
+    reason = getattr(e, "reason", e)
+    if isinstance(reason, ssl.SSLCertVerificationError) or isinstance(e, ssl.SSLCertVerificationError):
+        return FetchError(f"tls-cert: {reason!r}", retryable=True, kind="tls")
+    return FetchError(f"network{where}: {reason!r}", retryable=True, kind="network")
 
 
 class Fetcher:
@@ -145,10 +259,9 @@ class Fetcher:
         self.limiter = limiter
         self.bandwidth = bandwidth or Bandwidth(0)
         self.jar = load_cookies(cookies_file)
-        ctx = ssl.create_default_context()
         self.opener = urllib.request.build_opener(
             urllib.request.HTTPCookieProcessor(self.jar),
-            urllib.request.HTTPSHandler(context=ctx),
+            urllib.request.HTTPSHandler(context=make_ssl_context()),
             _NoRedirect(),
         )
 
@@ -165,6 +278,8 @@ class Fetcher:
     def open(self, url: str, headers: dict[str, str] | None = None, stop: threading.Event | None = None):
         """Открывает URL. Возвращает (status, headers, fp|None). Ошибки сети -> FetchError."""
         self.limiter.wait(stop)
+        if stop is not None and stop.is_set():
+            raise FetchError("остановлено пользователем", kind="stopped")
         req = self._request(url, headers or {})
         try:
             fp = self.opener.open(req, timeout=self.timeout)
@@ -178,123 +293,215 @@ class Fetcher:
                 pass
             e.close()
             return status, hdrs, None
-        except (urllib.error.URLError, socket.timeout, TimeoutError, ConnectionError, http.client.HTTPException, ssl.SSLError, OSError) as e:
-            reason = getattr(e, "reason", e)
-            raise FetchError(f"network: {reason!r}") from e
+        except _NET_EXC as e:
+            raise _wrap_net_error(e, "") from e
 
-    def _decoder(self, headers):
+    @staticmethod
+    def _decoder(headers):
         enc = (headers.get("Content-Encoding") or "").strip().lower()
-        if enc == "gzip" or enc == "x-gzip":
+        if enc in ("gzip", "x-gzip"):
             return zlib.decompressobj(16 + zlib.MAX_WBITS)
         if enc == "deflate":
             return zlib.decompressobj()
         return None
+
+    @staticmethod
+    def _textual(ctype: str) -> bool:
+        base = (ctype or "").split(";", 1)[0].strip().lower()
+        return not base or base.startswith(TEXTUAL_CTYPES)
 
     def get(
         self,
         url: str,
         *,
         to_file: str | None = None,
+        spill_file: str | None = None,
         max_memory: int = 30 * 1024 * 1024,
         max_size: int = 0,
         etag: str | None = None,
         last_modified: str | None = None,
         stop: threading.Event | None = None,
     ) -> Response:
-        """GET. Если задан ``to_file`` — пишет потоково в ``to_file`` (с докачкой
-        по Range, если файл уже частично скачан); иначе тело в памяти."""
+        """GET.
+
+        * ``to_file`` — писать тело в этот файл (тяжёлые файлы), с докачкой по
+          Range, если файл уже частично скачан и сервер подтверждает, что файл
+          не изменился (If-Range).
+        * иначе тело читается в память; если же ответ двоичный или больше
+          ``max_memory``, а задан ``spill_file`` — оно сбрасывается в этот файл
+          (``Response.tmp_path``), а не теряется.
+        """
         headers: dict[str, str] = {}
         if etag:
             headers["If-None-Match"] = etag
         if last_modified:
             headers["If-Modified-Since"] = last_modified
         resume_from = 0
+        part_meta: dict = {}
         if to_file and os.path.exists(to_file):
             resume_from = os.path.getsize(to_file)
-            if resume_from > 0:
+            part_meta = _read_part_meta(to_file)
+            validator = part_meta.get("etag") or part_meta.get("last_modified")
+            if resume_from > 0 and validator:
                 headers["Range"] = f"bytes={resume_from}-"
+                headers["If-Range"] = validator
                 headers["Accept-Encoding"] = "identity"
+            else:
+                resume_from = 0  # без валидатора докачка небезопасна — заново
         status, hdrs, fp = self.open(url, headers, stop)
         resp = Response(url=url, status=status, headers=hdrs)
         resp.ctype = hdrs.get("Content-Type", "") if hdrs else ""
         if status in (301, 302, 303, 307, 308):
-            resp.location = hdrs.get("Location") if hdrs else None
+            loc = hdrs.get("Location") if hdrs else None
+            resp.location = _fix_mojibake(loc) if loc else None
             return resp
         if fp is None:
+            if status == 416 and hdrs is not None:
+                m = re.match(r"bytes \*/(\d+)", hdrs.get("Content-Range") or "")
+                if m:
+                    resp.extra["total"] = int(m.group(1))
             return resp
         try:
-            resp.filename = _disposition_filename(hdrs.get("Content-Disposition"))
+            resp.filename = disposition_filename(hdrs.get("Content-Disposition"))
             cl = hdrs.get("Content-Length")
-            resp.length = int(cl) if cl and cl.isdigit() else None
-            if max_size and resp.length and resp.length + resume_from > max_size:
-                raise FetchError(f"файл больше лимита: {resp.length} байт", retryable=False)
+            resp.length = int(cl) if cl and cl.strip().isdigit() else None
             dec = self._decoder(hdrs)
-            if to_file is None:
-                resp.body = self._read_memory(fp, dec, max_memory, stop)
-                resp.size = len(resp.body)
-                resp.sha1 = hashlib.sha1(resp.body).hexdigest()
+            if to_file is not None:
+                if status == 206:
+                    m = re.match(r"bytes (\d+)-(\d+)/(\d+|\*)", hdrs.get("Content-Range") or "")
+                    if not m or int(m.group(1)) != resume_from:
+                        raise FetchError("сервер вернул не тот кусок файла — начнём заново", kind="truncated")
+                    start = resume_from
+                else:
+                    start = 0  # 200: файл целиком (в т.ч. если он изменился)
+                total = (resp.length + start) if resp.length is not None else None
+                if max_size and total and total > max_size:
+                    raise FetchError(f"файл больше лимита: {total} байт", retryable=False, kind="toolarge")
+                _write_part_meta(to_file, {"etag": hdrs.get("ETag"), "last_modified": hdrs.get("Last-Modified"),
+                                           "total": total})
+                self._read_to_file(fp, dec, to_file, resp, start, max_size, stop)
             else:
-                self._read_to_file(fp, dec, to_file, resp, resume_from if status == 206 else 0, max_size, stop)
+                big = resp.length is not None and resp.length > max_memory
+                if spill_file and (big or not self._textual(resp.ctype)):
+                    self._read_to_file(fp, dec, spill_file, resp, 0, max_size, stop)
+                    resp.tmp_path = spill_file
+                else:
+                    resp.body = self._read_memory(fp, dec, max_memory, stop, spill_file, resp, max_size)
+                    if resp.body is not None:
+                        resp.size = len(resp.body)
+                        resp.sha1 = hashlib.sha1(resp.body).hexdigest()
         finally:
             fp.close()
         return resp
 
-    def _read_memory(self, fp, dec, max_memory: int, stop) -> bytes:
+    def _check_complete(self, fp, dec) -> None:
+        left = getattr(fp, "length", None)
+        if left:  # http.client уменьшает length по мере чтения: остаток = недополучено
+            raise FetchError(f"обрыв: недополучено {left} байт", kind="truncated")
+        if dec is not None and not dec.eof:
+            raise FetchError("обрыв: сжатые данные не завершены", kind="truncated")
+
+    def _read_chunk(self, fp, dec) -> bytes:
+        try:
+            data = fp.read(CHUNK)
+        except _NET_EXC as e:
+            raise _wrap_net_error(e, " read") from e
+        if data and dec is not None:
+            try:
+                data = dec.decompress(data)
+            except zlib.error as e:
+                raise FetchError(f"обрыв: повреждённое сжатие ({e})", kind="truncated") from e
+        return data
+
+    def _read_memory(self, fp, dec, max_memory: int, stop, spill_file, resp, max_size) -> bytes | None:
         chunks: list[bytes] = []
         total = 0
         while True:
             if stop is not None and stop.is_set():
-                raise FetchError("остановлено пользователем")
-            try:
-                data = fp.read(CHUNK)
-            except (socket.timeout, TimeoutError, ConnectionError, http.client.HTTPException, ssl.SSLError, OSError) as e:
-                raise FetchError(f"network read: {e!r}") from e
+                raise FetchError("остановлено пользователем", kind="stopped")
+            data = self._read_chunk(fp, dec)
             if not data:
                 break
-            if dec is not None:
-                data = dec.decompress(data)
             chunks.append(data)
             total += len(data)
             self.bandwidth.consume(len(data))
             if total > max_memory:
-                raise FetchError(f"страница больше {max_memory} байт", retryable=False, status=413)
+                if not spill_file:
+                    raise FetchError(f"страница больше {max_memory} байт", retryable=False, status=413, kind="toolarge")
+                # слишком большое для памяти — дописываем в файл, ничего не теряя
+                os.makedirs(os.path.dirname(spill_file) or ".", exist_ok=True)
+                with open(spill_file, "wb") as out:
+                    for c in chunks:
+                        out.write(c)
+                chunks = []
+                self._read_to_file(fp, dec, spill_file, resp, total, max_size, stop, append=True)
+                resp.tmp_path = spill_file
+                return None
         if dec is not None:
             chunks.append(dec.flush())
+        self._check_complete(fp, dec)
         return b"".join(chunks)
 
-    def _read_to_file(self, fp, dec, path: str, resp: Response, resume_from: int, max_size: int, stop) -> None:
-        mode = "ab" if resume_from > 0 else "wb"
-        resp.partial_resumed = resume_from > 0
-        expected = (resp.length + resume_from) if resp.length is not None and dec is None else None
+    def _read_to_file(self, fp, dec, path: str, resp: Response, resume_from: int, max_size: int, stop,
+                      append: bool = False) -> None:
+        mode = "ab" if (resume_from > 0) else "wb"
+        resp.partial_resumed = resume_from > 0 and not append
         written = resume_from
         os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
         with open(path, mode) as out:
             while True:
                 if stop is not None and stop.is_set():
-                    raise FetchError("остановлено пользователем (файл докачается при следующем запуске)")
-                try:
-                    data = fp.read(CHUNK)
-                except (socket.timeout, TimeoutError, ConnectionError, http.client.HTTPException, ssl.SSLError, OSError) as e:
-                    raise FetchError(f"network read: {e!r}") from e
+                    raise FetchError("остановлено пользователем (файл докачается при следующем запуске)", kind="stopped")
+                data = self._read_chunk(fp, dec)
                 if not data:
                     break
-                if dec is not None:
-                    data = dec.decompress(data)
                 out.write(data)
                 written += len(data)
                 self.bandwidth.consume(len(data))
                 if max_size and written > max_size:
-                    raise FetchError(f"файл больше лимита {max_size} байт", retryable=False)
+                    raise FetchError(f"файл больше лимита {max_size} байт", retryable=False, kind="toolarge")
             if dec is not None:
                 out.write(dec.flush())
-        if expected is not None and written != expected:
-            raise FetchError(f"обрыв: получено {written} из {expected} байт")
-        resp.size = written
-        h = hashlib.sha1()
-        with open(path, "rb") as f:
-            for block in iter(lambda: f.read(1024 * 1024), b""):
-                h.update(block)
-        resp.sha1 = h.hexdigest()
+        self._check_complete(fp, dec)
+        resp.size = os.path.getsize(path)
+        resp.sha1 = file_sha1(path)
+
+
+def file_sha1(path: str) -> str:
+    h = hashlib.sha1()
+    with open(path, "rb") as f:
+        for block in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+def _part_meta_path(path: str) -> str:
+    return path + ".json"
+
+
+def _read_part_meta(path: str) -> dict:
+    try:
+        with open(_part_meta_path(path), encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
+
+
+def _write_part_meta(path: str, meta: dict) -> None:
+    try:
+        os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+        with open(_part_meta_path(path), "w", encoding="utf-8") as f:
+            json.dump(meta, f)
+    except OSError:
+        pass
+
+
+def remove_partial(path: str) -> None:
+    for p in (path, _part_meta_path(path)):
+        try:
+            os.remove(p)
+        except OSError:
+            pass
 
 
 def maybe_gunzip(body: bytes, url: str, ctype: str) -> bytes:

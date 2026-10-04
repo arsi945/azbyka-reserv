@@ -93,32 +93,35 @@ def print_status(data_dir: str, by: str = "section", top: int = 40) -> None:
 
 
 def verify_files(data_dir: str, fix: bool = False) -> int:
-    conn = _open(data_dir)
+    from .store import Store
+
+    st = Store(os.path.join(data_dir, "state.sqlite"))
     mirror = os.path.join(data_dir, "mirror")
-    missing = 0
-    bad_size = 0
-    checked = 0
+    missing = bad_size = checked = 0
     to_requeue: list[int] = []
-    for r in conn.execute("SELECT id, url, path, size FROM urls WHERE status='done' AND path IS NOT NULL"):
+    # порциями: длинный курсор не дал бы журналу SQLite сбрасываться
+    for r in st.iter_chunks("id, path, size", "status='done' AND path IS NOT NULL"):
         checked += 1
-        p = mirror_file(mirror, r["path"])
         try:
-            st = os.stat(p)
+            size = os.stat(mirror_file(mirror, r["path"])).st_size
         except OSError:
             missing += 1
             to_requeue.append(r["id"])
             continue
-        if r["size"] is not None and st.st_size != r["size"]:
+        if r["size"] is not None and size != r["size"]:
             bad_size += 1
             to_requeue.append(r["id"])
+        if checked % 100000 == 0:
+            print(f"  проверено {checked}…")
     print(f"Проверено файлов: {checked}; нет на диске: {missing}; размер не совпал: {bad_size}")
     if fix and to_requeue:
-        for i in range(0, len(to_requeue), 500):
-            chunk = to_requeue[i : i + 500]
-            conn.execute(
-                "UPDATE urls SET status='queued', tries=0, etag=NULL, last_modified=NULL WHERE id IN (%s)"
-                % ",".join("?" * len(chunk)), chunk,
-            )
-        conn.commit()
-        print(f"Поставлено на перекачку: {len(to_requeue)}. Запустите crawl.")
+        with st.tx() as c:
+            for i in range(0, len(to_requeue), 500):
+                chunk = to_requeue[i : i + 500]
+                c.execute(
+                    "UPDATE urls SET status='queued', tries=0, next_try_at=0, etag=NULL, last_modified=NULL"
+                    " WHERE id IN (%s)" % ",".join("?" * len(chunk)), chunk,
+                )
+        print(f"Поставлено на перекачку: {len(to_requeue)}. Запустите сбор (zapusk.bat).")
+    st.close()
     return 0 if not to_requeue else 1

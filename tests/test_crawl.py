@@ -19,7 +19,7 @@ def make_cfg(site: Site, **crawl):
             "sitemap_urls": [],
         },
         "crawl": {
-            "page_workers": 2, "media_workers": 1, "min_delay": 0.0, "timeout": 5, "max_tries": 3,
+            "page_workers": 2, "media_workers": 1, "min_delay": 0.0, "timeout": 5, "max_tries": 3, "retry_backoff": 0.2,
             "seed_days": False, "seed_date_templates": [], "min_free_gb": 0, "respect_robots": True, "apply_clean_param": True,
             "date_filter_patterns": [r"/days/"], "query_variants_cap": 3, "pause_on_network_error": 1,
             **crawl,

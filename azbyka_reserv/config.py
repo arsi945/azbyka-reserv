@@ -106,6 +106,8 @@ class Config:
         # элементы: строка-шаблон или таблица {template, from, to, priority}
         self.seed_date_templates: list = crawl.get("seed_date_templates", [])
         self.pause_on_network_error: float = float(crawl.get("pause_on_network_error", 300))
+        # первый повтор неудачного адреса — через N секунд, дальше вдвое дольше (до часа)
+        self.retry_backoff: float = float(crawl.get("retry_backoff", 30))
 
         pt = r.get("peertube", {})
         self.peertube_hosts: list[str] = pt.get("hosts", [])
@@ -176,7 +178,12 @@ class Config:
         return url
 
     def date_filtered(self, url: str) -> bool:
-        """True — URL календарного типа с датой вне [date_from, date_to]."""
+        """True — календарный URL с датой вне [date_from, date_to].
+
+        Учитываются только явные даты (ГГГГ-ММ-ДД в пути или ?date=…) и год
+        календаря (/calendar/ГГГГ). Четырёхзначные номера папок (иконы
+        /icons-of-saints/1851/…) датами не считаются.
+        """
         if not any(rx.search(url) for rx in self.date_filter_rx):
             return False
         for m in _DATE_RE.finditer(url):
@@ -186,15 +193,40 @@ class Config:
                 continue
             if d < self.date_from or d > self.date_to:
                 return True
-        for m in _YEAR_SEG_RE.finditer(url):
+        for m in _CAL_YEAR_RE.finditer(url):
             y = int(m.group(1))
             if y < self.date_from.year or y > self.date_to.year:
                 return True
         return False
 
+    def admission_signature(self) -> str:
+        """Отпечаток настроек, от которых зависит, какие ссылки попадут в очередь.
 
-_DATE_RE = re.compile(r"(?<!\d)((?:1[6-9]|2\d)\d\d)[-./]?(0[1-9]|1[0-2])[-./]?(0[1-9]|[12]\d|3[01])(?!\d)")
-_YEAR_SEG_RE = re.compile(r"[/=]((?:1[6-9]|2\d)\d\d)(?=/|$|&|\?)")
+        Скорость, потоки, таймауты и т.п. сюда не входят: их изменение не
+        требует заново разбирать уже скачанные страницы.
+        """
+        import hashlib
+        import json
+
+        r = self.raw
+        crawl = r.get("crawl", {})
+        keys = ("respect_robots", "robots_scope", "robots_override", "apply_clean_param", "login_required",
+                "date_from", "date_to", "date_filter_patterns", "external_assets", "asset_host_blocklist",
+                "embed_hosts", "max_depth", "query_variants_cap")
+        sub = {
+            "site": {k: v for k, v in r.get("site", {}).items() if k not in ("start_urls", "sitemap_urls")},
+            "crawl": {k: crawl.get(k) for k in keys},
+            "has_cookies": bool(crawl.get("cookies_file")),
+            "rules": r.get("rules"), "priority": r.get("priority"), "query_cap": r.get("query_cap"),
+            "rewrite": r.get("rewrite"), "variants": r.get("variants"), "peertube": r.get("peertube"),
+        }
+        return hashlib.sha1(json.dumps(sub, sort_keys=True, ensure_ascii=False, default=str).encode()).hexdigest()
+
+
+_DATE_RE = re.compile(
+    r"(?:(?<=/)|(?<=[?&]date=))((?:1[6-9]|2\d)\d\d)-(0?[1-9]|1[0-2])-(0?[1-9]|[12]\d|3[01])(?![\d])"
+)
+_CAL_YEAR_RE = re.compile(r"/calendar/((?:1[6-9]|2\d)\d\d)(?=/|$|\?)")
 
 
 def load_config(user_path: str | None = None, overrides: dict[str, Any] | None = None) -> Config:

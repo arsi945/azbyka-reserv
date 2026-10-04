@@ -35,3 +35,32 @@ def human_bytes(n: float) -> str:
             return f"{n:.1f} {unit}" if unit != "Б" else f"{int(n)} {unit}"
         n /= 1024
     return f"{n:.1f} ТБ"
+
+
+def acquire_lock(data_dir: str):
+    """Исключительная блокировка папки архива (один сбор на папку).
+
+    Возвращает открытый файл-замок (держать до конца работы) или None, если
+    папку уже использует другой процесс. Блокировку снимает ОС при выходе.
+    """
+    os.makedirs(data_dir, exist_ok=True)
+    path = os.path.join(data_dir, ".lock")
+    f = open(path, "a+")
+    try:
+        if IS_WINDOWS:
+            import msvcrt
+
+            f.seek(0)
+            msvcrt.locking(f.fileno(), msvcrt.LK_NBLCK, 1)
+        else:
+            import fcntl
+
+            fcntl.flock(f.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        f.close()
+        return None
+    _HELD_LOCKS.append(f)
+    return f
+
+
+_HELD_LOCKS: list = []
