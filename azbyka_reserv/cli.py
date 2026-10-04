@@ -127,7 +127,7 @@ def cmd_probe(args) -> int:
 def cmd_serve(args) -> int:
     from .serve import serve
 
-    serve(args.data, host=args.host, port=args.port)
+    serve(args.data, host=args.host, port=args.port, cfg=_config(args))
     return 0
 
 
@@ -204,7 +204,7 @@ def main(argv: list[str] | None = None) -> int:
     sp.set_defaults(func=cmd_probe)
 
     sp = sub.add_parser("serve", help="офлайн-просмотр архива в браузере (http://localhost:8080)")
-    common(sp, config=False)
+    common(sp)
     sp.add_argument("--host", default="127.0.0.1", help="0.0.0.0 — раздавать по локальной сети/Wi-Fi")
     sp.add_argument("--port", type=int, default=8080)
     sp.set_defaults(func=cmd_serve)

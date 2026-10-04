@@ -171,7 +171,10 @@ class UrlRules:
         query = parts.query
         if query:
             tokens = [t for t in query.split("&") if t]
-            tokens = [_norm_pct(t, _QUERY_SAFE) for t in tokens if self._keep_param(t)]
+            # мусорные параметры убираем только у «своих» хостов: у чужих
+            # (youtube.com/watch?v=…) они могут быть значимыми
+            own = self.host_in_scope(host)
+            tokens = [_norm_pct(t, _QUERY_SAFE) for t in tokens if not own or self._keep_param(t)]
             query = "&".join(tokens)
         canon = urlunsplit((scheme, netloc, path, query, ""))
         if original_host is not None:

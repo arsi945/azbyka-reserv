@@ -36,6 +36,12 @@ def test_normalize_bible_query_preserved():
     assert r.normalize("https://azbyka.ru/biblia/?Mt.1:1&c%7Er")[0] == "https://azbyka.ru/biblia/?Mt.1:1&c~r"
 
 
+def test_drop_params_only_own_hosts():
+    r = UrlRules(scope_hosts=["azbyka.ru"], drop_params=["v", "ver"], https_hosts=["azbyka.ru"])
+    assert r.normalize("https://azbyka.ru/s.css?ver=5.1")[0] == "https://azbyka.ru/s.css"
+    assert r.normalize("https://www.youtube.com/watch?v=abc")[0] == "https://www.youtube.com/watch?v=abc"
+
+
 def test_scope():
     r = rules()
     assert r.in_scope("https://static.azbyka.ru/x.png")
@@ -159,3 +165,34 @@ def test_default_config_rules():
     assert cfg.priority_for("https://azbyka.ru/cerkovnoe-pravo") == 16
     assert cfg.priority_for("https://azbyka.ru/otechnik/x/y.epub") == 8
     assert cfg.query_cap_for("https://azbyka.ru/biblia/?Mt.1") == 400000
+
+
+def test_peertube():
+    from azbyka_reserv import peertube as pt
+
+    assert pt.map_url("https://tube.azbyka.ru/videos/embed/daa1b623-c925-42fa-978e-0a9e5efc60e2") == (
+        "https://tube.azbyka.ru/api/v1/videos/daa1b623-c925-42fa-978e-0a9e5efc60e2", "page")
+    assert pt.map_url("https://tube.azbyka.ru/w/abcDEF123")[0].endswith("/api/v1/videos/abcDEF123")
+    assert pt.map_url("https://tube.azbyka.ru/c/channel/videos") is None
+    assert pt.map_url("https://tube.azbyka.ru/download/videos/x-720.mp4") == ("https://tube.azbyka.ru/download/videos/x-720.mp4", "media")
+    video = {
+        "name": "Фильм",
+        "thumbnailPath": "/lazy-static/thumbnails/a.jpg",
+        "files": [],
+        "streamingPlaylists": [{"files": [
+            {"resolution": {"id": 1080}, "fileDownloadUrl": "https://tube.azbyka.ru/download/streaming-playlists/hls/videos/u-1080-fragmented.mp4"},
+            {"resolution": {"id": 720}, "fileDownloadUrl": "https://tube.azbyka.ru/download/streaming-playlists/hls/videos/u-720-fragmented.mp4"},
+            {"resolution": {"id": 0}, "fileDownloadUrl": "https://tube.azbyka.ru/download/a-0.mp4"},
+        ]}],
+    }
+    import json
+
+    found, title = pt.handle_api("https://tube.azbyka.ru/api/v1/videos/u", json.dumps(video).encode(), 720)
+    assert title == "Фильм"
+    assert ("https://tube.azbyka.ru/download/streaming-playlists/hls/videos/u-720-fragmented.mp4", "media") in found
+    assert not any("1080" in u for u, _ in found)
+    lst = {"total": 120, "data": [{"uuid": "a1b2c3d4"}, {"uuid": "e5f6g7h8"}]}
+    found, _ = pt.handle_api(pt.list_url("https://tube.azbyka.ru", 0), json.dumps(lst).encode(), 720)
+    urls = [u for u, _ in found]
+    assert "https://tube.azbyka.ru/api/v1/videos/a1b2c3d4" in urls
+    assert any("start=50" in u for u in urls)

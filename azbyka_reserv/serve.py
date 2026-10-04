@@ -32,7 +32,8 @@ def _base(ctype: str | None) -> str:
 
 
 class Archive:
-    def __init__(self, data_dir: str, main_origin: str = "https://azbyka.ru", aliases: dict[str, str] | None = None) -> None:
+    def __init__(self, data_dir: str, main_origin: str = "https://azbyka.ru", aliases: dict[str, str] | None = None,
+                 drop_params: list[str] | None = None) -> None:
         self.data_dir = os.path.abspath(data_dir)
         self.mirror = os.path.join(self.data_dir, "mirror")
         self.db_path = os.path.join(self.data_dir, "state.sqlite")
@@ -40,10 +41,17 @@ class Archive:
         mo = urllib.parse.urlsplit(main_origin)
         self.main_scheme = mo.scheme
         self.main_host = mo.netloc.lower()
-        if aliases is None:
-            aliases = {"www.azbyka.ru": "azbyka.ru", "azbyka.org": "azbyka.ru", "www.azbyka.org": "azbyka.ru"}
-        self.aliases = aliases
-        self.rules = UrlRules(scope_hosts=[mo.hostname or ""], host_aliases=self.aliases,
+        if aliases is None or drop_params is None:
+            from .config import load_config
+
+            cfg = load_config()
+            aliases = cfg.host_aliases if aliases is None else aliases
+            drop_params = cfg.drop_params if drop_params is None else drop_params
+        self.aliases = {k.lower(): v.lower() for k, v in aliases.items()}
+        self.peertube_hosts = ["tube.azbyka.ru"]
+        self.peertube_max_height = 720
+        # те же правила нормализации, что и при обходе (иначе ?ver=… не найдётся)
+        self.rules = UrlRules(scope_hosts=[mo.hostname or ""], host_aliases=self.aliases, drop_params=drop_params,
                               https_hosts=[mo.hostname or ""] if mo.scheme == "https" else [])
         self._local = threading.local()
         hosts = set()
@@ -155,6 +163,9 @@ mark{{background:#ffe08a}} table{{border-collapse:collapse}} td{{padding:2px 10p
         if path.startswith(SPECIAL):
             return self._special(path)
         url = a.local_to_url(path)
+        player = self._peertube_player(url)
+        if player is not None:
+            return self._send_bytes(200, "text/html; charset=utf-8", player.encode("utf-8"))
         row = a.lookup(url)
         if row is None:
             orig = html.escape(url)
@@ -199,6 +210,45 @@ mark{{background:#ffe08a}} table{{border-collapse:collapse}} td{{padding:2px 10p
                 body = text.encode("utf-8")
             return self._send_bytes(200, ctype, body, {"Cache-Control": "no-cache"})
         return self._send_file(fpath, ctype, size, row["path"])
+
+    def _peertube_player(self, url: str) -> str | None:
+        """Вместо iframe-плеера PeerTube — простой HTML5-плеер со скачанным файлом."""
+        from . import peertube
+
+        a = self.archive
+        p = urllib.parse.urlsplit(url)
+        if not any(p.hostname == h for h in a.peertube_hosts):
+            return None
+        vid = peertube.video_id(p.path)
+        if not vid or p.path.startswith("/api/"):
+            return None
+        api = a.lookup(peertube.api_url(f"https://{p.netloc}", vid))
+        media_row = None
+        title = "Видео"
+        if api is not None and api["path"]:
+            title = api["title"] or title
+            media_row = a.db().execute(
+                "SELECT * FROM urls WHERE parent_id=? AND kind='media' AND status='done' LIMIT 1", (api["id"],)
+            ).fetchone()
+            if media_row is None:
+                try:
+                    import json
+
+                    with open(mirror_file(a.mirror, api["path"]), "rb") as f:
+                        data = json.loads(f.read().decode("utf-8", "replace"))
+                    title = data.get("name") or title
+                    chosen = peertube.choose_file(data, a.peertube_max_height)
+                    if chosen:
+                        media_row = a.lookup(chosen.get("fileDownloadUrl") or chosen.get("fileUrl"))
+                except (OSError, ValueError):
+                    pass
+        if media_row is None:
+            body = "<p style='color:#fff;font:16px sans-serif;padding:1em'>Это видео ещё не скачано в архив.</p>"
+        else:
+            src = html.escape(a.url_to_local(media_row["url"]))
+            body = f"<video controls preload=metadata style='width:100%;height:100%' src='{src}'></video>"
+        return (f"<!doctype html><html><head><meta charset=utf-8><title>{html.escape(title)}</title></head>"
+                f"<body style='margin:0;background:#000;height:100vh'>{body}</body></html>")
 
     def _send_file(self, fpath: str, ctype: str, size: int, relpath: str) -> None:
         start, end = 0, size - 1
@@ -305,14 +355,18 @@ mark{{background:#ffe08a}} table{{border-collapse:collapse}} td{{padding:2px 10p
 
 
 def make_server(data_dir: str, host: str = "127.0.0.1", port: int = 8080,
-                main_origin: str = "https://azbyka.ru") -> ThreadingHTTPServer:
-    archive = Archive(data_dir, main_origin)
+                main_origin: str = "https://azbyka.ru", cfg=None) -> ThreadingHTTPServer:
+    archive = Archive(data_dir, main_origin,
+                      aliases=cfg.host_aliases if cfg else None, drop_params=cfg.drop_params if cfg else None)
+    if cfg is not None:
+        archive.peertube_hosts = list(cfg.peertube_hosts)
+        archive.peertube_max_height = cfg.peertube_max_height
     handler = type("H", (Handler,), {"archive": archive})
     return ThreadingHTTPServer((host, port), handler)
 
 
-def serve(data_dir: str, host: str = "127.0.0.1", port: int = 8080) -> None:
-    httpd = make_server(data_dir, host, port)
+def serve(data_dir: str, host: str = "127.0.0.1", port: int = 8080, cfg=None) -> None:
+    httpd = make_server(data_dir, host, port, cfg=cfg)
     shown = "localhost" if host in ("127.0.0.1", "0.0.0.0") else host
     print(f"Архив открыт: http://{shown}:{port}/  (служебная страница: http://{shown}:{port}{SPECIAL}/)")
     if host == "0.0.0.0":

@@ -163,13 +163,18 @@ class Store:
             self.conn.execute("INSERT OR REPLACE INTO query_counts(host_path, n) VALUES(?,?)", (host_path, n + 1))
             return True
 
-    def count_skip(self, reason: str, prefix: str, example: str) -> None:
+    def add_skips(self, rows: list[tuple[str, str, int, str]]) -> None:
+        """rows: (reason, prefix, n, example) — накопленные счётчики пропусков."""
+        if not rows:
+            return
         with self.lock:
-            self.conn.execute(
-                "INSERT INTO skipped_stats(reason, prefix, n, example) VALUES(?,?,1,?)"
-                " ON CONFLICT(reason, prefix) DO UPDATE SET n=n+1",
-                (reason, prefix, example),
+            self.conn.execute("BEGIN")
+            self.conn.executemany(
+                "INSERT INTO skipped_stats(reason, prefix, n, example) VALUES(?,?,?,?)"
+                " ON CONFLICT(reason, prefix) DO UPDATE SET n=n+excluded.n",
+                rows,
             )
+            self.conn.execute("COMMIT")
 
     def claim(self, kinds: tuple[str, ...], limit: int) -> list[Task]:
         with self.lock:

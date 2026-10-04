@@ -11,7 +11,7 @@ import time
 from datetime import date, timedelta
 from urllib.parse import urlsplit, urlunsplit
 
-from . import extract
+from . import extract, peertube
 from .config import Config
 from .fetcher import Bandwidth, FetchError, Fetcher, RateLimiter, maybe_gunzip
 from .fsutil import fs_path, human_bytes, mirror_file, write_atomic
@@ -87,6 +87,8 @@ class Crawler:
         self.stats = {"fetched": 0, "bytes": 0, "errors": 0, "new_urls": 0}
         self._stats_lock = threading.Lock()
         self.stop_reason = ""
+        self._skips: dict[tuple[str, str], list] = {}
+        self._skips_lock = threading.Lock()
 
     # ------------------------------------------------------------------ robots
     def robots_for(self, any_url: str) -> Robots:
@@ -152,6 +154,9 @@ class Crawler:
         for origin in sorted(origins):
             for sm in self.robots_for(origin).sitemaps:
                 self._admit_into(rows, sm, None, "sitemap", depth=0, parent=None, parent_priority=None)
+        if self.cfg.peertube_seed_listing:
+            for h in self.cfg.peertube_hosts:
+                self._admit_into(rows, peertube.list_url(f"https://{h}"), None, "page", depth=0, parent=None, parent_priority=None)
         templates = list(self.cfg.seed_date_templates)
         if self.cfg.seed_days:
             templates.insert(0, self.cfg.seed_days_template)
@@ -168,7 +173,19 @@ class Crawler:
 
     # --------------------------------------------------------------- admission
     def _skip(self, reason: str, url: str) -> None:
-        self.store.count_skip(reason, path_prefix(url) or urlsplit(url).hostname or "", url)
+        key = (reason, path_prefix(url) or urlsplit(url).hostname or "")
+        with self._skips_lock:
+            cur = self._skips.get(key)
+            if cur is None:
+                self._skips[key] = [1, url]
+            else:
+                cur[0] += 1
+
+    def flush_skips(self) -> None:
+        with self._skips_lock:
+            rows = [(r, p, v[0], v[1]) for (r, p), v in self._skips.items()]
+            self._skips.clear()
+        self.store.add_skips(rows)
 
     def _admit_into(self, rows: list, raw_url: str, base: str | None, kind: str, depth: int,
                     parent: int | None, parent_priority: int | None, embeds: list | None = None,
@@ -178,6 +195,13 @@ class Crawler:
             return
         url, alt = norm
         host = urlsplit(url).hostname or ""
+        if host_matches(host, self.cfg.peertube_hosts):
+            mapped = peertube.map_url(url)
+            if mapped is None:
+                self._skip("peertube", url)
+                return
+            url, kind = mapped
+            alt = None
         in_scope = self.rules.host_in_scope(host)
         if in_scope and self.cfg.respect_robots:
             url = strip_params(url, self.robots_for(url).params_to_clean(url))
@@ -206,7 +230,9 @@ class Crawler:
         if self.cfg.date_filtered(url):
             self._skip("date", url)
             return
-        if in_scope and self.cfg.respect_robots and not self.robots_for(url).allowed(url):
+        if (in_scope and self.cfg.respect_robots
+                and (self.cfg.robots_scope == "all" or kind in ("page", "sitemap"))
+                and not self.robots_for(url).allowed(url)):
             self._skip("robots", url)
             return
         if self.cfg.max_depth and depth > self.cfg.max_depth:
@@ -427,6 +453,14 @@ class Crawler:
         should_parse = (ct in PARSE_CTYPES or task.kind == "sitemap") and not self.cfg.no_follow(url)
         if external and ct != "text/css":
             should_parse = False
+        up = urlsplit(url)
+        if host_matches(up.hostname or "", self.cfg.peertube_hosts) and up.path.startswith("/api/"):
+            found, title = peertube.handle_api(url, body, self.cfg.peertube_max_height)
+            rows: list = []
+            for u, k in found:
+                self._admit_into(rows, u, None, k, task.depth + 1, task.id, task.priority)
+            self.store.add_urls(self._apply_query_caps(rows))
+            should_parse = False
         if should_parse and len(body) <= self.cfg.max_page_size:
             data = maybe_gunzip(body, url, resp.ctype)
             pctype = resp.ctype
@@ -542,6 +576,7 @@ class Crawler:
                     f" | пауза {pause:.0f} с" if pause > 0 else "",
                 )
                 last_bytes, last_fetched, last_t = nbytes, fetched, now
+                self.flush_skips()
                 if queued == 0 and active == 0:
                     idle_checks += 1
                     if idle_checks >= 2:
@@ -561,6 +596,7 @@ class Crawler:
             for t in threads:
                 t.join(timeout=30)
             self.store.reset_active()
+            self.flush_skips()
             self.store.set_meta("last_run_end", str(time.time()))
 
 

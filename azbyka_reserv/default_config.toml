@@ -17,7 +17,9 @@ https_hosts = ["azbyka.ru"]
 # Параметры запроса, которые выбрасываются из URL (мусор/трекинг). '*' — префикс.
 drop_params = [
   "utm_*", "fbclid", "gclid", "yclid", "ysclid", "_ga", "_gl", "_openstat", "mc_cid", "mc_eid",
-  "replytocom", "share", "amp", "from_widget", "ref", "_",
+  "replytocom", "share", "amp", "from_widget", "ref", "_", "msclkid", "the_url",
+  # метки версий у стилей/скриптов/файлов: ?ver=5.1, ?v=4.4 — один и тот же файл
+  "ver", "v",
 ]
 
 # Сторонние хосты, с которых можно качать медиа (mp3/pdf...), если ссылки
@@ -95,6 +97,11 @@ max_depth = 0
 
 # Соблюдать robots.txt. Всё, что отсечено, попадает в отчёт `status`.
 respect_robots = true
+# robots.txt azbyka.ru закрывает от поисковиков *.mp3, *.epub, *.m4b, *.djvu,
+# *.mobi и файлы «для читалок». Это запрет индексации, а не скачивания:
+# сайт сам предлагает эти файлы (и даже советует менеджер закачек для аудио).
+# "pages" — правила robots.txt применяются только к страницам; "all" — ко всему.
+robots_scope = "pages"
 
 # Честный User-Agent. Впишите контакт (e-mail), чтобы админы могли связаться.
 user_agent = "Mozilla/5.0 (compatible; azbyka-reserv/0.1; offline-archive)"
@@ -147,6 +154,14 @@ seed_date_templates = []
 
 # Если сеть пропала (много ошибок подряд) — пауза в секундах и повтор.
 pause_on_network_error = 300
+
+[peertube]
+# Собственный видеосервер портала. Ролики берутся через его API:
+# по одному файлу на ролик, не выше max_height (360/480/720/1080).
+hosts = ["tube.azbyka.ru"]
+max_height = 720
+# Обойти полный список роликов (а не только встроенные в страницы).
+seed_listing = true
 
 [rules]
 default_priority = 50
@@ -225,6 +240,9 @@ value = 30
 [[priority]]  # аудиофайлы
 pattern = '(?i)\.(mp3|m4b|m4a|ogg|aac|flac|wav)(\?|$)'
 value = 35
+[[priority]]  # описания роликов PeerTube (маленькие JSON) — до самих видео
+pattern = '^https://tube\.azbyka\.ru/api/'
+value = 58
 [[priority]]  # видеофайлы — самое объёмное, в конце
 pattern = '(?i)\.(mp4|webm|m4v|mkv|avi|mov|flv)(\?|$)'
 value = 60
@@ -242,3 +260,6 @@ value = 20000
 [[query_cap]]
 pattern = '^https://azbyka\.ru/worships/'
 value = 20000
+[[query_cap]]  # постраничный список роликов PeerTube
+pattern = '^https://tube\.azbyka\.ru/api/'
+value = 100000

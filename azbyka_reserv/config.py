@@ -69,6 +69,10 @@ class Config:
         self.max_tries: int = int(crawl["max_tries"])
         self.max_depth: int = int(crawl.get("max_depth", 0))
         self.respect_robots: bool = bool(crawl["respect_robots"])
+        # "pages" — robots.txt применяется к страницам, но не к файлам для
+        # скачивания (mp3/epub/pdf…), которые сайт закрывает только от индексации;
+        # "all" — ко всему.
+        self.robots_scope: str = str(crawl.get("robots_scope", "pages"))
         self.user_agent: str = crawl["user_agent"]
         self.max_file_size: int = int(float(crawl.get("max_file_size_mb", 0)) * 1024 * 1024)
         self.max_page_size: int = int(float(crawl.get("max_page_size_mb", 30)) * 1024 * 1024)
@@ -86,6 +90,11 @@ class Config:
         self.seed_days_template: str = crawl.get("seed_days_template", "https://azbyka.ru/days/{date}")
         self.seed_date_templates: list[str] = crawl.get("seed_date_templates", [])
         self.pause_on_network_error: float = float(crawl.get("pause_on_network_error", 300))
+
+        pt = r.get("peertube", {})
+        self.peertube_hosts: list[str] = pt.get("hosts", [])
+        self.peertube_max_height: int = int(pt.get("max_height", 720))
+        self.peertube_seed_listing: bool = bool(pt.get("seed_listing", True))
 
         self.exclude_rx = [re.compile(p) for p in rules.get("exclude", [])]
         self.include_rx = [re.compile(p) for p in rules.get("include_override", [])]
