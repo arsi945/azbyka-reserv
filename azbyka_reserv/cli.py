@@ -45,6 +45,7 @@ def cmd_crawl(args) -> int:
     setup_logging(args.data, args.verbose)
     log.info("azbyka-reserv %s: данные в %s", __version__, os.path.abspath(args.data))
     c = Crawler(cfg, args.data)
+    _auto_relink(c, cfg)
     _keep_awake(True)
     try:
         c.run(max_seconds=args.max_minutes * 60 if args.max_minutes else 0)
@@ -62,6 +63,23 @@ def cmd_crawl(args) -> int:
     return 0 if queued == 0 and c.stop_reason.startswith("очередь пуста") else 3
 
 
+def _auto_relink(c, cfg) -> None:
+    """Если обновилась программа или настройки — один раз заново разобрать
+    уже скачанные страницы по новым правилам (без обращения к сайту)."""
+    import hashlib
+    import json
+
+    sig = hashlib.sha1((__version__ + json.dumps(cfg.raw, sort_keys=True, ensure_ascii=False)).encode()).hexdigest()
+    old = c.store.get_meta("rules_sig")
+    if old is not None and old != sig:
+        done = c.store.query("SELECT COUNT(*) FROM urls WHERE status='done'")[0][0]
+        if done:
+            log.info("Программа или настройки обновились — разбираем скачанное (%d) по новым правилам…", done)
+            c.store.reset_active()
+            c.relink()
+    c.store.set_meta("rules_sig", sig)
+
+
 def _keep_awake(on: bool) -> None:
     """Windows: не давать компьютеру уснуть, пока идёт сбор."""
     if os.name != "nt":
@@ -74,6 +92,17 @@ def _keep_awake(on: bool) -> None:
         ctypes.windll.kernel32.SetThreadExecutionState(flags)
     except Exception:  # noqa: BLE001
         pass
+
+
+def cmd_relink(args) -> int:
+    from .crawler import Crawler
+
+    cfg = _config(args)
+    setup_logging(args.data, args.verbose)
+    c = Crawler(cfg, args.data)
+    c.store.reset_active()
+    c.relink(args.match)
+    return 0
 
 
 def cmd_status(args) -> int:
@@ -178,6 +207,11 @@ def main(argv: list[str] | None = None) -> int:
     common(sp)
     sp.add_argument("--max-minutes", type=float, default=0, help="остановиться через N минут (0 — до конца)")
     sp.set_defaults(func=cmd_crawl)
+
+    sp = sub.add_parser("relink", help="после обновления программы: заново разобрать скачанное по новым правилам (без сети)")
+    common(sp)
+    sp.add_argument("--match", default="", help="только URL, содержащие эту строку")
+    sp.set_defaults(func=cmd_relink)
 
     sp = sub.add_parser("status", help="сколько скачано, по разделам, ошибки")
     common(sp, config=False)

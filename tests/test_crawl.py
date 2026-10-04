@@ -138,3 +138,23 @@ def test_variants_and_rewrite_in_crawl(tmp_path):
         r, _ = rows(data)
         assert [u for u in r if "/q?" in u] == [b + "/q?x=1"]  # все ?x=N свернулись в один
         assert r[b + "/a-one"]["priority"] == 5 and r[b + "/a-two"]["status"] == "notfound"
+
+
+def test_relink_picks_up_new_rules(tmp_path):
+    with Site() as site:
+        data = str(tmp_path / "data")
+        c = Crawler(make_cfg(site), data)
+        c.run(progress_every=0.3, max_seconds=60)
+        c.store.close()
+        r, _ = rows(data)
+        assert site.base + "/forum/x" not in r
+        # новые правила: форум больше не исключён -> relink находит ссылку без сети
+        cfg2 = make_cfg(site)
+        cfg2.raw["rules"]["exclude"] = []
+        from azbyka_reserv.config import Config
+
+        c2 = Crawler(Config(cfg2.raw), data)
+        n = c2.relink()
+        assert n >= 1
+        r, _ = rows(data)
+        assert r[site.base + "/forum/x"]["status"] == "queued"

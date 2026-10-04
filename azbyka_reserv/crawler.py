@@ -551,6 +551,63 @@ class Crawler:
             self.stats["fetched"] += 1
             self.stats["bytes"] += resp.size or 0
 
+    # ------------------------------------------------------------------ relink
+    def relink(self, match: str = "") -> int:
+        """Повторно разобрать уже скачанные страницы по ТЕКУЩИМ правилам (без сети).
+
+        Нужно после обновления программы/настроек: ссылки, которые раньше
+        отсекались, попадут в очередь.
+        """
+        sql = ("SELECT id, url, alt_url, kind, priority, depth, tries, path, etag, last_modified, content_type"
+               " FROM urls WHERE status='done' AND path IS NOT NULL AND kind IN ('page','sitemap','asset')")
+        params: tuple = ()
+        if match:
+            sql += " AND url LIKE ?"
+            params = (f"%{match}%",)
+        n_pages = n_new = 0
+        for row in self.store.iter_rows(sql, params):
+            (tid, url, alt, kind, prio, depth, tries, path, etag, lm, ctype) = row
+            ct = base_ctype(ctype)
+            if ct not in PARSE_CTYPES and kind != "sitemap":
+                continue
+            if ct == "text/plain" and not url.lower().endswith("/robots.txt"):
+                continue
+            try:
+                with open(mirror_file(self.mirror, path), "rb") as f:
+                    body = f.read(self.cfg.max_page_size + 1)
+            except OSError:
+                continue
+            if len(body) > self.cfg.max_page_size:
+                continue
+            task = Task(tid, url, alt, kind, prio, depth, tries, path, etag, lm)
+            external = not self.rules.in_scope(url)
+            if external and ct != "text/css":
+                continue
+            up = urlsplit(url)
+            if host_matches(up.hostname or "", self.cfg.peertube_hosts) and up.path.startswith("/api/"):
+                found, _ = peertube.handle_api(url, body, self.cfg.peertube_max_height)
+                rows: list = []
+                for u, k in found:
+                    self._admit_into(rows, u, None, k, depth + 1, tid, prio)
+                n_new += self.store.add_urls(self._apply_query_caps(rows))
+            else:
+                data = maybe_gunzip(body, url, ctype or "")
+                links, meta = extract.extract_links(data, ctype if data is body else "application/xml", url)
+                base = url
+                if meta.get("base"):
+                    norm = self.rules.normalize(meta["base"], url)
+                    if norm:
+                        base = norm[0]
+                if links:
+                    n_new += self.enqueue_links(task, links, base, external_parent=external)
+            n_pages += 1
+            if n_pages % 5000 == 0:
+                self.flush_skips()
+                log.info("relink: разобрано %d страниц, новых адресов %d", n_pages, n_new)
+        self.flush_skips()
+        log.info("relink завершён: страниц %d, новых адресов в очереди %d", n_pages, n_new)
+        return n_new
+
     # --------------------------------------------------------------------- run
     def _disk_ok(self) -> bool:
         if self.cfg.min_free_bytes <= 0:
