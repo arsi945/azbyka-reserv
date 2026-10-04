@@ -196,3 +196,19 @@ def test_peertube():
     urls = [u for u, _ in found]
     assert "https://tube.azbyka.ru/api/v1/videos/a1b2c3d4" in urls
     assert any("start=50" in u for u in urls)
+
+
+def test_rewrite_and_variants_config():
+    from azbyka_reserv.config import load_config
+
+    cfg = load_config(None, {
+        "rewrite": [{"pattern": r"^(https://azbyka\.ru/biblia/\?[1-4]?[A-Za-z]+\.\d+):[^&]*(&.*)?$", "replace": r"\1&r"}],
+        "variants": [{"pattern": r"^https://azbyka\.ru/biblia/\?([1-4]?[A-Za-z]+\.\d+)&r$",
+                      "template": "https://azbyka.ru/biblia/?{1}&{x}", "values": ["c", "utfcs"], "priority": 40}],
+    })
+    assert cfg.rewrite("https://azbyka.ru/biblia/?Lk.3:23&r") == "https://azbyka.ru/biblia/?Lk.3&r"
+    assert cfg.rewrite("https://azbyka.ru/biblia/?Hebr.4:14-5:6") == "https://azbyka.ru/biblia/?Hebr.4&r"
+    assert cfg.rewrite("https://azbyka.ru/biblia/?Mt.1&r") == "https://azbyka.ru/biblia/?Mt.1&r"
+    v = cfg.variants[0]
+    m = v.rx.search("https://azbyka.ru/biblia/?Mt.1&r")
+    assert v.template.format(m.group(0), *m.groups(), x="c") == "https://azbyka.ru/biblia/?Mt.1&c"

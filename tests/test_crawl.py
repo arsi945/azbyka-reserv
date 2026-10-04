@@ -120,3 +120,21 @@ def test_restart_continues(tmp_path):
         c2.run(progress_every=0.3, max_seconds=30)
         assert c2.stop_reason.startswith("очередь пуста")
         assert site.hits.get("/a", 0) == hits_before.get("/a", 0)
+
+
+def test_variants_and_rewrite_in_crawl(tmp_path):
+    with Site() as site:
+        b = site.base
+        esc = b.replace(".", r"\.")
+        cfg = make_cfg(site)
+        cfg.raw["rewrite"] = [{"pattern": "^(" + esc + r"/q)\?x=\d+$", "replace": r"\1?x=1"}]
+        cfg.raw["variants"] = [{"pattern": "^" + esc + r"/a$", "template": b + "/a-{x}", "values": ["one", "two"], "priority": 5}]
+        from azbyka_reserv.config import Config
+
+        cfg = Config(cfg.raw)
+        data = str(tmp_path / "data")
+        c = Crawler(cfg, data)
+        c.run(progress_every=0.3, max_seconds=60)
+        r, _ = rows(data)
+        assert [u for u in r if "/q?" in u] == [b + "/q?x=1"]  # все ?x=N свернулись в один
+        assert r[b + "/a-one"]["priority"] == 5 and r[b + "/a-two"]["status"] == "notfound"

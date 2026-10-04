@@ -41,12 +41,13 @@ class Archive:
         mo = urllib.parse.urlsplit(main_origin)
         self.main_scheme = mo.scheme
         self.main_host = mo.netloc.lower()
-        if aliases is None or drop_params is None:
-            from .config import load_config
+        from .config import load_config
 
-            cfg = load_config()
-            aliases = cfg.host_aliases if aliases is None else aliases
-            drop_params = cfg.drop_params if drop_params is None else drop_params
+        self._cfg = load_config()
+        if aliases is None:
+            aliases = self._cfg.host_aliases
+        if drop_params is None:
+            drop_params = self._cfg.drop_params
         self.aliases = {k.lower(): v.lower() for k, v in aliases.items()}
         self.peertube_hosts = ["tube.azbyka.ru"]
         self.peertube_max_height = 720
@@ -110,6 +111,10 @@ class Archive:
                 cands.append(urllib.parse.urlunsplit(p._replace(path=p.path + "/")))
             if p.scheme == "https":
                 cands.append(urllib.parse.urlunsplit(p._replace(scheme="http")))
+        if norm:
+            rw = self._cfg.rewrite(norm[0])  # например, стих Библии -> страница главы
+            if rw != norm[0]:
+                cands.append(rw)
         db = self.db()
         for c in cands:
             row = db.execute("SELECT * FROM urls WHERE url=?", (c,)).fetchone()
@@ -359,6 +364,7 @@ def make_server(data_dir: str, host: str = "127.0.0.1", port: int = 8080,
     archive = Archive(data_dir, main_origin,
                       aliases=cfg.host_aliases if cfg else None, drop_params=cfg.drop_params if cfg else None)
     if cfg is not None:
+        archive._cfg = cfg
         archive.peertube_hosts = list(cfg.peertube_hosts)
         archive.peertube_max_height = cfg.peertube_max_height
     handler = type("H", (Handler,), {"archive": archive})

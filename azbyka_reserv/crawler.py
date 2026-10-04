@@ -167,9 +167,31 @@ class Crawler:
                 for t in templates:
                     self._admit_into(rows, t.format(date=d.isoformat()), None, "page", depth=1, parent=None, parent_priority=None)
                 d += one
+        rows = self._expand_variants(rows)
         n = self.store.add_urls(rows)
         log.info("стартовые адреса: %d (новых %d)", len(rows), n)
+        self._expand_known_variants()
         return n
+
+    def _expand_known_variants(self) -> None:
+        """Если правила [[variants]] изменились — применить их и к уже известным URL."""
+        sig = hashlib.sha1(repr([(v.rx.pattern, v.template, v.values, v.priority) for v in self.cfg.variants])
+                           .encode()).hexdigest()
+        if not self.cfg.variants or self.store.get_meta("variants_sig") == sig:
+            return
+        log.info("правила вариантов изменились — дополняем очередь для уже известных адресов…")
+        total = 0
+        batch: list = []
+        for r in self.store.iter_rows("SELECT url, NULL, kind, priority, depth, id FROM urls"):
+            if any(v.rx.search(r[0]) for v in self.cfg.variants):
+                batch.append(tuple(r))
+            if len(batch) >= 2000:
+                total += self.store.add_urls(self._expand_variants(batch, force=True))
+                batch = []
+        if batch:
+            total += self.store.add_urls(self._expand_variants(batch, force=True))
+        self.store.set_meta("variants_sig", sig)
+        log.info("добавлено вариантов: %d", total)
 
     # --------------------------------------------------------------- admission
     def _skip(self, reason: str, url: str) -> None:
@@ -189,11 +211,18 @@ class Crawler:
 
     def _admit_into(self, rows: list, raw_url: str, base: str | None, kind: str, depth: int,
                     parent: int | None, parent_priority: int | None, embeds: list | None = None,
-                    external_parent: bool = False) -> None:
+                    external_parent: bool = False, priority_override: int | None = None) -> None:
         norm = self.rules.normalize(raw_url, base)
         if norm is None:
             return
         url, alt = norm
+        if self.cfg.rewrites:
+            new = self.cfg.rewrite(url)
+            if new != url:
+                norm = self.rules.normalize(new)
+                if norm is None:
+                    return
+                url, alt = norm[0], None
         host = urlsplit(url).hostname or ""
         if host_matches(host, self.cfg.peertube_hosts):
             mapped = peertube.map_url(url)
@@ -238,14 +267,45 @@ class Crawler:
         if self.cfg.max_depth and depth > self.cfg.max_depth:
             self._skip("depth", url)
             return
-        prio = self.cfg.priority_for(url)
+        prio = priority_override if priority_override is not None else self.cfg.priority_for(url)
         if prio is None:
             prio = parent_priority if (parent_priority is not None and kind == "asset") else self.cfg.default_priority
         if not in_scope and parent_priority is not None:
             prio = max(prio, parent_priority)
         rows.append((url, alt, kind, prio, depth, parent))
 
+    def _expand_variants(self, rows: list, force: bool = False) -> list:
+        """Для новых URL, подходящих под [[variants]], добавить их варианты
+        (например, ту же главу Библии во всех переводах)."""
+        if not self.cfg.variants:
+            return rows
+        cands = [r for r in rows if any(v.rx.search(r[0]) for v in self.cfg.variants)]
+        if not cands:
+            return rows
+        known = set() if force else self.store.known(list({r[0] for r in cands}))
+        extra: list = []
+        seen: set[str] = set()
+        for r in cands:
+            url = r[0]
+            if url in known or url in seen:
+                continue
+            seen.add(url)
+            for v in self.cfg.variants:
+                m = v.rx.search(url)
+                if not m:
+                    continue
+                args = [m.group(0), *[g or "" for g in m.groups()]]
+                for val in v.values:
+                    try:
+                        vu = v.template.format(*args, x=val)
+                    except (IndexError, KeyError):
+                        continue
+                    if vu != url:
+                        self._admit_into(extra, vu, None, r[2], r[4], r[5], None, priority_override=v.priority)
+        return rows + extra
+
     def _apply_query_caps(self, rows: list) -> list:
+        rows = self._expand_variants(rows)
         with_q = [r for r in rows if urlsplit(r[0]).query]
         if not with_q:
             return rows

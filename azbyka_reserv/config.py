@@ -47,6 +47,17 @@ class PatternValue:
 
 
 @dataclass
+class Variant:
+    """Для URL, совпавшего с ``rx``, поставить в очередь ещё ``template`` для
+    каждого значения из ``values`` ({1}, {2}… — группы, {x} — значение)."""
+
+    rx: re.Pattern
+    template: str
+    values: list[str]
+    priority: int | None
+
+
+@dataclass
 class Config:
     raw: dict
 
@@ -102,6 +113,12 @@ class Config:
         self.priority = [PatternValue(re.compile(x["pattern"]), int(x["value"])) for x in r.get("priority", [])]
         self.query_caps = [PatternValue(re.compile(x["pattern"]), int(x["value"])) for x in r.get("query_cap", [])]
         self.default_priority: int = int(rules.get("default_priority", 50))
+        self.rewrites = [(re.compile(x["pattern"]), x["replace"]) for x in r.get("rewrite", [])]
+        self.variants = [
+            Variant(re.compile(x["pattern"]), x["template"], list(x["values"]),
+                    int(x["priority"]) if "priority" in x else None)
+            for x in r.get("variants", [])
+        ]
 
     # -- правила ---------------------------------------------------------------
     # Канонические URL хранят кириллицу в %-кодировке, а в правилах удобнее
@@ -138,6 +155,13 @@ class Config:
             if self._hit(pv.rx, forms):
                 return pv.value
         return self.default_query_cap
+
+    def rewrite(self, url: str) -> str:
+        """Первое подходящее правило [[rewrite]] (например, стих Библии -> глава)."""
+        for rx, rep in self.rewrites:
+            if rx.search(url):
+                return rx.sub(rep, url, count=1)
+        return url
 
     def date_filtered(self, url: str) -> bool:
         """True — URL календарного типа с датой вне [date_from, date_to]."""

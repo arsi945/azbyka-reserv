@@ -260,6 +260,14 @@ class Store:
         with self.lock:
             return self.conn.execute(sql, params).fetchall()
 
+    def iter_rows(self, sql: str, params: tuple = ()):
+        """Потоковое чтение большого результата отдельным соединением (без fetchall)."""
+        conn = sqlite3.connect(self.db_path, timeout=60)
+        try:
+            yield from conn.execute(sql, params)
+        finally:
+            conn.close()
+
     def execute(self, sql: str, params: tuple = ()) -> int:
         with self.lock:
             return self.conn.execute(sql, params).rowcount
