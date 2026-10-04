@@ -54,6 +54,8 @@ def test_full_crawl(tmp_path):
         assert st("/") == "done" and r[b + "/"]["title"] == "Главная"
         assert st("/a") == "done" and st("/b/") == "done"
         assert st("/from-sitemap") == "done"  # из robots -> sitemap
+        # картинка из <image:loc> не наследует приоритет 1 карты сайта
+        assert r[b + "/img/sm.jpg"]["priority"] > 1
         assert b + "/forum/x" not in r  # исключено конфигом
         assert b + "/private/y" not in r  # robots.txt
         assert b + "/days/1990-01-01" not in r  # вне диапазона дат

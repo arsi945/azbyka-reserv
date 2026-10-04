@@ -38,7 +38,8 @@ class Site:
         b = self.base
         return {
             "/robots.txt": ("text/plain", f"User-agent: *\nDisallow: /private/\nClean-param: sid /\nSitemap: {b}/sitemap.xml\n"),
-            "/sitemap.xml": ("application/xml", f"<urlset><url><loc>{b}/from-sitemap</loc></url></urlset>"),
+            "/sitemap.xml": ("application/xml", f"<urlset><url><loc>{b}/from-sitemap</loc><image:image><image:loc>{b}/img/sm.jpg</image:loc></image:image></url></urlset>"),
+            "/img/sm.jpg": ("image/jpeg", b"jpg"),
             "/from-sitemap": ("text/html", "<html><title>SM</title>ok</html>"),
             "/": ("text/html", f"""<html><head><title>Главная</title><link rel=stylesheet href="/s.css"></head><body>
                 <a href="/a">a</a> <a href="/b/">b</a> <a href="/forum/x">forum</a> <a href="/private/y">priv</a>

@@ -327,9 +327,12 @@ class Crawler:
     def enqueue_links(self, task: Task, links: list[extract.Link], base: str, external_parent: bool) -> int:
         rows: list = []
         embeds: list[str] = []
+        # Ссылки из карт сайта и robots.txt НЕ наследуют их высший приоритет:
+        # иначе тысячи картинок из <image:loc> встали бы в очередь раньше страниц.
+        parent_prio = None if task.kind == "sitemap" else task.priority
         for link in links:
             child_depth = task.depth + 1 if link.kind in ("page", "embed") else task.depth
-            self._admit_into(rows, link.url, base, link.kind, child_depth, task.id, task.priority,
+            self._admit_into(rows, link.url, base, link.kind, child_depth, task.id, parent_prio,
                              embeds=embeds, external_parent=external_parent)
         rows = self._apply_query_caps(rows)
         if embeds:
