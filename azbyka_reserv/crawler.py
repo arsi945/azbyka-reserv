@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import logging
 import os
+import re
 import shutil
 import threading
 import time
@@ -17,7 +18,7 @@ from .fetcher import Bandwidth, FetchError, Fetcher, RateLimiter, maybe_gunzip
 from .fsutil import fs_path, human_bytes, mirror_file, write_atomic
 from .robots import Robots
 from .store import Store, Task
-from .urls import UrlRules, kind_by_ext, path_prefix, url_to_relpath
+from .urls import UrlRules, kind_by_ext, path_prefix, url_ext, url_to_relpath
 
 log = logging.getLogger("azbyka_reserv")
 
@@ -30,6 +31,20 @@ PARSE_CTYPES = (
     "application/x-mpegurl", "text/plain", "application/x-gzip", "application/gzip",
 )
 _LOGIN_MARKERS = (b'type="password"', b"type='password'", b"name=\"password\"", b"name=\"pwd\"")
+
+
+_CHALLENGE_MARKERS = (
+    b"ddos-guard.net/", b"check.ddos-guard", b"DDoS-Guard</title>", b"__ddg_challenge",
+    b"<title>Just a moment...</title>", b"cf-challenge", b"challenge-platform", b"cf_chl_opt",
+)
+
+
+def is_challenge(body: bytes) -> bool:
+    """Страница-заглушка DDoS-Guard/Cloudflare (маленькая, с характерными метками)."""
+    if len(body) > 60_000:
+        return False
+    head = body[:60_000]
+    return any(m in head for m in _CHALLENGE_MARKERS)
 
 
 def base_ctype(ctype: str | None) -> str:
@@ -45,6 +60,25 @@ def strip_params(url: str, params: list[str]) -> str:
     drop = {p.lower() for p in params}
     tokens = [t for t in parts.query.split("&") if t.split("=", 1)[0].lower() not in drop]
     return urlunsplit((parts.scheme, parts.netloc, parts.path, "&".join(tokens), ""))
+
+
+_EMBED_PATH = re.compile(r"(?i)/(embed|video_ext\.php|play/embed|videoembed|player|watch|shorts|w|v|video)(/|$|\?)")
+_EMPTY_EMBED = re.compile(r"(?i)/embed/?(\?|$)")
+
+
+def url_blocked(url: str, patterns: list[str]) -> bool:
+    """Запись вида 'host' блокирует хост (и поддомены), 'host/путь' — только этот префикс."""
+    parts = urlsplit(url)
+    host = (parts.hostname or "").lower()
+    for p in patterns:
+        p = p.lower()
+        if "/" in p:
+            ph, _, pp = p.partition("/")
+            if (host == ph or host.endswith("." + ph)) and parts.path.lower().startswith("/" + pp):
+                return True
+        elif host == p or host.endswith("." + p):
+            return True
+    return False
 
 
 def host_matches(host: str, patterns: list[str]) -> bool:
@@ -157,21 +191,35 @@ class Crawler:
         if self.cfg.peertube_seed_listing:
             for h in self.cfg.peertube_hosts:
                 self._admit_into(rows, peertube.list_url(f"https://{h}"), None, "page", depth=0, parent=None, parent_priority=None)
-        templates = list(self.cfg.seed_date_templates)
-        if self.cfg.seed_days:
-            templates.insert(0, self.cfg.seed_days_template)
-        if templates:
-            d = self.cfg.date_from
-            one = timedelta(days=1)
-            while d <= self.cfg.date_to:
-                for t in templates:
-                    self._admit_into(rows, t.format(date=d.isoformat()), None, "page", depth=1, parent=None, parent_priority=None)
-                d += one
+        specs = self._date_specs()
+        sig = hashlib.sha1(repr([(s["template"], str(s["from"]), str(s["to"]), s.get("priority")) for s in specs])
+                           .encode()).hexdigest()
+        if self.store.get_meta("date_seed_sig") != sig:
+            for spec in specs:
+                for d in dates_nearest_first(spec["from"], spec["to"], date.today()):
+                    self._admit_into(rows, spec["template"].format(date=d.isoformat()), None, "page", depth=1,
+                                     parent=None, parent_priority=None, priority_override=spec.get("priority"))
         rows = self._expand_variants(rows)
         n = self.store.add_urls(rows)
+        self.store.set_meta("date_seed_sig", sig)
         log.info("стартовые адреса: %d (новых %d)", len(rows), n)
         self._expand_known_variants()
         return n
+
+    def _date_specs(self) -> list[dict]:
+        specs: list[dict] = []
+        raw = list(self.cfg.seed_date_templates)
+        if self.cfg.seed_days:
+            raw.insert(0, self.cfg.seed_days_template)
+        for t in raw:
+            spec = dict(t) if isinstance(t, dict) else {"template": t}
+            d1 = max(self.cfg.date_from, date.fromisoformat(str(spec["from"]))) if "from" in spec else self.cfg.date_from
+            d2 = min(self.cfg.date_to, date.fromisoformat(str(spec["to"]))) if "to" in spec else self.cfg.date_to
+            spec["from"], spec["to"] = d1, d2
+            if "priority" in spec:
+                spec["priority"] = int(spec["priority"])
+            specs.append(spec)
+        return specs
 
     def _expand_known_variants(self) -> None:
         """Если правила [[variants]] изменились — применить их и к уже известным URL."""
@@ -232,18 +280,23 @@ class Crawler:
             url, kind = mapped
             alt = None
         in_scope = self.rules.host_in_scope(host)
-        if in_scope and self.cfg.respect_robots:
+        if in_scope and self.cfg.respect_robots and self.cfg.apply_clean_param:
             url = strip_params(url, self.robots_for(url).params_to_clean(url))
         if not in_scope:
-            if kind == "embed" or host_matches(host, self.cfg.embed_hosts):
-                if embeds is not None:
+            if host_matches(host, self.cfg.embed_hosts):
+                # только настоящие плееры, а не кнопки «поделиться» (vk.com/share.php, ok.ru/offer…)
+                if embeds is not None and (kind == "embed" or _EMBED_PATH.search(urlsplit(url).path)) \
+                        and not _EMPTY_EMBED.search(url):
                     embeds.append(url)
                 return
+            if kind == "embed":
+                return  # прочие сторонние iframe (карты, виджеты) не нужны
+            blocked = url_blocked(url, self.cfg.asset_host_blocklist)
             if host_matches(host, self.cfg.extra_media_hosts):
                 kind = kind_by_ext(url) or "media"
-            elif kind == "asset" and self.cfg.external_assets and not host_matches(host, self.cfg.asset_host_blocklist):
+            elif kind == "asset" and self.cfg.external_assets and not blocked:
                 pass
-            elif kind == "media" and self.cfg.external_assets and not host_matches(host, self.cfg.asset_host_blocklist) and not external_parent:
+            elif kind == "media" and self.cfg.external_assets and not blocked and not external_parent:
                 # прямые ссылки на файлы на сторонних хостах (например, PDF) — качаем, но не обходим дальше
                 pass
             else:
@@ -261,8 +314,14 @@ class Crawler:
             return
         if (in_scope and self.cfg.respect_robots
                 and (self.cfg.robots_scope == "all" or kind in ("page", "sitemap"))
+                and not self.cfg.robots_overridden(url)
                 and not self.robots_for(url).allowed(url)):
             self._skip("robots", url)
+            return
+        if not self.cfg.cookies_file and self.cfg.needs_login(url):
+            # без входа сайт всё равно ответит 302 -> /auth; не тратим запросы.
+            # Появится cookies_file — авто-relink поставит их в очередь.
+            self._skip("login", url)
             return
         if self.cfg.max_depth and depth > self.cfg.max_depth:
             self._skip("depth", url)
@@ -449,7 +508,8 @@ class Crawler:
             self._note_ok()
             self.store.finish(task.id, status="done", http_status=304)
             return
-        if st in (404, 410):
+        if st in (404, 410, 405):
+            # 405 сервер azbyka.ru отдаёт на отсутствующие статические файлы
             self._note_ok()
             self.store.finish(task.id, status="notfound", http_status=st)
             return
@@ -510,7 +570,14 @@ class Crawler:
             return
 
         # Страница / ресурс в памяти
-        self._finish_page(task, resp, resp.body or b"")
+        body = resp.body or b""
+        if ct in ("text/html", "application/xhtml+xml") and is_challenge(body):
+            # страница-проверка анти-бот защиты вместо содержимого: не сохранять, переждать
+            log.warning("Анти-бот проверка вместо страницы (%s) — пауза 10 мин", url)
+            self.limiter.pause(600)
+            self._retry_or_fail(task, "HTTP 503 анти-бот проверка", 503)
+            return
+        self._finish_page(task, resp, body)
 
     def _finish_page(self, task: Task, resp, body: bytes) -> None:
         url = task.url
@@ -518,7 +585,8 @@ class Crawler:
         title = None
         ct = base_ctype(resp.ctype)
         external = not self.rules.in_scope(url)
-        should_parse = (ct in PARSE_CTYPES or task.kind == "sitemap") and not self.cfg.no_follow(url)
+        should_parse = (ct in PARSE_CTYPES or task.kind == "sitemap"
+                        or url_ext(url) in ("m3u", "m3u8")) and not self.cfg.no_follow(url)
         if external and ct != "text/css":
             should_parse = False
         up = urlsplit(url)
@@ -732,8 +800,21 @@ class Crawler:
             self.store.set_meta("last_run_end", str(time.time()))
 
 
-def days_range(d1: date, d2: date):
-    d = d1
-    while d <= d2:
-        yield d
-        d += timedelta(days=1)
+def dates_nearest_first(d1: date, d2: date, center: date):
+    """Даты отрезка [d1, d2], начиная с ближайших к ``center`` (сегодня):
+    если сбор прервётся, ближайшие годы календаря уже будут сохранены."""
+    if d1 > d2:
+        return
+    c = min(max(center, d1), d2)
+    yield c
+    one = timedelta(days=1)
+    k = 1
+    while True:
+        fwd, back = c + k * one, c - k * one
+        if fwd > d2 and back < d1:
+            return
+        if fwd <= d2:
+            yield fwd
+        if back >= d1:
+            yield back
+        k += 1

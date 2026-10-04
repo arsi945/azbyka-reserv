@@ -84,6 +84,10 @@ class Config:
         # скачивания (mp3/epub/pdf…), которые сайт закрывает только от индексации;
         # "all" — ко всему.
         self.robots_scope: str = str(crawl.get("robots_scope", "pages"))
+        # Clean-param из robots.txt: у azbyka.ru он ломает /worships/?…&worship=…
+        self.apply_clean_param: bool = bool(crawl.get("apply_clean_param", False))
+        self.robots_override_rx = [re.compile(p) for p in crawl.get("robots_override", [])]
+        self.login_required_rx = [re.compile(p) for p in crawl.get("login_required", [])]
         self.user_agent: str = crawl["user_agent"]
         self.max_file_size: int = int(float(crawl.get("max_file_size_mb", 0)) * 1024 * 1024)
         self.max_page_size: int = int(float(crawl.get("max_page_size_mb", 30)) * 1024 * 1024)
@@ -99,7 +103,8 @@ class Config:
         self.date_filter_rx = [re.compile(p) for p in crawl.get("date_filter_patterns", [])]
         self.seed_days: bool = bool(crawl.get("seed_days", True))
         self.seed_days_template: str = crawl.get("seed_days_template", "https://azbyka.ru/days/{date}")
-        self.seed_date_templates: list[str] = crawl.get("seed_date_templates", [])
+        # элементы: строка-шаблон или таблица {template, from, to, priority}
+        self.seed_date_templates: list = crawl.get("seed_date_templates", [])
         self.pause_on_network_error: float = float(crawl.get("pause_on_network_error", 300))
 
         pt = r.get("peertube", {})
@@ -155,6 +160,13 @@ class Config:
             if self._hit(pv.rx, forms):
                 return pv.value
         return self.default_query_cap
+
+    def robots_overridden(self, url: str) -> bool:
+        return any(rx.search(url) for rx in self.robots_override_rx)
+
+    def needs_login(self, url: str) -> bool:
+        forms = self._forms(url)
+        return any(self._hit(rx, forms) for rx in self.login_required_rx)
 
     def rewrite(self, url: str) -> str:
         """Первое подходящее правило [[rewrite]] (например, стих Библии -> глава)."""

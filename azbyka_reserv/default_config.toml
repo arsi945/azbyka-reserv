@@ -1,80 +1,122 @@
-# Настройки по умолчанию для обхода azbyka.ru.
-# НЕ редактируйте этот файл — создайте свой config.toml (см. config.example.toml)
-# и укажите его через --config. Ваш файл накладывается поверх этого.
+# Настройки по умолчанию для обхода azbyka.ru (выверены разведкой живого сайта,
+# см. probe/LIVE-FINDINGS.md). НЕ редактируйте этот файл — создайте свой
+# config.toml (образец config.example.toml): он накладывается поверх этого.
 # Регулярные выражения пишутся в одинарных кавычках '...' (без экранирования).
+# Ключ с префиксом add_ (add_exclude, add_start_urls…) дополняет список, а не заменяет.
 
 [site]
-# Хосты, которые считаются «своими»: ссылки на них обходятся рекурсивно.
-# Поддомены (static.azbyka.ru и т.п.) входят автоматически.
+# «Свои» хосты: ссылки на них обходятся рекурсивно. Поддомены входят
+# автоматически (media.azbyka.ru — аудио, tube.azbyka.ru — видео).
 scope_hosts = ["azbyka.ru"]
 
-# Зеркальные домены приводятся к одному, чтобы не качать всё дважды.
-# Если по каноническому адресу 404 — пробуется исходный (alias_fallback).
+# Другие написания адреса приводятся к azbyka.ru. azbyka.org закрыт
+# Cloudflare-проверкой, поэтому повтор по исходному адресу выключен.
 host_aliases = { "www.azbyka.ru" = "azbyka.ru", "azbyka.org" = "azbyka.ru", "www.azbyka.org" = "azbyka.ru" }
-alias_fallback = true
+alias_fallback = false
 https_hosts = ["azbyka.ru"]
 
 # Параметры запроса, которые выбрасываются из URL (мусор/трекинг). '*' — префикс.
 drop_params = [
   "utm_*", "fbclid", "gclid", "yclid", "ysclid", "_ga", "_gl", "_openstat", "mc_cid", "mc_eid",
-  "replytocom", "share", "amp", "from_widget", "ref", "_", "msclkid", "the_url",
+  "replytocom", "share", "amp", "from_widget", "ref", "_", "msclkid", "the_url", "nowprocket",
+  "_wpnonce", "content_only",
   # метки версий у стилей/скриптов/файлов: ?ver=5.1, ?v=4.4 — один и тот же файл
   "ver", "v",
 ]
 
-# Сторонние хосты, с которых можно качать медиа (mp3/pdf...), если ссылки
-# с azbyka.ru ведут туда напрямую (например внешнее файловое хранилище).
+# Сторонние хосты, с которых можно качать медиа (mp3/pdf...).
 extra_media_hosts = []
 
-# Карты сайта (кроме тех, что объявлены в robots.txt).
+# Карты сайта. 51 карту из robots.txt обходчик берёт сам; здесь — запасные.
 sitemap_urls = [
-  "https://azbyka.ru/sitemap.xml",
   "https://azbyka.ru/sitemap_index.xml",
+  "https://azbyka.ru/biblia/sitemap",
 ]
 
-# Стартовые страницы: корни всех разделов портала + карты разделов.
+# Стартовые страницы: корни всех разделов портала.
 start_urls = [
   "https://azbyka.ru/",
   "https://azbyka.ru/drevo-sajta",
   "https://azbyka.ru/sajty-portala",
   "https://azbyka.ru/gid",
   "https://azbyka.ru/about-all",
+  "https://azbyka.ru/dictionary",
+  # Библия
   "https://azbyka.ru/biblia/",
   "https://azbyka.ru/biblia/o-biblii-av",
+  "https://azbyka.ru/biblia/instruction.html",
+  "https://azbyka.ru/biblia/podstrochnik",
+  "https://azbyka.ru/biblia/strong/greek",
+  "https://azbyka.ru/biblia/strong/hebrew",
+  "https://azbyka.ru/biblia/downloads/bibliya.pdf",
+  "https://azbyka.ru/biblia/downloads/bibliya.fb2",
+  "https://azbyka.ru/biblia/downloads/bibliya.doc",
+  "https://azbyka.ru/biblia/downloads/nz.pdf",
+  "https://azbyka.ru/biblia/downloads/tsya.pdf",
+  # молитва и богослужение
+  "https://azbyka.ru/molitvoslov/",
+  "https://azbyka.ru/worships/",
+  "https://azbyka.ru/bogosluzhenie/",
+  "https://azbyka.ru/chaso-slov/",
+  "https://azbyka.ru/psalms/",
+  "https://azbyka.ru/kliros/",
+  # календарь
+  "https://azbyka.ru/days/",
+  "https://azbyka.ru/days/calendar",
+  "https://azbyka.ru/days/menology/ikons",
+  "https://azbyka.ru/days/menology/ikons-savior",
+  "https://azbyka.ru/days/menology/saints-with-ikon",
+  "https://azbyka.ru/days/p-audio-calendar",
+  "https://azbyka.ru/imeniny",
+  # библиотеки
   "https://azbyka.ru/otechnik/",
   "https://azbyka.ru/otechnik/world/",
   "https://azbyka.ru/otechnik/serbian/",
   "https://azbyka.ru/otechnik/Spravochniki/",
   "https://azbyka.ru/otechnik/pravila/",
   "https://azbyka.ru/fiction/",
-  "https://azbyka.ru/molitvoslov/",
-  "https://azbyka.ru/worships/",
-  "https://azbyka.ru/worships/calendar/",
-  "https://azbyka.ru/oktoix",
-  "https://azbyka.ru/days/",
-  "https://azbyka.ru/days/menology/ikons",
-  "https://azbyka.ru/days/menology/ikons-savior",
-  "https://azbyka.ru/days/menology/saints-with-ikon",
-  "https://azbyka.ru/days/p-audio-calendar",
-  "https://azbyka.ru/days/api-help",
   "https://azbyka.ru/pravo/",
-  "https://azbyka.ru/imeniny",
   "https://azbyka.ru/quotes/",
   "https://azbyka.ru/vopros/",
   "https://azbyka.ru/shemy/",
   "https://azbyka.ru/shemy/karta-sajta",
-  "https://azbyka.ru/kliros/",
+  "https://azbyka.ru/apokalipsis/",
+  "https://azbyka.ru/katehizacija/",
+  "https://azbyka.ru/propovedi/",
+  "https://azbyka.ru/memo/",
+  "https://azbyka.ru/way/",
+  "https://azbyka.ru/life/",
+  "https://azbyka.ru/death/",
+  "https://azbyka.ru/sueverie/",
+  "https://azbyka.ru/parkhomenko/",
+  "https://azbyka.ru/parkhomenko/foto/",
+  "https://azbyka.ru/stenyaev/",
+  "https://azbyka.ru/chinaorthodox/",
+  "https://azbyka.ru/japanorthodox/",
+  "https://azbyka.ru/frontinskiy/",
+  # медиа
   "https://azbyka.ru/audio/",
   "https://azbyka.ru/video/",
   "https://azbyka.ru/video/karta-sajta/",
   "https://azbyka.ru/foto/",
   "https://azbyka.ru/art/",
+  # семья, дети, жизнь
   "https://azbyka.ru/deti/",
+  "https://azbyka.ru/semya/",
+  "https://azbyka.ru/zdorovie/",
+  "https://azbyka.ru/trezvost/",
   "https://azbyka.ru/recept/",
+  "https://azbyka.ru/garden/",
   "https://azbyka.ru/palomnik/",
-  "https://azbyka.ru/parkhomenko/",
+  "https://azbyka.ru/palomnik/blogs/",
+  # тесты, игры
   "https://azbyka.ru/test/",
   "https://azbyka.ru/viktorina/",
+  "https://azbyka.ru/quiz/",
+  "https://azbyka.ru/crosswords/",
+  "https://azbyka.ru/opros/",
+  "https://azbyka.ru/games/",
+  # прочее
   "https://azbyka.ru/news/",
   "https://azbyka.ru/fond/",
   "https://azbyka.ru/prilozhenie-moja-pravoslavnaja-biblioteka",
@@ -88,8 +130,10 @@ page_workers = 3
 media_workers = 2
 
 # Минимальный интервал между началами запросов (секунды) на весь обходчик.
-# 0.5 => не более ~2 запросов в секунду. Не уменьшайте: сайт держит фонд.
-min_delay = 0.5
+# 0.7 => ~1,4 запроса в секунду. Разведка: 1 запрос/с сайт держал без
+# единого 429. Не уменьшайте: сайт содержит фонд, а защита DDoS-Guard
+# может начать блокировать.
+min_delay = 0.7
 timeout = 60
 max_tries = 6
 # 0 = без ограничения глубины (глубина используется только для порядка обхода)
@@ -98,13 +142,22 @@ max_depth = 0
 # Соблюдать robots.txt. Всё, что отсечено, попадает в отчёт `status`.
 respect_robots = true
 # robots.txt azbyka.ru закрывает от поисковиков *.mp3, *.epub, *.m4b, *.djvu,
-# *.mobi и файлы «для читалок». Это запрет индексации, а не скачивания:
-# сайт сам предлагает эти файлы (и даже советует менеджер закачек для аудио).
-# "pages" — правила robots.txt применяются только к страницам; "all" — ко всему.
+# *.mobi, файлы «для читалок», а media.azbyka.ru и tube.azbyka.ru — целиком.
+# Это запрет индексации поисковиками, а не скачивания: сайт сам предлагает
+# эти файлы людям. "pages" — правила применяются только к страницам.
 robots_scope = "pages"
+# Страницы, нужные для архива, несмотря на запрет robots.txt:
+# тексты богослужений по датам и API видеосервера (описания роликов).
+robots_override = [
+  '^https://azbyka\.ru/worships/\?date=',
+  '^https://azbyka\.ru/bogosluzhebnye-ukazaniya',
+  '^https://tube\.azbyka\.ru/api/',
+]
+# Clean-param из robots.txt ломает /worships/?…&worship=… — не применять.
+apply_clean_param = false
 
-# Честный User-Agent. Впишите контакт (e-mail), чтобы админы могли связаться.
-user_agent = "Mozilla/5.0 (compatible; azbyka-reserv/0.1; offline-archive)"
+# Честный User-Agent. Можете дописать контакт (e-mail) для администраторов.
+user_agent = "Mozilla/5.0 (compatible; azbyka-reserv/0.2; offline-archive)"
 
 # 0 = без ограничения размера файла. Например 2048 = пропускать файлы > 2 ГБ.
 max_file_size_mb = 0
@@ -121,23 +174,32 @@ query_variants_cap = 300
 
 # Качать картинки/стили/шрифты со сторонних CDN, нужные для отображения.
 external_assets = true
+# 'хост' блокирует хост целиком, 'хост/путь' — только этот путь.
 asset_host_blocklist = [
   "mc.yandex.ru", "an.yandex.ru", "yandex.ru/ads", "google-analytics.com", "googletagmanager.com",
   "doubleclick.net", "googlesyndication.com", "top-fwz1.mail.ru", "top.mail.ru", "counter.yadro.ru",
-  "facebook.com", "facebook.net", "connect.facebook.net", "vk.com/rtrg", "mediametrics.ru",
+  "facebook.com", "facebook.net", "connect.facebook.net", "vk.com", "vk.ru", "mediametrics.ru",
   "liveinternet.ru", "hotjar.com", "pinterest.com", "addthis.com", "pluso.ru", "relap.io",
+  "cackle.me", "cdn.jsdelivr.net/npm/yandex-metrica-watch", "connect.ok.ru", "t.me", "telegram.me",
 ]
 
-# Встраиваемые плееры: ссылки на них собираются в таблицу embeds
-# (скачиваются отдельно командой `video`, нужен yt-dlp).
+# Встраиваемые плееры сторонних площадок: собираются в таблицу embeds
+# (скачиваются отдельно командой `video`, нужен yt-dlp). Своё видео
+# (tube.azbyka.ru) качается обычным обходом — см. [peertube].
 embed_hosts = [
   "youtube.com", "youtube-nocookie.com", "youtu.be", "rutube.ru", "vk.com", "vkvideo.ru",
   "vimeo.com", "ok.ru", "dzen.ru", "smotrim.ru", "soundcloud.com", "podster.fm", "mave.digital",
 ]
 
-# Куки браузера (формат Netscape cookies.txt) — для скачивания EPUB/PDF,
-# доступных только после входа. См. docs/02-zapusk-na-pk.md.
+# Куки браузера (формат Netscape cookies.txt) — для книг «Отечника»
+# (EPUB/PDF/сканы), которые сайт отдаёт только после входа.
+# См. docs/02-zapusk-na-pk.md, раздел 5.
 cookies_file = ""
+# Без cookies_file эти адреса не запрашиваются (сайт всё равно ответит
+# переходом на вход). Как только куки появятся — встанут в очередь сами.
+login_required = [
+  '^https://azbyka\.ru/otechnik/books/(download|original)/',
+]
 
 # Календарь бесконечен: даты вне диапазона не обходятся.
 date_from = "2000-01-01"
@@ -145,19 +207,48 @@ date_to = "2045-12-31"
 date_filter_patterns = [
   '^https://azbyka\.ru/days/',
   '^https://azbyka\.ru/worships/',
+  '^https://azbyka\.ru/biblia/days/',
+  '^https://azbyka\.ru/bogosluzhebnye-ukazaniya',
 ]
-# Явно поставить в очередь страницы календаря на каждый день диапазона.
+# Страницы календаря на каждый день диапазона (ближайшие к сегодняшнему — первыми).
 seed_days = true
 seed_days_template = "https://azbyka.ru/days/{date}"
-# Дополнительные шаблоны «на каждый день» ({date} = ГГГГ-ММ-ДД).
-seed_date_templates = []
+# Шаблоны «на каждый день». Тексты служб есть только по таким адресам
+# (ссылок на них в HTML нет — выбор даты и службы делается скриптом).
+seed_date_templates = [
+  # ближайшие годы — в первую очередь
+  { template = "https://azbyka.ru/worships/?date={date}&worship=vespers", from = "2025-09-01", to = "2027-12-31", priority = 10 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=matins", from = "2025-09-01", to = "2027-12-31", priority = 10 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=liturgy", from = "2025-09-01", to = "2027-12-31", priority = 10 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=chas1", from = "2025-09-01", to = "2027-12-31", priority = 10 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=chas3", from = "2025-09-01", to = "2027-12-31", priority = 10 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=chas6", from = "2025-09-01", to = "2027-12-31", priority = 10 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=chas9", from = "2025-09-01", to = "2027-12-31", priority = 10 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=requests", from = "2025-09-01", to = "2027-12-31", priority = 10 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=chants", from = "2025-09-01", to = "2027-12-31", priority = 10 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=compline", from = "2025-09-01", to = "2027-12-31", priority = 10 },
+  { template = "https://azbyka.ru/bogosluzhebnye-ukazaniya?date={date}", from = "2025-09-01", to = "2027-12-31", priority = 10 },
+  # остальные годы — позже
+  { template = "https://azbyka.ru/worships/?date={date}&worship=vespers", from = "2020-01-01", to = "2035-12-31", priority = 40 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=matins", from = "2020-01-01", to = "2035-12-31", priority = 40 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=liturgy", from = "2020-01-01", to = "2035-12-31", priority = 40 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=chas1", from = "2020-01-01", to = "2035-12-31", priority = 40 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=chas3", from = "2020-01-01", to = "2035-12-31", priority = 40 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=chas6", from = "2020-01-01", to = "2035-12-31", priority = 40 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=chas9", from = "2020-01-01", to = "2035-12-31", priority = 40 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=requests", from = "2020-01-01", to = "2035-12-31", priority = 40 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=chants", from = "2020-01-01", to = "2035-12-31", priority = 40 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=compline", from = "2020-01-01", to = "2035-12-31", priority = 40 },
+  { template = "https://azbyka.ru/bogosluzhebnye-ukazaniya?date={date}", from = "2020-01-01", to = "2035-12-31", priority = 40 },
+]
 
 # Если сеть пропала (много ошибок подряд) — пауза в секундах и повтор.
 pause_on_network_error = 300
 
 [peertube]
-# Собственный видеосервер портала. Ролики берутся через его API:
-# по одному файлу на ролик, не выше max_height (360/480/720/1080).
+# Собственный видеосервер портала (6 267 роликов, ~3 000 часов). Ролики
+# берутся через его API: по одному файлу на ролик, не выше max_height
+# (240/360/480/720/1080). 720 ≈ 0,9–1,2 ТБ; 480 ≈ 0,6–0,9 ТБ; 360 ≈ 0,5 ТБ.
 hosts = ["tube.azbyka.ru"]
 max_height = 720
 # Обойти полный список роликов (а не только встроенные в страницы).
@@ -169,27 +260,52 @@ default_priority = 50
 # Не обходить (регулярные выражения по полному URL).
 exclude = [
   # форумы: пользовательский контент и персональные данные (включить можно в своём конфиге)
-  '^https://azbyka\.ru/(forum|detforum)(/|$)',
+  '^https://azbyka\.ru/(forum|detforum|duhovnikforum|zdorovie/forum|palomnik/forum)(/|$)',
   # знакомства
   '^https://azbyka\.ru/znakomstva',
+  # служебные поддомены: счётчики, всплывающие подсказки
+  '^https?://(stat|ajax)\.azbyka\.ru/',
   # вход/регистрация/выход/личный кабинет — особенно важно при работе с куками
-  '(?i)/(login|logout|log-out|signin|sign-in|signup|sign-up|register|registration|lostpassword|password-reset|auth|oauth|account|profile|cabinet|lk|my-account|cart|checkout|basket)(/|\?|$)',
+  '(?i)/(login|logout|log-out|signin|sign-in|signup|sign-up|register|registration|lostpassword|password-reset|auth|oauth|account|profile|personal|cabinet|lk|my-account|cart|checkout|basket|favorites)(/|\?|$)',
   '(?i)wp-login\.php|/wp-admin/|xmlrpc\.php|/wp-json/|/wp-cron\.php|admin-ajax\.php',
   '(?i)[?&](action=logout|logout=|do=logout)',
   # поиск и фильтры-ловушки
-  '^https://azbyka\.ru/sear/',
+  '^https://azbyka\.ru/sear',
+  '(?i)/(search|yandex_search|google_search|context-search)(/|\?|$)',
   '(?i)[?&](s|search|searchid|query|text)=',
   '(?i)[?&](orderby|order|sort|sorting|view|display|per_page|limit|filter|lang_switch)=',
-  '(?i)[?&](replytocom|share|print|printable|pdf_print|format=amp)=',
-  # ленты, oEmbed, AMP — дубли
+  '(?i)[?&](replytocom|share|print|printable|pdf_print|format=amp|content_only|feed)=',
+  '^https://azbyka\.ru/obratnaja-svjaz\?',
+  # ленты, oEmbed, AMP, комментарии — дубли
   '(?i)/(feed|rss|atom|comments/feed)/?(\?|$)',
+  '(?i)/feed/(rss2?|atom|rdf)/?$',
   '(?i)/(embed|amp)/?(\?|$)',
   '(?i)/trackback/?$',
+  '/comment-page-\d+',
   '/cdn-cgi/',
+  # Отечник: AJAX-дубли глав, аннотации, настройки
+  '^https://azbyka\.ru/otechnik/(ajax|ajx|users|favor|settings|book/annotation)(/|\?|-|$)',
+  # Библия: многоколоночный режим и «с ударениями» (стихи сворачиваются в главы — см. [[rewrite]])
+  '^https://azbyka\.ru/biblia/\?.*~',
+  '^https://azbyka\.ru/biblia/\?.*&ru$',
+  # календарь: служебное
+  '^https://azbyka\.ru/days/(api|search|login|register|site/nameday_widget|x-calendar-month|paskha/pashalnyi_tsikl\.php)',
+  '^https://azbyka\.ru/worships/(calendar|__chants)/',
+  # тесты: отдельные вопросы и служебные скрипты
+  '^https://azbyka\.ru/test/(gettest|getresponse)\.php',
+  '^https://azbyka\.ru/test/.*\?(question|rtf|act)',
+  # мусор из скриптов: каталоги тем/плагинов
+  '/wp-content/(themes|plugins)/[^/]+/?$',
+  # m4b — склейки тех же mp3 по 0,5–2 ГБ: дубль (уберите строку, если нужны)
+  '(?i)\.m4b(\?|$)',
+  # уменьшенные копии картинок WordPress (оригиналы качаются, просмотрщик подставит их)
+  '(?i)/wp-content/uploads/.+-\d{2,4}x\d{2,4}\.(jpe?g|png|webp|gif)(\?|$)',
   # MediaWiki (Азбука паломника): история, правки, служебные
   '(?i)^https://azbyka\.ru/palomnik/.*[?&](action|oldid|diff|curid|printable|veaction|redlink|returnto|mobileaction|useskin|uselang)=',
   '(?i)/(Служебная|Special|Участник|User|Обсуждение|Talk|Обсуждение_участника|User_talk):',
   '(?i)/index\.php\?title=(Служебная|Special):',
+  # старьё и закрытое (robots.txt)
+  '^https://azbyka\.ru/(old|2005|books|biblia0|biblia3|days-new|znakomstvaold|foto_old|frontinskiy_old|scheme_old|islam-koran|mantisbt)(/|$)',
   # счётчики, соцкнопки
   '(?i)/(share|sharer|go|goto|redirect|out)\.php',
 ]
@@ -197,21 +313,45 @@ exclude = [
 # Исключения из exclude (то, что надо качать, хотя шаблоны выше совпали).
 include_override = [
   '(?i)/(Служебная|Special):(Все_страницы|AllPages|Категории|Categories)',
+  # API видеосервера: список роликов листается с ?sort=publishedAt (стабильный порядок)
+  '^https://tube\.azbyka\.ru/api/',
 ]
 
 # Сохранять, но не искать в них ссылки.
 no_follow = []
 
+# Переписывание адресов (первое совпадение). Ссылка на стих/диапазон
+# Библии = страница главы; адрес без кода перевода = синодальный (&r).
+[[rewrite]]
+pattern = '^(https://azbyka\.ru/biblia/\?[1-4]?[A-Za-z]+\.\d+)[:,\-][^&~]*(&[A-Za-z_-]+)$'
+replace = '\1\2'
+[[rewrite]]
+pattern = '^(https://azbyka\.ru/biblia/\?[1-4]?[A-Za-z]+\.\d+)(?:[:,\-][^&~]*)?$'
+replace = '\1&r'
+
+# Варианты адресов: каждая глава Библии во всех переводах сайта
+# (перевод переключается параметром, ссылок на все переводы в HTML нет).
+[[variants]]  # церковнославянский, русские, греческий, латинский, еврейский, сирийский, английские
+pattern = '^https://azbyka\.ru/biblia/\?([1-4]?[A-Za-z]+\.\d+)&r$'
+template = 'https://azbyka.ru/biblia/?{1}&{x}'
+values = ["c", "utfcs", "cs", "b", "j", "ru-p", "ru-d", "g", "el", "el-na28", "l", "he", "syc", "a", "en-kjv", "en-nrsv"]
+priority = 11
+[[variants]]  # остальные языки
+pattern = '^https://azbyka\.ru/biblia/\?([1-4]?[A-Za-z]+\.\d+)&r$'
+template = 'https://azbyka.ru/biblia/?{1}&{x}'
+values = ["ar", "n", "az", "am", "v", "bg", "chn", "hr", "cze", "es", "fi", "h", "y", "u", "de_ml", "m", "de_el", "is", "it-cei74", "it", "jp", "kk", "s", "lv", "mt", "no-b", "pl", "ro", "pt", "sb", "z", "w", "se", "p", "t", "ua", "k", "o"]
+priority = 45
+
 # Приоритеты (меньше = раньше). Первое совпадение выигрывает.
 # Ресурсы страниц (картинки, стили) наследуют приоритет страницы.
 [[priority]]  # robots и карты сайта
-pattern = '(?i)(/robots\.txt$|sitemap[^/]*\.xml(\.gz)?$)'
+pattern = '(?i)(/robots\.txt$|sitemap[^/]*\.xml(\.gz)?$|/biblia/sitemap)'
 value = 1
 [[priority]]  # книги для читалок
 pattern = '(?i)\.(epub|fb2|fb2\.zip)(\?|$)'
 value = 8
 [[priority]]  # ядро: Библия, молитвослов, богослужение, право
-pattern = '^https://azbyka\.ru/(biblia|molitvoslov|worships|oktoix|pravo)(/|\?|$)'
+pattern = '^https://azbyka\.ru/(biblia|molitvoslov|worships|bogosluzhenie|bogosluzhebnye-ukazaniya|chaso-slov|psalms|pravo)(/|\?|$)'
 value = 10
 [[priority]]  # календарь
 pattern = '^https://azbyka\.ru/(days|imeniny)(/|\?|$)'
@@ -222,23 +362,26 @@ value = 14
 [[priority]]  # главная, древо, гид
 pattern = '^https://azbyka\.ru/(drevo-sajta|sajty-portala|gid|about-all)?$'
 value = 14
-[[priority]]  # энциклопедия: статьи в корне домена (/slug без вложенности)
+[[priority]]  # энциклопедия: словарь и статьи в корне домена
+pattern = '^https://azbyka\.ru/(dictionary|1)(/|$)'
+value = 16
+[[priority]]
 pattern = '^https://azbyka\.ru/[^/?#]+/?$'
 value = 16
-[[priority]]  # PDF (сканы книг, ноты)
-pattern = '(?i)\.pdf(\?|$)'
+[[priority]]  # PDF (сканы книг, ноты, последования)
+pattern = '(?i)\.(pdf|djvu|doc|docx)(\?|$)'
 value = 20
 [[priority]]
-pattern = '^https://azbyka\.ru/(vopros|quotes|shemy|fiction|kliros|deti|palomnik|art|parkhomenko)(/|\?|$)'
+pattern = '^https://azbyka\.ru/(vopros|quotes|shemy|fiction|kliros|deti|palomnik|art|parkhomenko|katehizacija|propovedi|apokalipsis|memo|way|life|death|semya|zdorovie|trezvost|sueverie|stenyaev|chinaorthodox|japanorthodox|frontinskiy)(/|\?|$)'
 value = 22
-[[priority]]  # аудио Писания и молитв
-pattern = '(?i)^https://azbyka\.ru/audio/.*(svyashhennoe-pisanie|psaltir|bibli|evangel|molitv)'
+[[priority]]  # аудио Писания, молитв, богослужения
+pattern = '(?i)^https://(media\.)?azbyka\.ru/(audio|days)/.*(svyashhennoe-pisanie|svjashhennoe_pisanie|biblia|psaltir|evangel|molitv|zachala|tropari|bogosluzh)'
 value = 24
 [[priority]]
-pattern = '^https://azbyka\.ru/(audio|video|foto|recept|test|viktorina)(/|\?|$)'
+pattern = '^https://azbyka\.ru/(audio|video|foto|recept|garden|test|viktorina|quiz|crosswords|opros|games)(/|\?|$)'
 value = 30
 [[priority]]  # аудиофайлы
-pattern = '(?i)\.(mp3|m4b|m4a|ogg|aac|flac|wav)(\?|$)'
+pattern = '(?i)\.(mp3|m4a|ogg|aac|flac|wav|wma)(\?|$)'
 value = 35
 [[priority]]  # описания роликов PeerTube (маленькие JSON) — до самих видео
 pattern = '^https://tube\.azbyka\.ru/api/'
@@ -251,15 +394,15 @@ pattern = '^https://azbyka\.ru/news(/|$)'
 value = 70
 
 # Лимиты числа вариантов query-строки для конкретных путей.
-[[query_cap]]  # Библия адресуется через query: ?Mt.1:1 и переводы
+[[query_cap]]  # Библия: 1 361 глава × 55 переводов + 34 748 толкований по стихам
 pattern = '^https://azbyka\.ru/biblia/'
-value = 400000
+value = 150000
 [[query_cap]]
 pattern = '^https://azbyka\.ru/days/'
-value = 20000
+value = 30000
 [[query_cap]]
-pattern = '^https://azbyka\.ru/worships/'
-value = 20000
+pattern = '^https://azbyka\.ru/(worships/|bogosluzhebnye-ukazaniya)'
+value = 200000
 [[query_cap]]  # постраничный список роликов PeerTube
 pattern = '^https://tube\.azbyka\.ru/api/'
 value = 100000

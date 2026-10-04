@@ -154,7 +154,7 @@ def test_default_config_rules():
     assert cfg.excluded("https://azbyka.ru/audio/feed/")
     assert cfg.excluded("https://azbyka.ru/sear/?text=1")
     assert not cfg.excluded("https://azbyka.ru/otechnik/Ignatij_Brjanchaninov/otechnik/2")
-    assert not cfg.excluded("https://azbyka.ru/biblia/?Mt.1:1&c~r")
+    assert not cfg.excluded("https://azbyka.ru/biblia/?Mt.1&c")
     # кириллица в правилах работает и для %-кодированных URL
     assert cfg.excluded("https://azbyka.ru/palomnik/%D0%A3%D1%87%D0%B0%D1%81%D1%82%D0%BD%D0%B8%D0%BA:Ivan")
     assert not cfg.excluded("https://azbyka.ru/palomnik/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%92%D1%81%D0%B5_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B")
@@ -164,7 +164,7 @@ def test_default_config_rules():
     assert cfg.priority_for("https://azbyka.ru/biblia/?Mt.1") == 10
     assert cfg.priority_for("https://azbyka.ru/cerkovnoe-pravo") == 16
     assert cfg.priority_for("https://azbyka.ru/otechnik/x/y.epub") == 8
-    assert cfg.query_cap_for("https://azbyka.ru/biblia/?Mt.1") == 400000
+    assert cfg.query_cap_for("https://azbyka.ru/biblia/?Mt.1") == 150000
 
 
 def test_peertube():
@@ -212,3 +212,68 @@ def test_rewrite_and_variants_config():
     v = cfg.variants[0]
     m = v.rx.search("https://azbyka.ru/biblia/?Mt.1&r")
     assert v.template.format(m.group(0), *m.groups(), x="c") == "https://azbyka.ru/biblia/?Mt.1&c"
+
+
+def test_dates_nearest_first_and_helpers():
+    from datetime import date
+
+    from azbyka_reserv.crawler import dates_nearest_first, is_challenge, url_blocked
+
+    ds = list(dates_nearest_first(date(2026, 1, 1), date(2026, 1, 5), date(2026, 1, 3)))
+    assert ds[0] == date(2026, 1, 3) and sorted(ds) == [date(2026, 1, d) for d in range(1, 6)] and len(ds) == 5
+    ds = list(dates_nearest_first(date(2030, 1, 1), date(2030, 1, 3), date(2026, 1, 1)))
+    assert ds == [date(2030, 1, 1), date(2030, 1, 2), date(2030, 1, 3)]
+    assert url_blocked("https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", ["cdn.jsdelivr.net/npm/yandex-metrica-watch"])
+    assert not url_blocked("https://cdn.jsdelivr.net/npm/jquery/x.js", ["cdn.jsdelivr.net/npm/yandex-metrica-watch"])
+    assert url_blocked("https://mc.yandex.ru/x", ["mc.yandex.ru"])
+    assert is_challenge(b"<html><title>DDoS-Guard</title>...")
+    assert not is_challenge(b"<html><title>Main</title>" + b"x" * 100)
+
+
+def test_live_tuned_rules():
+    """Правила, выверенные разведкой живого сайта (probe/LIVE-FINDINGS.md)."""
+    cfg = load_config()
+    rw = cfg.rewrite
+    # стихи и главы Библии
+    assert rw("https://azbyka.ru/biblia/?Lk.5:8") == "https://azbyka.ru/biblia/?Lk.5&r"
+    assert rw("https://azbyka.ru/biblia/?Lk.12:16-22&r") == "https://azbyka.ru/biblia/?Lk.12&r"
+    assert rw("https://azbyka.ru/biblia/?1Chron.10:12&r") == "https://azbyka.ru/biblia/?1Chron.10&r"
+    assert rw("https://azbyka.ru/biblia/?Hebr.4:14-5:6") == "https://azbyka.ru/biblia/?Hebr.4&r"
+    assert rw("https://azbyka.ru/biblia/?Mt.1") == "https://azbyka.ru/biblia/?Mt.1&r"
+    assert rw("https://azbyka.ru/biblia/?Mt.1:1&utfcs") == "https://azbyka.ru/biblia/?Mt.1&utfcs"
+    assert rw("https://azbyka.ru/biblia/?Mt.1&c") == "https://azbyka.ru/biblia/?Mt.1&c"
+    assert rw("https://azbyka.ru/biblia/in/?Mt.1:1") == "https://azbyka.ru/biblia/in/?Mt.1:1"
+    assert cfg.excluded("https://azbyka.ru/biblia/?Mt.1&r~c")
+    assert cfg.excluded("https://azbyka.ru/biblia/?Mt.1&ru")
+    assert not cfg.excluded("https://azbyka.ru/biblia/?Mt.1&r")
+    assert not cfg.excluded("https://azbyka.ru/biblia/in/?Mt.1:1")
+    v = cfg.variants[0]
+    assert v.rx.search("https://azbyka.ru/biblia/?Gen.1&r") and "utfcs" in v.values
+    assert sum(len(x.values) for x in cfg.variants) == 54
+    # служебное и дубли
+    for u in [
+        "https://stat.azbyka.ru/rate", "https://ajax.azbyka.ru/bibrefs",
+        "https://azbyka.ru/otechnik/ajax/book/load-chapter/8979/1", "https://azbyka.ru/otechnik/book/annotation/10013",
+        "https://azbyka.ru/worships/personal/", "https://azbyka.ru/biblia/personal/favorites",
+        "https://azbyka.ru/obratnaja-svjaz?the_url=x", "https://azbyka.ru/quotes/page/2/?content_only=1",
+        "https://azbyka.ru/audio/audio1/audiobooks/parts/5370_part_0.m4b",
+        "https://azbyka.ru/foto/wp-content/uploads/2020/01/x-768x1024.jpg",
+        "https://azbyka.ru/test/gettest.php?id=1", "https://azbyka.ru/molitvoslov/comment-page-2",
+        "https://azbyka.ru/audio/feed/rss2/",
+    ]:
+        assert cfg.excluded(u), u
+    for u in [
+        "https://azbyka.ru/otechnik/Ignatij_Brjanchaninov/tom2-asketicheskie-opyty/11_1",
+        "https://azbyka.ru/foto/wp-content/uploads/2020/01/x.jpg",
+        "https://azbyka.ru/worships/?date=2026-10-05&worship=liturgy",
+        "https://azbyka.ru/kliros/wp-content/uploads/2026/10/7-oktyabrya-2026.pdf",
+        "https://azbyka.ru/dictionary/01", "https://azbyka.ru/palomnik/Республика_Башкортостан",
+    ]:
+        assert not cfg.excluded(u), u
+    assert cfg.needs_login("https://azbyka.ru/otechnik/books/download/8552/x.epub")
+    assert cfg.robots_overridden("https://azbyka.ru/worships/?date=2026-10-05&worship=liturgy")
+    assert cfg.robots_overridden("https://tube.azbyka.ru/api/v1/videos/x")
+    assert cfg.date_filtered("https://azbyka.ru/biblia/days/2099-01-01")
+    assert cfg.priority_for("https://azbyka.ru/worships/?date=2026-10-05&worship=liturgy") == 10
+    assert cfg.priority_for("https://media.azbyka.ru/audio/biblia/r/Mt/1.mp3") == 24
+    assert cfg.priority_for("https://tube.azbyka.ru/download/streaming-playlists/hls/videos/u-720-fragmented.mp4") == 60

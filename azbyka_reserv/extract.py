@@ -78,19 +78,30 @@ def _unescape_js(text: str) -> str:
     )
 
 
+# Куски JS-выражений и шаблонов, а не адреса: '/x/'+a+'', /wp-*.php, ${id}, {{url}}
+_JS_JUNK = re.compile(r"""['"+*]|\$\{|\{\{|%27|%22|\+%27""")
+_DIR_ONLY = re.compile(r"/wp-content/(themes|plugins)/[^/]+/?$")
+
+
+def _plausible(u: str) -> bool:
+    return not _JS_JUNK.search(u) and not _DIR_ONLY.search(u)
+
+
 def text_links(text: str, source: str = "script") -> list[Link]:
     """URL из произвольного текста (JS, JSON, inline-конфиги плееров)."""
     text = _unescape_js(text)
     found: dict[str, Link] = {}
     for m in _ABS_URL_RE.finditer(text):
         u = m.group(0).rstrip(".,;:")
-        found.setdefault(u, Link(u, guess_kind(u, "page"), source))
+        if _plausible(u):
+            found.setdefault(u, Link(u, guess_kind(u, "page"), source))
     for m in _PROTO_REL_RE.finditer(text):
         u = m.group(0).rstrip(".,;:")
-        found.setdefault(u, Link(u, guess_kind(u, "page"), source))
+        if _plausible(u):
+            found.setdefault(u, Link(u, guess_kind(u, "page"), source))
     for m in _QUOTED_PATH_RE.finditer(text):
         u = m.group(1)
-        if url_ext(u) in _KNOWN_EXT:
+        if url_ext(u) in _KNOWN_EXT and _plausible(u):
             found.setdefault(u, Link(u, guess_kind(u, "page"), source + ":path"))
     return list(found.values())
 

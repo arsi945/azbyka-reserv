@@ -166,6 +166,8 @@ class UrlRules:
             netloc = f"{host}:{port}"
         path = _norm_pct(parts.path or "/", _PATH_SAFE)
         path = remove_dot_segments(path)
+        if "//" in path and self.host_in_scope(host):
+            path = re.sub(r"/{2,}", "/", path)  # /a//b -> /a/b (на azbyka.ru это одна страница)
         if not path.startswith("/"):
             path = "/" + path
         query = parts.query

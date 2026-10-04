@@ -24,6 +24,7 @@ from .urls import UrlRules
 TEXT_TYPES = ("text/html", "application/xhtml+xml", "text/css", "application/javascript", "text/javascript",
               "application/x-javascript", "application/json")
 SPECIAL = "/__azr__"
+_THUMB_RX = re.compile(r"-\d{2,4}x\d{2,4}(\.(?:jpe?g|png|webp|gif))(?=\?|$)", re.I)
 EXT_PREFIX = "/__ext__/"
 
 
@@ -115,6 +116,10 @@ class Archive:
             rw = self._cfg.rewrite(norm[0])  # например, стих Библии -> страница главы
             if rw != norm[0]:
                 cands.append(rw)
+            # уменьшенные копии картинок WordPress не качаются — отдать оригинал
+            orig = _THUMB_RX.sub(r"\1", norm[0])
+            if orig != norm[0]:
+                cands.append(orig)
         db = self.db()
         for c in cands:
             row = db.execute("SELECT * FROM urls WHERE url=?", (c,)).fetchone()

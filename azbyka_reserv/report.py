@@ -7,11 +7,13 @@ import sqlite3
 
 from .fsutil import human_bytes, mirror_file
 
-_SECTION_SQL = """
+_HOST_SQL = "substr(substr(url, instr(url, '//') + 2), 1, instr(substr(url, instr(url, '//') + 2) || '/', '/') - 1)"
+_SECTION_SQL = f"""
 CASE WHEN url LIKE 'https://azbyka.ru/%' THEN
   '/' || substr(replace(substr(url, 19), '?', '/'), 1, instr(replace(substr(url, 19), '?', '/') || '/', '/') - 1)
+WHEN {_HOST_SQL} LIKE '%.azbyka.ru' THEN {_HOST_SQL}
 ELSE
-  'внешн: ' || substr(substr(url, instr(url, '//') + 2), 1, instr(substr(url, instr(url, '//') + 2) || '/', '/') - 1)
+  'внешн: ' || {_HOST_SQL}
 END
 """
 
@@ -69,7 +71,8 @@ def print_status(data_dir: str, by: str = "section", top: int = 40) -> None:
     if sk:
         print("\nНе обходились (по правилам):")
         names = {"exclude": "исключено конфигом", "robots": "запрет robots.txt", "date": "дата вне диапазона",
-                 "query_cap": "лимит вариантов query", "depth": "глубина"}
+                 "query_cap": "лимит вариантов query", "depth": "глубина",
+                 "login": "нужен вход (cookies_file)", "peertube": "служебные адреса видео"}
         for r in sk:
             print(f"  {names.get(r['reason'], r['reason']):<28} {r['n']:>10}")
         print("  самые частые:")
