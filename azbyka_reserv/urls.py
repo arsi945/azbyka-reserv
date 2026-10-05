@@ -111,6 +111,9 @@ class UrlRules:
 
     # -- нормализация ------------------------------------------------------
     def _keep_param(self, token: str) -> bool:
+        if "=" not in token:
+            # флаг без значения (?Gen.1&v — белорусский перевод Библии) — не мусор
+            return True
         key = unquote(token.split("=", 1)[0]).lower()
         if key in self._drop_exact:
             return False

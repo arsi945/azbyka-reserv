@@ -120,6 +120,7 @@ class Config:
         self.priority = [PatternValue(re.compile(x["pattern"]), int(x["value"])) for x in r.get("priority", [])]
         self.query_caps = [PatternValue(re.compile(x["pattern"]), int(x["value"])) for x in r.get("query_cap", [])]
         self.default_priority: int = int(rules.get("default_priority", 50))
+        self.asset_default_priority: int = int(rules.get("asset_default_priority", 45))
         self.rewrites = [(re.compile(x["pattern"]), x["replace"]) for x in r.get("rewrite", [])]
         self.variants = [
             Variant(re.compile(x["pattern"]), x["template"], list(x["values"]),

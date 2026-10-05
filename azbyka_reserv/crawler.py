@@ -25,7 +25,7 @@ log = logging.getLogger("azbyka_reserv")
 
 # Версия логики извлечения/допуска ссылок. Меняется, когда новая версия
 # программы находит ссылки иначе, — тогда скачанное разбирается заново (relink).
-EXTRACT_VERSION = "3"
+EXTRACT_VERSION = "4"
 
 PAGE_KINDS = ("sitemap", "page", "asset")
 MEDIA_KINDS = ("media",)
@@ -237,7 +237,7 @@ class Crawler:
     def seed(self) -> int:
         rows: list = []
         for u in self.cfg.start_urls:
-            self._admit_into(rows, u, None, "page", depth=0, parent=None, parent_priority=None)
+            self._admit_into(rows, u, None, kind_by_ext(u) or "page", depth=0, parent=None, parent_priority=None)
         for u in self.cfg.sitemap_urls:
             self._admit_into(rows, u, None, "sitemap", depth=0, parent=None, parent_priority=None)
         origins = set()
@@ -389,11 +389,18 @@ class Crawler:
         if self.cfg.max_depth and depth > self.cfg.max_depth:
             self._skip("depth", url)
             return
-        prio = priority_override if priority_override is not None else self.cfg.priority_for(url)
-        if prio is None:
-            prio = parent_priority if (parent_priority is not None and kind == "asset") else self.cfg.default_priority
-        if not in_scope and parent_priority is not None:
-            prio = max(prio, parent_priority)
+        if priority_override is not None:
+            prio = priority_override
+        elif kind == "asset":
+            # картинки/стили/шрифты идут вместе со своей страницей, а не по правилам раздела;
+            # найденные только в картах сайта (<image:loc>) — в конце очереди
+            prio = parent_priority if parent_priority is not None else self.cfg.asset_default_priority
+        else:
+            prio = self.cfg.priority_for(url)
+            if prio is None:
+                prio = self.cfg.default_priority
+            if not in_scope and parent_priority is not None:
+                prio = max(prio, parent_priority)
         rows.append((url, alt, kind, prio, depth, parent))
 
     def _expand_variants(self, rows: list, force: bool = False) -> list:

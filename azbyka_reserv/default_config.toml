@@ -149,6 +149,9 @@ robots_scope = "pages"
 # Страницы, нужные для архива, несмотря на запрет robots.txt:
 # тексты богослужений по датам и API видеосервера (описания роликов).
 robots_override = [
+  # robots.txt запрещает /biblia/?*&ru (Синодальный «с ударениями»), но без «$» это
+  # задевает и переводы Победоносцева (&ru-p) и Десницкого (&ru-d)
+  '^https://azbyka\.ru/biblia/\?[^&]+&ru-[a-z]+$',
   '^https://azbyka\.ru/worships/\?date=',
   '^https://azbyka\.ru/bogosluzhebnye-ukazaniya',
   '^https://tube\.azbyka\.ru/api/',
@@ -259,6 +262,9 @@ seed_listing = true
 
 [rules]
 default_priority = 50
+# Картинки и стили наследуют приоритет своей страницы; найденные только в
+# картах сайта (<image:loc>) — вот с этим приоритетом.
+asset_default_priority = 45
 
 # Не обходить (регулярные выражения по полному URL).
 exclude = [
@@ -295,9 +301,12 @@ exclude = [
   # Библия: многоколоночный режим и «с ударениями» (стихи сворачиваются в главы — см. [[rewrite]])
   '^https://azbyka\.ru/biblia/\?.*~',
   '^https://azbyka\.ru/biblia/\?.*&ru$',
+  # меню выбора перевода без главы (/biblia/?a, /biblia/?c …)
+  '^https://azbyka\.ru/biblia/\?[A-Za-z_-]+$',
   # календарь: служебное
   '^https://azbyka\.ru/days/(api|search|login|register|site/nameday_widget|x-calendar-month|paskha/pashalnyi_tsikl\.php)',
   '^https://azbyka\.ru/worships/(calendar|__chants)/',
+  '^https://azbyka\.ru/worships/\?worship=',   # «сегодня» без даты — дубль
   # тесты: отдельные вопросы и служебные скрипты
   '^https://azbyka\.ru/test/(gettest|getresponse)\.php',
   '^https://azbyka\.ru/test/.*\?(question|rtf|act)',
@@ -357,6 +366,9 @@ value = 1
 [[priority]]  # книги для читалок
 pattern = '(?i)\.(epub|fb2|fb2\.zip)(\?|$)'
 value = 8
+[[priority]]  # толкования, подстрочник, словарь Стронга — после самих глав
+pattern = '^https://azbyka\.ru/biblia/(in|podstrochnik|strong)(/|\?|$)'
+value = 15
 [[priority]]  # ядро: Библия, молитвослов, богослужение, право
 pattern = '^https://azbyka\.ru/(biblia|molitvoslov|worships|bogosluzhenie|bogosluzhebnye-ukazaniya|chaso-slov|psalms|pravo)(/|\?|$)'
 value = 10
@@ -381,6 +393,9 @@ value = 20
 [[priority]]
 pattern = '^https://azbyka\.ru/(vopros|quotes|shemy|fiction|kliros|deti|palomnik|art|parkhomenko|katehizacija|propovedi|apokalipsis|memo|way|life|death|semya|zdorovie|trezvost|sueverie|stenyaev|chinaorthodox|japanorthodox|frontinskiy)(/|\?|$)'
 value = 22
+[[priority]]  # аудио Библии в прочих переводах — позже основного
+pattern = '^https://media\.azbyka\.ru/audio/biblia/(?!(r|c|cs|utfcs)/)'
+value = 40
 [[priority]]  # аудио Писания, молитв, богослужения
 pattern = '(?i)^https://(media\.)?azbyka\.ru/(audio|days)/.*(svyashhennoe-pisanie|svjashhennoe_pisanie|biblia|psaltir|evangel|molitv|zachala|tropari|bogosluzh)'
 value = 24

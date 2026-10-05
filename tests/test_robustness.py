@@ -212,3 +212,44 @@ def test_relink_resume(tmp_path):
         assert c2.store.get_meta("relink_pos") is None  # завершён — позиция очищена
     finally:
         srv.close()
+
+
+def test_pages_from_sitemap_before_sitemap_images(tmp_path):
+    srv = Srv()
+    b = srv.base
+    imgs = "".join(f"<image:image><image:loc>{b}/sec/img{i}.png</image:loc></image:image>" for i in range(20))
+    sm = f"<urlset><url><loc>{b}/sec/page</loc>{imgs}</url></urlset>"
+    srv.routes["/robots.txt"] = lambda h: send(h, 200, "text/plain", f"Sitemap: {b}/sec/sitemap.xml\n".encode())
+    srv.routes["/sec/sitemap.xml"] = lambda h: send(h, 200, "application/xml", sm.encode())
+    srv.routes["/"] = lambda h: send(h, 200, "text/html", b"<title>root</title>")
+    srv.routes["/sec/page"] = lambda h: send(h, 200, "text/html", b"<title>page</title><img src='/sec/own.png'>")
+    for i in range(20):
+        srv.routes[f"/sec/img{i}.png"] = lambda h: send(h, 200, "image/png", b"\x89PNG")
+    srv.routes["/sec/own.png"] = lambda h: send(h, 200, "image/png", b"\x89PNG")
+    try:
+        data = str(tmp_path / "d")
+        cfg = cfg_for(srv, page_workers=1, media_workers=0)
+        cfg.raw["priority"] = [{"pattern": r"/sec/", "value": 10}]
+        c = Crawler(Config(cfg.raw), data)
+        c.run(progress_every=0.3, max_seconds=30)
+        r = rows(data)
+        page = r[b + "/sec/page"]
+        own = r[b + "/sec/own.png"]
+        sm_imgs = [r[b + f"/sec/img{i}.png"] for i in range(20)]
+        assert all(x["priority"] == 45 for x in sm_imgs)
+        assert own["priority"] == page["priority"] == 10  # картинка страницы — вместе со страницей
+        assert page["fetched_at"] < min(x["fetched_at"] for x in sm_imgs)
+    finally:
+        srv.close()
+
+
+def test_bible_flag_params_kept():
+    from azbyka_reserv.config import load_config
+    from azbyka_reserv.urls import UrlRules
+
+    c = load_config()
+    r = UrlRules(c.scope_hosts, c.host_aliases, c.drop_params, c.https_hosts)
+    assert r.normalize("https://azbyka.ru/biblia/?Gen.1&v")[0] == "https://azbyka.ru/biblia/?Gen.1&v"
+    assert r.normalize("https://azbyka.ru/s.css?v=12")[0] == "https://azbyka.ru/s.css"
+    assert c.robots_overridden("https://azbyka.ru/biblia/?Gen.1&ru-p")
+    assert not c.robots_overridden("https://azbyka.ru/biblia/?Gen.1&ru")
