@@ -12,6 +12,7 @@ EPUB = b"PK\x03\x04" + b"epub" * 1000
 class Site:
     def __init__(self) -> None:
         self.hits: dict[str, int] = {}
+        self.latency = 0.0  # искусственная задержка ответа (секунды)
         self.lock = threading.Lock()
         self.server = ThreadingHTTPServer(("127.0.0.1", 0), self._handler())
         self.port = self.server.server_address[1]
@@ -92,6 +93,10 @@ class Site:
 
                 raw = self.path
                 path = unquote(raw.split("?", 1)[0])
+                if site.latency:
+                    import time as _time
+
+                    _time.sleep(site.latency)
                 n = site.hit(raw)
                 pages = site.pages()
                 if path == "/redir":

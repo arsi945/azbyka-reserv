@@ -167,12 +167,13 @@ def test_network_outage_does_not_burn_tries(tmp_path):
     import time as _t
 
     with Site() as site:
+        site.latency = 0.15  # чтобы сайт не успел скачаться целиком до «обрыва»
         cfg = make_cfg(site, pause_on_network_error=1, max_tries=2)
         data = str(tmp_path / "data")
         c = Crawler(cfg, data)
         # «сеть пропала» сразу после старта: сервер выключается
         def kill():
-            _t.sleep(0.3)
+            _t.sleep(0.6)
             site.server.shutdown()
             site.server.server_close()
         threading.Thread(target=kill, daemon=True).start()
