@@ -1,0 +1,65 @@
+Всего адресов: 74592
+  в очереди         73573
+  скачано            1009, 679.5 МБ
+  нет (404)             7
+  редирект              3
+
+По группам (section), первые 40 по объёму:
+  группа                                     скачано   очередь  ошибки      объём
+  media.azbyka.ru                                115       277       0   508.8 МБ
+  /biblia                                        778     70203       0   166.2 МБ
+  /worships                                       99        17       0     2.6 МБ
+  /molitvoslov                                     2       590       0     1.3 МБ
+  /chaso-slov                                      1        80       0   167.9 КБ
+  /bogosluzhebnye-ukazaniya                        2         3       0   142.8 КБ
+  /wp-content                                      4        50       0    99.5 КБ
+  /pravo                                           1       170       0    96.3 КБ
+  /bogosluzhenie                                   1        81       0    81.7 КБ
+  /psalms                                          1        67       0    74.3 КБ
+  /robots.txt                                      1         0       0    18.5 КБ
+  внешн: api.iconify.design                        4         0       0     3.6 КБ
+  /                                                0         1       0        0 Б
+  /1                                               0        10       0        0 Б
+  /10-glavnyh-uslovij-pravilnogo-chtenija-         0         1       0        0 Б
+  /about-all                                       0         1       0        0 Б
+  /akafist                                         0         1       0        0 Б
+  /alliluiarij                                     0         1       0        0 Б
+  /allprojects                                     0         1       0        0 Б
+  /angel                                           0         1       0        0 Б
+  /apokalipsis                                     0         1       0        0 Б
+  /apokrif                                         0         1       0        0 Б
+  /art                                             0         1       0        0 Б
+  /assets                                          0         0       0        0 Б
+  /audio                                           0        16       0        0 Б
+  /azbuka-very-na-vashem-sajte                     0         1       0        0 Б
+  /bibliya                                         0         1       0        0 Б
+  /blagodat                                        0         1       0        0 Б
+  /bogorodica                                      0         1       0        0 Б
+  /bogoslujenie                                    0         1       0        0 Б
+  /bogosluzhenie-online                            0         1       0        0 Б
+  /bolezn                                          0         1       0        0 Б
+  /bozhestvennaja-liturgija                        0         1       0        0 Б
+  /chasy-pasxalnye                                 0         1       0        0 Б
+  /chinaorthodox                                   0         1       0        0 Б
+  /chtenie-svyashhennogo-pisaniya                  0         1       0        0 Б
+  /crosswords                                      0         2       0        0 Б
+  /days                                            0        37       0        0 Б
+  /death                                           0         1       0        0 Б
+  /deti                                            0         6       0        0 Б
+
+Не обходились (по правилам):
+  исключено конфигом                 6037
+  запрет robots.txt                  2934
+  самые частые:
+    [exclude] /biblia: 3557  напр. https://azbyka.ru/biblia/sitemap
+    [robots] /biblia: 2930  напр. https://azbyka.ru/biblia/?Lk.5&ru-p
+    [exclude] /forum: 724  напр. https://azbyka.ru/forum/sitemap.xml
+    [exclude] /auth: 724  напр. https://azbyka.ru/auth/
+    [exclude] /znakomstva: 723  напр. https://azbyka.ru/znakomstva/sitemap_index.xml
+    [exclude] /worships: 104  напр. https://azbyka.ru/worships/sitemap_index.xml
+    [exclude] /counters: 15  напр. https://stat.azbyka.ru/counters
+    [exclude] /rate: 15  напр. https://stat.azbyka.ru/rate
+    [exclude] /item-score: 15  напр. https://stat.azbyka.ru/item-score
+    [exclude] /batch-query: 15  напр. https://stat.azbyka.ru/batch-query
+    [exclude] /bogosluzhenie: 14  напр. https://azbyka.ru/bogosluzhenie/sitemap_index.xml
+    [exclude] /batch-rating: 14  напр. https://stat.azbyka.ru/batch-rating

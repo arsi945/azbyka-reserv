@@ -1,0 +1,66 @@
+Всего адресов: 9815
+  в очереди          9130
+  скачано             664, 74.3 МБ
+  редирект             13
+  нет (404)             8
+
+По группам (section), первые 40 по объёму:
+  группа                                     скачано   очередь  ошибки      объём
+  media.azbyka.ru                                 13         0       0    40.9 МБ
+  /molitvoslov                                   132       565       0    14.0 МБ
+  /days                                            6      7809       0     9.4 МБ
+  /chaso-slov                                    104        19       0     2.6 МБ
+  /worships                                       93         8       0     2.0 МБ
+  /psalms                                         99        11       0     1.6 МБ
+  /pravo                                          82       122       0     1.5 МБ
+  /wp-content                                     73        35       0     1.0 МБ
+  /bogosluzhenie                                  55        64       0   573.0 КБ
+  /otechnik                                        2       274       0   375.4 КБ
+  tube.azbyka.ru                                   2         3       0   189.5 КБ
+  /bogosluzhebnye-ukazaniya                        1         4       0    72.1 КБ
+  /robots.txt                                      1         0       0    18.5 КБ
+  внешн: eterfund.ru                               1         0       0     9.8 КБ
+  /                                                0         1       0        0 Б
+  /1                                               0        11       0        0 Б
+  /about-all                                       0         1       0        0 Б
+  /akafist                                         0         1       0        0 Б
+  /alliluiarij                                     0         1       0        0 Б
+  /allprojects                                     0         1       0        0 Б
+  /angel                                           0         1       0        0 Б
+  /apokalipsis                                     0         1       0        0 Б
+  /apokrif                                         0         1       0        0 Б
+  /art                                             0         2       0        0 Б
+  /audio                                           0        13       0        0 Б
+  /azbuka-very-na-vashem-sajte                     0         1       0        0 Б
+  /bezmolvie                                       0         1       0        0 Б
+  /blagodat                                        0         1       0        0 Б
+  /bogoduxnovennost                                0         1       0        0 Б
+  /bogorodica                                      0         1       0        0 Б
+  /bogorodichny                                    0         1       0        0 Б
+  /bogoslujenie                                    0         1       0        0 Б
+  /bogosluzhenie-online                            0         1       0        0 Б
+  /bolezn                                          0         1       0        0 Б
+  /bozhestvennaja-liturgija                        0         1       0        0 Б
+  /cerkov                                          0         1       0        0 Б
+  /chasy-pasxalnye                                 0         1       0        0 Б
+  /chinaorthodox                                   0         1       0        0 Б
+  /crosswords                                      0         1       0        0 Б
+  /death                                           0         1       0        0 Б
+
+Не обходились (по правилам):
+  исключено конфигом                  545
+  нужен вход (cookies_file)             5
+  запрет robots.txt                     4
+  самые частые:
+    [exclude] /otechnik: 93  напр. https://azbyka.ru/otechnik/sitemap.xml
+    [exclude] /biblia: 79  напр. https://azbyka.ru/biblia/sitemap
+    [exclude] /molitvoslov: 70  напр. https://azbyka.ru/molitvoslov/sitemap_index.xml
+    [exclude] /worships: 51  напр. https://azbyka.ru/worships/sitemap_index.xml
+    [exclude] /auth: 27  напр. https://azbyka.ru/auth?reflink=https%3A%2F%2Fazbyka.ru%2Fotechnik%2FIgnatij_Brjanchaninov%2Ftom2-asketicheskie
+    [exclude] /znakomstva: 19  напр. https://azbyka.ru/znakomstva/sitemap_index.xml
+    [exclude] /forum: 19  напр. https://azbyka.ru/forum/sitemap.xml
+    [exclude] /bogosluzhenie: 14  напр. https://azbyka.ru/bogosluzhenie/sitemap_index.xml
+    [exclude] /counters: 14  напр. https://stat.azbyka.ru/counters
+    [exclude] /rate: 14  напр. https://stat.azbyka.ru/rate
+    [exclude] /item-score: 14  напр. https://stat.azbyka.ru/item-score
+    [exclude] /batch-query: 14  напр. https://stat.azbyka.ru/batch-query

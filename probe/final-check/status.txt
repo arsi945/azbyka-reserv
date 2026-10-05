@@ -1,0 +1,68 @@
+Всего адресов: 338977
+  в очереди        336915
+  скачано            2060, 776.7 МБ
+  ошибка                1
+  нет (404)             1
+
+По группам (section), первые 40 по объёму:
+  группа                                     скачано   очередь  ошибки      объём
+  /molitvoslov                                  1551      2063       0   637.8 МБ
+  /biblia                                         65    120790       0    95.4 МБ
+  /parkhomenko                                     8      6511       0    21.7 МБ
+  /palomnik                                        7     17111       0     5.1 МБ
+  /quotes                                        154     29272       0     4.3 МБ
+  /recept                                         12     18700       0     2.8 МБ
+  /vopros                                         14      9577       0     1.4 МБ
+  /news                                            8      4724       0   834.0 КБ
+  /deti                                            5      5581       0   754.7 КБ
+  /fiction                                        10      5630       0   725.0 КБ
+  /bogosluzhenie                                  51       362       0   551.7 КБ
+  /life                                            7      3738       0   505.8 КБ
+  /zdorovie                                        6      3438       0   472.1 КБ
+  /garden                                          4      3338       0   436.9 КБ
+  /kliros                                          7      2653       1   390.5 КБ
+  /chaso-slov                                      4        81       0   367.7 КБ
+  /art                                            12      2768       0   362.5 КБ
+  /post-sitemap1.xml                               1         0       0   296.0 КБ
+  /post-sitemap2.xml                               1         0       0   238.4 КБ
+  /pravo                                           7       979       0   234.1 КБ
+  /post-sitemap3.xml                               1         0       0   222.4 КБ
+  /video                                           5      1591       0   206.9 КБ
+  /audio                                           5      1416       0   201.2 КБ
+  /worships                                        8     58628       0   184.6 КБ
+  /sueverie                                        4      1302       0   183.6 КБ
+  /foto                                            4      1194       0   152.5 КБ
+  /semya                                           4       908       0   128.0 КБ
+  /way                                             7       808       0   119.5 КБ
+  /wp-content                                      4      3349       0    99.5 КБ
+  /psalms                                          4        76       0    78.3 КБ
+  /test                                            6       582       0    76.5 КБ
+  /post-sitemap4.xml                               1         0       0    70.3 КБ
+  /shemy                                           4       505       0    67.0 КБ
+  /propovedi                                       4       385       0    61.0 КБ
+  /memo                                            5       493       0    57.9 КБ
+  /japanorthodox                                   4       333       0    52.1 КБ
+  /frontinskiy                                     4       304       0    49.3 КБ
+  /katehizacija                                    4       300       0    49.2 КБ
+  /trezvost                                        4       235       0    39.6 КБ
+  /chinaorthodox                                   5       236       0    37.9 КБ
+
+Не обходились (по правилам):
+  запрет robots.txt                  3053
+  исключено конфигом                  384
+  самые частые:
+    [robots] /biblia: 3052  напр. https://azbyka.ru/biblia/?Gen.1&ru-p
+    [exclude] /recept: 97  напр. https://azbyka.ru/recept/wp-content/uploads/2020/11/focused-young-woman-planning-weekly-menu-writing-on-pad-sc
+    [exclude] /wp-content: 42  напр. https://azbyka.ru/wp-content/uploads/2015/09/Pokrovtsy-300x225.png
+    [exclude] /biblia: 40  напр. https://azbyka.ru/biblia/search
+    [exclude] /deti: 27  напр. https://azbyka.ru/deti/wp-content/uploads/2019/05/Cranach_adamo_ed_eva_uffizi-e1553691117951-700x223.jpg
+    [exclude] /worships: 17  напр. https://azbyka.ru/worships/__chants/
+    [exclude] /znakomstva: 14  напр. https://azbyka.ru/znakomstva/sitemap_index.xml
+    [exclude] /forum: 13  напр. https://azbyka.ru/forum/sitemap.xml
+    [exclude] /bogosluzhenie: 13  напр. https://azbyka.ru/bogosluzhenie/feed/rss/
+    [exclude] /trezvost: 13  напр. https://azbyka.ru/trezvost/yandex_search/
+    [exclude] /molitvoslov: 12  напр. https://azbyka.ru/molitvoslov/wp-content/uploads/2020/11/photo_2024-02-25_17-59-34-300x300.jpg
+    [exclude] /auth: 12  напр. https://azbyka.ru/auth/personal/register
+
+Ошибки (чаще всего):
+        1  ошибка 500 HTTP 500  напр. https://azbyka.ru/kliros/post-sitemap1.xml

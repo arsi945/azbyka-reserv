@@ -1,0 +1,4 @@
+[peertube]
+max_height = 240
+[crawl]
+max_file_size_mb = 300

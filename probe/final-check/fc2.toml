@@ -1,0 +1,25 @@
+[site]
+start_urls = [
+  "https://azbyka.ru/audio/nikolaj-serbskij-besedy-na-evangeliya.html",
+  "https://azbyka.ru/days/2026-10-05",
+  "https://azbyka.ru/biblia/?Lk.5&r",
+  "https://azbyka.ru/otechnik/Ignatij_Brjanchaninov/tom2-asketicheskie-opyty/",
+  "https://azbyka.ru/otechnik/Antonij_Surozhskij/uchites-molitsja/",
+  "https://azbyka.ru/video/zolotoj-vek-islama/",
+  "https://azbyka.ru/kliros/antifon-2-blazhenna-dlya-smeshannogo-hora/",
+]
+sitemap_urls = []
+
+[peertube]
+max_height = 240
+
+[crawl]
+max_file_size_mb = 300
+seed_days = false
+seed_date_templates = [
+  { template = "https://azbyka.ru/worships/?date={date}&worship=liturgy", from = "2026-10-05", to = "2026-10-06", priority = 5 },
+  { template = "https://azbyka.ru/worships/?date={date}&worship=vespers", from = "2026-10-05", to = "2026-10-05", priority = 5 },
+]
+
+[rules]
+add_exclude = ['(?i)(sitemap[^/]*\.xml(\.gz)?$|/biblia/sitemap)']
